@@ -59,6 +59,12 @@ public class FilmController {
 		case "table": 
 			link = "/table/table";
 			break;
+		case "boardTable": 
+			link = "/table/boardTable";
+			break;
+		case "depositTable": 
+			link = "/table/depositTable";
+			break;
 		}
 		return link;
 	}
