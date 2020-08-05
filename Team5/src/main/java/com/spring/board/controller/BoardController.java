@@ -17,8 +17,8 @@ public class BoardController {
 	private BoardService boardService;
 	
 	@RequestMapping("/Board")
-	public ModelAndView board() {
-		List<BoardVo> boardList = boardService.getBoardList();
+	public ModelAndView board(String gubun) {
+		List<BoardVo> boardList = boardService.getBoardList(gubun);
 		
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("boardList", boardList);

@@ -14,7 +14,7 @@
        <result property="mCash"   	column="M_CASH" javaType="int" />   
      </resultMap>
    
-  <!--    <select id="MemberList"
+      <select id="MemberList"
          statementType="CALLABLE"
          parameterType="hashmap" 
          resultType="com.spring.film.vo.MemberVo">
@@ -45,7 +45,7 @@
 		#{mGender,      mode=IN, jdbcType=VARCHAR},
 		#{mBdate,       mode=IN, jdbcType=VARCHAR}
 		) }
-	</insert> -->
+	</insert> 
        <select id="loginCheck" 
 			resultType="String">
 		SELECT

@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>쏭지</h1>
-	테스트할겐욧ㄴㅇㅁㄴㅇㅁㄴㅇ
+  이것좀 누가 삭제해줘요
 </body>
 </html>
