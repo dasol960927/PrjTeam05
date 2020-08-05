@@ -48,7 +48,7 @@
 		               $.each(list, function(index, dailyBoxOffice){    
 		                  console.log(dailyBoxOffice);
 		                  html+= '<div class="film">';
-		                  html+= '<a href="/filmReview"><img class="poster" src="https://ssl.pstatic.net/imgmovie/mdi/mit110/1516/151646_P01_144220.jpg" alt="poster"/></a>';
+		                  html+= '<a href="/chart"><img class="poster" src="https://ssl.pstatic.net/imgmovie/mdi/mit110/1516/151646_P01_144220.jpg" alt="poster"/></a>';
 		                  html+= '<p>' + dailyBoxOffice.movieNm + '</p>';
 		                  html+= '<p>' + dailyBoxOffice.openDt + '</p>';
 		                  html+= '</div>';
@@ -144,6 +144,7 @@
 	<a class="login" href="/login">로그인/회원가입</a>
 </header>
 <div id="wrap">
+<a href="/reqBoard/reqBoardWriter">dddd</a>
 	<h3>현재상영영화</h3>
 	<div id="div1">
 	</div>

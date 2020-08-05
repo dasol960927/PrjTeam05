@@ -66,7 +66,7 @@
       <div class="social-auth-links text-center mb-3">
         <p>--------------------- OR ---------------------</p>
         <a href="#" class="btn btn-block btn-primary">
-          <i class="fab fa-facebook mr-2"></i> Facebook으로 시작하기
+          <i class="fab fa-facebook mr-2"></i> Facebookd으로 시작하기
         </a>
         <a href="#" class="btn btn-block btn-danger">
           <i class="fab fa-google-plus mr-2"></i> Google로 시작하기

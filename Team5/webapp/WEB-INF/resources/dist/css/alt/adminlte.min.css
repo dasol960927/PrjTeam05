@@ -20457,8 +20457,7 @@ html.maximized-card {
 .login-page, .register-page {
 	-ms-flex-align: center;
 	align-items: center;
-	background-image: url('/img/lalaland.jpg');
-	background-size: cover;
+	background-image: url('/img/chernobyl.jpg');
 	display: -ms-flexbox;
 	display: flex;
 	-ms-flex-direction: column;

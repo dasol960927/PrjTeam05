@@ -33,7 +33,7 @@
 		<property name="contentType" value="text/html; charset=UTF-8" />
 	</bean>
 
-		<!-- db 연결 -->
+<!-- db 연결 -->
 	<bean id="dataSource"
 		class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName"
@@ -62,4 +62,12 @@
 		<constructor-arg name="sqlSessionFactory"
 			ref="sqlSessionFactory" />
 	</bean>
+
+	<!-- MultipartResolver 설정 : 업로드파일사이즈  지정(100M) -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="100000000"></property>
+		<property name="maxInMemorySize" value="100000000"></property>
+	</bean>
+	
 </beans>

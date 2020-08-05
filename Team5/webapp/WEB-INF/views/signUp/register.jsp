@@ -32,7 +32,7 @@
 
       <form action="/MemberRegister" method="post">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="mName" placeholder="이름">
+          <input type="text" class="form-control" name="m_name" placeholder="이름">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -40,7 +40,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="email" class="form-control" name="mId" placeholder="FilmCritics@gmail.com">
+          <input type="email" class="form-control" name="m_id" placeholder="FilmCritics@gmail.com">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -48,7 +48,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" name="mPass" placeholder="비밀번호">
+          <input type="password" class="form-control" name="m_pass" placeholder="비밀번호">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -56,7 +56,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" name="mPassRe" placeholder="비밀번호 재확인">
+          <input type="password" class="form-control" name="m_pass_re" placeholder="비밀번호 재확인">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -64,19 +64,16 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <div class="form-control">
-          <input type="radio"  id="Male" name="mGender" value="남자"><label for="Male">&nbsp;남자</label>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <input type="radio"  id="Female" name="mGender" value="여자"><label for="Female">&nbsp;여자</label>
-          </div>
-            <div class="input-group-append">
-            <div class="input-group-text">
-             <span class="fas fa-user"></span>
+          <input type="radio" class="form-control" name="m_gender" value="M">남자
+          <input type="radio" class="form-control" name="m_gender" value="F">여자
+          <div class="input-group-append">
+            <div class="input-group-text"> 
+            <span class="fas fa-user"></span>
             </div>
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="mBdate" placeholder="ex)19901231">
+          <input type="text" class="form-control" name="m_bdate" placeholder="ex)19901231">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -101,7 +98,7 @@
       </form>
 
       <div class="social-auth-links text-center">
-        <p>--------------------- OR ---------------------</p>
+        <p>- OR -</p>
         <a href="#" class="btn btn-block btn-primary">
           <i class="fab fa-facebook mr-2"></i>
           Facebook으로 시작하기
