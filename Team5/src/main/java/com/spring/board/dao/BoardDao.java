@@ -6,6 +6,6 @@ import com.spring.board.vo.BoardVo;
 
 public interface BoardDao {
 
-	List<BoardVo> getBoardList();
+	List<BoardVo> getBoardList(String gubun);
 
 }
