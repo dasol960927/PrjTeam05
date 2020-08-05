@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="Member">
+
+     <!-- 결과처리를 위한 map 설정  -->
+     <resultMap id="MemberMap" type="com.spring.film.vo.MemberVo"> 
+       <result property="mId"    	column="M_ID" javaType="string" />   
+       <result property="mName"  	column="M_NAME" javaType="string" />   
+       <result property="mPass"  	column="M_PASS" javaType="string" />   
+       <result property="mGender"   column="M_GENDER" javaType="string" />   
+       <result property="mBdate"  	column="M_BDATE" javaType="string" />   
+       <result property="mCash"   	column="M_CASH" javaType="int" />   
+     </resultMap>
+   
+     <select id="MemberList"
+         statementType="CALLABLE"
+         parameterType="hashmap" 
+         resultType="com.spring.film.vo.MemberVo">
+         {CALL  PKG_MEMBERS.PROC_MEMBERS_LIST(
+            #{result, mode=OUT, jdbcType=CURSOR, 
+               javaType=ResultSet, resultMap=MemberMap }
+         ) }     
+     </select>
+      
+     <select id="MemberView"
+     	statementType="CALLABLE"
+         parameterType="hashmap" 
+         resultType="com.spring.film.vo.MemberVo">
+      { CALL PKG_MEMBERS.PROC_MBOARD_LIST(
+      #{ mId, mode=IN, jdbcType=VARCHAR},
+      #{ result, mode=OUT, jdbcType=CURSOR
+      	, javaType=ResultSet, resultMap=MemberMap }
+      ) }
+     </select>
+     
+     <insert id="PdsWrite" 
+			statementType="CALLABLE" 
+			parameterType="hashmap">
+		{ CALL PKG_MEMBERS.PROC_MBOARD_INSERT(
+		#{mId,          mode=IN, jdbcType=VARCHAR},
+		#{mName,        mode=IN, jdbcType=VARCHAR},
+		#{mPass,        mode=IN, jdbcType=VARCHAR},
+		#{mGender,      mode=IN, jdbcType=VARCHAR},
+		#{mBdate,       mode=IN, jdbcType=VARCHAR}
+		) }
+	</insert>
+       
+             
+  </mapper>        
+
