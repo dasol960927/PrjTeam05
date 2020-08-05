@@ -17,7 +17,7 @@ public class BoardDaoImpl implements BoardDao {
 	private SqlSession sqlSession;
 	
 	@Override
-	public List<BoardVo> getBoardList() {
+	public List<BoardVo> getBoardList(String gubun) {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		
 		sqlSession.selectList("BOARD.BoardList", map);
