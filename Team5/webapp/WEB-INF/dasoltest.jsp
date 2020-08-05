@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	다솔 test
+	다솔 테스트
 </body>
 </html>
