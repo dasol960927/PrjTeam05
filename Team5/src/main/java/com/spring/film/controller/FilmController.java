@@ -56,6 +56,9 @@ public class FilmController {
 		case "filmReview": 
 			link = "/reviews/filmReview";
 			break;
+		case "table": 
+			link = "/table/table";
+			break;
 		}
 		return link;
 	}
