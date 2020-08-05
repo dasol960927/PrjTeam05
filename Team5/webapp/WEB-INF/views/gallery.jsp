@@ -50,6 +50,7 @@
               <li class="breadcrumb-item"><a href="/">Home</a></li>
               <li class="breadcrumb-item active"><a href="/login">Login</a></li>
               <li class="breadcrumb-item active"><a href="/Board?gubun=N">고객센터</a></li>
+              <li class="breadcrumb-item active"><a href="/reqBoardWriter">1:1 문의</a></li>
             </ol>
           </div>
         </div>

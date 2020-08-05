@@ -21,12 +21,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.film.service.MemberService;
+import com.spring.reqboard.service.ReqBoardService;
+import com.spring.reqboard.vo.ReqBoardVo;
 
 @Controller
 public class FilmController {
 	
 	@Autowired
 	private MemberService memberService;
+	
+	//ReqBoardController 에서 안넘어가서 여기에 추가 by박다솔
+	@Autowired
+	private ReqBoardService reqBoardService;
 	
 	@RequestMapping("/")
 	public String main() {
@@ -59,6 +65,11 @@ public class FilmController {
 		case "table": 
 			link = "/table/table";
 			break;
+		
+		//ReqBoardController 에서 안넘어가서 여기에 추가 by박다솔
+		case "reqBoardWriter": 
+			link = "/reqBoard/reqBoard";
+			break;	
 		}
 		return link;
 	}
@@ -70,6 +81,19 @@ public class FilmController {
 		
 		mv.setViewName("redirect:/");
 		return mv;
+	}
+	
+	//ReqBoardController 에서 안넘어가서 여기에 추가 by박다솔
+	@RequestMapping("/reqBoard")
+	public String reqBoard(ReqBoardVo vo) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("mId", vo.getmId());
+		map.put("email", vo.getEmail());
+		map.put("reqConts", vo.getReqConts());
+		
+		reqBoardService.addReqBoard(map);
+		
+		return "/reqBoard/reqBoardCheck";
 	}
 	
 	
