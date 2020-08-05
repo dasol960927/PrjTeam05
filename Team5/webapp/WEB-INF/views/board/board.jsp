@@ -8,8 +8,8 @@
 <title>Board</title>
 </head>
 <body>
-	<p>공지사항
-	<div>
+	<p>공지사항 
+	<div> 
 	
 	</div>
 	
