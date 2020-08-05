@@ -65,11 +65,20 @@ public class FilmController {
 		case "table": 
 			link = "/table/table";
 			break;
+<<<<<<< HEAD
 		
 		//ReqBoardController 에서 안넘어가서 여기에 추가 by박다솔
 		case "reqBoardWriter": 
 			link = "/reqBoard/reqBoard";
 			break;	
+=======
+		case "boardTable": 
+			link = "/table/boardTable";
+			break;
+		case "depositTable": 
+			link = "/table/depositTable";
+			break;
+>>>>>>> branch 'master' of https://github.com/dasol960927/PrjTeam05
 		}
 		return link;
 	}
