@@ -27,15 +27,18 @@
   			var mPass = $("#pw").val();
   			if(mId == ""){
   				alert("아이디를 입력하세요.");
-  				$("#mId").focus();
+  				$("#id").focus();
   				return;
   			}
   			if(mPass == ""){
   				alert("비밀번호를 입력하세요.");
-  				$("#mPass").focus();
+  				$("#pw").focus();
   				return;
   			}
-  		
+  			// 데이터 전송
+  			document.loginFrm.action="${path}/loginCheck"
+  			// 제출
+  			document.loginFrm.submit();
   			
   		});
   	});	
@@ -51,9 +54,9 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">로그인</p>
 
-       <form action="/loginCheck" method="post" >
+       <form action="loginCheck" method="post" name="loginFrm"id="loginFrm">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" id="mId" placeholder="FilmCritics@gmail.com">
+          <input type="email" class="form-control" id="id"placeholder="FilmCritics@gmail.com">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -61,7 +64,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" id="mPass" placeholder="비밀번호">
+          <input type="password" class="form-control" id="pw"placeholder="비밀번호">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -79,7 +82,7 @@
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block" id="btnLogin" >로그인</button>
+            <button type="submit" class="btn btn-primary btn-block" id="btnLogin" onclick="loginCheck()">로그인</button>
           </div>
           <!-- /.col -->
         </div>

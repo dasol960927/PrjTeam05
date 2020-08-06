@@ -15,7 +15,7 @@
      </resultMap>
    
       <select id="MemberList"
-         statementType="CALLABLE" 
+         statementType="CALLABLE"
          parameterType="hashmap" 
          resultType="com.spring.film.vo.MemberVo">
          {CALL  PKG_MEMBERS.PROC_MEMBERS_LIST(
@@ -46,14 +46,24 @@
 		#{mBdate,       mode=IN, jdbcType=VARCHAR}
 		) }
 	</insert> 
-	
-	<select id="Login" parameterType="hashmap" resultType="com.spring.film.vo.MemberVo" >
-		
-		SELECT *
-		FROM   MEMBERS
-		WHERE  M_ID   = #{mId}
-		AND    M_PASS = #{mPass}
-		
+       <select id="loginCheck" 
+			resultType="String">
+		SELECT
+			M_ID as mId,
+			M_PASS as mPass,
+		FROM MEMBERS
+		WHERE M_ID = #{mId} AND  M_PASS = #{mPass}	
+			
+	</select>
+     
+       <select id="viewMember" 
+			resultType="com.spring.film.vo.MemberVo">
+		SELECT
+			M_ID as mId,
+			M_PASS as mPass,
+		FROM MEMBERS
+		WHERE M_ID = #{mId} AND  M_PASS = #{mPass}	
+			
 	</select>
              
   </mapper>        

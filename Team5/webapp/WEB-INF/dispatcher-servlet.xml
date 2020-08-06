@@ -40,8 +40,7 @@
 			value="oracle.jdbc.OracleDriver" />
 		<property name="url"
 			value="jdbc:oracle:thin:@localhost:1521:xe" />
-
-		<property name="username" value="FILM" />
+		<property name="username" value="film" />
 
 		<property name="password" value="1234" />
 	</bean>
@@ -64,16 +63,4 @@
 		<constructor-arg name="sqlSessionFactory"
 			ref="sqlSessionFactory" />
 	</bean>
-	
-		<!-- Intercepter 설정 -->
-	<mvc:interceptors>
-		<!-- 공통 Intercepter -->
-		<mvc:interceptor>
-			<mvc:mapping path="/**"/>
-			<mvc:exclude-mapping path="/resources/**"/>
-			<bean id="authInterceptor"
-			class="com.spring.interceptor.AuthInterceptor" />
-			
-		</mvc:interceptor>
-	</mvc:interceptors>
 </beans>
