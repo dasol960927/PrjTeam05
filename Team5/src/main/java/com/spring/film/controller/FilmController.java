@@ -78,9 +78,9 @@ public class FilmController {
 	@RequestMapping("/MemberRegister")
 	public ModelAndView register() {
 		
-		ModelAndView mv = new ModelAndView();
 		
-		mv.setViewName("redirect:/");
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("redirect:/login");
 		return mv;
 	}
 
