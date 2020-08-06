@@ -77,7 +77,7 @@
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <input type="submit" class="btn btn-primary btn-block" id="btnLogin" onclick="loginCheck()" />로그인
+            <input type="submit" class="btn btn-primary btn-block" id="btnLogin" onclick="loginCheck()" value="로그인"/>
           </div>
           <!-- /.col -->
         </div>
