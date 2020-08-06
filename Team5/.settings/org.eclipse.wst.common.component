@@ -4,8 +4,12 @@
         <wb-resource deploy-path="/" source-path="/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+<<<<<<< HEAD
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
         <property name="java-output-path" value="/Team5/target/classes"/>
+=======
+        <property name="java-output-path" value="/SpringAjax/build/classes"/>
+>>>>>>> branch 'master' of https://github.com/dasol960927/PrjTeam05.git
         <property name="context-root" value="/"/>
     </wb-module>
 </project-modules>

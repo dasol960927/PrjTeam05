@@ -9,7 +9,7 @@ public interface MemberDao {
 
 		public MemberVo viewMember(MemberVo vo);
 
-		public boolean loginCheck(MemberVo vo);
+		public MemberVo login(HashMap<String, Object> map);
 
 
 }

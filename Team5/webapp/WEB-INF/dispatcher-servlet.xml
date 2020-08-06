@@ -41,6 +41,7 @@
 		<property name="url"
 			value="jdbc:oracle:thin:@localhost:1521:xe" />
 		<property name="username" value="film" />
+
 		<property name="password" value="1234" />
 	</bean>
 
@@ -52,6 +53,9 @@
 		<!-- XML Mapper 인식하게 설정 -->
 		<property name="mapperLocations"
 			value="classpath:myBatis/sqlmaps/*.xml" />
+        <!-- mybatis-config.xml이 스프링 시작될때 같이 실행되도록 설정하기  -->
+        <property name="configLocation" value="classpath:/mybatis-config.xml"></property>
+	
 	</bean>
 	
 	
@@ -63,5 +67,18 @@
 		destroy-method="clearCache">
 		<constructor-arg name="sqlSessionFactory"
 			ref="sqlSessionFactory" />
+             
+
 	</bean>
+
+	<!-- Intercepter 설정 -->
+	<mvc:interceptors>
+		<!-- 공통 Intercepter -->
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<mvc:exclude-mapping path="/resources/**" />
+			<bean id="authInterceptor"
+				class="com.spring.interceptor.AuthInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
 </beans>

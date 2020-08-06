@@ -10,7 +10,6 @@ public class MemberVo {
 	private String mBdate;
 	private int	   mCash;
 	
-	// Getter/Setter
 	public String getmId() {
 		return mId;
 	}
@@ -47,12 +46,24 @@ public class MemberVo {
 	public void setmCash(int mCash) {
 		this.mCash = mCash;
 	}
-
-	
-	// toString
 	@Override
 	public String toString() {
 		return "MemberVo [mId=" + mId + ", mName=" + mName + ", mPass=" + mPass + ", mGender=" + mGender + ", mBdate="
 				+ mBdate + ", mCash=" + mCash + "]";
 	}
+	public MemberVo() {}
+	public MemberVo(String mId, String mName, String mPass, String mGender, String mBdate, int mCash) {
+		super();
+		this.mId = mId;
+		this.mName = mName;
+		this.mPass = mPass;
+		this.mGender = mGender;
+		this.mBdate = mBdate;
+		this.mCash = mCash;
+	}
+
+	
+	
+	
+
 }

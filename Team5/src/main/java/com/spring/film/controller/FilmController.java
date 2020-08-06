@@ -88,31 +88,39 @@ public class FilmController {
 	@RequestMapping("/MemberRegister")
 	public ModelAndView register() {
 		
-		ModelAndView mv = new ModelAndView();
 		
-		mv.setViewName("redirect:/");
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("redirect:/login");
 		return mv;
 	}
 
-	@RequestMapping("/login")
+	@RequestMapping(value="/login", method = RequestMethod.GET)
 	public String login() {
-		return "/signUp/login";
+		return "/signUp/login2";
 	}
 	
-	@RequestMapping("/loginCheck")
-	public ModelAndView loginCheck(@ModelAttribute MemberVo vo, HttpSession session) {
-		boolean result = memberService.loginCheck(vo, session);
-		ModelAndView mv = new ModelAndView();
-		if(result == true) {
-			// main.jsp 로 이동
-			mv.setViewName("/");
-			mv.addObject("msg", "success");
-		}else {
-			// login.jsp 로 이동
-			mv.setViewName("/signUp/login");
-			mv.addObject("msg", "fail");
+	// 로그인 처리
+	@RequestMapping(value="/loginCheck", method=RequestMethod.POST)
+	public String loginProcess(
+			HttpSession session,
+			@RequestParam HashMap<String, Object> map) {
+	
+		String returnURL = "";
+		if( session.getAttribute("login") != null ) {
+			session.removeAttribute("login");
 		}
-		return mv;
+		
+		MemberVo vo = memberService.login(map);
+		System.out.println("컨트롤러" + vo);
+		
+		if(vo != null) {
+			session.setAttribute("login", vo );
+			returnURL = "redirect:/";
+		} else {
+			returnURL = "redirect:/login";
+		}
+		
+		return returnURL;
 	}
 	
 	//ReqBoardController 에서 안넘어가서 여기에 추가 by박다솔
