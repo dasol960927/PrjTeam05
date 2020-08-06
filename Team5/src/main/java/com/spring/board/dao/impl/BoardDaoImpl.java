@@ -22,6 +22,7 @@ public class BoardDaoImpl implements BoardDao {
 		
 		sqlSession.selectList("BOARD.BoardList", map);
 		List<BoardVo> boardList = (List<BoardVo>) map.get("result");
+		
 
 		return boardList;
 	}
