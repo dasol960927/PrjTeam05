@@ -47,7 +47,19 @@ public class MemberVo {
 	public void setmCash(int mCash) {
 		this.mCash = mCash;
 	}
-
+	
+	
+	// Constructor
+	public MemberVo() {}
+	public MemberVo(String mId, String mName, String mPass, String mGender, String mBdate, int mCash) {
+		super();
+		this.mId = mId;
+		this.mName = mName;
+		this.mPass = mPass;
+		this.mGender = mGender;
+		this.mBdate = mBdate;
+		this.mCash = mCash;
+	}
 	
 	// toString
 	@Override
@@ -55,4 +67,5 @@ public class MemberVo {
 		return "MemberVo [mId=" + mId + ", mName=" + mName + ", mPass=" + mPass + ", mGender=" + mGender + ", mBdate="
 				+ mBdate + ", mCash=" + mCash + "]";
 	}
+
 }

@@ -23,16 +23,16 @@
   
    $(document).ready(function(){
   		$("#btnLogin").click(function(){
-  			var mId   = $("#id").val();
-  			var mPass = $("#pw").val();
+  			var mId   = $("#mId").val();
+  			var mPass = $("#mPass").val();
   			if(mId == ""){
   				alert("아이디를 입력하세요.");
-  				$("#id").focus();
+  				$("#mId").focus();
   				return;
   			}
   			if(mPass == ""){
   				alert("비밀번호를 입력하세요.");
-  				$("#pw").focus();
+  				$("#mPass").focus();
   				return;
   			}
   			// 데이터 전송
@@ -56,7 +56,7 @@
 
        <form action="loginCheck" method="post" name="loginFrm"id="loginFrm">
         <div class="input-group mb-3">
-          <input type="email" class="form-control" id="id"placeholder="FilmCritics@gmail.com">
+          <input type="email" class="form-control" id="mId"placeholder="FilmCritics@gmail.com">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -64,7 +64,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" id="pw"placeholder="비밀번호">
+          <input type="password" class="form-control" id="mPass"placeholder="비밀번호">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
