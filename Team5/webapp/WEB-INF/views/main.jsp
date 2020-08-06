@@ -34,7 +34,7 @@
 	}
 </style>
 <script>
-
+	/*
 	$(function(){
 		
 			$.ajax({
@@ -127,11 +127,11 @@
 					})
 				});
 				
-*/
 
 
 
-	});
+
+	});*/
 </script>
 </head>
 <body>
