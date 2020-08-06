@@ -96,7 +96,7 @@ public class FilmController {
 
 	@RequestMapping(value="/login", method = RequestMethod.GET)
 	public String login() {
-		return "/signUp/login2";
+		return "/signUp/login";
 	}
 	
 	// 로그인 처리
@@ -111,7 +111,6 @@ public class FilmController {
 		}
 		
 		MemberVo vo = memberService.login(map);
-		System.out.println("컨트롤러" + vo);
 		
 		if(vo != null) {
 			session.setAttribute("login", vo );
@@ -123,6 +122,13 @@ public class FilmController {
 		return returnURL;
 	}
 	
+	// 로그아웃 처리
+	@RequestMapping("/logout")
+	public String logout(HttpSession session) {
+		session.removeAttribute("login");
+		session.invalidate();
+		return "redirect:/";
+	}
 	//ReqBoardController 에서 안넘어가서 여기에 추가 by박다솔
 	@RequestMapping("/reqBoard")
 	public String reqBoard(ReqBoardVo vo) {
