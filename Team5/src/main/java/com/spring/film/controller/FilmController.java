@@ -11,8 +11,11 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +30,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.film.service.MemberService;
 import com.spring.film.vo.MemberVo;
+import com.spring.naverfilm.service.NaverFilmService;
+import com.spring.naverfilm.vo.NaverFilmVo;
 import com.spring.reqboard.service.ReqBoardService;
 import com.spring.reqboard.vo.ReqBoardVo;
 
@@ -38,6 +43,9 @@ public class FilmController {
 	
 	@Autowired
 	private ReqBoardService reqBoardService;
+	
+	@Autowired
+	private NaverFilmService service;
 	
 	@RequestMapping("/")
 	public String main() {
@@ -81,6 +89,9 @@ public class FilmController {
 		case "reqBoardWriter": 
 			link = "/reqBoard/reqBoard";
 			break;	
+		case "apiTest": 
+			link = "/apiTest";
+			break;
 		}
 		return link;
 	}
@@ -129,6 +140,7 @@ public class FilmController {
 		session.invalidate();
 		return "redirect:/";
 	}
+	
 	//ReqBoardController 에서 안넘어가서 여기에 추가 by박다솔
 	@RequestMapping("/reqBoard")
 	public String reqBoard(ReqBoardVo vo) {
@@ -145,9 +157,22 @@ public class FilmController {
 		return "/reqBoard/reqBoardCheck";
 	}
 	
+	@RequestMapping("/search")
+	@ResponseBody
+	public void bookList(String keyword, HttpServletResponse response) {
+		String json = service.searchFilm(keyword, 10, 1);
+		//System.out.println(json); 
+		try {
+			response.getWriter().print(json);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}		
+	}
+
 	
 	//-------------------------------------------------
 	// @ResponseBody : java 객체 -> json 문자열로 변경
+	/*
 	@RequestMapping(value="/getMovieJson")
 	@ResponseBody
 	public String getMovieJson() throws IOException {
@@ -263,5 +288,6 @@ public class FilmController {
 	            throw new RuntimeException("API 응답을 읽는데 실패했습니다.", e);
 	        }
 	    }
+	    */
 	
 }

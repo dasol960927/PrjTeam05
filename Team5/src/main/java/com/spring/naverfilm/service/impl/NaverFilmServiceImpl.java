@@ -12,47 +12,45 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 
 import com.spring.naverfilm.service.NaverFilmService;
 
 @Service("naverFilmService")
 public class NaverFilmServiceImpl implements  NaverFilmService {
    
+	
 	private static String clientId = "dcjDMlfu6_wvXIDQGKGu";
     private static String clientSecret = "xWsN0mQliO";
  
-    //display ==> 몇개 출력
-    //start==>몇번쨰부터 (item)
-    @ResponseBody
-    public String searchFilm(String keyword, int display, int start){
-        String text = null;
-        try {
-            text = URLEncoder.encode(keyword, "UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            throw new RuntimeException("검색어 인코딩 실패",e);
-        }
-
-        //String apiURL = "https://openapi.naver.com/v1/search/news?query=" + text;    // json 결과
-        //String apiURL = "https://openapi.naver.com/v1/search/blog.xml?query="+ text; // xml 결과
+	@Override
+	public String searchFilm(String keyword, int display, int start) {
+		String text = null;
+		
+		try {
+			text = URLEncoder.encode(keyword, "UTF-8");
+		} catch (UnsupportedEncodingException e) {		
+			e.printStackTrace();
+		}
+		
+		String apiURL = "https://openapi.naver.com/v1/search/movie?query=" + text;
+		apiURL       += "&display=" + display;
+		apiURL       += "&start="   + start;
+		
+	    Map<String, String> requestHeaders = new HashMap<String, String>();
+	    requestHeaders.put("X-Naver-Client-Id", clientId);
+	    requestHeaders.put("X-Naver-Client-Secret", clientSecret);
+        requestHeaders.put("Content-Type", "application/json");
         
-        String apiURL = "https://openapi.naver.com/v1/search/movie?query=" + text;    // json 결과
-        apiURL       += "&display=" + display; 
-        apiURL       += "&start="   + start;          
-        
-        Map<String, String> requestHeaders = new HashMap<>();
-        requestHeaders.put("X-Naver-Client-Id", clientId);
-        requestHeaders.put("X-Naver-Client-Secret", clientSecret);
-        requestHeaders.put("Content-Type", "application/xml");
-        
-        String responseBody = get(apiURL,requestHeaders);
-
-        System.out.println(responseBody);
+        String responseBody = get(apiURL, requestHeaders);
         return responseBody;
-    }
+        
+	}
 
-    private static String get(String apiUrl, Map<String, String> requestHeaders){
+	private static String get(String apiUrl, Map<String, String> requestHeaders){
         HttpURLConnection con = connect(apiUrl);
         try {
             con.setRequestMethod("GET");
@@ -100,4 +98,5 @@ public class NaverFilmServiceImpl implements  NaverFilmService {
             throw new RuntimeException("API 응답을 읽는데 실패했습니다.", e);
         }
     }
+
 }
