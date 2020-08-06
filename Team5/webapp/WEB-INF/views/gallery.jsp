@@ -78,19 +78,6 @@
                     <a class="btn btn-info" href="javascript:void(0)" data-filter="3"> 일본 </a>
                     <a class="btn btn-info" href="javascript:void(0)" data-filter="4"> 중국 </a>
                   </div>
-                  <div class="mb-2">
-                    <a class="btn btn-secondary" href="javascript:void(0)" data-shuffle> Shuffle items </a>
-                    <div class="float-right">
-                      <select class="custom-select" style="width: auto;" data-sortOrder>
-                        <option value="index"> Sort by Position </option>
-                        <option value="sortData"> Sort by Custom Data </option>
-                      </select>
-                      <div class="btn-group">
-                        <a class="btn btn-default" href="javascript:void(0)" data-sortAsc> 오름차순 </a>
-                        <a class="btn btn-default" href="javascript:void(0)" data-sortDesc> 내림차순 </a>
-                      </div>
-                    </div>
-                  </div>
                 </div>
                
                 <div>
