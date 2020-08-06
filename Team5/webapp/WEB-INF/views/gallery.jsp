@@ -240,7 +240,7 @@
             },
 		error	: function(xhr){
 			console.log(xhr);
-			alert('오류' + xhr.status);
+			
 		}
 	});
     

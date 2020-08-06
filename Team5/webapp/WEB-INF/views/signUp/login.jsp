@@ -37,6 +37,7 @@
   			}
   		});
   	});	
+  
   </script>
 </head>
 <body class="hold-transition login-page">
