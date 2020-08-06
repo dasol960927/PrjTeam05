@@ -35,10 +35,7 @@
   				$("#pw").focus();
   				return;
   			}
-  			// 데이터 전송
-  			document.loginFrm.action="${path}/loginCheck"
-  			// 제출
-  			document.loginFrm.submit();
+  		
   			
   		});
   	});	
@@ -54,7 +51,7 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">로그인</p>
 
-       <form action="loginCheck" method="post" name="loginFrm"id="loginFrm">
+       <form action="loginCheck" method="post" >
         <div class="input-group mb-3">
           <input type="email" class="form-control" id="id"placeholder="FilmCritics@gmail.com">
           <div class="input-group-append">
@@ -82,7 +79,7 @@
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block" id="btnLogin" onclick="loginCheck()">로그인</button>
+            <button type="submit" class="btn btn-primary btn-block" id="btnLogin" >로그인</button>
           </div>
           <!-- /.col -->
         </div>

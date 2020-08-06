@@ -7,9 +7,6 @@ import com.spring.film.vo.MemberVo;
 
 public interface MemberDao {
 
-		public MemberVo viewMember(MemberVo vo);
-
-		public boolean loginCheck(MemberVo vo);
-
+		MemberVo login(HashMap<String, Object> map);
 
 }
