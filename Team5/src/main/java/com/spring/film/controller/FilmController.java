@@ -27,12 +27,17 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.film.service.MemberService;
 import com.spring.film.vo.MemberVo;
+import com.spring.reqboard.service.ReqBoardService;
+import com.spring.reqboard.vo.ReqBoardVo;
 
 @Controller
 public class FilmController {
 	
 	@Autowired
 	private MemberService memberService;
+	
+	@Autowired
+	private ReqBoardService reqBoardService;
 	
 	@RequestMapping("/")
 	public String main() {
@@ -71,6 +76,11 @@ public class FilmController {
 		case "depositTable": 
 			link = "/table/depositTable";
 			break;
+			
+		//ReqBoardController 에서 안넘어가서 여기에 추가 by박다솔
+		case "reqBoardWriter": 
+			link = "/reqBoard/reqBoard";
+			break;	
 		}
 		return link;
 	}
@@ -103,6 +113,22 @@ public class FilmController {
 			mv.addObject("msg", "fail");
 		}
 		return mv;
+	}
+	
+	//ReqBoardController 에서 안넘어가서 여기에 추가 by박다솔
+	@RequestMapping("/reqBoard")
+	public String reqBoard(ReqBoardVo vo) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("mId", vo.getmId());
+		map.put("email", vo.getEmail());
+		map.put("reqConts", vo.getReqConts());
+		
+		System.out.println("hash : "+map.put("mId", vo.getmId()));
+		System.out.println("hash : "+map.put("email", vo.getEmail()));
+		System.out.println("hash : "+map.put("reqConts", vo.getReqConts()));
+		reqBoardService.addReqBoard(map);
+		
+		return "/reqBoard/reqBoardCheck";
 	}
 	
 	
