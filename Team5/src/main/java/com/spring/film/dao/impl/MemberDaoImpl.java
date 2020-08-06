@@ -23,6 +23,8 @@ public class MemberDaoImpl implements MemberDao {
 	@Override
 	public MemberVo login(HashMap<String, Object> map) {
 		MemberVo memberVo = sqlSession.selectOne("Member.loginCheck", map);
+		//System.out.println("다오" + memberVo);
+		System.out.println("다오맵" + map);
 		return memberVo;
 	}
 

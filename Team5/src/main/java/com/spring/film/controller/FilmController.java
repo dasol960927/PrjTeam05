@@ -94,9 +94,9 @@ public class FilmController {
 		return mv;
 	}
 
-	@RequestMapping("/login")
+	@RequestMapping(value="/login", method = RequestMethod.GET)
 	public String login() {
-		return "/signUp/login";
+		return "/signUp/login2";
 	}
 	
 	// 로그인 처리
@@ -104,13 +104,14 @@ public class FilmController {
 	public String loginProcess(
 			HttpSession session,
 			@RequestParam HashMap<String, Object> map) {
-		
+	
 		String returnURL = "";
 		if( session.getAttribute("login") != null ) {
 			session.removeAttribute("login");
 		}
 		
 		MemberVo vo = memberService.login(map);
+		System.out.println("컨트롤러" + vo);
 		
 		if(vo != null) {
 			session.setAttribute("login", vo );

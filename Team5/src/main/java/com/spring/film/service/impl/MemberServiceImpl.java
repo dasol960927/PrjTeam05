@@ -27,6 +27,8 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public MemberVo login(HashMap<String, Object> map) {
 		MemberVo memberVo = memberDao.login(map);
+		//System.out.println("서비스" + memberVo);
+		System.out.println("서비스 맵" + map);
 		return memberVo;
 	}
 
