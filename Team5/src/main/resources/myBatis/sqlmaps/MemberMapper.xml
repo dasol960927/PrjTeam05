@@ -47,7 +47,7 @@
 		) }
 	</insert> 
 	
-	<select id="Login" parameterType="hashmap" resultType="com.spring.film.vo.MemberVo">
+	<select id="Login" parameterType="hashmap" resultType="com.spring.film.vo.MemberVo" >
 		
 		SELECT *
 		FROM   MEMBERS
