@@ -12,4 +12,5 @@ public interface MemberService {
 
 	MemberVo login(HashMap<String, Object> map);
 
+
 }
