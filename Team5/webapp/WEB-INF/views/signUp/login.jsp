@@ -35,11 +35,6 @@
   				$("#mPass").focus();
   				return;
   			}
-  			// 데이터 전송
-  			document.loginFrm.action="${path}/loginCheck"
-  			// 제출
-  			document.loginFrm.submit();
-  			
   		});
   	});	
   </script>
@@ -54,7 +49,7 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">로그인</p>
 
-       <form action="loginCheck" method="post" name="loginFrm"id="loginFrm">
+       <form action="/loginCheck" method="post" name="loginFrm"id="loginFrm">
         <div class="input-group mb-3">
           <input type="email" class="form-control" id="mId"placeholder="FilmCritics@gmail.com">
           <div class="input-group-append">

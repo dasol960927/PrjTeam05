@@ -99,20 +99,27 @@ public class FilmController {
 		return "/signUp/login";
 	}
 	
-	@RequestMapping("/loginCheck")
-	public ModelAndView loginCheck(@ModelAttribute MemberVo vo, HttpSession session) {
-		boolean result = memberService.loginCheck(vo, session);
-		ModelAndView mv = new ModelAndView();
-		if(result == true) {
-			// main.jsp 로 이동
-			mv.setViewName("/");
-			mv.addObject("msg", "success");
-		}else {
-			// login.jsp 로 이동
-			mv.setViewName("/signUp/login");
-			mv.addObject("msg", "fail");
+	// 로그인 처리
+	@RequestMapping(value="/loginCheck", method=RequestMethod.POST)
+	public String loginProcess(
+			HttpSession session,
+			@RequestParam HashMap<String, Object> map) {
+		
+		String returnURL = "";
+		if( session.getAttribute("login") != null ) {
+			session.removeAttribute("login");
 		}
-		return mv;
+		
+		MemberVo vo = memberService.login(map);
+		
+		if(vo != null) {
+			session.setAttribute("login", vo );
+			returnURL = "redirect:/";
+		} else {
+			returnURL = "redirect:/login";
+		}
+		
+		return returnURL;
 	}
 	
 	//ReqBoardController 에서 안넘어가서 여기에 추가 by박다솔

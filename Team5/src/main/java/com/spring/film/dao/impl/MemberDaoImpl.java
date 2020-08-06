@@ -1,5 +1,7 @@
 package com.spring.film.dao.impl;
 
+import java.util.HashMap;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -19,11 +21,10 @@ public class MemberDaoImpl implements MemberDao {
 	}
 
 	@Override
-	public boolean loginCheck(MemberVo vo) {
-		String name = sqlSession.selectOne("Member.loginCheck", vo);
-		return (name == null) ? false : true;
+	public MemberVo login(HashMap<String, Object> map) {
+		MemberVo memberVo = sqlSession.selectOne("Member.loginCheck", map);
+		return memberVo;
 	}
-	
 
 
 
