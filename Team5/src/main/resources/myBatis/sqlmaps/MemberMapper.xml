@@ -15,7 +15,7 @@
      </resultMap>
    
       <select id="MemberList"
-         statementType="CALLABLE"
+         statementType="CALLABLE" 
          parameterType="hashmap" 
          resultType="com.spring.film.vo.MemberVo">
          {CALL  PKG_MEMBERS.PROC_MEMBERS_LIST(
