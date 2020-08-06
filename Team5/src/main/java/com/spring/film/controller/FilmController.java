@@ -13,14 +13,20 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.film.service.MemberService;
+import com.spring.film.vo.MemberVo;
 
 @Controller
 public class FilmController {
@@ -75,6 +81,27 @@ public class FilmController {
 		ModelAndView mv = new ModelAndView();
 		
 		mv.setViewName("redirect:/");
+		return mv;
+	}
+
+	@RequestMapping("/login")
+	public String login() {
+		return "/signUp/login";
+	}
+	
+	@RequestMapping("/loginCheck")
+	public ModelAndView loginCheck(@ModelAttribute MemberVo vo, HttpSession session) {
+		boolean result = memberService.loginCheck(vo, session);
+		ModelAndView mv = new ModelAndView();
+		if(result == true) {
+			// main.jsp 로 이동
+			mv.setViewName("/");
+			mv.addObject("msg", "success");
+		}else {
+			// login.jsp 로 이동
+			mv.setViewName("/signUp/login");
+			mv.addObject("msg", "fail");
+		}
 		return mv;
 	}
 	
