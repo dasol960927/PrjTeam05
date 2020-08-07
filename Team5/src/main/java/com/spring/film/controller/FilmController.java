@@ -116,7 +116,7 @@ public class FilmController {
 		return "/signUp/login";
 	}
 	
-	//  로그인 처리
+	// 로그인 처리
 	@RequestMapping(value="/loginCheck", method=RequestMethod.POST)
 	public String loginProcess(
 			HttpSession session,
