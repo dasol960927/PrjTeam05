@@ -36,7 +36,7 @@
                        alt="User profile picture">
                 </div>
 
-                <h3 class="profile-username text-center">Nina Mcintire</h3>
+                <h3 class="profile-username text-center">김상두</h3>
 
                 <p class="text-muted text-center">Software Engineer</p>
 
