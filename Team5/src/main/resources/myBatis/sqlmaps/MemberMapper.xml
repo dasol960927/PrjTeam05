@@ -8,7 +8,7 @@
       <select id="loginCheck" 
 			parameterType="hashmap" 
          	resultType="com.spring.film.vo.MemberVo">
-		SELECT M_ID , M_PASS
+		SELECT M_ID , M_PASS, M_NAME, M_GENDER, M_BDATE, M_CASH
 		FROM   MEMBERS
 		WHERE  M_ID   = #{mId} 
 		AND    M_PASS = #{mPass}	
@@ -36,6 +36,17 @@
    			, javaType=ResultSet, resultMap=MemberMap }
    		)}
    </select>
+   
+   <update id="MemberUpdate"
+   			statementType="CALLABLE" 
+   			parameterType="hashmap" >
+   			
+   			{CALL PKG_MEMBERS.PROC_MEMBERS_UPDATE(
+   			#{ mId, mode=IN, jdbcType=VARCHAR},
+   			#{ mPass, mode=IN, jdbcType=VARCHAR}
+   		)}
+   			
+   </update>
      
   </mapper>        
 

@@ -1,5 +1,6 @@
 package com.spring.board.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +17,8 @@ public class BoardServiceImpl implements BoardService {
 	private BoardDao boardDao;
 	
 	@Override
-	public List<BoardVo> getBoardList(String gubun) {
-		List<BoardVo> boardList = boardDao.getBoardList(gubun);
+	public List<BoardVo> getBoardList(HashMap<String, Object> map) {
+		List<BoardVo> boardList = boardDao.getBoardList(map);
 		return boardList;
 	}
 

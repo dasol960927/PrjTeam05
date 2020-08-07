@@ -18,6 +18,7 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
+
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
  
@@ -103,9 +104,11 @@
       			
       	 여기다가 새로운걸 붙이세요		
       			
-      		<h2>회원정보수정</h2>	
-				<form name="modify" method="POST">
+				<form action="Update" method="POST">
 					<table border="1"  width="500px" >
+						<tr>
+							<td colspan="3" align="center">회원정보수정</td>
+						</tr>						
 						<tr>
 							<td>아이디</td>
 							<td><input name="mId" value="${ MemberVo.mID}" readonly="readonly"/></td>
@@ -116,15 +119,15 @@
 						</tr>
 						<tr>
 							<td>이름</td>
-							<td><input name="mName" value="${ MemberVo.mName }"readonly="readonly"/></td>
+							<td><input name="mName" value="${ MemberVo.mName }" readonly="readonly"/></td>
 						</tr>
 						<tr>
 							<td>성별</td>
-							<td><input name="mGender" value="${ MemberVo.mGender }"readonly="readonly"/></td>
+							<td><input name="mGender" value="${ MemberVo.mGender }" readonly="readonly"/></td>
 						</tr>
 						<tr>
 							<td>생일</td>
-							<td><input name="mBdate" value="${ MemberVo.mBdate }"/></td>
+							<td><input name="mBdate" value="${ MemberVo.mBdate }" readonly="readonly"/></td>
 						</tr>
 						<tr>
 							<td colspan="2" align="center">
