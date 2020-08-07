@@ -110,7 +110,7 @@ $(function(){
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>영화검색결과</h1>
+            <h1>영화 검색 결과</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -124,15 +124,16 @@ $(function(){
 
 
       <!-- Default box -->
+
       <div class="card card-solid">
         <div class="card-body pb-0">
           <div class="row d-flex align-items-stretch">
-           
+          
               </div>
             </div>
           </div>
         </div>
-        
+       
         
         <!-- /.card-body -->
         <div class="card-footer">
