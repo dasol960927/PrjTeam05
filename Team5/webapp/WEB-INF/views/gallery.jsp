@@ -26,7 +26,7 @@
     <!-- SEARCH FORM -->
     <form class="form-inline ml-3" method="get" action="/apiTestAddCss">
       <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="작품 제목, 배우, 감독을 검색해보세요." size="50" aria-label="Search" id="keyword" name="keyword">
+        <input class="form-control form-control-navbar" type="search" placeholder="영화작품 제목을 검색해보세요."  size="50" aria-label="Search" id="keyword" name="keyword">
         <div class="input-group-append">
           <button class="btn btn-navbar" type="submit">
             <i class="fas fa-search"></i>
@@ -49,7 +49,6 @@
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="/">Home</a></li>
               <li class="breadcrumb-item"><a href="/depositTable">${login.mName }님</a></li>
-              <li class="breadcrumb-item active"><a href="/login">Login</a></li>
               <li class="breadcrumb-item active"><a href="/logout">LogOut</a></li>
               <li class="breadcrumb-item active"><a href="/Board?gubun=N">고객센터</a></li>
               <li class="breadcrumb-item active"><a href="/reqBoardWriter">1:1 문의</a></li>
@@ -167,7 +166,7 @@
 		<div>주식회사 TeamFive | 대표  송지현| 팀원 김상두 이재혁 박다솔 <a href="/table">김주희</a> | 부산광역시 남구 용당동 부경대용당캠퍼스 공학 6관 | <br/>
 		사업자등록번호 8282-2424 | 통신판매업 신고번호 제 2020-부산용당-2020호  <br/>
 		대표번호 051-629-5233 <br/>
-		 개인정보 처리 방침11</div>
+		 개인정보 처리 방침</div>
 	</div>
   </footer>
 
@@ -194,48 +193,5 @@
 <!-- Filterizr-->
 <script src="/plugins/filterizr/jquery.filterizr.min.js"></script>
 <!-- Page specific script -->
-<script>
-  $(function () {
-    $(document).on('click', '[data-toggle="lightbox"]', function(event) {
-      event.preventDefault();
-      $(this).ekkoLightbox({
-        alwaysShowClose: true
-      });
-    });
-
-    $('.filter-container').filterizr({gutterPixels: 3});
-    $('.btn[data-filter]').on('click', function() {
-      $('.btn[data-filter]').removeClass('active');
-      $(this).addClass('active');
-    });
-    
-    
-	$.ajax({
-		url		:'/getMovieJson',
-		dataType: 'json',
-		success : function(data){
-               console.log(data);
-
-               var list = data.boxOfficeResult.dailyBoxOfficeList;
-               var html = '';
-               $.each(list, function(index, dailyBoxOffice){    
-                  console.log(dailyBoxOffice);
-                  html+= '<a href="/filmReview">';
-                  html+= '<img class="img-fluid mb-2" src="https://ssl.pstatic.net/imgmovie/mdi/mit110/1516/151646_P01_144220.jpg" alt="poster"/>';
-                  html+= '</a>';
-               });
-               $('#film').html(html);
-            },
-		error	: function(xhr){
-			console.log(xhr);
-			
-		}
-	});
-    
-    
-  })
-</script>
-
-
 </body>
 </html>
