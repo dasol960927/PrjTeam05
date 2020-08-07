@@ -8,5 +8,6 @@
 </head>
 <body>
 	reqBoard 값 넘어옴
+	<img src="/img/Aha.jpg" />
 </body>
 </html>
