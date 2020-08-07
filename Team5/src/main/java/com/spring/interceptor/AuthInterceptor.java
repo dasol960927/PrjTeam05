@@ -17,7 +17,8 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 			throws Exception {
 		System.out.println("prehandle:" + request.getRequestURI());
 		
-		switch( request.getRequestURI() ) { // 현재 파일정보		
+		switch( request.getRequestURI() ) { // 현재 파일정보	
+		case "/registerForm":
 		case "/login":
 		case "/loginCheck":
 			 return true; // 제외
