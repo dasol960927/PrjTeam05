@@ -1,23 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
-
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>FlimCritics | DepositTable</title>
-<style>
-
-table, th, td {
-	border:1px solid black;
-	border-collapse: collapse;	
-}
-
-table { width:800px; margin:0 auto; }
-
-</style>   
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -48,23 +36,31 @@ table { width:800px; margin:0 auto; }
                        alt="User profile picture">
                 </div>
 
-                <h3 class="profile-username text-center">Nina Mcintire</h3>
+                <h3 class="profile-username text-center">이름</h3>
 
-                <p class="text-muted text-center">Software Engineer</p>
+                <p class="text-muted text-center">28(남), 010-0000-0000</p>
 
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
-                    <b>찜한 영화</b> <a class="float-right">1,322</a>
+                  	<br/>
+                    <b>찜한 영화</b> <p class="float-right" >&nbsp;&nbsp;&nbsp;편</p><a class="float-right" href="#">000</a> 
                   </li>
                   <li class="list-group-item">
-                    <b>포인트</b> <a class="float-right">543</a>
+                  	<br/>
+                    <b>잔여캐시</b> <p class="float-right" >&nbsp;&nbsp;&nbsp;원</p><a class="float-right" href="#">000</a> 
                   </li>
                   <li class="list-group-item">
-                    <b>충전방식</b> <a class="float-right">카카오페이</a>
+                  	<br/>
+                    <b>구매내역</b> <p class="float-right" >&nbsp;&nbsp;&nbsp;건</p><a class="float-right" href="#">00</a>
+                  </li>
+                  <li class="list-group-item">
+                  	<br/>
+                    <b>충전내역</b> <a class="float-right" href="#">충전하기</a> <p class="float-right">&nbsp;&nbsp;건&nbsp;&nbsp;</p> <a class="float-right" href="/DPS/List?mId=AAAA">00</a>  
                   </li>
                 </ul>
-
-                <a href="/DPS/List?mId=AAAA" class="btn btn-primary btn-block"><b>충전내역 및 충전</b></a>
+				<br/>
+                <a href="#" class="btn btn-primary btn-block"><b>회원정보 수정</b></a>
+                <br/>
               </div>
               <!-- /.card-body -->
             </div>
@@ -132,7 +128,7 @@ table { width:800px; margin:0 auto; }
 						<a href="/DPS/Deposit1?mId=${mId}">충전하기</a>
 					</td>
 				</tr>	
-			</table>		
+			</table>			
       			
       			
         </div>
