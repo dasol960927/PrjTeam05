@@ -30,7 +30,7 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">비밀번호를 잊으셨나요? <br/>새로운 비밀번호를 발급받으세요</p>
 
-      <form action="recover-password.html" method="post">
+      <form action="/" method="post">
         <div class="input-group mb-3">
           <input type="email" class="form-control" placeholder="FilmCritics@gmail.com">
           <div class="input-group-append">
@@ -51,7 +51,7 @@
         <a href="/login">로그인</a>
       </p>
       <p class="mb-0">
-        <a href="register.html" class="text-center">회원가입</a>
+        <a href="/registerMember" class="text-center">회원가입</a>
       </p>
     </div>
     <!-- /.login-card-body -->

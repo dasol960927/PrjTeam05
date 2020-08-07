@@ -119,9 +119,9 @@ table { width:800px; margin:0 auto; }
             <!-- /.card -->
           </div>
           <!-- /.col -->
-      			
-		<h1>${mId} 충전내역</h1>
-			<table>
+      	<div>		
+		<h1>${mId} 충전내역</h1> 
+        			<table>
 				<tr>
 					<td>날짜</td>
 					<td>충전금액</td>
@@ -139,9 +139,8 @@ table { width:800px; margin:0 auto; }
 						<a href="/DPS/Deposit1?mId=${mId}">충전하기</a>
 					</td>
 				</tr>	
-			</table>			
-      			
-      			
+			</table>
+			</div>				
         </div>
         <!-- /.row -->
       </div><!-- /.container-fluid -->
