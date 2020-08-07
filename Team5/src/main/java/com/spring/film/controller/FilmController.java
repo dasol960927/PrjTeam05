@@ -75,9 +75,7 @@ public class FilmController {
 		case "depositTable": 
 			link = "/table/depositTable";
 			break;
-		case "modifyMem": 
-			link = "/members/modifyMem";
-			break;
+	
 					
 		//ReqBoardController 에서 안넘어가서 여기에 추가 by박다솔
 		case "reqBoardWriter": 
@@ -102,14 +100,12 @@ public class FilmController {
 	@RequestMapping("/registerMember")
 	public ModelAndView registerMember(@RequestParam HashMap<String,Object> map) {
 		
-		System.out.println("회원등록하으자" + map);
 		memberService.register(map);
 		ModelAndView mv = new ModelAndView();
 		
 		mv.setViewName("redirect:/login");
 		return mv;
 	}
-	
 	
 
 	@RequestMapping(value="/login", method = RequestMethod.GET)
@@ -123,6 +119,8 @@ public class FilmController {
 			HttpSession session,
 			@RequestParam HashMap<String, Object> map) {
 	
+		
+		
 		String returnURL = "";
 		if( session.getAttribute("login") != null ) {
 			session.removeAttribute("login");
@@ -132,7 +130,7 @@ public class FilmController {
 
 		if(vo != null) {
 			session.setAttribute("login", vo );
-			returnURL = "redirect:/?mId=" + map.get("mId");
+			returnURL = "redirect:/";
 		} else {
 			returnURL = "redirect:/login";
 		}
@@ -148,33 +146,35 @@ public class FilmController {
 		return "redirect:/";
 	}
 	
-	@RequestMapping("/UpdateForm")
+	@RequestMapping("/updateForm")
 	public ModelAndView updateForm(MemberVo vo) {
+		String id = vo.getmId();
+		System.out.println("로그인id" + id);
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("mId", vo.getmId());
+		map.put("mId", id);
 		
 		MemberVo memberVo = memberService.getMemberView(map);
+		System.out.println("필름컨트롤러" + memberVo);
 		
 		ModelAndView mv = new ModelAndView();
 		
-		mv.setViewName("/members/modifyMem");
+		mv.setViewName("members/modifyMem");
 		mv.addObject("memberVo", memberVo);
 		
 		return mv;
 	}
 	
-	@RequestMapping("/Update")
+	@RequestMapping("/update")
 	public String update(MemberVo vo) {
+		System.out.println("필름컨트롤러에 update" + vo);
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("mId",     vo.getmId());
-		map.put("mPass",   vo.getmPass());
-		map.put("mName",   vo.getmName());
-		map.put("mGender", vo.getmGender());
-		map.put("mBdate",  vo.getmBdate());
+		map.put("mId", vo.getmId());
+		map.put("mPass", vo.getmPass());
+		System.out.println(map);
+		
 		
 		memberService.memberUpdate(map);
-		
-		return "redirect:/members/modifyMem";
+		return "table/depositTable";
 		
 	}
 

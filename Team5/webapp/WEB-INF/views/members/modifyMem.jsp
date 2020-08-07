@@ -102,36 +102,36 @@
           </div>
           <!-- /.col -->
       			
-      	 여기다가 새로운걸 붙이세요		
+
       			
-				<form action="Update" method="POST">
+				<form action="/update" method="POST">
 					<table border="1"  width="500px" >
 						<tr>
 							<td colspan="3" align="center">회원정보수정</td>
 						</tr>						
 						<tr>
 							<td>아이디</td>
-							<td><input name="mId" value="${ MemberVo.mID}" readonly="readonly"/></td>
+							<td><input name="mId" value="${ memberVo.mId}" readonly="readonly"/></td>
 						</tr>
 						<tr>
 							<td>비밀번호</td>
-							<td><input name="mPass" value="${ MemberVo.mPass }"/></td>
+							<td><input name="mPass" value="${ memberVo.mPass }"/></td>
 						</tr>
 						<tr>
 							<td>이름</td>
-							<td><input name="mName" value="${ MemberVo.mName }" readonly="readonly"/></td>
+							<td><input name="mName" value="${ memberVo.mName }" readonly="readonly"/></td>
 						</tr>
 						<tr>
 							<td>성별</td>
-							<td><input name="mGender" value="${ MemberVo.mGender }" readonly="readonly"/></td>
+							<td><input name="mGender" value="${ memberVo.mGender }" readonly="readonly"/></td>
 						</tr>
 						<tr>
 							<td>생일</td>
-							<td><input name="mBdate" value="${ MemberVo.mBdate }" readonly="readonly"/></td>
+							<td><input name="mBdate" value="${ memberVo.mBdate }" readonly="readonly"/></td>
 						</tr>
 						<tr>
 							<td colspan="2" align="center">
-								<input type="button" value="수정" id="btnUpdate">
+								<input type="submit" value="수정" id="btnUpdate">
 							</td>
 						</tr>
 					</table>      			

@@ -16,10 +16,6 @@ public class MemberDaoImpl implements MemberDao {
 	@Autowired
 	private SqlSession sqlSession;
 
-	@Override
-	public MemberVo viewMember(MemberVo vo) {
-		return sqlSession.selectOne("Member.MemberView", vo);
-	}
 
 	@Override
 	public MemberVo login(HashMap<String, Object> map) {
@@ -34,6 +30,7 @@ public class MemberDaoImpl implements MemberDao {
 
 	@Override
 	public MemberVo getMemberView(HashMap<String, Object> map) {
+		System.out.println("다오임플의 맵출력" + map);
 		sqlSession.selectOne("Member.MemberView", map);
 		
 		List<MemberVo> memberList = (List<MemberVo>) map.get("result");

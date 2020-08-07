@@ -10,7 +10,6 @@ import com.spring.film.vo.MemberVo;
 
 public interface MemberService {
 
-	public MemberVo viewMember(MemberVo vo);
 
 	public MemberVo login(HashMap<String, Object> map);
 
@@ -19,5 +18,6 @@ public interface MemberService {
 	public MemberVo getMemberView(HashMap<String, Object> map);
 
 	public void memberUpdate(HashMap<String, Object> map);
+
 
 }

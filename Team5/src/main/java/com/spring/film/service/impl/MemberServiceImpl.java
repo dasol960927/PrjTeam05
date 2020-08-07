@@ -19,12 +19,6 @@ public class MemberServiceImpl implements MemberService {
 
 
 	@Override
-	public MemberVo viewMember(MemberVo vo) {
-		return memberDao.viewMember(vo);
-	}
-
-
-	@Override
 	public MemberVo login(HashMap<String, Object> map) {
 		MemberVo memberVo = memberDao.login(map);
 		return memberVo;
@@ -40,7 +34,7 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public MemberVo getMemberView(HashMap<String, Object> map) {
 		MemberVo memberVo = memberDao.getMemberView(map);
-		return null;
+		return memberVo;
 	}
 
 

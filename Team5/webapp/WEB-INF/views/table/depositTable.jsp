@@ -59,7 +59,7 @@
                   </li>
                 </ul>
 				<br/>
-                <a href="members/modfymem" class="btn btn-primary btn-block"><b>회원정보 수정</b></a>
+                <a href="/updateForm?mId=${ login.mId }" class="btn btn-primary btn-block"><b>회원정보 수정</b></a>
                 <br/>
               </div>
               <!-- /.card-body -->
@@ -109,7 +109,6 @@
           </div>
           <!-- /.col -->
       			
-      	 첫페이지 뭐넣어야됨?		
       			
       			
         </div>
