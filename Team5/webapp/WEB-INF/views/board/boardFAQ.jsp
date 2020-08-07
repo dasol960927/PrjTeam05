@@ -45,7 +45,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>문의사항</h1>
+            <h1>고객센터</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -58,8 +58,6 @@
     </section>
 
     <!-- Main content -->
-    <section class="content">
-
       <!-- Default box -->
       <div class="card card-solid">
         <div class="card-body">
@@ -70,15 +68,59 @@
           <div class="row mt-4">
             <nav class="w-100">
               <div class="nav nav-tabs" id="product-tab" role="tablist">
-                <a class="nav-item nav-link active" id="product-desc-tab" data-toggle="tab" href="#product-desc" role="tab" aria-controls="product-desc" aria-selected="true">공지사항</a>
-                <a class="nav-item nav-link" id="product-comments-tab" data-toggle="tab" href="#product-comments" role="tab" aria-controls="product-comments" aria-selected="false">FAQ</a>
-                <a class="nav-item nav-link" id="product-rating-tab" data-toggle="tab" href="#product-rating" role="tab" aria-controls="product-rating" aria-selected="false">GO</a>
+				<a href="/Board?gubun=N" class="nav-item nav-link" id="product-comments-tab">공지사항</a>
+                <a href="/Board?gubun=F" class="nav-item nav-link" id="product-comments-tab">FAQ</a>
               </div>
             </nav>
             <div class="tab-content p-3" id="nav-tabContent">
-              <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab">점검합니다</div>
-              <div class="tab-pane fade" id="product-comments" role="tabpanel" aria-labelledby="product-comments-tab">결제가 안되요? 어떡하죠? ㅎㅎㅎㅎㅎㅎㅎㅎ</div>
-              <div class="tab-pane fade" id="product-rating" role="tabpanel" aria-labelledby="product-rating-tab">고 고 고 !</div>
+              <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab">
+               <table class="table table-bordered">
+                  <thead>                  
+                    <tr>
+                      <th style="width: 100px">작성자</th>
+                      <th>제목</th>
+                      <th>조회수</th>
+                      <th style="width: 100px">작성일</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                <c:forEach var = "boardVo" items = "${ boardList }">
+				<tr>
+				<td>${ boardVo.mId }</td>
+				<td>${ boardVo.bName }</td>
+				<td>${ boardVo.bCnt }</td>
+				<td>${ boardVo.bDate }</td>
+				</tr>
+				</c:forEach>
+                  </tbody>
+                </table>
+              
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer clearfix">
+                <ul class="pagination pagination-sm m-0 float-right">
+                  <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                </ul>
+              </div>
+            </div>
+            
+            <!-- //////////////////////// -->  
+				
+              </div>
+              <div class="tab-pane fade" id="product-comments" role="tabpanel" aria-labelledby="product-comments-tab">
+
+				<div>
+				<table>
+				
+				
+				
+				</table>
+				</div>
+			  </div>
             </div>
           </div>
         </div>

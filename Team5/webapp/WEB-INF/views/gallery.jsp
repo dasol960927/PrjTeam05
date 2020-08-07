@@ -24,7 +24,7 @@
 
 
     <!-- SEARCH FORM -->
-    <form class="form-inline ml-3" method="get" action="/apiTest">
+    <form class="form-inline ml-3" method="get" action="/apiTestAddCss">
       <div class="input-group input-group-sm">
         <input class="form-control form-control-navbar" type="search" placeholder="작품 제목, 배우, 감독을 검색해보세요." size="50" aria-label="Search" id="keyword" name="keyword">
         <div class="input-group-append">
@@ -163,7 +163,11 @@
 	<div id="footer">
 		<div>고객센터(이용 및 결제 문의) cs@teamfive.co.kr • 051-629-5232 (유료) <br/>
 		 제휴	및 대외 협력 contact@teamfive.com • 051-629-5232 (유료)</div>
+<<<<<<< HEAD
 		<div>주식회사 TeamFive | 대표  <a href="/boardTable">송지현</a> | 팀원 <a href="/depositTable">김상두</a> <a href="/modifyMem">이재혁</a> 박다솔 <a href="/table">김주희</a> | 부산광역시 남구 용당동 부경대용당캠퍼스 공학 6관 | <br/>
+=======
+		<div>주식회사 TeamFive | 대표  송지현| 팀원 <a href="/depositTable">김상두</a> 이재혁 박다솔 <a href="/table">김주희</a> | 부산광역시 남구 용당동 부경대용당캠퍼스 공학 6관 | <br/>
+>>>>>>> branch 'master' of https://github.com/dasol960927/PrjTeam05
 		사업자등록번호 8282-2424 | 통신판매업 신고번호 제 2020-부산용당-2020호  <br/>
 		대표번호 051-629-5233 <br/>
 		 개인정보 처리 방침11</div>
