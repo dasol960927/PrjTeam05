@@ -75,6 +75,10 @@ public class FilmController {
 		case "depositTable": 
 			link = "/table/depositTable";
 			break;
+		case "modifyMem": 
+			link = "/members/modifyMem";
+			break;
+			
 			
 		//ReqBoardController 에서 안넘어가서 여기에 추가 by박다솔
 		case "reqBoardWriter": 
@@ -143,7 +147,35 @@ public class FilmController {
 		return "redirect:/";
 	}
 	
+	@RequestMapping("/UpdateForm")
+	public ModelAndView updateForm(MemberVo vo) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("mId", vo.getmId());
+		
+		MemberVo memberVo = memberService.getMemberView(map);
+		
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("/members/modifyMem");
+		mv.addObject("memberVo", memberVo);
+		
+		return mv;
+	}
 	
+	@RequestMapping("/Update")
+	public String update(MemberVo vo) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("mId",     vo.getmId());
+		map.put("mPass",   vo.getmPass());
+		map.put("mName",   vo.getmName());
+		map.put("mGender", vo.getmGender());
+		map.put("mBdate",  vo.getmBdate());
+		
+		memberService.memberUpdate(map);
+		
+		return "redirect:/members/modifyMem";
+		
+	}
 
 	
 	//ReqBoardController 에서 안넘어가서 여기에 추가 by박다솔
