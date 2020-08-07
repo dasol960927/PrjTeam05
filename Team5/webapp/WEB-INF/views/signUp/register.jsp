@@ -28,7 +28,7 @@
 
   <div class="card">
     <div class="card-body register-card-body">
-      <p class="login-box-msg">회원가입</p>
+      <p class="login-box-msg">회원가입해봅시다</p>
 
       <form action="/MemberRegister" method="post">
         <div class="input-group mb-3">
@@ -94,7 +94,7 @@
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">회원가입</button>
+            <input type="submit" class="btn btn-primary btn-block" value="회원가입 "/>
           </div>
           <!-- /.col -->
         </div>
