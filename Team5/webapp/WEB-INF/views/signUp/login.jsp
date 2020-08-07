@@ -99,7 +99,7 @@
         <a href="/forgotPassword">비밀번호를 잊어버리셨나요?</a>
       </p>
       <p class="mb-0">
-        <a href="/register" class="text-center">회원가입</a>
+        <a href="/registerForm" class="text-center">회원가입</a>
       </p>
     </div>
     <!-- /.login-card-body -->

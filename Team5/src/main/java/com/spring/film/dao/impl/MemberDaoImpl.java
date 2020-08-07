@@ -17,13 +17,18 @@ public class MemberDaoImpl implements MemberDao {
 
 	@Override
 	public MemberVo viewMember(MemberVo vo) {
-		return sqlSession.selectOne("Member.viewMember", vo);
+		return sqlSession.selectOne("Member.MemberView", vo);
 	}
 
 	@Override
 	public MemberVo login(HashMap<String, Object> map) {
 		MemberVo memberVo = sqlSession.selectOne("Member.loginCheck", map);
 		return memberVo;
+	}
+
+	@Override
+	public void register(HashMap<String, Object> map) {
+		sqlSession.insert("Member.MemberRegister", map);
 	}
 
 

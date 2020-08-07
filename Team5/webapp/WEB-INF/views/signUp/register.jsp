@@ -28,9 +28,9 @@
 
   <div class="card">
     <div class="card-body register-card-body">
-      <p class="login-box-msg">회원가입해봅시다</p>
+      <p class="login-box-msg">회원가입</p>
 
-      <form action="/MemberRegister" method="post">
+      <form action="/registerMember" method="post">
         <div class="input-group mb-3">
           <input type="text" class="form-control" name="mName" placeholder="이름">
           <div class="input-group-append">
@@ -40,7 +40,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="email" class="form-control" name="mId" placeholder="FilmCritics@gmail.com">
+          <input type="text" class="form-control" name="mId" placeholder="FilmCritics@gmail.com">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
