@@ -128,10 +128,10 @@ public class FilmController {
 		}
 		
 		MemberVo vo = memberService.login(map);
-		
+
 		if(vo != null) {
 			session.setAttribute("login", vo );
-			returnURL = "redirect:/";
+			returnURL = "redirect:/?mId=" + map.get("mId");
 		} else {
 			returnURL = "redirect:/login";
 		}
