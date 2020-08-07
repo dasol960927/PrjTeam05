@@ -48,7 +48,7 @@
                     <b>포인트</b> <a class="float-right">543</a>
                   </li>
                   <li class="list-group-item">
-                    <b>충전방식</b> <a class="float-right">카카오페이</a>
+                    <b>충전방식</b> <a class="float-right" >카카오페이</a>
                   </li>
                 </ul>
 
