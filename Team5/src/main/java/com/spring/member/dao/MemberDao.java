@@ -1,9 +1,8 @@
-package com.spring.film.dao;
+package com.spring.member.dao;
 
 import java.util.HashMap;
-import java.util.List;
 
-import com.spring.film.vo.MemberVo;
+import com.spring.member.vo.MemberVo;
 
 public interface MemberDao {
 

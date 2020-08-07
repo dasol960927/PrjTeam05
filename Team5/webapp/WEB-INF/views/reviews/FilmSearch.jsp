@@ -91,7 +91,7 @@ $(function(){
 <div class="wrapper">
 
     <!-- SEARCH FORM -->
-    <form class="form-inline ml-3" method="POST" action="/apiTestAddCss">
+    <form class="form-inline ml-3" method="POST" action="/FilmSearch">
       <div class="input-group input-group-sm">
         <input class="form-control form-control-navbar" type="search" placeholder="영화명을 검색하세요" aria-label="Search" id="keyword" name="keyword">
         <div class="input-group-append">

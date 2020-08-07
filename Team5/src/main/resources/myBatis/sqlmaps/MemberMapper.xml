@@ -5,7 +5,7 @@
          
   <mapper namespace="Member">
        <!-- 결과처리를 위한 map 설정  -->
-     <resultMap id="MemberMap" type="com.spring.film.vo.MemberVo"> 
+     <resultMap id="MemberMap" type="com.spring.member.vo.MemberVo"> 
        <result property="mId" 		column="M_ID" 		javaType="string" />   
        <result property="mName"  	column="M_NAME" 	javaType="string" />   
        <result property="mPass"  	column="M_PASS" 	javaType="string" />   
@@ -17,7 +17,7 @@
      
       <select id="loginCheck" 
 			parameterType="hashmap" 
-         	resultType="com.spring.film.vo.MemberVo">
+         	resultType="com.spring.member.vo.MemberVo">
 		SELECT M_ID , M_PASS, M_NAME, M_GENDER, M_BDATE, M_CASH
 		FROM   MEMBERS
 		WHERE  M_ID   = #{mId} 
@@ -39,7 +39,7 @@
     <select id="MemberView" 
    			statementType="CALLABLE" 
    			parameterType="hashmap" 
-   			resultType="com.spring.film.vo.MemberVo">
+   			resultType="com.spring.member.vo.MemberVo">
    			{CALL PKG_MEMBERS.PROC_MEMBERS_VIEW(
    			#{ mId, mode=IN, jdbcType=VARCHAR},
    			#{ result, mode=OUT, jdbcType=CURSOR

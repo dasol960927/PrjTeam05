@@ -1,4 +1,4 @@
-package com.spring.film.vo;
+package com.spring.member.vo;
 
 public class MemberVo {
 	

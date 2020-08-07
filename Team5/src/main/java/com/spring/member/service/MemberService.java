@@ -1,11 +1,9 @@
-package com.spring.film.service;
+package com.spring.member.service;
 
 
 import java.util.HashMap;
 
-import javax.servlet.http.HttpSession;
-
-import com.spring.film.vo.MemberVo;
+import com.spring.member.vo.MemberVo;
 
 
 public interface MemberService {

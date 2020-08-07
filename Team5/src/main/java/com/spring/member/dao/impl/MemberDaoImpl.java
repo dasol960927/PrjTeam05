@@ -1,4 +1,4 @@
-package com.spring.film.dao.impl;
+package com.spring.member.dao.impl;
 
 import java.util.HashMap;
 import java.util.List;
@@ -7,8 +7,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.spring.film.dao.MemberDao;
-import com.spring.film.vo.MemberVo;
+import com.spring.member.dao.MemberDao;
+import com.spring.member.vo.MemberVo;
 
 @Repository("memberDao")
 public class MemberDaoImpl implements MemberDao {
