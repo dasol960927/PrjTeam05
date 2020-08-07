@@ -6,6 +6,17 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>FlimCritics | DepositTable</title>
+<style>
+
+table, th, td {
+	border:1px solid black;
+	border-collapse: collapse;	
+}
+
+table { width:800px; margin:0 auto; }
+
+</style>  
+  
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
