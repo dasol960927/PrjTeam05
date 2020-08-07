@@ -37,6 +37,19 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 
+	@Override
+	public MemberVo getMemberView(HashMap<String, Object> map) {
+		MemberVo memberVo = memberDao.getMemberView(map);
+		return null;
+	}
+
+
+	@Override
+	public void memberUpdate(HashMap<String, Object> map) {
+		memberDao.memberUpdate(map);
+	}
+
+
  
 
 

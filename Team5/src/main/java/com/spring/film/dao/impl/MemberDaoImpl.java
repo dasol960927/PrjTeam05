@@ -1,6 +1,7 @@
 package com.spring.film.dao.impl;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,22 @@ public class MemberDaoImpl implements MemberDao {
 	@Override
 	public void register(HashMap<String, Object> map) {
 		sqlSession.insert("Member.MemberRegister", map);
+	}
+
+	@Override
+	public MemberVo getMemberView(HashMap<String, Object> map) {
+		sqlSession.selectOne("Member.MemberView", map);
+		
+		List<MemberVo> memberList = (List<MemberVo>) map.get("result");
+		
+		MemberVo memberVo = memberList.get(0);
+		
+		return memberVo;
+	}
+
+	@Override
+	public void memberUpdate(HashMap<String, Object> map) {
+		sqlSession.update("Member.MemberUpdate", map);
 	}
 
 
