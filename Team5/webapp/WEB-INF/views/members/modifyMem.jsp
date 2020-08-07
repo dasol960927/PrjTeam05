@@ -100,45 +100,56 @@
             </div>
             <!-- /.card -->
           </div>
-          <!-- /.col -->
-      			
-
-      			
-				<form action="/update" method="POST">
-					<table border="1"  width="500px" >
-						<tr>
-							<td colspan="3" align="center">회원정보수정</td>
-						</tr>						
-						<tr>
-							<td>아이디</td>
-							<td><input name="mId" value="${ memberVo.mId}" readonly="readonly"/></td>
-						</tr>
-						<tr>
-							<td>비밀번호</td>
-							<td><input name="mPass" value="${ memberVo.mPass }"/></td>
-						</tr>
-						<tr>
-							<td>이름</td>
-							<td><input name="mName" value="${ memberVo.mName }" readonly="readonly"/></td>
-						</tr>
-						<tr>
-							<td>성별</td>
-							<td><input name="mGender" value="${ memberVo.mGender }" readonly="readonly"/></td>
-						</tr>
-						<tr>
-							<td>생일</td>
-							<td><input name="mBdate" value="${ memberVo.mBdate }" readonly="readonly"/></td>
-						</tr>
-						<tr>
-							<td colspan="2" align="center">
-								<input type="submit" value="수정" id="btnUpdate">
-							</td>
-						</tr>
-					</table>      			
-      			</form>
-      			
-      			
-      			
+          <!-- /.col -->          			
+		<form action="/update" method="post">
+			<div class="input-group mb-3">
+			  <input type="email" class="form-control" name="mId" value="${ memberVo.mId}" readonly />
+			  <div class="input-group-append">
+				<div class="input-group-text">
+				  <span class="fas fa-envelope"></span>
+				</div>
+			  </div>
+			</div>
+			<div class="input-group mb-3">
+			  <input type="text" class="form-control" name="mPass" value="${ memberVo.mPass }" />
+			  <div class="input-group-append">
+				<div class="input-group-text">
+				  <span class="fas fa-lock"></span>
+				</div>
+			  </div>
+			</div>
+			<div class="input-group mb-3">
+			  <input type="text" class="form-control" name="mName" value="${ memberVo.mName }" readonly/>
+			  <div class="input-group-append">
+				<div class="input-group-text">
+				  <span class="fas fa-user"></span>
+				</div>
+			  </div>
+			</div>
+			<div class="input-group mb-3">
+			  <input type="text" class="form-control" name="mGender" value="${ memberVo.mGender }" readonly/>
+			  <div class="input-group-append">
+				<div class="input-group-text">
+				  <span class="fas fa-user"></span>
+				</div>
+			  </div>
+			</div>
+				<div class="input-group mb-3">
+			  <input type="text" class="form-control" name="mBdate" value="${ memberVo.mBdate }" readonly/>
+			  <div class="input-group-append">
+				<div class="input-group-text">
+				  <span class="fas fa-user"></span>
+				</div>
+			  </div>
+			</div>
+			<div class="row">
+			  <!-- /.col -->
+			  <div class="col-4">
+				<input type="submit" class="btn btn-primary btn-block" value="수정"/>
+			  </div>
+			  <!-- /.col -->
+			</div>
+		</form>      						
         </div>
         <!-- /.row -->
       </div><!-- /.container-fluid -->

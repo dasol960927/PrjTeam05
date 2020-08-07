@@ -66,11 +66,11 @@ table { width:800px; margin:0 auto; }
                   </li>
                   <li class="list-group-item">
                   	<br/>
-                    <b>충전내역</b> <a class="float-right" href="#">충전하기</a> <p class="float-right">&nbsp;&nbsp;건&nbsp;&nbsp;</p> <a class="float-right" href="/DPS/List?mId=AAAA">00</a>  
+                    <b>충전내역</b> <a class="float-right" href="#">충전하기</a> <p class="float-right">&nbsp;&nbsp;건&nbsp;&nbsp;</p> <a class="float-right" href="/DPS/List?mId=${mId }">00</a>  
                   </li>
                 </ul>
 				<br/>
-                <a href="#" class="btn btn-primary btn-block"><b>회원정보 수정</b></a>
+                <a href="/updateForm?mId=${mId}" class="btn btn-primary btn-block"><b>회원정보 수정</b></a>
                 <br/>
               </div>
               <!-- /.card-body -->
