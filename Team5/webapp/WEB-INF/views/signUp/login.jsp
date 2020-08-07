@@ -52,7 +52,7 @@
 
        <form action="/loginCheck" method="post">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="mId" placeholder="FilmCritics@gmail.com">
+          <input type="text" class="form-control" name="mId" id="mId" placeholder="FilmCritics@gmail.com">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -60,7 +60,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" name="mPass" placeholder="비밀번호">
+          <input type="password" class="form-control" name="mPass" id="mPass" placeholder="비밀번호">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -99,7 +99,7 @@
         <a href="/forgotPassword">비밀번호를 잊어버리셨나요?</a>
       </p>
       <p class="mb-0">
-        <a href="/register" class="text-center">회원가입</a>
+        <a href="/registerForm" class="text-center">회원가입</a>
       </p>
     </div>
     <!-- /.login-card-body -->

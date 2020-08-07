@@ -14,4 +14,6 @@ public interface MemberService {
 
 	public MemberVo login(HashMap<String, Object> map);
 
+	public void register(HashMap<String, Object> map);
+
 }

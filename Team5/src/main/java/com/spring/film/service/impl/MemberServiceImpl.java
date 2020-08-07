@@ -31,6 +31,12 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 
+	@Override
+	public void register(HashMap<String, Object> map) {
+			memberDao.register(map);
+	}
+
+
  
 
 

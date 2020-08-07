@@ -57,20 +57,11 @@ public class FilmController {
 		@PathVariable("value") String val) {
 		String link = "";
 		switch(val) {
-		case "login": 
-			link = "/signUp/login";
+		case "registerForm": 
+			link = "/signUp/register";
 			break;
 		case "forgotPassword": 
 			link = "/signUp/forgot-password";
-			break;
-		case "register": 
-			link = "/signUp/register";
-			break;
-		case "loginFinish": 
-			link = "redirect:/";
-			break;
-		case "chart": 
-			link = "/reviews/doughnutChar";
 			break;
 		case "filmReview": 
 			link = "/reviews/filmReview";
@@ -92,18 +83,30 @@ public class FilmController {
 		case "apiTest": 
 			link = "/apiTest";
 			break;
+			
+		// appiTest css 추가
+		case "apiTestAddCss": 
+			link = "/apiTestAddCss";
+			break;
+			
 		}
 		return link;
 	}
 	
-	@RequestMapping("/MemberRegister")
-	public ModelAndView register() {
+
+	// 회원가입
+	@RequestMapping("/registerMember")
+	public ModelAndView registerMember(@RequestParam HashMap<String,Object> map) {
 		
-		
+		System.out.println("회원등록하으자" + map);
+		memberService.register(map);
 		ModelAndView mv = new ModelAndView();
+		
 		mv.setViewName("redirect:/login");
 		return mv;
 	}
+	
+	
 
 	@RequestMapping(value="/login", method = RequestMethod.GET)
 	public String login() {
@@ -140,6 +143,9 @@ public class FilmController {
 		session.invalidate();
 		return "redirect:/";
 	}
+	
+	
+
 	
 	//ReqBoardController 에서 안넘어가서 여기에 추가 by박다솔
 	@RequestMapping("/reqBoard")
