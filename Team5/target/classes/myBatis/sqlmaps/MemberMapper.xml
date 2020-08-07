@@ -8,7 +8,7 @@
       <select id="loginCheck" 
 			parameterType="hashmap" 
          	resultType="com.spring.film.vo.MemberVo">
-		SELECT M_ID , M_PASS
+		SELECT M_ID , M_PASS, M_NAME, M_GENDER, M_BDATE, M_CASH
 		FROM   MEMBERS
 		WHERE  M_ID   = #{mId} 
 		AND    M_PASS = #{mPass}	
