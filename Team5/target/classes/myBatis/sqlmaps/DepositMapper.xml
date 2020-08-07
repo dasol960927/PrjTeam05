@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="DEPOSIT">
+
+     <!-- 결과처리를 위한 map 설정  -->
+     <resultMap id="DpsListMap" type="com.spring.deposit.vo.DpsVo"> 
+       <result property="dId"       column="D_ID" javaType="string" />   
+       <result property="mId"     column="M_ID" javaType="string" />   
+       <result property="dGrpId"     column="DEPOSIT_GRP_ID" javaType="string" />   
+       <result property="dComId"   column="DEPOSIT_COM_ID" javaType="string" />   
+       <result property="dPay"     column="D_PAY" javaType="int" />   
+       <result property="dDate"      column="D_DATE" javaType="string" />
+       <result property="dComVal"      column="COM_VAL" javaType="string" />          
+     </resultMap>
+   
+     <select id="DpsList"
+         statementType="CALLABLE" parameterType="hashmap" 
+         resultType="com.spring.deposit.vo.DpsVo">
+         {CALL  PKG_DPS.PROC_DPS_LIST(
+         	#{mId, mode=IN, jdbcType=VARCHAR},
+            #{result, mode=OUT, jdbcType=CURSOR, 
+               javaType=ResultSet, resultMap=DpsListMap }
+         ) }     
+     </select>
+      
+    <insert id="DpsInsert" statementType="CALLABLE" 
+        parameterType="hashmap" >
+         {CALL  PKG_DPS.PROC_DPS_INSERT(         	
+         	#{mId, mode=IN, jdbcType=VARCHAR},         	
+            #{dComId, mode=IN, jdbcType=VARCHAR},
+            #{dPay, mode=IN, jdbcType=INTEGER}
+         ) }		     
+     </insert>  
+             
+  </mapper>        

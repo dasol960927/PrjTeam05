@@ -6,6 +6,16 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>FlimCritics | DepositTable</title>
+<style>
+
+table, th, td {
+	border:1px solid black;
+	border-collapse: collapse;	
+}
+
+table { width:800px; margin:0 auto; }
+
+</style> 
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -101,7 +111,32 @@
           </div>
           <!-- /.col -->
       			
-      	 여기다가 새로운걸 붙이세요		
+		<h1>충전하기</h1>
+			<form action="/DPS/Deposit2?mId=${mId}" method="POST">
+			<table>
+				<tr>
+					<td>결제금액</td>
+					<td>
+						<input type="text" name="dPay" placeholder="1000만원 미만 금액을 입력하세요" />
+					</td>									
+				<tr>
+				
+				<tr>				
+					<td>결제방식</td>
+					<td>
+						<input type="radio" name="dComId" value="COM001" checked>카드
+						<input type="radio" name="dComId" value="COM002" checked>카카오페이
+						<input type="radio" name="dComId" value="COM003" checked>무통장입금		
+					</td>				
+				</tr>
+		
+				<tr>
+					<td colspan="2" style="text-align:right">				
+						<input type="submit" value="확인" />
+					</td>
+				</tr>	
+			</table>
+			</form>		
       			
       			
         </div>
