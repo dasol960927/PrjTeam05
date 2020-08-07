@@ -76,7 +76,7 @@ $(function(){
 					  			
 		                
 					}); 
-				  $('.row').html(html);
+				  $('#film').html(html);
 			  },
 			  error    : function(xhr) {
 				  alert(xhr.status + '' + xhr.textStatus);
@@ -129,7 +129,7 @@ $(function(){
 
 			<div class="card card-solid">
 				<div class="card-body pb-0">
-					<div class="row d-flex align-items-stretch">
+					<div class="row d-flex align-items-stretch" id="film">
 					
 					</div>
 				</div>
