@@ -57,7 +57,7 @@ $(function(){
 					  html +=                      '<p class="text-muted text-sm"><b>감독: </b>'+ item.director +'</p>';
 					  html +=                    '</div>';
 					  html +=                    '<div class="col-5 text-center">';
-					  html +=                    '<img src="' + item.image + '" clas="img-fluid"/>';
+					  html +=                    	'<img src="' + item.image + '" clas="img-fluid"/>';
 					  html +=                    '</div>';
 					  html +=                  '</div>';
 					  html +=                '</div>';
@@ -76,7 +76,7 @@ $(function(){
 					  			
 		                
 					}); 
-				  $('.card').html(html);
+				  $('.row').html(html);
 			  },
 			  error    : function(xhr) {
 				  alert(xhr.status + '' + xhr.textStatus);
@@ -104,49 +104,52 @@ $(function(){
 
   
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>영화 검색 결과</h1>
-          </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="/">Home</a></li>
-              <li class="breadcrumb-item active">영화검색</li>
-            </ol>
-          </div>
-        </div>
-      </div><!-- /.container-fluid -->
-    </section>
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<section class="content-header">
+				<div class="container-fluid">
+					<div class="row mb-2">
+						<div class="col-sm-6">
+							<h1>영화 검색 결과</h1>
+						</div>
+						<div class="col-sm-6">
+							<ol class="breadcrumb float-sm-right">
+								<li class="breadcrumb-item"><a href="/">Home</a></li>
+								<li class="breadcrumb-item active">영화검색</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+				<!-- /.container-fluid -->
+			</section>
 
+			<!-- Main content -->
+			<section class="content">
+				<!-- Default box -->
 
-      <!-- Default box -->
+			<div class="card card-solid">
+				<div class="card-body pb-0">
+					<div class="row d-flex align-items-stretch">
+					
+					</div>
+				</div>
+				<!-- /.card-body -->
+				<div class="card-footer">
+					<nav aria-label="Contacts Page Navigation">
+						<ul class="pagination justify-content-center m-0">
+							<li class="page-item active"><a class="page-link" href="#">1</a></li>
+						</ul>
+					</nav>
+				</div>
+				<!-- /.card-footer -->
+			</div>
+			<!-- /.card -->
+		</section>
+		<!-- /.content -->
+	</div>
+	<!-- /.content-wrapper -->
 
-      <div class="card card-solid">
-        <div class="card-body pb-0">
-          <div class="row d-flex align-items-stretch">
-          
-              </div>
-            </div>
-          </div>
-        </div>
-       
-        
-        <!-- /.card-body -->
-        <div class="card-footer">
-          <nav aria-label="Contacts Page Navigation">
-            <ul class="pagination justify-content-center m-0">
-              <li class="page-item active"><a class="page-link" href="#">1</a></li>
-            </ul>
-          </nav>
-        </div>
-        <!-- /.card-footer -->
-      </div>
-
-  <footer class="main-footer">
+		<footer class="main-footer">
     <div class="float-right d-none d-sm-block">
       <b>Version</b> 1.0.0
     </div>
