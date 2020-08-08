@@ -149,7 +149,6 @@ table { width:800px; margin:0 auto; }
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
-       
         </div>
         <!-- /.row -->
       </div>

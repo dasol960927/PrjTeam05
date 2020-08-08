@@ -120,34 +120,42 @@ table { width:800px; margin:0 auto; }
           </div>
           <!-- /.col -->
       			
-		<h1>충전하기</h1>
-			<form action="/DPS/Deposit2?mId=${mId}" method="POST">
-			<table>
-				<tr>
-					<td>결제금액</td>
+		      	<div>		
+              <div class="card-body">
+              	<h1>${mId }님의 충전하기</h1>
+				<form action="/DPS/Deposit2?mId=${mId}" method="POST">
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                    <th>결제금액</th>
+                    <th>결제방식</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
 					<td>
-						<input type="text" name="dPay" placeholder="1000만원 미만 금액을 입력하세요" />
-					</td>									
-				<tr>
-				
-				<tr>				
-					<td>결제방식</td>
-					<td>
-						<input type="radio" name="dComId" value="COM001" checked>카드
-						<input type="radio" name="dComId" value="COM002" checked>카카오페이
-						<input type="radio" name="dComId" value="COM003" checked>무통장입금		
-					</td>				
-				</tr>
-		
-				<tr>
-					<td colspan="2" style="text-align:right">				
-						<input type="submit" value="확인" />
+						<input type="text" name="dPay" placeholder="1000만원 미만 금액을 입력하세요" size="30"/>
 					</td>
-				</tr>	
-			</table>
-			</form>			
-      			
-      			
+					<td>
+						<input type="radio" name="dComId" value="COM001" id="card"    checked/><label for="card">카드</label>
+						<input type="radio" name="dComId" value="COM002" id="kakaopay" /><label for="kakaopay">카카오페이</label>
+						<input type="radio" name="dComId" value="COM003" id="bank"     /><label for="bank">무통장입금</label>		
+					</td>
+					</tr>
+                  </tbody>
+                  <tfoot>
+                  <tr>
+                    <th colspan="2" style="text-align:right;">
+					<input type="submit" value="확인" />
+					</th>
+                  </tr>
+                  </tfoot>
+                </table>
+				</form>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
         </div>
         <!-- /.row -->
       </div><!-- /.container-fluid -->
