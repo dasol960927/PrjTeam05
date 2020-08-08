@@ -120,30 +120,40 @@ table { width:800px; margin:0 auto; }
           </div>
           <!-- /.col -->
       	<div>		
-		<h1>${mId} 충전내역</h1> 
-        			<table>
-				<tr>
-					<td>날짜</td>
-					<td>충전금액</td>
-					<td>결제수단</td>						
-				<tr>
-				<c:forEach var="dpsVo" items="${dpsList}">
-					<tr>				
-						<td>${ dpsVo.dDate }</td>
-						<td>${ dpsVo.dPay }</td>
-						<td>${ dpsVo.dComVal }</td>				
-					</tr>
-				</c:forEach>
-				<tr>
-					<td colspan="3" style="text-align:right">				
-						<a href="/DPS/Deposit1?mId=${mId}">충전하기</a>
-					</td>
-				</tr>	
-			</table>
-			</div>				
+              <div class="card-body">
+              	<h1>${mId }님의 충전내역</h1>
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                    <th>날짜</th>
+                    <th>충전금액</th>
+                    <th>결제수단</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+					<c:forEach var="dpsVo" items="${dpsList}">
+						<tr>				
+							<td>${ dpsVo.dDate }</td>
+							<td>${ dpsVo.dPay }</td>
+							<td>${ dpsVo.dComVal }</td>				
+						</tr>
+					</c:forEach>
+                  </tbody>
+                  <tfoot>
+                  <tr>
+                    <th colspan="3" style="text-align:right;"><a href="/DPS/Deposit1?mId=${mId}">충전하기</a></th>
+                  </tr>
+                  </tfoot>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+       
         </div>
         <!-- /.row -->
-      </div><!-- /.container-fluid -->
+      </div>
+      <!-- /.container-fluid -->
     </section>
     <!-- /.content -->
   </div>

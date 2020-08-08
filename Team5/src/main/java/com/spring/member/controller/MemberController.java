@@ -61,6 +61,9 @@ public class MemberController {
 		case "depositTable": 
 			link = "table/depositTable";
 			break;
+		case "simpleTable": 
+			link = "table/simpleTable";
+			break;
 			
 		//ReqBoardController 에서 안넘어가서 여기에 추가 by박다솔
 		case "reqBoardWriter": 
