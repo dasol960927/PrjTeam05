@@ -83,7 +83,14 @@ public class MemberController {
 		case "FilmSearch": 
 			link = "reviews/FilmSearch";
 			break;
+		
+		// 찜 테이블 likelist.jsp
+		case "Likelist": 
+			link = "table/likelist";
+			break;
 		}
+	
+		
 		return link;
 	}
 	
