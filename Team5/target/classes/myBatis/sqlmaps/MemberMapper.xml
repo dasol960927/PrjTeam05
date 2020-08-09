@@ -11,6 +11,7 @@
        <result property="mPass"  	column="M_PASS" 	javaType="string" />   
        <result property="mGender"   column="M_GENDER" 	javaType="string" />   
        <result property="mBdate"  	column="M_BDATE" 	javaType="string" />   
+       <result property="mPhone"  	column="M_PHONE" 	javaType="string" />   
        <result property="mCash"   	column="M_CASH" 	javaType="int" />   
           
      </resultMap>
@@ -49,8 +50,7 @@
    
    <update id="MemberUpdate"
    			statementType="CALLABLE" 
-   			parameterType="hashmap" 
-   			>
+   			parameterType="hashmap" >
    			
    			{CALL PKG_MEMBERS.PROC_MEMBERS_UPDATE(
    			#{ mId, mode=IN, jdbcType=VARCHAR},
@@ -58,6 +58,17 @@
    		)}
    			
    </update>
+     
+   <select  id="find_id"
+   			statementType="CALLABLE" 
+   			parameterType="hashmap" 
+   			resultType="com.spring.member.vo.MemberVo">
+   			{CALL PKG_MEMBERS.PROC_MEMBERS_FIND(
+   			#{ mPhone, mode=IN, jdbcType=VARCHAR},
+   			#{ result, mode=OUT, jdbcType=CURSOR
+   			, javaType=ResultSet, resultMap=MemberMap }
+   
+   </select>
      
   </mapper>        
 
