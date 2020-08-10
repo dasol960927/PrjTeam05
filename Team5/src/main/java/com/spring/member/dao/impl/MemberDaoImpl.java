@@ -50,6 +50,7 @@ public class MemberDaoImpl implements MemberDao {
 	public MemberVo find_id(HashMap<String, Object> map) throws Exception {
 		MemberVo memberVo = sqlSession.selectOne("Member.find_id", map);
 		System.out.println("memberVo=" + memberVo);
+		System.out.println(map);
 		return memberVo;
 	}
 

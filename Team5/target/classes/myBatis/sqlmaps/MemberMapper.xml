@@ -66,8 +66,8 @@
    			resultType="com.spring.member.vo.MemberVo">
    			SELECT M_ID
 			FROM   MEMBERS
-			WHERE  mName = #{M_NAME}	 
-			AND    mPhone   = #{M_PHONE}
+			WHERE  M_NAME = #{mName}	 
+			AND    M_PHONE   = #{mPhone}
 			 	
    </select>
      

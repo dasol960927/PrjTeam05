@@ -188,10 +188,11 @@ public class MemberController {
 	}
 
 	// 아이디 찾기
-	@RequestMapping(value = "/find_id", method = RequestMethod.POST)
+	@RequestMapping(value = "/find_Id", method = RequestMethod.POST)
 	public String find_id( @RequestParam HashMap<String, Object> map) throws Exception{
 		MemberVo vo = memberService.find_id(map);
-		return "/members/find_id";
+		System.out.println(map);
+		return "redirect:/find_id";
 	}	
 	
 	@RequestMapping("/reqBoard")
