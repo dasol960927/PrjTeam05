@@ -31,7 +31,7 @@ function nullCheck(string) {
 	return checkValue;
 }
 
-//포스터 url
+//포스터, 스틸컷 url
 function poster(string) {
 	var str = string.split('|');
 	
@@ -62,38 +62,51 @@ $(function(){
 			var list;
 			var exit= false;
 			var html = '';
+			
 				$.each(json, function(index, item) {
 					list = json.Result;
 					console.log(json.Result);
-					
+										
 					$.each(list, function(index, item) {
-						var pos = poster(item.posters); //이미지 문자열 자르기
 						var tit = title(item.titleEtc); //제목 문자열 자르기
-						var stl = poster(item.stlls);
 						
+						//스틸컷
+						var stllsVal = '';
+						var stl = poster(item.stlls); //스틸컷 문자열 자르기
+						if(stl == ""){
+							stllsVal += '스틸컷 없음';
+						}else{
+							for(var i=0; i<3; i++) {
+								stllsVal +='<a href="#"><img src="'+stl[i]+'"/></a>';
+							}
+						}
+
+						//포스터
+						var posterVal = '';
+						var pos = poster(item.posters); //포스터 문자열 자르기
+						if(pos == ''){
+							posterVal = '포스터 없음';
+						}else{
+							posterVal = '<a href="#"><img src="' + pos[0] + '"/></a>';
+						}
+						
+						//배우
 						if(item.actors.actor[4] == null){
-							var v1 = '추가예정';
+							var actorVal = '추가예정';
 						}else{
-							v1 = nullCheck(item.actors.actor[0].actorNm) + ', ';
-							v1 += nullCheck(item.actors.actor[1].actorNm) + ', ';
-							v1 += nullCheck(item.actors.actor[2].actorNm) + ', ';
-			               	v1 += nullCheck(item.actors.actor[3].actorNm) + ', ';
-			               	v1 += nullCheck(item.actors.actor[4].actorNm)
+							actorVal  = nullCheck(item.actors.actor[0].actorNm) + ', ';
+							actorVal += nullCheck(item.actors.actor[1].actorNm) + ', ';
+							actorVal += nullCheck(item.actors.actor[2].actorNm) + ', ';
+							actorVal += nullCheck(item.actors.actor[3].actorNm) + ', ';
+							actorVal += nullCheck(item.actors.actor[4].actorNm)
 			            }
 						
-						if(item.stlls == null){
-							var v1 = '  ';
-						}else{
-							v1 = '<a href="#"><img src="' + stl[0] + '"/></a>';
-							v1 += '<a href="#"><img src="' + stl[1] + '"/></a>';
-							v1 += '<a href="#"><img src="' + sil[2] + '"/></a>';
-			            }
-						  
 						html += '<div>';
-						html += '<a href="#"><img src="' + pos[0] + '"/></a>'; 
+						html += posterVal + '<br>';
+						html += stllsVal;
 			            html += '<p>제목 : ' + tit[1] + '</p>';
 			           	html += '<p>감독 : ' + item.directors.director[0].directorNm + '</p>';
-			           	html += '<p>배우 : ' +  v1 + '</p>';
+			           	html += '<p>배우 : ' +  actorVal + '</p>';
 			           	html += '<p>줄거리 : ' + nullCheck(item.plots.plot[0].plotText) + '</p>';
 		               	html += '<p>개봉일자 : ' + item.repRlsDate + '</p>';
 			            html += '</div>';
@@ -102,14 +115,13 @@ $(function(){
 					  });
 					  if(exit){ return false;} //이중 ajax 빠져나오기
 				});
-			  $('#div1').html(html);
+			$('#div1').html(html);
 		},
 		error : function(xhr) {
 			alert(xhr.status + '' + xhr.textStatus);
 	  	}
 	});
 });
-
 
 </script>
 </head>
