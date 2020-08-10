@@ -72,7 +72,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="mPhone" placeholder="ex)01011112222">
+          <input type="text" class="form-control" name="mPhone" placeholder="ex)010-1111-2222">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>

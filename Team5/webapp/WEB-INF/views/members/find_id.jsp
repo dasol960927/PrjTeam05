@@ -38,7 +38,9 @@
               <span class="fas fa-user"></span>
             </div>
           </div>
-		  <input type="text" class="form-control" placeholder="01012345678" id="mPhone" name="mPhone" required>
+          </div>
+          <div class="input-group mb-3">
+		  <input type="text" class="form-control" placeholder="010-1234-5678" id="mPhone" name="mPhone" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lg fa-phone"></span>
