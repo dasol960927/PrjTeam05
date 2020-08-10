@@ -2,6 +2,7 @@ package com.spring.member.service.impl;
 
 import java.io.PrintWriter;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -49,6 +50,14 @@ public class MemberServiceImpl implements MemberService {
 	public MemberVo find_id(HashMap<String, Object> map) throws Exception {
 		MemberVo memberVo = memberDao.find_id(map);
 		return memberVo;
+	}
+
+
+	@Override
+	public int mIdCheck(String mId) {
+		int chk = memberDao.mIdCheck(mId);
+		System.out.println("아이디중복체크 서비스 " + chk);
+		return chk;
 	}
  
 
