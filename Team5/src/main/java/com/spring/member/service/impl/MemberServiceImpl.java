@@ -55,9 +55,7 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public int mIdCheck(String mId) {
-		int chk = memberDao.mIdCheck(mId);
-		System.out.println("아이디중복체크 서비스 " + chk);
-		return chk;
+		return memberDao.mIdCheck(mId);
 	}
  
 

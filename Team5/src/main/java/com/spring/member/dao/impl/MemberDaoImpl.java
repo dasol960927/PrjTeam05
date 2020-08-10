@@ -56,9 +56,7 @@ public class MemberDaoImpl implements MemberDao {
 
 	@Override
 	public int mIdCheck(String mId) {
-		int chk = sqlSession.selectOne("Member.mIdCheck", mId);
-		System.out.println("아이디중복체크 다오 " + chk);
-		return chk;
+		return sqlSession.selectOne("Member.mIdCheck", mId);
 	}
 
 

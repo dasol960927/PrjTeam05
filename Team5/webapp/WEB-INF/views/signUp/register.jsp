@@ -26,15 +26,12 @@ $(function(){
 	//아이디 유효성 검사(1 = 중복 / 0 != 중복)
 	$('#mIdChk').on('click', function(){
 		var mIdVal = $('#mId').val();
-		alert(mIdVal);
 		$.ajax({
 			url : '/mIdCheck',
 			type: 'get',
 			data: {'mId' : mIdVal},
 			datatype: 'json',
 			success : function(data) {
-				alert(data);	
-				console.log(data);
 				if (data == 1) {
 						$('#mIdResult').text('중복된 아이디 입니다');
 						$('#mIdResult').css('color', 'red');
@@ -87,7 +84,7 @@ $(function(){
             </div>
           </div>
         </div>
-              <div id="mIdResult">결과</div>
+              <div id="mIdResult"></div>
         <div class="input-group mb-3">
           <input type="password" class="form-control" name="mPass" id="mPass" placeholder="비밀번호" required>
           <div class="input-group-append">
