@@ -1,21 +1,12 @@
 package com.spring.naverfilm.vo;
 
 public class NaverFilmVo {
-	private String keyword;
-	
 	private String title;
 	private String image;
 	private String pubDate;
 	private String director;
 	private String actor;
 	private String userRating;
-	
-	public String getKeyword() {
-		return keyword;
-	}
-	public void setKeyword(String keyword) {
-		this.keyword = keyword;
-	}
 	
 	public String getTitle() {
 		return title;
