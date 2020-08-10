@@ -18,6 +18,16 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$("#btnDel").on('click', function(){
+			alert("탈퇴버튼 클릭");
+		})
+		
+		
+	});
+</script>
 
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -127,6 +137,14 @@
 			  </div>
 			</div>
 			<div class="input-group mb-3">
+			  <input type="text" class="form-control" name="mNickName" value="${ memberVo.mNickName}" readonly/>
+			  <div class="input-group-append">
+				<div class="input-group-text">
+				  <span class="fas fa-user"></span>
+				</div>
+			  </div>
+			</div>
+			<div class="input-group mb-3">
 			  <input type="text" class="form-control" name="mGender" value="${ memberVo.mGender }" readonly/>
 			  <div class="input-group-append">
 				<div class="input-group-text">
@@ -146,10 +164,15 @@
 			  <!-- /.col -->
 			  <div class="col-4">
 				<input type="submit" class="btn btn-primary btn-block" value="수정"/>
+				
+				<!-- <input type="button" class="btn btn-primary btn-block" id = "btnDel" onclick="javascript:location.href='./delete'" value="탈퇴"/> -->
+				<input type="button" class="btn btn-primary btn-block" id = "btnDel" value="탈퇴"/>
+				
 			  </div>
 			  <!-- /.col -->
 			</div>
-		</form>      						
+		</form>    
+		  						
         </div>
         <!-- /.row -->
       </div><!-- /.container-fluid -->

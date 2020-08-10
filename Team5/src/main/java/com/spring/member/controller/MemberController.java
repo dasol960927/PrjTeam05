@@ -147,6 +147,7 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
+	//회원정보 수정
 	@RequestMapping("/updateForm")
 	public ModelAndView updateForm(MemberVo vo) {
 		String id = vo.getmId();
@@ -177,6 +178,13 @@ public class MemberController {
 		memberService.memberUpdate(map);
 		return "table/depositTable";
 		
+	}
+	
+	//회원탈퇴
+	@RequestMapping("/delete")
+	public String delete() {
+		System.out.println("hi");
+		return "";
 	}
 
 	@RequestMapping(value = "/find_Id", method = RequestMethod.POST)

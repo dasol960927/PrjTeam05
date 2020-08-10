@@ -32,8 +32,10 @@
    		#{ mId,     mode=IN, jdbcType=VARCHAR, javaType=string},
    		#{ mName,   mode=IN, jdbcType=VARCHAR, javaType=string},
    		#{ mPass,   mode=IN, jdbcType=VARCHAR, javaType=string},
+   		#{ mNickName,   mode=IN, jdbcType=VARCHAR, javaType=string},
    		#{ mGender, mode=IN, jdbcType=VARCHAR, javaType=string},
-   		#{ mBdate,  mode=IN, jdbcType=VARCHAR, javaType=string}
+   		#{ mBdate,  mode=IN, jdbcType=VARCHAR, javaType=string},
+   		#{ mPhone,  mode=IN, jdbcType=VARCHAR, javaType=string}
    	)}
      </insert>
      
