@@ -15,7 +15,7 @@ public interface MemberDao {
 
 		public void memberUpdate(HashMap<String, Object> map);
 
-		String find_id(String mPhone) throws Exception;
+		public MemberVo find_id(HashMap<String, Object> map) throws Exception;
 
 
 }

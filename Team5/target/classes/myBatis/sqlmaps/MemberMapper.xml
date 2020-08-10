@@ -62,14 +62,13 @@
    </update>
      
    <select  id="find_id"
-   			statementType="CALLABLE" 
    			parameterType="hashmap" 
    			resultType="com.spring.member.vo.MemberVo">
-   			{CALL PKG_MEMBERS.PROC_MEMBERS_FIND(
-   			#{ mPhone, mode=IN, jdbcType=VARCHAR},
-   			#{ result, mode=OUT, jdbcType=CURSOR
-   			, javaType=ResultSet, resultMap=MemberMap }
-   
+   			SELECT M_ID
+			FROM   MEMBERS
+			WHERE  mName = #{M_NAME}	 
+			AND    mPhone   = #{M_PHONE}
+			 	
    </select>
      
   </mapper>        

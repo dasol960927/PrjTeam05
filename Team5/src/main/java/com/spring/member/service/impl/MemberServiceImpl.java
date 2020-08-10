@@ -44,19 +44,11 @@ public class MemberServiceImpl implements MemberService {
 		memberDao.memberUpdate(map);
 	}
 
+
 	@Override
-	public String find_id(HttpServletResponse response, String mPhone) throws Exception {
-		response.setContentType("text/html;charset=utf-8");
-		PrintWriter out = response.getWriter();
-		String mId = memberDao.find_id(mPhone);
-		
-		if (mId == null) {
-			System.out.println("null");
-			return null;
-		} else {
-			System.out.println(mId);
-			return mId;
-		}
+	public MemberVo find_id(HashMap<String, Object> map) throws Exception {
+		MemberVo memberVo = memberDao.find_id(map);
+		return memberVo;
 	}
  
 

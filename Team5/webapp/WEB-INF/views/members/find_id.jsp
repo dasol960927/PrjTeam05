@@ -16,6 +16,10 @@
 				<div>
 					
 					<p>
+						<label>이름</label>
+						<input type="text" id="mName" name="mName" required>
+					</p>
+					<p>
 						<label>휴대번호</label>
 						<input type="text" id="mPhone" name="mPhone" required>
 					</p>
