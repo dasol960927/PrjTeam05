@@ -36,23 +36,31 @@
                        alt="User profile picture">
                 </div>
 
-                <h3 class="profile-username text-center">Nina Mcintire</h3>
+                <h3 class="profile-username text-center">이름</h3>
 
-                <p class="text-muted text-center">Software Engineer</p>
+                <p class="text-muted text-center">28(남), 010-0000-0000</p>
 
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
-                    <b>찜한 영화</b> <a class="float-right">1,322</a>
+                  	<br/>
+                    <b>찜한 영화</b> <p class="float-right" >&nbsp;&nbsp;&nbsp;편</p><a class="float-right" href="#">000</a> 
                   </li>
                   <li class="list-group-item">
-                    <b>포인트</b> <a class="float-right">543</a>
+                  	<br/>
+                    <b>잔여캐시</b> <p class="float-right" >&nbsp;&nbsp;&nbsp;원</p><a class="float-right" href="#">000</a> 
                   </li>
                   <li class="list-group-item">
-                    <b>충전방식</b> <a class="float-right">카카오페이</a>
+                  	<br/>
+                    <b>구매내역</b> <p class="float-right" >&nbsp;&nbsp;&nbsp;건</p><a class="float-right" href="#">00</a>
+                  </li>
+                  <li class="list-group-item">
+                  	<br/>
+                    <b>충전내역</b> <a class="float-right" href="#">충전하기</a> <p class="float-right">&nbsp;&nbsp;건&nbsp;&nbsp;</p> <a class="float-right" href="/DPS/List?mId=AAAA">00</a>  
                   </li>
                 </ul>
-
-                <a href="#" class="btn btn-primary btn-block"><b>충전하기</b></a>
+				<br/>
+                <a href="/updateForm?mId=${ login.mId }" class="btn btn-primary btn-block"><b>회원정보 수정</b></a>
+                <br/>
               </div>
               <!-- /.card-body -->
             </div>
@@ -101,7 +109,6 @@
           </div>
           <!-- /.col -->
       			
-      	 여기다가 새로운걸 붙이세요		
       			
       			
         </div>

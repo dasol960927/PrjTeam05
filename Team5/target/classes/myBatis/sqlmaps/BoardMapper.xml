@@ -19,6 +19,7 @@
          statementType="CALLABLE" parameterType="hashmap" 
          resultType="com.spring.board.vo.BoardVo">
          {CALL  PKG_BOARD.PROC_BOARD_LIST(
+         	#{bGubun, mode = IN, jdbcType = VARCHAR},
             #{result, mode=OUT, jdbcType=CURSOR, 
                javaType=ResultSet, resultMap=BoardMap }
          ) }     

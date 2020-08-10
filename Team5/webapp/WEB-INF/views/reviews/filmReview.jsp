@@ -46,9 +46,9 @@
 <div class="wrapper">
 
     <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
+    <form class="form-inline ml-3" method="POST" action="/FilmSearch">
       <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="작품 제목, 배우, 감독을 검색해보세요." size="50" aria-label="Search">
+        <input class="form-control form-control-navbar" type="search" placeholder="영화작품 제목을 검색해보세요."  size="50" aria-label="Search" id="keyword" name="keyword">
         <div class="input-group-append">
           <button class="btn btn-navbar" type="submit">
             <i class="fas fa-search"></i>
@@ -86,7 +86,7 @@
         <div class="card-body">
           <div class="row">
             <div class="col-12 col-sm-6">
-              <h3 class="d-inline-block d-sm-none">LOWA Men’s Renegade GTX Mid Hiking Boots Review</h3>
+              <h3 class="d-inline-block d-sm-none">Films Review</h3>
               <div class="col-12">
                 <img src="/img/bando1.jpg" class="product-image" alt="Product Image">
               </div>
@@ -158,7 +158,7 @@
 
                 <div class="btn btn-default btn-lg btn-flat">
                   <i class="fas fa-heart fa-lg mr-2"></i> 
-                 	찜하기
+                 	<a href="/Likelist">찜하기</a>
                 </div>
               </div>
 
@@ -240,8 +240,6 @@
      * -------
      * Here we will create a few charts using ChartJS
      */
-
-   
 
     //-------------
     //- DONUT CHART -

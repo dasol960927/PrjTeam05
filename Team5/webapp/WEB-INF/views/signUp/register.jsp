@@ -28,9 +28,9 @@
 
   <div class="card">
     <div class="card-body register-card-body">
-      <p class="login-box-msg">회원가입해봅시다</p>
+      <p class="login-box-msg">회원가입</p>
 
-      <form action="/MemberRegister" method="post">
+      <form action="/registerMember" method="post">
         <div class="input-group mb-3">
           <input type="text" class="form-control" name="mName" placeholder="이름">
           <div class="input-group-append">
@@ -57,6 +57,22 @@
         </div>
         <div class="input-group mb-3">
           <input type="password" class="form-control" name="mPassRe" placeholder="비밀번호 재확인">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" name="mNickName" placeholder="닉네임">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" name="mPhone" placeholder="ex)01011112222">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>

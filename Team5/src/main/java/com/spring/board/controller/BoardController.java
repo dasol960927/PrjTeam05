@@ -1,5 +1,6 @@
 package com.spring.board.controller;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,11 +19,20 @@ public class BoardController {
 	
 	@RequestMapping("/Board")
 	public ModelAndView board(String gubun) {
-		List<BoardVo> boardList = boardService.getBoardList(gubun);
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("bGubun", gubun);
+		List<BoardVo> boardList = boardService.getBoardList(map);
 		
+		System.out.println(gubun);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("boardList", boardList);
-		mv.setViewName("board/board");
+		
+		if(gubun.equals("N")) {
+			mv.setViewName("board/boardNotice");			
+		}
+		else if(gubun.equals("F")){
+			mv.setViewName("board/boardFAQ");
+		}
 		
 		return mv;
 	}

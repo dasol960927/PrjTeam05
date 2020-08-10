@@ -16,10 +16,10 @@ public class BoardDaoImpl implements BoardDao {
 	@Autowired
 	private SqlSession sqlSession;
 	
+
 	@Override
-	public List<BoardVo> getBoardList(String gubun) {
-		HashMap<String, Object> map = new HashMap<String, Object>();
-		
+	public List<BoardVo> getBoardList(HashMap<String, Object> map) {
+				
 		sqlSession.selectList("BOARD.BoardList", map);
 		List<BoardVo> boardList = (List<BoardVo>) map.get("result");
 		
