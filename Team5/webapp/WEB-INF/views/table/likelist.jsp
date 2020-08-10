@@ -83,7 +83,7 @@
                            	감독
                       </th>
                       <th style="width: 8%" class="text-center">
-                           	가격
+                           	가격(point)
                       </th>
                       <th style="width: 20%">
                       </th>
