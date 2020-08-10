@@ -25,7 +25,6 @@ $(function(){
 	
 	//아이디 유효성 검사(1 = 중복 / 0 != 중복)
 	$('#mIdChk').on('click', function(){
-		
 		var mIdVal = $('#mId').val();
 		alert(mIdVal);
 		$.ajax({
