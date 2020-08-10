@@ -27,6 +27,9 @@
 						<button type="submit" id=findBtn >find</button>
 						<button type="button" onclick="history.go(-1);" >Cancel</button>
 					</p>
+					<div>
+					
+					</div>
 				</div>
 			</form>
 		</div>
