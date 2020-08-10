@@ -1,6 +1,9 @@
 package com.spring.member.service.impl;
 
+import java.io.PrintWriter;
 import java.util.HashMap;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,7 +44,20 @@ public class MemberServiceImpl implements MemberService {
 		memberDao.memberUpdate(map);
 	}
 
-
+	@Override
+	public String find_id(HttpServletResponse response, String mPhone) throws Exception {
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		String mId = memberDao.find_id(mPhone);
+		
+		if (mId == null) {
+			System.out.println("null");
+			return null;
+		} else {
+			System.out.println(mId);
+			return mId;
+		}
+	}
  
 
 

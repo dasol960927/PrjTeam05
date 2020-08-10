@@ -63,8 +63,8 @@ $(function(){
 					  html +=                '</div>';
 					  html +=                '<div class="card-footer">';
 					  html +=                '<div class="text-right">';
-					  html +=                 '<a href="#" class="btn btn-sm bg-teal">';
-					  html +=                      '<i class="fas fa-user"></i>';
+					  html +=                 '<a href="/Likelist" class="btn btn-sm bg-teal">';
+					  html +=                      '<i class="fas fa-heart"></i>';
 					  html +=                  '</a>';
 					  html +=                   '<a href="/filmReview" class="btn btn-sm btn-primary">'
 					  html +=                      '<i></i> 영화 리뷰';

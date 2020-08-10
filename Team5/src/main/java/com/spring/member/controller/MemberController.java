@@ -2,12 +2,16 @@ package com.spring.member.controller;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -64,6 +68,9 @@ public class MemberController {
 		case "simpleTable": 
 			link = "table/simpleTable";
 			break;
+		case "find_id": 
+			link = "members/find_id";
+			break;
 			
 		//ReqBoardController 에서 안넘어가서 여기에 추가 by박다솔
 		case "reqBoardWriter": 
@@ -76,7 +83,14 @@ public class MemberController {
 		case "FilmSearch": 
 			link = "reviews/FilmSearch";
 			break;
+		
+		// 찜 테이블 likelist.jsp
+		case "Likelist": 
+			link = "table/likelist";
+			break;
 		}
+	
+		
 		return link;
 	}
 	
@@ -173,6 +187,12 @@ public class MemberController {
 		return "";
 	}
 
+	@RequestMapping(value = "/find_Id", method = RequestMethod.POST)
+	public String find_id(HttpServletResponse response, @RequestParam("mPhone") String mPhone, Model md) throws Exception{
+		md.addAttribute("mId", memberService.find_id(response, mPhone));
+		return "/members/find_id";
+	}
+	
 	
 	//ReqBoardController 에서 안넘어가서 여기에 추가 by박다솔
 	@RequestMapping("/reqBoard")
