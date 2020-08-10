@@ -8,6 +8,8 @@ public class MemberVo {
 	private String mPass;
 	private String mGender;
 	private String mBdate;
+	private String mNickName;
+	private String mPhone;
 	private int	   mCash;
 	
 	public String getmId() {
@@ -40,27 +42,51 @@ public class MemberVo {
 	public void setmBdate(String mBdate) {
 		this.mBdate = mBdate;
 	}
+	public String getmNickName() {
+		return mNickName;
+	}
+	public void setmNickName(String mNickName) {
+		this.mNickName = mNickName;
+	}
+	public String getmPhone() {
+		return mPhone;
+	}
+	public void setmPhone(String mPhone) {
+		this.mPhone = mPhone;
+	}
 	public int getmCash() {
 		return mCash;
 	}
 	public void setmCash(int mCash) {
 		this.mCash = mCash;
 	}
+	
 	@Override
 	public String toString() {
 		return "MemberVo [mId=" + mId + ", mName=" + mName + ", mPass=" + mPass + ", mGender=" + mGender + ", mBdate="
-				+ mBdate + ", mCash=" + mCash + "]";
+				+ mBdate + ", mNickName=" + mNickName + ", mPhone=" + mPhone + ", mCash=" + mCash + "]";
 	}
+	
 	public MemberVo() {}
-	public MemberVo(String mId, String mName, String mPass, String mGender, String mBdate, int mCash) {
+	
+	public MemberVo(String mId, String mName, String mPass, String mGender, String mBdate, String mNickName,
+			String mPhone, int mCash) {
 		super();
 		this.mId = mId;
 		this.mName = mName;
 		this.mPass = mPass;
 		this.mGender = mGender;
 		this.mBdate = mBdate;
+		this.mNickName = mNickName;
+		this.mPhone = mPhone;
 		this.mCash = mCash;
 	}
+	
+	
+	
+	
+	
+
 
 	
 	
