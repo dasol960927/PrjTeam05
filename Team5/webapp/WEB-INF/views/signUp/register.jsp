@@ -52,6 +52,29 @@ $(function(){
 				}
 			});
 		});
+	
+	
+		// 비밀번호 재확인
+		$('input[type=password]').focusout(function () {
+	        var pwd1 = $("#mPass").val();
+	        var pwd2 = $("#mPassRe").val();
+	 
+	        if ( pwd1 != '' && pwd2 == '' ) {
+	            $("#mPassResult").text('입력해주세요.');
+				$("#mPassResult").css('color', 'green'); 	
+				$("#mPassResult").css('font-weight', 'bold'); 	
+	        } else if (pwd1 != "" || pwd2 != "") {
+	            if (pwd1 == pwd2) {
+					$("#mPassResult").text('일치합니다.');
+	                $("#mPassResult").css('color', 'blue'); 	
+					$("#mPassResult").css('font-weight', 'bold'); 	
+	            } else {
+					$("#mPassResult").text('다시 입력해주세요.');
+	                $("#mPassResult").css('color', 'red');
+					$("#mPassResult").css('font-weight', 'bold'); 	
+	            }
+	        }
+	    });
 			
 	});
 </script>
@@ -101,6 +124,7 @@ $(function(){
             </div>
           </div>
         </div>
+        <div id="mPassResult"></div>
         <div class="input-group mb-3">
           <input type="text" class="form-control" name="mNickName" id="mNickName" placeholder="닉네임" required>
           <div class="input-group-append">
