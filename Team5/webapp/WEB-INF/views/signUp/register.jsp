@@ -67,7 +67,7 @@
           <input type="text" class="form-control" name="mNickName" placeholder="닉네임">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-lock"></span>
+              <span class="fas fa-user"></span>
             </div>
           </div>
         </div>
@@ -75,7 +75,7 @@
           <input type="text" class="form-control" name="mPhone" placeholder="ex)010-1111-2222">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-lock"></span>
+              <span class="fas fa-lg fa-phone"></span>
             </div>
           </div>
         </div>
