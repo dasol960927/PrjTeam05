@@ -18,8 +18,8 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 		System.out.println("prehandle:" + request.getRequestURI());
 		
 		switch( request.getRequestURI() ) { // 현재 파일정보	
-		case "/find_Id" :
 		case "/forgotPassword" :
+		case "/find_id" :
 		case "/registerMember" :
 		case "/registerForm":
 		case "/login":
