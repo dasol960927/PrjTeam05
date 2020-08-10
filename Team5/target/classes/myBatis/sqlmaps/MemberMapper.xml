@@ -72,7 +72,7 @@
    </select>
    
    	<select id="mIdCheck" 
-			parameterType="hashmap" 
+			parameterType="String" 
    			resultType="int">
    			SELECT COUNT(M_ID)
 			FROM   MEMBERS

@@ -26,19 +26,22 @@ $(function(){
 	//아이디 유효성 검사(1 = 중복 / 0 != 중복)
 	$('#mIdChk').on('click', function(){
 		
-		var mId = $('#mId').val();
-		alert(mId);
+		var mIdVal = $('#mId').val();
+		alert(mIdVal);
 		$.ajax({
-			url : '/mIdCheck?mId=' + mId,
+			url : '/mIdCheck',
 			type: 'get',
+			data: {'mId' : mIdVal},
+			datatype: 'json',
 			success : function(data) {
-				alert(data);							
+				alert(data);	
+				console.log(data);
 				if (data == 1) {
 						$('#mIdResult').text('중복된 아이디 입니다');
 						$('#mIdResult').css('color', 'red');
 						$('#mIdResult').css('font-weight', 'bold');
 					} 
-					 else if(mId == ''){
+					 else if(mIdVal == ''){
 							$('#mIdResult').text('아이디를 입력해주세요');
 							$('#mIdResult').css('color', 'green');
 							$('#mIdResult').css('font-weight', 'bold');
