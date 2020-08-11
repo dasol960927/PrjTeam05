@@ -197,11 +197,10 @@ public class MemberController {
 	}
 
 	// 아이디 찾기
-	@RequestMapping(value = "/find_id", method = RequestMethod.POST)
-	public String find_id(HttpServletResponse response, @RequestParam("mPhone") String mPhone, Model md) throws Exception{
-		md.addAttribute("mId", memberService.find_id(response, mPhone));
-		return "/members/find_id";
-
+	@RequestMapping(value = "/find_Id", method = RequestMethod.POST)
+	public String find_id( @RequestParam HashMap<String, Object> map) throws Exception{
+		MemberVo vo = memberService.find_id(map);
+		return "redirect:/find_id";
 	}	
 	
 	@RequestMapping("/reqBoard")
