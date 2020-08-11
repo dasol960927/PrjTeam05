@@ -47,9 +47,9 @@ public class MemberServiceImpl implements MemberService {
 
 
 	@Override
-	public MemberVo find_id(HashMap<String, Object> map) throws Exception {
-		MemberVo memberVo = memberDao.find_id(map);
-		return memberVo;
+	public void find_id(HashMap<String, Object> map) {
+		memberDao.find_id(map);
+		
 	}
 
 

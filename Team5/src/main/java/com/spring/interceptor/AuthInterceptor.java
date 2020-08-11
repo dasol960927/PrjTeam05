@@ -22,7 +22,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 		case "/mIdCheck" : 
 		case "/registerForm": 
 		case "/forgotPassword" :
-		case "/find_id" :
+		case "/find_idForm" :
 		case "/find_Id" :
 		case "/registerMember" :
 		case "/loginCheck":

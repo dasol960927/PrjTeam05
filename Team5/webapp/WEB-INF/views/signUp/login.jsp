@@ -102,7 +102,7 @@
         <a href="/registerForm" class="text-center">회원가입</a>
       </p>
       <p class="mb-0">
-        <a href="/find_id" class="text-center">아이디찾기</a>
+        <a href="/find_idForm" class="text-center">아이디찾기</a>
       </p>
     </div>
     <!-- /.login-card-body -->

@@ -68,7 +68,7 @@ public class MemberController {
 		case "simpleTable": 
 			link = "table/simpleTable";
 			break;
-		case "find_id": 
+		case "find_idForm": 
 			link = "members/find_id";
 			break;
 			
@@ -93,8 +93,6 @@ public class MemberController {
 		
 		return link;
 	}
-	
-	
 	
 
 	// 회원가입
@@ -197,12 +195,10 @@ public class MemberController {
 	}
 
 	// 아이디 찾기
-	@RequestMapping(value = "/find_Id", method = RequestMethod.POST)
-	@ResponseBody
-	public MemberVo find_id( @RequestParam HashMap<String, Object> map) throws Exception{
-		MemberVo vo = memberService.find_id(map);
-		System.out.println(map);
-		return vo;
+	@RequestMapping("/find_Id")
+	public void find_id( @RequestParam HashMap<String, Object> map) {
+		memberService.find_id(map);
+				
 	}	
 	
 	@RequestMapping("/reqBoard")

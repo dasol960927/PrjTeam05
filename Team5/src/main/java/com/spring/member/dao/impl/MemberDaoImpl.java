@@ -47,11 +47,10 @@ public class MemberDaoImpl implements MemberDao {
 
 
 	@Override
-	public MemberVo find_id(HashMap<String, Object> map) throws Exception {
+	public void find_id(HashMap<String, Object> map) {
 		MemberVo memberVo = sqlSession.selectOne("Member.find_id", map);
 		System.out.println("memberVo=" + memberVo);
-		System.out.println(map);
-		return memberVo;
+		
 	}
 
 	@Override

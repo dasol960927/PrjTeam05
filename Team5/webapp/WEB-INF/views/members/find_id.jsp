@@ -21,22 +21,21 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-   <script>
+<script>
    $(function(){
 		$('#Find').on('click', function(){
 			
 			 $.ajax({
-                 url      : '/find_id'
+                 url      : '/find_Id'
                , data     : { mName : $('#mName').val() ,
             	   			  mPhone : $('#mPhone').val() 	}
                , dataType : 'json'
                , success  : function(data) {
                   var Id = data.mId;
                   alert(Id);
-                  $("#fid").text("<h3> 아이디:" + Id + "</h3>")
                }
-               , error    : function() {
-                  alert("아이디를 찾을수 없습니다.");
+               , error    : function(xhr) {
+            	   alert("error: " + xhr.status + "," + xhr.textStatus)
                } 
             });
 		});
