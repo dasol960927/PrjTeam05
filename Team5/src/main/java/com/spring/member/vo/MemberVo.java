@@ -6,11 +6,13 @@ public class MemberVo {
 	private String mId;
 	private String mName;
 	private String mPass;
+	private String mNickName;
 	private String mGender;
 	private String mBdate;
-	private String mNickName;
 	private String mPhone;
 	private int	   mCash;
+	private String outErrCode;
+	
 	
 	public String getmId() {
 		return mId;
@@ -60,17 +62,23 @@ public class MemberVo {
 	public void setmCash(int mCash) {
 		this.mCash = mCash;
 	}
+	public String getOutErrCode() {
+		return outErrCode;
+	}
+	public void setOutErrCode(String outErrCode) {
+		this.outErrCode = outErrCode;
+	}
 	
 	@Override
 	public String toString() {
 		return "MemberVo [mId=" + mId + ", mName=" + mName + ", mPass=" + mPass + ", mGender=" + mGender + ", mBdate="
-				+ mBdate + ", mNickName=" + mNickName + ", mPhone=" + mPhone + ", mCash=" + mCash + "]";
+				+ mBdate + ", mNickName=" + mNickName + ", mPhone=" + mPhone + ", mCash=" + mCash + ", outErrCode=" + outErrCode +"]";
 	}
 	
 	public MemberVo() {}
 	
 	public MemberVo(String mId, String mName, String mPass, String mGender, String mBdate, String mNickName,
-			String mPhone, int mCash) {
+			String mPhone, int mCash, String outErrCode) {
 		super();
 		this.mId = mId;
 		this.mName = mName;
@@ -80,6 +88,7 @@ public class MemberVo {
 		this.mNickName = mNickName;
 		this.mPhone = mPhone;
 		this.mCash = mCash;
+		this.outErrCode = outErrCode;
 	}
 	
 	

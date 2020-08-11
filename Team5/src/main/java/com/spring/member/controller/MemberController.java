@@ -88,6 +88,12 @@ public class MemberController {
 		case "Likelist": 
 			link = "table/likelist";
 			break;
+			
+		//에러 페이지
+		case "ErrorPage":
+			link = "errorPage/500Page";
+			break;
+			
 		}
 	
 		
@@ -96,15 +102,18 @@ public class MemberController {
 	
 	
 	
-
 	// 회원가입
 	@RequestMapping("/registerMember")
 	public ModelAndView registerMember(@RequestParam HashMap<String,Object> map) {
 		
 		memberService.register(map);
 		ModelAndView mv = new ModelAndView();
-		
-		mv.setViewName("redirect:/login");
+		System.out.println("회원가입" + map);
+		String errCode = (String) map.get("outErrCode");
+		if(errCode.equals("8282")) {
+			mv.setViewName("redirect:/registerForm");
+		}else
+			mv.setViewName("redirect:/login");
 		return mv;
 	}
 	

@@ -19,6 +19,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 		
 		switch( request.getRequestURI() ) { // 현재 파일정보
 		case "/login":
+		case "/ErrorPage":
 		case "/mIdCheck" : 
 		case "/registerForm": 
 		case "/forgotPassword" :
