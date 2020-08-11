@@ -75,8 +75,7 @@ public class MemberVo {
 	}
 	public void setOutErrCode(String outErrCode) {
 		this.outErrCode = outErrCode;
-	}
-	
+	}	
 	public int getCntl() {
 		return cntl;
 	}
@@ -97,67 +96,33 @@ public class MemberVo {
 	}
 	
 	
-	/*
-	 * @Override public String toString() { return "MemberVo [mId=" + mId +
-	 * ", mName=" + mName + ", mPass=" + mPass + ", mGender=" + mGender +
-	 * ", mBdate=" + mBdate + ", mNickName=" + mNickName + ", mPhone=" + mPhone +
-	 * ", mCash=" + mCash + "]"; }
-	 */
-	
-	
+
 	
 	public MemberVo() {}
-	@Override
-	public String toString() {
-		return "MemberVo [mId=" + mId + ", mName=" + mName + ", mPass=" + mPass + ", mGender=" + mGender + ", mBdate="
-<<<<<<< HEAD
-				+ mBdate + ", mNickName=" + mNickName + ", mPhone=" + mPhone + ", mCash=" + mCash + ", outErrCode=" + outErrCode +"]";
-=======
-				+ mBdate + ", mNickName=" + mNickName + ", mPhone=" + mPhone + ", mCash=" + mCash + ", cntl=" + cntl
-				+ ", cntp=" + cntp + ", cntd=" + cntd + "]";
->>>>>>> branch 'master' of https://github.com/dasol960927/PrjTeam05.git
-	}
-	public MemberVo(String mId, String mName, String mPass, String mGender, String mBdate, String mNickName,
-<<<<<<< HEAD
-			String mPhone, int mCash, String outErrCode) {
-=======
-			String mPhone, int mCash, int cntl, int cntp, int cntd) {
->>>>>>> branch 'master' of https://github.com/dasol960927/PrjTeam05.git
+	public MemberVo(String mId, String mName, String mPass, String mNickName, String mGender, String mBdate,
+			String mPhone, int mCash, String outErrCode, int cntl, int cntp, int cntd) {
 		super();
 		this.mId = mId;
 		this.mName = mName;
 		this.mPass = mPass;
+		this.mNickName = mNickName;
 		this.mGender = mGender;
 		this.mBdate = mBdate;
-		this.mNickName = mNickName;
 		this.mPhone = mPhone;
 		this.mCash = mCash;
-<<<<<<< HEAD
 		this.outErrCode = outErrCode;
-=======
-		
 		this.cntl = cntl;
 		this.cntp = cntp;
 		this.cntd = cntd;
->>>>>>> branch 'master' of https://github.com/dasol960927/PrjTeam05.git
 	}
 	
-	/*
-	 * public MemberVo(String mId, String mName, String mPass, String mGender,
-	 * String mBdate, String mNickName, String mPhone, int mCash) { super();
-	 * this.mId = mId; this.mName = mName; this.mPass = mPass; this.mGender =
-	 * mGender; this.mBdate = mBdate; this.mNickName = mNickName; this.mPhone =
-	 * mPhone; this.mCash = mCash; }
-	 */
-	
-	 	
-	
-	
-	
-	
-	
-
-
+	@Override
+	public String toString() {
+		return "MemberVo [mId=" + mId + ", mName=" + mName + ", mPass=" + mPass + ", mNickName=" + mNickName
+				+ ", mGender=" + mGender + ", mBdate=" + mBdate + ", mPhone=" + mPhone + ", mCash=" + mCash
+				+ ", outErrCode=" + outErrCode + ", cntl=" + cntl + ", cntp=" + cntp + ", cntd=" + cntd + "]";
+	}
+ 
 	
 	
 	
