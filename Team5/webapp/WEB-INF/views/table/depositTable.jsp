@@ -31,36 +31,35 @@
             <div class="card card-primary card-outline">
               <div class="card-body box-profile">
                 <div class="text-center">
-                  <div><a href="/">Home</a></div>
                   <img class="profile-user-img img-fluid img-circle"
                        src="/dist/img/user4-128x128.jpg"
                        alt="User profile picture">
                 </div>
+				
+                <h3 class="profile-username text-center">${ memberVo.mName }</h3>
 
-                <h3 class="profile-username text-center">이름</h3>
-
-                <p class="text-muted text-center">28(남), 010-0000-0000</p>
+                <p class="text-muted text-center">${memberVo.mBdate} (${memberVo.mGender}), ${memberVo.mPhone}</p>
 
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
                   	<br/>
-                    <b>찜한 영화</b> <p class="float-right" >&nbsp;&nbsp;&nbsp;편</p><a class="float-right" href="#">000</a> 
+                    <b>찜한 영화</b> <p class="float-right" >&nbsp;&nbsp;&nbsp;편</p><a class="float-right" href="#">${memberVo.cntl}</a> 
                   </li>
                   <li class="list-group-item">
                   	<br/>
-                    <b>잔여캐시</b> <p class="float-right" >&nbsp;&nbsp;&nbsp;원</p><a class="float-right" href="#">000</a> 
+                    <b>잔여캐시</b> <p class="float-right" >&nbsp;&nbsp;&nbsp;원</p><a class="float-right" >${memberVo.mCash}</a> 
                   </li>
                   <li class="list-group-item">
                   	<br/>
-                    <b>구매내역</b> <p class="float-right" >&nbsp;&nbsp;&nbsp;건</p><a class="float-right" href="#">00</a>
+                    <b>구매내역</b><a class="float-right" href="/PUR/purFilm?mId=${memberVo.mId}">구매하기(프로시저테스트용)</a> <p class="float-right" >&nbsp;&nbsp;&nbsp;건</p><a class="float-right" href="/PUR/List?mId=${memberVo.mId}">${memberVo.cntp}</a>
                   </li>
                   <li class="list-group-item">
                   	<br/>
-                    <b>충전내역</b> <a class="float-right" href="#">충전하기</a> <p class="float-right">&nbsp;&nbsp;건&nbsp;&nbsp;</p> <a class="float-right" href="/DPS/List?mId=AAAA">00</a>  
+                    <b>충전내역</b> <a class="float-right" href="/DPS/Deposit1?mId=${memberVo.mId}">충전하기</a> <p class="float-right">&nbsp;&nbsp;건&nbsp;&nbsp;</p> <a class="float-right" href="/DPS/List?mId=${memberVo.mId}">${memberVo.cntd}</a>  
                   </li>
                 </ul>
 				<br/>
-                <a href="/updateForm?mId=${ login.mId }" class="btn btn-primary btn-block"><b>회원정보 수정</b></a>
+                <a href="/updateForm?mId=${ memberVo.mId }" class="btn btn-primary btn-block"><b>회원정보 수정</b></a>
                 <br/>
               </div>
               <!-- /.card-body -->
@@ -129,7 +128,7 @@
 		<div>주식회사 TeamFive | 대표 송지현 | 팀원 김상두 이재혁 박다솔 김주희 | 부산광역시 남구 용당동 부경대용당캠퍼스 공학 6관 | <br/>
 		사업자등록번호 8282-2424 | 통신판매업 신고번호 제 2020-부산용당-2020호  <br/>
 		대표번호 051-629-5233 <br/>
-		 개인정보 처리 방침</div>
+		 개인정보 처리 방침11</div>
 		 
   </footer>
 

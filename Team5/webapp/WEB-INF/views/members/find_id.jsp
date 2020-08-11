@@ -23,8 +23,7 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
    $(function(){
-		$('#Find').on('click', function(){
-			
+		$('#btnFind').on('click', function(){
 			 $.ajax({
                  url      : '/find_Id'
                , data     : { mName : $('#mName').val() ,
@@ -70,8 +69,8 @@
         </div>
         <div class="row">
           <div class="col-12">
-            <button class="btn btn-primary btn-block" id="Find">아이디 찾기</button>
-            <span id="fid"></span>
+           <button id="submit" class="btn btn-primary btn-block">아이디 찾기</button>
+            <span id="fid">안녕하세요</span>
           </div>
           <!-- /.col -->
         </div>

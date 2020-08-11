@@ -88,21 +88,30 @@ public class MemberController {
 		case "Likelist": 
 			link = "table/likelist";
 			break;
+			
+		//에러 페이지
+		case "ErrorPage":
+			link = "errorPage/500Page";
+			break;
+			
 		}
 	
 		
 		return link;
 	}
 	
-
 	// 회원가입
 	@RequestMapping("/registerMember")
 	public ModelAndView registerMember(@RequestParam HashMap<String,Object> map) {
 		
 		memberService.register(map);
 		ModelAndView mv = new ModelAndView();
-		
-		mv.setViewName("redirect:/login");
+		System.out.println("회원가입" + map);
+		String errCode = (String) map.get("outErrCode");
+		if(errCode.equals("8282")) {
+			mv.setViewName("redirect:/registerForm");
+		}else
+			mv.setViewName("redirect:/login");
 		return mv;
 	}
 	
@@ -154,14 +163,9 @@ public class MemberController {
 	
 	//회원정보 수정
 	@RequestMapping("/updateForm")
-	public ModelAndView updateForm(MemberVo vo) {
-		String id = vo.getmId();
-		System.out.println("로그인id" + id);
-		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("mId", id);
-		
-		MemberVo memberVo = memberService.getMemberView(map);
-		System.out.println("필름컨트롤러" + memberVo);
+	public ModelAndView updateForm(@RequestParam HashMap<String, Object> map) {
+
+		MemberVo memberVo = memberService.getMemberInfo(map);
 		
 		ModelAndView mv = new ModelAndView();
 		
@@ -170,6 +174,7 @@ public class MemberController {
 		
 		return mv;
 	}
+	
 	
 	@RequestMapping("/update")
 	public String update(MemberVo vo) {
@@ -184,6 +189,27 @@ public class MemberController {
 		return "table/depositTable";
 		
 	}
+	
+	 // 테스트(개인정보 조회)
+	 @RequestMapping("/test") 
+	 public ModelAndView Test(@RequestParam  HashMap<String, Object> map) { 
+		
+	 
+		 System.out.println("상두오빠" + map);
+	 
+		 MemberVo memberVo = memberService.getMemberInfo(map);
+
+		 ModelAndView mv = new ModelAndView();
+	 
+		 mv.setViewName("table/depositTable"); 
+		 mv.addObject("memberVo", memberVo);
+	 
+	 	 return mv;
+	 
+	 }
+	
+	
+	
 	
 	//회원탈퇴
 	@RequestMapping("/delete")
