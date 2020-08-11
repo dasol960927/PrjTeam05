@@ -6,10 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
-	<h1>무통장입금</h1>		
-	<div>
-		<a href="/DPS/List?mId=${mId}">확인</a>
-	</div>
+<body>	
+	<h1>구매완료 : 제대로 구매됬는지 확인해보세요</h1>	
 </body>
 </html>

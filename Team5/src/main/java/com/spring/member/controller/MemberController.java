@@ -187,6 +187,34 @@ public class MemberController {
 		
 	}
 	
+	 // 테스트(개인정보 조회)
+	 
+	 @RequestMapping("/test") 
+	 public ModelAndView Test(MemberVo vo) { 
+		 String id =  vo.getmId(); 
+		 System.out.println("로그인id" + id);
+		 HashMap<String, Object> map = new HashMap<String, Object>(); 
+		 map.put("mId", id);
+	 
+		 System.out.println(map);
+	 
+		 MemberVo memberVo = memberService.getMemberInfo(map);
+		 
+		 //map.put("memberVo", memberVo);
+		 
+		 System.out.println("map :" + map);
+		 System.out.println("memberVo" + memberVo);
+	 
+		 ModelAndView mv = new ModelAndView();
+	 
+		 mv.setViewName("table/depositTable"); 
+		 mv.addObject("memberVo", memberVo);
+	 
+	 	 return mv;
+	 
+	 }
+	
+	
 	//회원탈퇴
 	@RequestMapping("/delete")
 	public String delete(String mId) {
