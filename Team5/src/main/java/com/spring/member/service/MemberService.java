@@ -21,6 +21,8 @@ public interface MemberService {
 
 	String find_id(HttpServletResponse response, String mPhone) throws Exception;
 
+	public void MemberDelete(String mId);
+
 
 
 }

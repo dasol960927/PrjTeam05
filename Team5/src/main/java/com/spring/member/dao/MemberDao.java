@@ -17,5 +17,7 @@ public interface MemberDao {
 
 		String find_id(String mPhone) throws Exception;
 
+		public void MemberDelete(String mId);
+
 
 }

@@ -58,6 +58,13 @@ public class MemberServiceImpl implements MemberService {
 			return mId;
 		}
 	}
+
+
+	@Override
+	public void MemberDelete(String mId) {
+		memberDao.MemberDelete(mId);
+		
+	}
  
 
 

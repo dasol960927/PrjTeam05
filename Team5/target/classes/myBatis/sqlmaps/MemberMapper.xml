@@ -23,6 +23,7 @@
 		FROM   MEMBERS
 		WHERE  M_ID   = #{mId} 
 		AND    M_PASS = #{mPass}	
+		AND    DELCHK = 'N'
 	</select>
      
 	<insert id="MemberRegister" 
@@ -58,6 +59,15 @@
    			#{ mId, mode=IN, jdbcType=VARCHAR},
    			#{ mPass, mode=IN, jdbcType=VARCHAR}
    		)}
+   			
+   </update>
+   
+   <update id="MemberDelete"
+   			parameterType="String" >
+   			
+			UPDATE MEMBERS
+			SET DELCHK = 'Y'
+			WHERE M_ID = #{mId}
    			
    </update>
      

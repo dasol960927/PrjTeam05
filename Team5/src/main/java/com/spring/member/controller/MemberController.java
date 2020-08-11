@@ -182,31 +182,24 @@ public class MemberController {
 	
 	//회원탈퇴
 	@RequestMapping("/delete")
-	public String delete() {
+	public String delete(String mId) {
+		System.out.println(mId);
+		memberService.MemberDelete(mId);
 		System.out.println("hi");
-		return "";
+		return "table/depositTable";
 	}
 
+	// 아이디 찾기
 	@RequestMapping(value = "/find_id", method = RequestMethod.POST)
 	public String find_id(HttpServletResponse response, @RequestParam("mPhone") String mPhone, Model md) throws Exception{
 		md.addAttribute("mId", memberService.find_id(response, mPhone));
 		return "/members/find_id";
-	}
+	}	
 	
-	
-	//ReqBoardController 에서 안넘어가서 여기에 추가 by박다솔
 	@RequestMapping("/reqBoard")
-	public String reqBoard(ReqBoardVo vo) {
-		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("mId", vo.getmId());
-		map.put("email", vo.getEmail());
-		map.put("reqConts", vo.getReqConts());
-		
-		System.out.println("hash : "+map.put("mId", vo.getmId()));
-		System.out.println("hash : "+map.put("email", vo.getEmail()));
-		System.out.println("hash : "+map.put("reqConts", vo.getReqConts()));
+	public String reqBoard(@RequestParam HashMap<String, Object> map) {
+
 		reqBoardService.addReqBoard(map);
-		
 		return "reqBoard/reqBoardCheck";
 	}
 	

@@ -51,5 +51,13 @@ public class MemberDaoImpl implements MemberDao {
 		return mPhone;
 	}
 
+	@Override
+	public void MemberDelete(String mId) {
+		System.out.println("다오임플 멤버딜리트" + mId);
+		
+		sqlSession.update("Member.MemberDelete", mId);
+		
+	}
+
 
 }

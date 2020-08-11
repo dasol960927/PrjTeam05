@@ -22,7 +22,14 @@
 <script>
 	$(function(){
 		$("#btnDel").on('click', function(){
-			alert("탈퇴버튼 클릭");
+			if(confirm("정말 탈퇴하시겠습니까 ?") == true){
+				$(location).attr("href", "/delete?mId=${login.mId }");
+		        alert("탈퇴되었습니다");
+		    }
+		    else{
+		        return ;
+		    }
+
 		})
 		
 		

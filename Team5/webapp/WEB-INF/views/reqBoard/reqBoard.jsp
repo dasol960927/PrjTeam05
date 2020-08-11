@@ -17,7 +17,7 @@
 	<link rel="stylesheet"
 		href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
 		integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
-		crossorigin="anonymous">
+		crossorigin="anonymous" >
 
 	<div class="container">
 	<div class="cont" style="magin:10px 10px 10px 10px;">
@@ -45,8 +45,8 @@
 											<i class="fa fa-user text-info"></i>
 										</div>
 									</div>
-									<input type="text" class="form-control" id="mid"
-										name="mId" placeholder="아이디를 입력해주세요." required>
+									<input type="email" class="form-control" id="mid"
+										name="mId" value="${login.mId}">
 								</div>
 							</div>
 							<div class="form-group">
