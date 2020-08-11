@@ -85,7 +85,7 @@ $(function(){
 						var posterVal = '';
 						var pos = poster(item.posters); //포스터 문자열 자르기
 						if(pos == ''){
-							posterVal = '<img src="/img/Aha.jpg" alt="포스터 준비중"/>';
+							posterVal = '<img src="/img/ReadyToPoster.jpg" alt="포스터 준비중"/>';
 						}else{
 							posterVal = '<a href="#"><img src="' + pos[0] + '"/></a>';
 						}

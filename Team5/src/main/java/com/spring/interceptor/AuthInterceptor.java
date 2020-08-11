@@ -18,13 +18,13 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 		System.out.println("prehandle:" + request.getRequestURI());
 		
 		switch( request.getRequestURI() ) { // 현재 파일정보
+		case "/login":
 		case "/mIdCheck" : 
 		case "/registerForm": 
 		case "/forgotPassword" :
 		case "/find_id" :
 		case "/find_Id" :
 		case "/registerMember" :
-		case "/login":
 		case "/loginCheck":
 			 return true; // 제외
 		}
