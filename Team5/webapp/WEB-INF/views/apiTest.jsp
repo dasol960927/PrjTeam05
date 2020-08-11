@@ -74,7 +74,7 @@ $(function(){
 						var stllsVal = '';
 						var stl = poster(item.stlls); //스틸컷 문자열 자르기
 						if(stl == ""){
-							stllsVal += '스틸컷 없음';
+							stllsVal += '<img src="/img/ready.jpg" alt="스틸컷 준비중"/>';
 						}else{
 							for(var i=0; i<3; i++) {
 								stllsVal +='<a href="#"><img src="'+stl[i]+'"/></a>';
@@ -85,7 +85,7 @@ $(function(){
 						var posterVal = '';
 						var pos = poster(item.posters); //포스터 문자열 자르기
 						if(pos == ''){
-							posterVal = '포스터 없음';
+							posterVal = '<img src="/img/Aha.jpg" alt="포스터 준비중"/>';
 						}else{
 							posterVal = '<a href="#"><img src="' + pos[0] + '"/></a>';
 						}
