@@ -83,7 +83,7 @@
                            	감독
                       </th>
                       <th style="width: 8%" class="text-center">
-                           	가격
+                           	가격(point)
                       </th>
                       <th style="width: 20%">
                       </th>
@@ -106,10 +106,10 @@
                       <td>
                           <ul class="list-inline">
                               <li class="list-inline-item">
-                                  <img alt="Avatar" class="table-avatar" src="/dist/img/avatar.png">
+                                   	 강동원
                               </li>
                               <li class="list-inline-item">
-                                  <img alt="Avatar" class="table-avatar" src="/dist/img/avatar2.png">
+                                  	이정현
                               </li>
                               <li class="list-inline-item">
                                   <img alt="Avatar" class="table-avatar" src="/dist/img/avatar3.png">
@@ -180,9 +180,9 @@
                       </td>
                       <td class="project-actions text-right">
                           <a class="btn btn-primary btn-sm" href="#">
-                              <i class="fas fa-folder">
+                              <i class="far fa-credit-card">
                               </i>
-                              View
+                              	구매
                           </a>
                           <a class="btn btn-info btn-sm" href="#">
                               <i class="fas fa-pencil-alt">

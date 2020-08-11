@@ -45,10 +45,18 @@ public class MemberDaoImpl implements MemberDao {
 		sqlSession.update("Member.MemberUpdate", map);
 	}
 
+
 	@Override
-	public String find_id(String mPhone) throws Exception{
-		sqlSession.selectOne("Member.find_id", mPhone);
-		return mPhone;
+	public MemberVo find_id(HashMap<String, Object> map) throws Exception {
+		MemberVo memberVo = sqlSession.selectOne("Member.find_id", map);
+		System.out.println("memberVo=" + memberVo);
+		System.out.println(map);
+		return memberVo;
+	}
+
+	@Override
+	public int mIdCheck(String mId) {
+		return sqlSession.selectOne("Member.mIdCheck", mId);
 	}
 
 	@Override

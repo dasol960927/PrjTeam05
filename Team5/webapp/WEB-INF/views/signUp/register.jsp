@@ -19,6 +19,65 @@
   <link rel="stylesheet" href="/dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+$(function(){
+	
+	//아이디 유효성 검사(1 = 중복 / 0 != 중복)
+	$('#mIdChk').on('click', function(){
+		var mIdVal = $('#mId').val();
+		$.ajax({
+			url : '/mIdCheck',
+			type: 'get',
+			data: {'mId' : mIdVal},
+			datatype: 'json',
+			success : function(data) {
+				if (data == 1) {
+						$('#mIdResult').text('중복된 아이디 입니다');
+						$('#mIdResult').css('color', 'red');
+						$('#mIdResult').css('font-weight', 'bold');
+					} 
+					 else if(mIdVal == ''){
+							$('#mIdResult').text('아이디를 입력해주세요');
+							$('#mIdResult').css('color', 'green');
+							$('#mIdResult').css('font-weight', 'bold');
+						
+					} else {
+						$('#mIdResult').text('가능한 아이디입니다');
+						$('#mIdResult').css('color', 'blue');
+						$('#mIdResult').css('font-weight', 'bold');
+					}
+				}, error : function() {
+						console.log('실패');
+				}
+			});
+		});
+	
+	
+		// 비밀번호 재확인
+		$('input[type=password]').focusout(function () {
+	        var pwd1 = $("#mPass").val();
+	        var pwd2 = $("#mPassRe").val();
+	 
+	        if ( pwd1 != '' && pwd2 == '' ) {
+	            $("#mPassResult").text('입력해주세요.');
+				$("#mPassResult").css('color', 'green'); 	
+				$("#mPassResult").css('font-weight', 'bold'); 	
+	        } else if (pwd1 != "" || pwd2 != "") {
+	            if (pwd1 == pwd2) {
+					$("#mPassResult").text('일치합니다.');
+	                $("#mPassResult").css('color', 'blue'); 	
+					$("#mPassResult").css('font-weight', 'bold'); 	
+	            } else {
+					$("#mPassResult").text('다시 입력해주세요.');
+	                $("#mPassResult").css('color', 'red');
+					$("#mPassResult").css('font-weight', 'bold'); 	
+	            }
+	        }
+	    });
+			
+	});
+</script>
 </head>
 <body class="hold-transition register-page">
 <div class="register-box">
@@ -32,7 +91,7 @@
 
       <form action="/registerMember" method="post">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="mName" placeholder="이름">
+          <input type="text" class="form-control" name="mName" id="mName" placeholder="이름" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -40,15 +99,17 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="email" class="form-control" name="mId" placeholder="FilmCritics@gmail.com">
+          <input type="email" class="form-control" name="mId" id="mId" placeholder="FilmCritics@gmail.com">
+          <button id="mIdChk" class="badge badge-success">중복확인</button>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
             </div>
           </div>
         </div>
+              <div id="mIdResult"></div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" name="mPass" placeholder="비밀번호">
+          <input type="password" class="form-control" name="mPass" id="mPass" placeholder="비밀번호" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -56,26 +117,27 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" name="mPassRe" placeholder="비밀번호 재확인">
+          <input type="password" class="form-control" name="mPassRe" id="mPassRe" placeholder="비밀번호 재확인" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
             </div>
           </div>
         </div>
+        <div id="mPassResult"></div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="mNickName" placeholder="닉네임">
+          <input type="text" class="form-control" name="mNickName" id="mNickName" placeholder="닉네임" required>
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-lock"></span>
+              <span class="fas fa-user"></span>
             </div>
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="mPhone" placeholder="ex)01011112222">
+          <input type="text" class="form-control" name="mPhone" id="mPhone" placeholder="ex)010-1111-2222" required>
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-lock"></span>
+              <span class="fas fa-lg fa-phone"></span>
             </div>
           </div>
         </div>
@@ -92,7 +154,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="mBdate" placeholder="ex)19901231">
+          <input type="text" class="form-control" name="mBdate" id="mBdate" placeholder="ex)19901231" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>

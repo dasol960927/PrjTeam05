@@ -108,6 +108,13 @@ public class MemberController {
 		return mv;
 	}
 	
+	// 아이디 중복확인
+	@RequestMapping(value = "/mIdCheck", method = RequestMethod.GET)
+	@ResponseBody
+	public int idCheck(@RequestParam("mId") String mId) {
+
+		return memberService.mIdCheck(mId);
+	}
 
 	@RequestMapping(value="/login", method = RequestMethod.GET)
 	public String login() {
@@ -194,6 +201,7 @@ public class MemberController {
 	public String find_id(HttpServletResponse response, @RequestParam("mPhone") String mPhone, Model md) throws Exception{
 		md.addAttribute("mId", memberService.find_id(response, mPhone));
 		return "/members/find_id";
+
 	}	
 	
 	@RequestMapping("/reqBoard")
@@ -203,9 +211,10 @@ public class MemberController {
 		return "reqBoard/reqBoardCheck";
 	}
 	
+	
 	@RequestMapping("/search")
 	@ResponseBody
-	public void bookList(String keyword, HttpServletResponse response) {
+	public void FlimList(String keyword, HttpServletResponse response) {
 		String json = service.searchFilm(keyword, 10, 1);
 		//System.out.println(json); 
 		try {

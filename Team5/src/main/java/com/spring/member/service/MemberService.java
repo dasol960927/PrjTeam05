@@ -2,6 +2,7 @@ package com.spring.member.service;
 
 
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -19,7 +20,9 @@ public interface MemberService {
 
 	public void memberUpdate(HashMap<String, Object> map);
 
-	String find_id(HttpServletResponse response, String mPhone) throws Exception;
+	public MemberVo find_id(HashMap<String, Object> map) throws Exception;
+
+	public int mIdCheck(String mId);
 
 	public void MemberDelete(String mId);
 
