@@ -20,6 +20,28 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+   <script>
+   $(function(){
+		$('#Find').on('click', function(){
+			
+			 $.ajax({
+                 url      : '/find_id'
+               , data     : { mName : $('#mName').val() ,
+            	   			  mPhone : $('#mPhone').val() 	}
+               , dataType : 'json'
+               , success  : function(data) {
+                  var Id = data.mId;
+                  alert(Id);
+                  $("#fid").text("<h3> 아이디:" + Id + "</h3>")
+               }
+               , error    : function() {
+                  alert("아이디를 찾을수 없습니다.");
+               } 
+            });
+		});
+   });
+   </script>
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
@@ -49,12 +71,12 @@
         </div>
         <div class="row">
           <div class="col-12">
-            <button type="submit" class="btn btn-primary btn-block" id=findBtn >아이디 찾기</button>
+            <button class="btn btn-primary btn-block" id="Find">아이디 찾기</button>
+            <span id="fid"></span>
           </div>
           <!-- /.col -->
         </div>
       </form>
-
       <p class="mt-3 mb-1">
         <a href="/login">로그인</a>
       </p>
