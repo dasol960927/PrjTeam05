@@ -122,7 +122,7 @@ table { width:800px; margin:0 auto; }
           <!-- /.col -->
       	<div>		
               <div class="card-body">
-              	<h1>${memberVo.mName }님의 충전내역</h1>
+              	<h1>${memberVo.mName }님의 구매내역</h1>
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                   <tr>
