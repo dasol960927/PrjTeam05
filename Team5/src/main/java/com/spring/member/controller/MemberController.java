@@ -177,25 +177,16 @@ public class MemberController {
 	
 	
 	@RequestMapping("/update")
-	public String update(MemberVo vo) {
-		System.out.println("필름컨트롤러에 update" + vo);
-		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("mId", vo.getmId());
-		map.put("mPass", vo.getmPass());
-		System.out.println(map);
-		
-		
+	public String update(@RequestParam HashMap<String, Object> map) {
 		memberService.memberUpdate(map);
-		return "table/depositTable";
+		System.out.println("제발되라" + map);
+		return "redirect:/test?mId=" + (String)map.get("mId");
 		
 	}
 	
 	 // 테스트(개인정보 조회)
 	 @RequestMapping("/test") 
 	 public ModelAndView Test(@RequestParam  HashMap<String, Object> map) { 
-		
-	 
-		 System.out.println("상두오빠" + map);
 	 
 		 MemberVo memberVo = memberService.getMemberInfo(map);
 
