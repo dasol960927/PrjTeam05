@@ -79,6 +79,9 @@ public class MemberController {
 		case "apiTest": 
 			link = "apiTest";
 			break;
+		case "apiMain": 
+			link = "apiMain";
+			break;	
 		// appiTest css 추가
 		case "FilmSearch": 
 			link = "reviews/FilmSearch";
