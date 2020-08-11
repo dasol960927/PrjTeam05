@@ -27,7 +27,7 @@
         <h2 class="headline text-danger">500</h2>
 
         <div class="error-content">
-          <h3><i class="fas fa-exclamation-triangle text-danger"></i> 이런! 무엇인가 잘못되었습니다</h3>
+          <h3><i class="fas fa-exclamation-triangle text-danger"></i>이런! 무엇인가 잘못되었습니다</h3>
 
           <p>
                  	오류가 발생했습니다. 빠른 시일 내에 고치도록 하겠습니다.
