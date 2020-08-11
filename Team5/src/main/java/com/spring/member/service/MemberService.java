@@ -20,12 +20,13 @@ public interface MemberService {
 
 	public void memberUpdate(HashMap<String, Object> map);
 
-	public MemberVo find_id(HashMap<String, Object> map) throws Exception;
+	public void find_id(HashMap<String, Object> map);
 
 	public int mIdCheck(String mId);
 
 	public void MemberDelete(String mId);
-
+	
+	public MemberVo getMemberInfo(HashMap<String, Object> map);
 
 
 }

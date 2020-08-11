@@ -43,7 +43,7 @@ $(function(){
 							$('#mIdResult').css('font-weight', 'bold');
 						
 					} else {
-						$('#mIdResult').text('가능한 아이디입니다');
+						$('#mIdResult').text('사용가능한 아이디입니다');
 						$('#mIdResult').css('color', 'blue');
 						$('#mIdResult').css('font-weight', 'bold');
 					}

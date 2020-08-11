@@ -11,6 +11,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.deposit.service.DpsService;
 import com.spring.deposit.vo.DpsVo;
+import com.spring.member.service.MemberService;
+import com.spring.member.vo.MemberVo;
 
 @Controller
 public class DpsController {
@@ -18,18 +20,29 @@ public class DpsController {
 	@Autowired
 	private DpsService dpsService;
 	
+	@Autowired
+	private MemberService memberService;
+	
 	// login.jsp -> facebook a tag에 연결(테스트용)
 	@RequestMapping("/DPS/List")	
 	public ModelAndView dpsList(@RequestParam HashMap<String, Object> map) {
 		
-		List<DpsVo> dpsList = dpsService.getDpsList(map);		
+		System.out.println(map);
+				
+		List<DpsVo> dpsList = dpsService.getDpsList(map);	
+		MemberVo memberVo = memberService.getMemberInfo(map);
+		
+		
 		
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("dpsList", dpsList);		
 		mv.setViewName("deposit/depositList");
+		mv.addObject("dpsList", dpsList);
+		mv.addObject("memberVo", memberVo);
+		
 		
 		mv.addObject("mId", map.get("mId"));
 		
+		System.out.println("memberVo :" + memberVo);
 		System.out.println("map : "  + map);
 		System.out.println("mv : " + mv);
 		
@@ -40,14 +53,16 @@ public class DpsController {
 	public ModelAndView dps1(@RequestParam HashMap<String, Object> map) {
 				
 		ModelAndView mv = new ModelAndView();
-		List<DpsVo> dpsList = dpsService.getDpsList(map);
+		List<DpsVo> dpsList = dpsService.getDpsList(map);	
+		MemberVo memberVo = memberService.getMemberInfo(map);
 		
 		System.out.println("dps1 map : " + map);
 		System.out.println("dps1 List : " + dpsList);
 		
 		mv.addObject("mId", map.get("mId"));
 		
-		mv.addObject("dpsList", dpsList);		
+		mv.addObject("dpsList", dpsList);	
+		mv.addObject("memberVo", memberVo);
 		mv.setViewName("deposit/depositForm");
 		
 		return mv;

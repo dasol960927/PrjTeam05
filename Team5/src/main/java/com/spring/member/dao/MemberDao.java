@@ -15,8 +15,10 @@ public interface MemberDao {
 		public MemberVo getMemberView(HashMap<String, Object> map);
 
 		public void memberUpdate(HashMap<String, Object> map);
+		
+		public MemberVo getMemberInfo(HashMap<String, Object> map);
 
-		public MemberVo find_id(HashMap<String, Object> map) throws Exception;
+		public void find_id(HashMap<String, Object> map);
 
 		public int mIdCheck(String mId);
 

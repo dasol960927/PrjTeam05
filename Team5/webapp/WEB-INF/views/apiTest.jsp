@@ -16,7 +16,7 @@
 </style>
 <script>
 
-//gallery에서 값 받아오기
+//Main에서 값 받아오기
 var keywordGet = '<%= (String)request.getParameter("keyword")%>'
 //alert(keywordGet);
 
