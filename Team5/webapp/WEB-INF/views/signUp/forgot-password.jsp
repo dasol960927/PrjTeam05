@@ -51,7 +51,7 @@
         <a href="/login">로그인</a>
       </p>
       <p class="mb-0">
-        <a href="/registerMember" class="text-center">회원가입</a>
+        <a href="/registerForm" class="text-center">회원가입</a>
       </p>
     </div>
     <!-- /.login-card-body -->
