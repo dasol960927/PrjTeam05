@@ -25,7 +25,8 @@ public interface MemberService {
 	public int mIdCheck(String mId);
 
 	public void MemberDelete(String mId);
-
+	
+	public MemberVo getMemberInfo(HashMap<String, Object> map);
 
 
 }

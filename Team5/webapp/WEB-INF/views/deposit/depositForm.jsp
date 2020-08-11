@@ -42,36 +42,35 @@ table { width:800px; margin:0 auto; }
             <div class="card card-primary card-outline">
               <div class="card-body box-profile">
                 <div class="text-center">
-                <div><a href="/">Home</a></div>
                   <img class="profile-user-img img-fluid img-circle"
                        src="/dist/img/user4-128x128.jpg"
                        alt="User profile picture">
                 </div>
 
-                <h3 class="profile-username text-center">이름</h3>
+                <h3 class="profile-username text-center">${ mName }</h3>
 
-                <p class="text-muted text-center">28(남), 010-0000-0000</p>
+                <p class="text-muted text-center">${mBdate} (${memberVo.mGender}), ${memberVo.mPhone}</p>
 
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
                   	<br/>
-                    <b>찜한 영화</b> <p class="float-right" >&nbsp;&nbsp;&nbsp;편</p><a class="float-right" href="#">000</a> 
+                    <b>찜한 영화</b> <p class="float-right" >&nbsp;&nbsp;&nbsp;편</p><a class="float-right" href="#">${memberVo.cntl}</a> 
                   </li>
                   <li class="list-group-item">
                   	<br/>
-                    <b>잔여캐시</b> <p class="float-right" >&nbsp;&nbsp;&nbsp;원</p><a class="float-right" href="#">000</a> 
+                    <b>잔여캐시</b> <p class="float-right" >&nbsp;&nbsp;&nbsp;원</p><a class="float-right" >${memberVo.mCash}</a> 
                   </li>
                   <li class="list-group-item">
                   	<br/>
-                    <b>구매내역</b> <p class="float-right" >&nbsp;&nbsp;&nbsp;건</p><a class="float-right" href="#">00</a>
+                    <b>구매내역</b> <p class="float-right" >&nbsp;&nbsp;&nbsp;건</p><a class="float-right" href="/PUR/List?mId=${memberVo.mId}">${memberVo.cntp}</a>
                   </li>
                   <li class="list-group-item">
                   	<br/>
-                    <b>충전내역</b> <a class="float-right" href="#">충전하기</a> <p class="float-right">&nbsp;&nbsp;건&nbsp;&nbsp;</p> <a class="float-right" href="/DPS/List?mId=AAAA">00</a>  
+                    <b>충전내역</b> <a class="float-right" href="/DPS/Deposit1?mId=${memberVo.mId}">충전하기</a> <p class="float-right">&nbsp;&nbsp;건&nbsp;&nbsp;</p> <a class="float-right" href="/DPS/List?mId=${memberVo.mId}">${memberVo.cntd}</a>  
                   </li>
                 </ul>
 				<br/>
-                <a href="#" class="btn btn-primary btn-block"><b>회원정보 수정</b></a>
+                <a href="/updateForm?mId=${ login.mId }" class="btn btn-primary btn-block"><b>회원정보 수정</b></a>
                 <br/>
               </div>
               <!-- /.card-body -->
@@ -123,7 +122,7 @@ table { width:800px; margin:0 auto; }
       			
 		      	<div>		
               <div class="card-body">
-              	<h1>${mId }님의 충전하기</h1>
+              	<h1>${memberVo.mName }님의 충전하기</h1>
 				<form action="/DPS/Deposit2?mId=${mId}" method="POST">
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>

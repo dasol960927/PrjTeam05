@@ -9,7 +9,7 @@
 <body>
 	<h1>카드결제</h1>
 	<div>
-		<a href="/login">확인</a>
+		<a href="/DPS/List?mId=${mId}">확인</a>
 	</div>
 </body>
 </html>

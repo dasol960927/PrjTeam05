@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="PURCHASE">
+
+     <!-- 결과처리를 위한 map 설정  -->
+     <resultMap id="PurListMap" type="com.spring.purchase.vo.PurVo"> 
+       <result property="pId"       column="P_ID" javaType="string" />   
+       <result property="mId"     column="M_ID" javaType="string" />   
+       <result property="pDate"     column="P_DATE" javaType="string" />   
+       <result property="filmId"   column="FILM_ID" javaType="string" />   
+       <result property="filmName"     column="FILM_NAME" javaType="string" />   
+       <result property="filmPrice"      column="FILM_PRICE" javaType="int" />                
+     </resultMap>
+   
+     <select id="PurList"
+         statementType="CALLABLE" parameterType="hashmap" 
+         resultType="com.spring.purchase.vo.PurVo">
+         {CALL  PKG_PURCHASE.PROC_PURCHASE_LIST(
+         	#{mId, mode=IN, jdbcType=VARCHAR},
+            #{result, mode=OUT, jdbcType=CURSOR, 
+               javaType=ResultSet, resultMap=PurListMap }
+         ) }     
+     </select>
+     
+    <insert id="PurInsert" statementType="CALLABLE" 
+        parameterType="hashmap" >
+         {CALL  PKG_PURCHASE.PROC_PURCHASE_INSERT(         	
+         	#{mId, mode=IN, jdbcType=VARCHAR},         	
+            #{filmId, mode=IN, jdbcType=VARCHAR},
+            #{filmPrice, mode=IN, jdbcType=INTEGER},
+            #{oErrMsg, mode=OUT, jdbcType=VARCHAR}
+         ) }		     
+     </insert>      
+ 
+             
+  </mapper>        

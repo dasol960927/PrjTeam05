@@ -14,6 +14,14 @@ public class MemberVo {
 	private String outErrCode;
 	
 	
+	// Fields2 : 추가개인정보( 찜갯수, 구매기록, 충전기록 )
+	private int cntl;	// 찜
+	private int cntp;	// 구매
+	private int cntd;	// 충전	
+	
+	
+	
+	
 	public String getmId() {
 		return mId;
 	}
@@ -69,16 +77,52 @@ public class MemberVo {
 		this.outErrCode = outErrCode;
 	}
 	
+	public int getCntl() {
+		return cntl;
+	}
+	public void setCntl(int cntl) {
+		this.cntl = cntl;
+	}
+	public int getCntp() {
+		return cntp;
+	}
+	public void setCntp(int cntp) {
+		this.cntp = cntp;
+	}
+	public int getCntd() {
+		return cntd;
+	}
+	public void setCntd(int cntd) {
+		this.cntd = cntd;	
+	}
+	
+	
+	/*
+	 * @Override public String toString() { return "MemberVo [mId=" + mId +
+	 * ", mName=" + mName + ", mPass=" + mPass + ", mGender=" + mGender +
+	 * ", mBdate=" + mBdate + ", mNickName=" + mNickName + ", mPhone=" + mPhone +
+	 * ", mCash=" + mCash + "]"; }
+	 */
+	
+	
+	
+	public MemberVo() {}
 	@Override
 	public String toString() {
 		return "MemberVo [mId=" + mId + ", mName=" + mName + ", mPass=" + mPass + ", mGender=" + mGender + ", mBdate="
+<<<<<<< HEAD
 				+ mBdate + ", mNickName=" + mNickName + ", mPhone=" + mPhone + ", mCash=" + mCash + ", outErrCode=" + outErrCode +"]";
+=======
+				+ mBdate + ", mNickName=" + mNickName + ", mPhone=" + mPhone + ", mCash=" + mCash + ", cntl=" + cntl
+				+ ", cntp=" + cntp + ", cntd=" + cntd + "]";
+>>>>>>> branch 'master' of https://github.com/dasol960927/PrjTeam05.git
 	}
-	
-	public MemberVo() {}
-	
 	public MemberVo(String mId, String mName, String mPass, String mGender, String mBdate, String mNickName,
+<<<<<<< HEAD
 			String mPhone, int mCash, String outErrCode) {
+=======
+			String mPhone, int mCash, int cntl, int cntp, int cntd) {
+>>>>>>> branch 'master' of https://github.com/dasol960927/PrjTeam05.git
 		super();
 		this.mId = mId;
 		this.mName = mName;
@@ -88,8 +132,25 @@ public class MemberVo {
 		this.mNickName = mNickName;
 		this.mPhone = mPhone;
 		this.mCash = mCash;
+<<<<<<< HEAD
 		this.outErrCode = outErrCode;
+=======
+		
+		this.cntl = cntl;
+		this.cntp = cntp;
+		this.cntd = cntd;
+>>>>>>> branch 'master' of https://github.com/dasol960927/PrjTeam05.git
 	}
+	
+	/*
+	 * public MemberVo(String mId, String mName, String mPass, String mGender,
+	 * String mBdate, String mNickName, String mPhone, int mCash) { super();
+	 * this.mId = mId; this.mName = mName; this.mPass = mPass; this.mGender =
+	 * mGender; this.mBdate = mBdate; this.mNickName = mNickName; this.mPhone =
+	 * mPhone; this.mCash = mCash; }
+	 */
+	
+	 	
 	
 	
 	

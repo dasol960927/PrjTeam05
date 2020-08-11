@@ -13,7 +13,12 @@
        <result property="mGender"   column="M_GENDER" 	javaType="string" />   
        <result property="mBdate"  	column="M_BDATE" 	javaType="string" />   
        <result property="mPhone"  	column="M_PHONE" 	javaType="string" />   
-       <result property="mCash"   	column="M_CASH" 	javaType="int" />   
+       <result property="mCash"   	column="M_CASH" 	javaType="int" />
+       
+       <result property="mNickName"   	column="M_NICKNAME" 	javaType="string" />
+       <result property="cntl"   	column="" 	javaType="int" />
+       <result property="cntp"   	column="" 	javaType="int" />
+       <result property="cntd"   	column="" 	javaType="int" />          
      </resultMap>
      
       <select id="loginCheck" 
@@ -62,6 +67,17 @@
    		)}
    			
    </update>
+   
+    <select id="MemberInfo" 
+   			statementType="CALLABLE" 
+   			parameterType="hashmap" 
+   			resultType="com.spring.member.vo.MemberVo">
+   			{CALL PKG_MEMBERS.PROC_MEMBERS_INFO(
+   			#{ mId, mode=IN, jdbcType=VARCHAR},
+   			#{ result, mode=OUT, jdbcType=CURSOR
+   			, javaType=ResultSet, resultMap=MemberMap }
+   		)}
+   </select>    
    
    <update id="MemberDelete"
    			parameterType="String" >
