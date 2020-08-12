@@ -70,6 +70,13 @@ public class MemberServiceImpl implements MemberService {
 		memberDao.MemberDelete(mId);
 		
 	}
+
+
+	@Override
+	public void newPassword(MemberVo memberVO) {
+		memberDao.newPassword(memberVO);
+		
+	}
  
 
 

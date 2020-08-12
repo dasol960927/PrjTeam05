@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="LIKE">
+
+     <!-- 결과처리를 위한 map 설정  -->
+     <resultMap id="LikeListMap" type="com.spring.likelist.vo.LikeVo"> 
+       <result property="mId"       column="M_ID" javaType="string" />   
+       <result property="filmId"     column="FILM_ID" javaType="string" />   
+       <result property="filmName"     column="FILM_NAME" javaType="string" />   
+       <result property="filmActor"   column="FILM_ACTOR" javaType="string" />   
+       <result property="filmDirector"     column="FILM_DIRECTOR" javaType="string" />   
+       <result property="filmPrice"      column="FILM_PRICE" javaType="int" />                
+     </resultMap>
+   
+     <select id="LikeList"
+         statementType="CALLABLE" parameterType="hashmap" 
+         resultType="com.spring.likelist.vo.LikeVo">
+         {CALL  PKG_LIKE.PROC_LIKE_LIST(
+         	#{mId, mode=IN, jdbcType=VARCHAR},
+            #{result, mode=OUT, jdbcType=CURSOR, 
+               javaType=ResultSet, resultMap=LikeListMap }
+         ) }     
+     </select>
+     
+  
+ 
+             
+  </mapper>        

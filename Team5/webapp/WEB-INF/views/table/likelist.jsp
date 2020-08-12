@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,6 +54,7 @@
       </div><!-- /.container-fluid -->
     </section>
 
+
     <!-- Main content -->
     <section class="content">
 
@@ -90,40 +92,33 @@
                   </tr>
               </thead>
               <tbody>
+              	<c:forEach var="likeVo" items="${likeList}">
                   <tr>
                       <td>
                           #
                       </td>
                       <td>
                           <a>
-                              	반도
+                              	${likeVo.filmName}
                           </a>
                           <br/>
                           <small>
-                              	개봉일자 2020. 어느날
+                              	<!-- 개봉일자 2020. 어느날 -->
                           </small>
                       </td>
                       <td>
                           <ul class="list-inline">
                               <li class="list-inline-item">
-                                   	 강동원
-                              </li>
-                              <li class="list-inline-item">
-                                  	이정현
-                              </li>
-                              <li class="list-inline-item">
-                                  <img alt="Avatar" class="table-avatar" src="/dist/img/avatar3.png">
-                              </li>
-                              <li class="list-inline-item">
-                                  <img alt="Avatar" class="table-avatar" src="/dist/img/avatar04.png">
-                              </li>
+                                   	 ${likeVo.filmActor}
+                              </li>               
+                              
                           </ul>
                       </td>
                       <td class="project_progress">
-                              	연상호
+                              	${likeVo.filmDirector}
                       </td>
                       <td class="project-state">
-                          <span>3000</span>
+                          <span>${likeVo.filmPrice}</span>
                       </td>
                       <td class="project-actions text-right">
                           <a class="btn btn-primary btn-sm" href="#">
@@ -131,7 +126,7 @@
                               </i>
                               	보기
                           </a>
-                          <a class="btn btn-info btn-sm" href="#">
+                          <a class="btn btn-info btn-sm" href="/PUR/purFilm?mId=${likeVo.mId}&filmId=${likeVo.filmId}&filmPrice=${likeVo.filmPrice}">
                               <i class="far fa-credit-card">
                               </i>
                                	구매
@@ -143,6 +138,7 @@
                           </a>
                       </td>
                   </tr>
+                </c:forEach>  
               </tbody>
           </table>
         </div>
