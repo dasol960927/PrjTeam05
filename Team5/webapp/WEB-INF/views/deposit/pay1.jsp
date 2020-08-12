@@ -51,7 +51,7 @@
                 <div class="col-12">
                   <h4>
                     <i class="fas fa-globe"></i> FilmCritics, Inc.
-                    <small class="float-right">날짜: 2/10/2014</small>
+                    <small class="float-right">날짜:${outDate} </small>
                   </h4>
                 </div>
                 <!-- /.col -->
@@ -148,15 +148,15 @@
                     <table class="table">
                       <tr>
                         <th style="width:50%">가격(&#8361;):</th>
-                        <td>2700</td>
+                        <td>${dPay*0.9}</td>
                       </tr>
                       <tr>
                         <th>부가세 (10%)</th>
-                        <td>300</td>
+                        <td>${dPay*0.1}</td>
                       </tr>
                       <tr>
                         <th>합계(&#8361;):</th>
-                        <td>3000</td>
+                        <td>${dPay}</td>
                       </tr>
                     </table>
                   </div>

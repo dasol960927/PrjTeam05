@@ -37,6 +37,8 @@ public class PurController {
 		
 		//mv.addObject("mId", map.get("mId"));
 		
+		System.out.println(purList);
+		
 		return mv;
 	}
 	

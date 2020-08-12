@@ -11,6 +11,8 @@ public class DpsVo {
 	
 	private String dComVal;
 	
+	private String outDate;
+	
 	
 	public String getdId() {
 		return dId;
@@ -54,16 +56,26 @@ public class DpsVo {
 	}
 	public void setdComVal(String dComVal) {
 		this.dComVal = dComVal;
+	}	
+	public String getOutDate() {
+		return outDate;
 	}
-	
-	
+	public void setOutDate(String outDate) {
+		this.outDate = outDate;
+	}
 	
 	
 	@Override
 	public String toString() {
 		return "DpsVo [dId=" + dId + ", mId=" + mId + ", dGrpId=" + dGrpId + ", dComId=" + dComId + ", dPay=" + dPay
-				+ ", dDate=" + dDate + ", dComVal=" + dComVal + "]";
+				+ ", dDate=" + dDate + ", dComVal=" + dComVal + ", outDate=" + outDate + "]";
 	}
+	
+//	@Override
+//public String toString() {
+//		return "DpsVo [dId=" + dId + ", mId=" + mId + ", dGrpId=" + dGrpId + ", dComId=" + dComId + ", dPay=" + dPay
+//				+ ", dDate=" + dDate + ", dComVal=" + dComVal + "]";
+//	}
 	
 	
 	
