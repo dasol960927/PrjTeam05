@@ -86,7 +86,7 @@ public class DpsController {
 		mv.addObject("mId", map.get("mId"));
 		mv.addObject("dComId", map.get("dComId"));
 		mv.addObject("dPay", map.get("dPay"));
-		mv.addObject("outDate", map.get("outDate"));
+		mv.addObject("outDate", map.get("outDate"));		
 		
 		mv.addObject("memberVo", memberVo);
 		//mv.setViewName("redirect:/login");	
@@ -118,19 +118,19 @@ public class DpsController {
 	
 	@RequestMapping("/invoicePrint")
 	public ModelAndView invoicePrint(@RequestParam HashMap<String, Object> map) {
+				
 		
 		ModelAndView mv = new ModelAndView();
-		List<DpsVo> dpsList = dpsService.getDpsList(map);	
+			
 		MemberVo memberVo = memberService.getMemberInfo(map);
 			
 		
-		mv.addObject("mId", map.get("mId"));
-		
-		mv.addObject("dpsList", dpsList);	
+		mv.addObject("mId", map.get("mId"));		
+			
 		mv.addObject("memberVo", memberVo);
 		
-		mv.addObject("dPay", map.get("dPay"));
-		System.out.println("프린터  돈: " + map.get("dPay"));
+		mv.addObject("outDate", map.get("outDate"));
+		mv.addObject("dPay", map.get("dPay"));		
 
 		mv.setViewName("deposit/invoicePrint");
 		
