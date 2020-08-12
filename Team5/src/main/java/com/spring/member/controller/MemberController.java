@@ -3,10 +3,12 @@ package com.spring.member.controller;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +21,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.spring.member.email.Email;
+import com.spring.member.email.EmailSender;
 import com.spring.member.service.MemberService;
 import com.spring.member.vo.MemberVo;
 import com.spring.naverfilm.service.NaverFilmService;
@@ -36,6 +40,12 @@ public class MemberController {
 	
 	@Autowired
 	private NaverFilmService service;
+	
+	@Autowired
+	private EmailSender emailSender;
+
+	@Autowired
+	private Email email;
 	
 	@RequestMapping("/")
 	public String main() {
@@ -231,6 +241,35 @@ public class MemberController {
 		returnURL = "redirect:/find_id_result";
 		return mv;
 	}	
+	
+	// 새로운 비밀번호 생성
+	@RequestMapping("/newPassword")
+	public String newPassword(@Valid MemberVo memberVO, HttpSession session) throws Exception {
+		Random r = new Random();
+		int num = r.nextInt(89999) + 10000;
+		String npassword = "bapsi" + Integer.toString(num);// 새로운 비밀번호 변경
+		
+		memberVO.setmPass(npassword);
+		session.setAttribute("memberVO", memberVO);
+
+		memberService.newPassword(memberVO);
+
+		return "/findPassword";
+	}
+	
+	// 이메일로 비밀번호가 전송이된다.
+		@RequestMapping("/findPassword")
+		public String findPasswordOK(MemberVo memberVO, HttpSession session) throws Exception {
+			memberVO = (MemberVo) session.getAttribute("memberVO");
+			email.setContent("새로운 비밀번호 " + memberVO.getmPass() + " 입니다." );
+			email.setReceiver(memberVO.getmId());
+			email.setSubject("안녕하세요" +memberVO.getmId() +"님  재설정된 비밀번호를 확인해주세요");
+			emailSender.SendEmail(email);
+			
+			System.out.println(email);
+			session.invalidate();
+			return "signUp/login";
+		}
 	
 	@RequestMapping("/reqBoard")
 	public String reqBoard(@RequestParam HashMap<String, Object> map) {

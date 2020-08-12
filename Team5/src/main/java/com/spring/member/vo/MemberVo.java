@@ -95,7 +95,7 @@ public class MemberVo {
 		this.cntd = cntd;	
 	}
 	
-	
+
 
 	
 	public MemberVo() {}
@@ -122,7 +122,10 @@ public class MemberVo {
 				+ ", mGender=" + mGender + ", mBdate=" + mBdate + ", mPhone=" + mPhone + ", mCash=" + mCash
 				+ ", outErrCode=" + outErrCode + ", cntl=" + cntl + ", cntp=" + cntp + ", cntd=" + cntd + "]";
 	}
- 
+
+	
+	
+
 	
 	
 	

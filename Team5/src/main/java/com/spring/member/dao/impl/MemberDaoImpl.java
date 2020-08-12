@@ -75,5 +75,13 @@ public class MemberDaoImpl implements MemberDao {
 		
 	}
 
+	@Override
+	public void newPassword(MemberVo memberVO) {
+		String password = memberVO.getmPass();
+		memberVO.setmPass(password);
+		sqlSession.update("Member.newPassword", memberVO);
+		
+	}
+
 
 }

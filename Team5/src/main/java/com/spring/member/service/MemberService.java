@@ -28,5 +28,7 @@ public interface MemberService {
 	
 	public MemberVo getMemberInfo(HashMap<String, Object> map);
 
+	public void newPassword(MemberVo memberVO);
+
 
 }

@@ -24,5 +24,7 @@ public interface MemberDao {
 
 		public void MemberDelete(String mId);
 
+		public void newPassword(MemberVo memberVO);
+
 
 }
