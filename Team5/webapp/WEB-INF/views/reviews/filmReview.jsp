@@ -143,8 +143,7 @@
 
               <div class="bg-gray py-2 px-3 mt-4">
                 <h2 class="mb-0">
-                  3000 P
-                  
+                  3000 P                  
                 </h2>
                 <h4 class="mt-0">
                   <small>3000원 충전 필요</small>
@@ -154,7 +153,7 @@
               <div class="mt-4">
                 <div class="btn btn-primary btn-lg btn-flat">
                   <i class="fas fa-cart-plus fa-lg mr-2"></i> 
-                    	포인트 충전
+                    <a href="DPS/Deposit1?mId=${ login.mId }">포인트 충전</a>
                 </div>
 
                 <div class="btn btn-default btn-lg btn-flat">
