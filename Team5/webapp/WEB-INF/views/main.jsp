@@ -24,7 +24,7 @@
 
 
     <!-- SEARCH FORM -->
-    <form class="form-inline ml-3" method="get" action="/FilmSearch">
+    <form class="form-inline ml-3" method="POST" action="/FilmSearch">
       <div class="input-group input-group-sm">
         <input class="form-control form-control-navbar" type="search" placeholder="영화작품 제목을 검색해보세요."  size="50" aria-label="Search" id="keyword" name="keyword">
         <div class="input-group-append">
@@ -66,7 +66,7 @@
             <div class="card card-primary">
               <div class="card-header">
                 <div class="card-title">
-                  	이 영화에 대한 평가가 궁금하신가요?
+                  	 이 영화에 대한 평가가 궁금하신가요?
                 </div>
               </div>
               <div class="card-body">
