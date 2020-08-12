@@ -26,6 +26,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 		case "/find_idForm" :
 		case "/find_Id" :
 		case "/find_id_result" :	
+		case "/find_pass" :	
 		case "/registerMember" :
 		case "/loginCheck":
 			 return true; // 제외
