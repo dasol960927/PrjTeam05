@@ -168,7 +168,7 @@
               <!-- this row will not appear when printing -->
               <div class="row no-print">
                 <div class="col-12">
-                  <a href="/invoicePrint?mId=${mId}" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print</a>
+                  <a href="/invoicePrint?mId=${mId}&dPay=${dPay}&outDate=${outDate}" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print</a>
                   <a href="/DPS/List?mId=${mId}"><button type="button" class="btn btn-success float-right">확인
                   </button></a>
                 </div>

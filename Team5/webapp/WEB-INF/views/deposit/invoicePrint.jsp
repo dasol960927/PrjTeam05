@@ -1,11 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.util.Date" %>
-<%@ page import="java.text.SimpleDateFormat" %>
-<%
-	Date nowTime = new Date();
-	SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd a hh:mm:ss");
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,7 +29,7 @@
       <div class="col-12">
         <h2 class="page-header">
           <i class="fas fa-globe"></i> FlimCritics, Inc.
-          <small class="float-right">날짜:<%=sf.format(nowTime) %></small>
+          <small class="float-right">날짜:${outDate}</small>
         </h2>
       </div>
       <!-- /.col -->
