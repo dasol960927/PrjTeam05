@@ -11,6 +11,13 @@
   crossorigin="anonymous">
 </script>
 <script>
+function poster(string) {
+	var str = string.split('|');
+	
+	return str;
+}
+
+
 //배우
 function getActor(actorVal, divId) {
 	$(function(){
