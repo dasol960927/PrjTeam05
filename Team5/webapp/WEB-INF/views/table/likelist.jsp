@@ -103,23 +103,15 @@
                           </a>
                           <br/>
                           <small>
-                              	개봉일자 2020. 어느날
+                              	<!-- 개봉일자 2020. 어느날 -->
                           </small>
                       </td>
                       <td>
                           <ul class="list-inline">
                               <li class="list-inline-item">
-                                   	 강동원
-                              </li>
-                              <li class="list-inline-item">
-                                  	이정현
-                              </li>
-                              <li class="list-inline-item">
-                                  <img alt="Avatar" class="table-avatar" src="/dist/img/avatar3.png">
-                              </li>
-                              <li class="list-inline-item">
-                                  <img alt="Avatar" class="table-avatar" src="/dist/img/avatar04.png">
-                              </li>
+                                   	 ${likeVo.filmActor}
+                              </li>               
+                              
                           </ul>
                       </td>
                       <td class="project_progress">
@@ -134,7 +126,7 @@
                               </i>
                               	보기
                           </a>
-                          <a class="btn btn-info btn-sm" href="#">
+                          <a class="btn btn-info btn-sm" href="/PUR/purFilm?mId=${likeVo.mId}&filmId=${likeVo.filmId}&filmPrice=${likeVo.filmPrice}">
                               <i class="far fa-credit-card">
                               </i>
                                	구매

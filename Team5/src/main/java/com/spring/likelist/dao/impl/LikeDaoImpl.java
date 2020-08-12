@@ -23,6 +23,7 @@ public class LikeDaoImpl implements LikeDao {
 		
 		sqlSession.selectList("LIKE.LikeList", map);
 		List<LikeVo> likeList = (List<LikeVo>) map.get("result");
+				
 		
 		return likeList;
 	}
