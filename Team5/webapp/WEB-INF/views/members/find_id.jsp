@@ -54,7 +54,6 @@
         <div class="row">
           <div class="col-12">
            <button id="submit" class="btn btn-primary btn-block">아이디 찾기</button>
-            <span id="fid">안녕하세요</span>
           </div>
           <!-- /.col -->
         </div>
