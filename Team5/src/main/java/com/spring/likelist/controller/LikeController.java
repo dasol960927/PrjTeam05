@@ -27,14 +27,18 @@ public class LikeController {
 	
 	@RequestMapping("LIKE/List")
 	public ModelAndView likeList(@RequestParam HashMap<String, Object> map) {
-		
-		System.out.println("LIKE/List map : " + map);
+				
 		
 		List<LikeVo> likeList = likeService.getList(map);
 		MemberVo memberVo = memberService.getMemberInfo(map);
 		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("table/likelist");
+		mv.addObject("memberVo", memberVo);
+		mv.addObject("likeList", likeList);
+		
+		System.out.println("LIKE/List map : " + map);
+		System.out.println("likeList : " + likeList);
 		
 		return mv;
 		

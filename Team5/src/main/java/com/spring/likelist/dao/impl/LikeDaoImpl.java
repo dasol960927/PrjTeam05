@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.spring.likelist.dao.LikeDao;
+import com.spring.likelist.vo.LikeVo;
 
 
 
@@ -16,6 +17,15 @@ public class LikeDaoImpl implements LikeDao {
 	
 	@Autowired
 	private SqlSession sqlSession;
+
+	@Override
+	public List<LikeVo> getList(HashMap<String, Object> map) {
+		
+		sqlSession.selectList("LIKE.LikeList", map);
+		List<LikeVo> likeList = (List<LikeVo>) map.get("result");
+		
+		return likeList;
+	}
 
 	
 }

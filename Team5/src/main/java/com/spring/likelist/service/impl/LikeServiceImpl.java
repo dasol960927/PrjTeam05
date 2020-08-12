@@ -20,8 +20,10 @@ public class LikeServiceImpl implements LikeService {
 
 	@Override
 	public List<LikeVo> getList(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		List<LikeVo> likeList = likeDao.getList(map);
+		
+		return likeList;
 	}
 
 
