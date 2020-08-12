@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="REVIEW">
+
+     <!-- 결과처리를 위한 map 설정  -->
+     <resultMap id="RevListMap" type="com.spring.review.vo.RevVo"> 
+       <result property="mId"       column="M_ID" javaType="string" />   
+       <result property="filmId"     column="FILM_ID" javaType="string" />   
+       <result property="revTitle"     column="REV_TITLE" javaType="string" />   
+       <result property="revConts"   column="REV_CONTS" javaType="string" />   
+       <result property="grdScore"     column="GRD_SCORE" javaType="java.lang.Double" />   
+       <result property="grdConts"      column="GRD_CONTS" javaType="string" />
+       <result property="goodCnt"      column="GOOD_CNT" javaType="int" />
+       <result property="badCnt"      column="BAD_CNT" javaType="int" />
+       <result property="revDate"      column="REV_DATE" javaType="string" />
+       <result property="revGubun"      column="REV_GUBUN"  />
+       <result property="revLvl"      column="REV_LVL" javaType="int" />
+       <result property="revNref"      column="REV_NREF" javaType="int" />                
+     </resultMap>
+   
+     <select id="GrdList"
+         statementType="CALLABLE" parameterType="hashmap" 
+         resultType="com.spring.review.vo.RevVo">
+         {CALL  PKG_REV.PROC_GRD_LIST(
+         	#{filmId, mode=IN, jdbcType=VARCHAR},
+            #{result, mode=OUT, jdbcType=CURSOR, 
+               javaType=ResultSet, resultMap=RevListMap }
+         ) }     
+     </select>
+     
+     <select id="RevList"
+         statementType="CALLABLE" parameterType="hashmap" 
+         resultType="com.spring.review.vo.RevVo">
+         {CALL  PKG_REV.PROC_REV_LIST(
+         	#{filmId, mode=IN, jdbcType=VARCHAR},
+            #{result, mode=OUT, jdbcType=CURSOR, 
+               javaType=ResultSet, resultMap=RevListMap }
+         ) }     
+     </select>     
+     
+    
+ 
+             
+  </mapper>        

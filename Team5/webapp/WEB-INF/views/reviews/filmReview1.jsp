@@ -182,9 +182,9 @@
           <div class="row mt-4">
             <nav class="w-100">
               <div class="nav nav-tabs" id="product-tab" role="tablist">
-                <a class="nav-item nav-link" id="product-desc-tab"  href="#product-desc"  >영화설명</a>
-                <a class="nav-item nav-link" id="product-comments-tab"  href="/REVIEW/grdList?filmId=F00001" >리뷰</a>
-                <a class="nav-item nav-link" id="product-rating-tab"  href="/REVIEW/revList?filmId=F00001" >평점</a>
+                <a class="nav-item nav-link" id="product-desc-tab" data-toggle="tab" href="#product-desc" role="tab" aria-controls="product-desc" aria-selected="true">영화설명</a>
+                <a class="nav-item nav-link active" id="product-comments-tab" data-toggle="tab" href="#product-comments" role="tab" aria-controls="product-comments" aria-selected="false">리뷰</a>
+                <a class="nav-item nav-link" id="product-rating-tab" data-toggle="tab" href="#product-rating" role="tab" aria-controls="product-rating" aria-selected="false">평점</a>
               </div>
             </nav>
             <div class="tab-content p-3" id="nav-tabContent">
