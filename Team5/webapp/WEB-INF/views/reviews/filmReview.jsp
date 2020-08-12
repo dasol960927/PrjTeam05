@@ -88,17 +88,17 @@
             <div class="col-12 col-sm-6">
               <h3 class="d-inline-block d-sm-none">Films Review</h3>
               <div class="col-12">
-                <img src="/img/bando1.jpg" class="product-image" alt="Product Image">
+                <img src="http://file.koreafilm.or.kr/thm/02/00/05/62/tn_DPK016088.jpg" class="product-image" alt="Product Image">
               </div>
               <div class="col-12 product-image-thumbs">
-                <div class="product-image-thumb "><img src="/img/bando1.jpg" alt="Product Image"></div>
-                <div class="product-image-thumb" ><img src="/img/bando2.jpg" alt="Product Image"></div>
-                <div class="product-image-thumb" ><img src="/img/bando3.jpg" alt="Product Image"></div>
+                <div class="product-image-thumb "><img src="http://file.koreafilm.or.kr/thm/01/copy/00/54/37/tn_DST692321.jpg" alt="Product Image"></div>
+                <div class="product-image-thumb" ><img src="http://file.koreafilm.or.kr/thm/01/copy/00/54/37/tn_DST692322.jpg" alt="Product Image"></div>
+                <div class="product-image-thumb" ><img src="http://file.koreafilm.or.kr/thm/01/copy/00/54/37/tn_DST692323.jpg" alt="Product Image"></div>
               </div>
             </div>
             <div class="col-12 col-sm-6">
-              <h3 class="my-3">반도</h3>
-              <p>출연진: 강동원, 이정현 등 <br/> 감독 :연상호 <br/> 개봉일: 2020.07.15</p>
+              <h3 class="my-3">다만 악에서 구하소서</h3>
+              <p>출연진: 황정민, 이정재, 박정민, 박소이, 최희서 <br/> 감독 :홍원찬 <br/> 개봉일: 2020.08.05</p>
 
               <hr>
               <h4>Graph</h4>
@@ -188,8 +188,8 @@
               </div>
             </nav>
             <div class="tab-content p-3" id="nav-tabContent">
-              <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab">[전대미문의 재난 그 후 4년 폐허의 땅으로 다시 들어간다!]<br/> 4년 전, 나라 전체를 휩쓸어버린 전대미문의 재난에서 가까스로 탈출했던 ‘정석’(강동원). <br/>바깥세상으로부터 철저히 고립된 반도에 다시 들어가야 하는 피할 수 없는 제안을 받는다. <br/>제한 시간 내에 지정된 트럭을 확보해 반도를 빠져 나와야 하는 미션을 수행하던 중 <br/>인간성을 상실한 631부대와 4년 전보다 더욱 거세진 대규모 좀비 무리가 정석 일행을 습격한다. <br/>절체절명의 순간,<br/>폐허가 된 땅에서 살아남은 ‘민정’(이정현) 가족의 도움으로 위기를 가까스로 모면하고 이들과 함께 반도를 탈출할 수 있는 마지막 기회를 잡기로 한다. <br/>되돌아온 자, 살아남은 자 그리고 미쳐버린 자필사의 사투가 시작된다!</div>
-              <div class="tab-pane fade" id="product-comments" role="tabpanel" aria-labelledby="product-comments-tab">재미있게 잘 봤습니다. 다만 조금 질질 끄는 게 아쉬웠어요. 전형적인 약간의 억지 감동은 빼주셨으면</div>
+              <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab">태국에서 충격적인 납치사건이 발생하고<br/> 마지막 청부살인 미션을 끝낸 암살자 인남(황정민)은 그것이 자신과 관계된 것임을 알게 된다.<br/>인남은 곧바로 태국으로 향하고, 조력자 유이(박정민)를 만나 사건을 쫓기 시작한다.<br/>한편, 자신의 형제가 인남에게 암살당한 것을 알게 된 레이(이정재). <br/>무자비한 복수를 계획한 레이는 인남을 추격하기 위해 태국으로 향하는데...<br/>처절한 암살자 VS 무자비한 추격자멈출 수 없는 두 남자의 지독한 추격이 시작된다!</div>
+              <div class="tab-pane fade" id="product-comments" role="tabpanel" aria-labelledby="product-comments-tab">재미있게 잘 봤습니다. 연기구멍이 아무도 없음</div>
               <div class="tab-pane fade" id="product-rating" role="tabpanel" aria-labelledby="product-rating-tab">6점</div>
             </div>
           </div>
