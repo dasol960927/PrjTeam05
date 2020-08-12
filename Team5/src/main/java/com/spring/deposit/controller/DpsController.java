@@ -117,8 +117,28 @@ public class DpsController {
 	}
 	
 	@RequestMapping("/invoicePrint")
-	public String invoicePrint() {
-		return "deposit/invoicePrint";
+	public ModelAndView invoicePrint(@RequestParam HashMap<String, Object> map) {
+		
+		ModelAndView mv = new ModelAndView();
+		
+		List<DpsVo> dpsList = dpsService.getDpsList(map);	
+		MemberVo memberVo = memberService.getMemberInfo(map);
+		
+		System.out.println("프린터 2번째: " + map);
+		System.out.println("프린터 Vo : " + memberVo);
+		System.out.println("프린터 List : " + dpsList);
+
+		mv.addObject("mId", map.get("mId"));
+		mv.addObject("dComId", map.get("dComId"));
+		mv.addObject("dPay", map.get("dPay"));
+		mv.addObject("outDate", map.get("outDate"));
+		
+		mv.addObject("dpsList", dpsList);	
+		mv.addObject("memberVo", memberVo);
+		
+		mv.setViewName("deposit/invoicePrint");
+		
+		return mv;
 	}
 	
 }
