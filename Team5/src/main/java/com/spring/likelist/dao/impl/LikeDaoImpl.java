@@ -28,5 +28,12 @@ public class LikeDaoImpl implements LikeDao {
 		return likeList;
 	}
 
+	@Override
+	public void setDelete(HashMap<String, Object> map) {
+		
+		sqlSession.delete("LIKE.Delete", map);
+		
+	}
+
 	
 }
