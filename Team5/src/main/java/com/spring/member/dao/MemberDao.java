@@ -18,7 +18,7 @@ public interface MemberDao {
 		
 		public MemberVo getMemberInfo(HashMap<String, Object> map);
 
-		public void find_id(HashMap<String, Object> map);
+		public MemberVo find_id(HashMap<String, Object> map);
 
 		public int mIdCheck(String mId);
 
