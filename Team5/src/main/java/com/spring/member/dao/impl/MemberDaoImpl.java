@@ -57,10 +57,9 @@ public class MemberDaoImpl implements MemberDao {
 	}
 
 	@Override
-	public void find_id(HashMap<String, Object> map) {
+	public MemberVo find_id(HashMap<String, Object> map) {
 		MemberVo memberVo = sqlSession.selectOne("Member.find_id", map);
-		System.out.println("memberVo=" + memberVo);
-		
+		return memberVo;
 	}
 
 	@Override

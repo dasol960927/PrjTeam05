@@ -20,7 +20,7 @@ public interface MemberService {
 
 	public void memberUpdate(HashMap<String, Object> map);
 
-	public void find_id(HashMap<String, Object> map);
+	public MemberVo find_id(HashMap<String, Object> map);
 
 	public int mIdCheck(String mId);
 

@@ -22,23 +22,7 @@
 </head>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
-   $(function(){
-		$('#btnFind').on('click', function(){
-			 $.ajax({
-                 url      : '/find_Id'
-               , data     : { mName : $('#mName').val() ,
-            	   			  mPhone : $('#mPhone').val() 	}
-               , dataType : 'json'
-               , success  : function(data) {
-                  var Id = data.mId;
-                  alert(Id);
-               }
-               , error    : function(xhr) {
-            	   alert("error: " + xhr.status + "," + xhr.textStatus)
-               } 
-            });
-		});
-   });
+
    </script>
 <body class="hold-transition login-page">
 <div class="login-box">

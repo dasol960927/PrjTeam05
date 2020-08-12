@@ -71,6 +71,9 @@ public class MemberController {
 		case "find_idForm": 
 			link = "members/find_id";
 			break;
+		case "find_id_result": 
+			link = "members/find_id_result";
+			break;
 			
 		//ReqBoardController 에서 안넘어가서 여기에 추가 by박다솔
 		case "reqBoardWriter": 
@@ -215,10 +218,18 @@ public class MemberController {
 	}
 
 	// 아이디 찾기
-	@RequestMapping("/find_Id")
-	public void find_id( @RequestParam HashMap<String, Object> map) {
-		memberService.find_id(map);
-				
+	@RequestMapping(value="/find_Id", method=RequestMethod.POST)
+	public ModelAndView find_id( @RequestParam HashMap<String, Object> map) {
+		
+		ModelAndView mv = new ModelAndView();
+		
+		MemberVo memberVo = memberService.find_id(map);
+		System.out.println("memberVo=" + memberVo);
+		String returnURL = "";
+		mv.setViewName("members/find_id_result");
+		mv.addObject("memberVo", memberVo);
+		returnURL = "redirect:/find_id_result";
+		return mv;
 	}	
 	
 	@RequestMapping("/reqBoard")

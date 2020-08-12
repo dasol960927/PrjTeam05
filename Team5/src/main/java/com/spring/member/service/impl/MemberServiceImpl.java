@@ -52,8 +52,9 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public void find_id(HashMap<String, Object> map) {
-		memberDao.find_id(map);
+	public MemberVo find_id(HashMap<String, Object> map) {
+		MemberVo memberVo = memberDao.find_id(map);
+		return memberVo;
 		
 	}
 
