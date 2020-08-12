@@ -11,6 +11,8 @@ public interface LikeDao {
 
 	List<LikeVo> getList(HashMap<String, Object> map);
 
+	void setLike(HashMap<String, Object> map);
+
 	
 
 }

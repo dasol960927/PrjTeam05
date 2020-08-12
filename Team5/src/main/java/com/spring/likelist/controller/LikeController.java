@@ -2,6 +2,7 @@ package com.spring.likelist.controller;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,11 +28,10 @@ public class LikeController {
 	
 	@RequestMapping("LIKE/List")
 	public ModelAndView likeList(@RequestParam HashMap<String, Object> map) {
-		
-		
+				
 		List<LikeVo> likeList = likeService.getList(map);
 		MemberVo memberVo = memberService.getMemberInfo(map);				
-		
+
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("table/likelist");
 		mv.addObject("likeList", likeList);
@@ -42,6 +42,14 @@ public class LikeController {
 		
 		return mv;
 		
+	}
+	
+	@RequestMapping("/Like")
+	public ModelAndView like(@RequestParam HashMap<String, Object> map) {
+		likeService.setLike(map);
+		
+		System.out.println("찜" + map);
+		return null;
 	}
 	
 }

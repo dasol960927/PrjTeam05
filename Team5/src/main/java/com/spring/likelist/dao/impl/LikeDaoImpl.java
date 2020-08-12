@@ -28,5 +28,11 @@ public class LikeDaoImpl implements LikeDao {
 		return likeList;
 	}
 
+	@Override
+	public void setLike(HashMap<String, Object> map) {
+		sqlSession.insert("LIKE.LikeInsert", map);
+		
+	}
+
 	
 }
