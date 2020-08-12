@@ -51,7 +51,7 @@
         <address>
 		<strong>${memberVo.mName }</strong><br>
 		연락처 : ${memberVo.mPhone }<br>
-		Email: ${mId }
+		Email: ${memberVo.mId }
         </address>
       </div>
       <!-- /.col -->

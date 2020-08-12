@@ -27,9 +27,14 @@ public class LikeServiceImpl implements LikeService {
 	}
 
 	@Override
+	public void setLike(HashMap<String, Object> map) {
+		likeDao.setLike(map);
+	}
+
 	public void setDelete(HashMap<String, Object> map) {
 		
 		likeDao.setDelete(map);
+
 		
 	}
 

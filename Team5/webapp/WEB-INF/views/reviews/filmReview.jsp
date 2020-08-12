@@ -158,7 +158,7 @@
 
                 <div class="btn btn-default btn-lg btn-flat">
                   <i class="fas fa-heart fa-lg mr-2"></i> 
-                 	<a href="/Likelist">찜하기</a>
+                 	<a href="/Like?mId=${ login.mId }&filmId=K22319">찜하기</a>
                 </div>
               </div>
 
