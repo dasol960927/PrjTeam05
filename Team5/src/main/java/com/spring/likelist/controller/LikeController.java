@@ -9,17 +9,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.spring.likelist.service.LlistService;
-import com.spring.likelist.vo.LlistVo;
+import com.spring.likelist.service.LikeService;
+import com.spring.likelist.vo.LikeVo;
 import com.spring.member.service.MemberService;
 import com.spring.member.vo.MemberVo;
 
 
 @Controller
-public class LlistController {
+public class LikeController {
 	
 	@Autowired
-	private LlistService llistService;
+	private LikeService likeService;
 	
 	@Autowired
 	private MemberService memberService;
@@ -30,7 +30,7 @@ public class LlistController {
 		
 		System.out.println("LIKE/List map : " + map);
 		
-		List<LlistVo> purList = llistService.getLlist(map);
+		List<LikeVo> likeList = likeService.getList(map);
 		MemberVo memberVo = memberService.getMemberInfo(map);
 		
 		ModelAndView mv = new ModelAndView();

@@ -1,6 +1,6 @@
 package com.spring.likelist.vo;
 
-public class LlistVo {
+public class LikeVo {
 	
 	private String likeId;
 	private String mId;

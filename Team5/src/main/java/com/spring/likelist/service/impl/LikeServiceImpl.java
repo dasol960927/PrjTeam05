@@ -6,21 +6,25 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.spring.likelist.dao.LlistDao;
-import com.spring.likelist.service.LlistService;
-import com.spring.likelist.vo.LlistVo;
+import com.spring.likelist.dao.LikeDao;
+import com.spring.likelist.service.LikeService;
+import com.spring.likelist.vo.LikeVo;
 
-@Service("llistService")
-public class LlistServiceImpl implements LlistService {
+
+
+@Service("likeService")
+public class LikeServiceImpl implements LikeService {
 
 	@Autowired
-	private LlistDao llistDao;
+	private LikeDao likeDao;
 
 	@Override
-	public List<LlistVo> getLlist(HashMap<String, Object> map) {
+	public List<LikeVo> getList(HashMap<String, Object> map) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
 	
 	
 }
