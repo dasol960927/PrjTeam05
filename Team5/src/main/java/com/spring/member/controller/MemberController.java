@@ -25,7 +25,6 @@ import com.spring.member.email.Email;
 import com.spring.member.email.EmailSender;
 import com.spring.member.service.MemberService;
 import com.spring.member.vo.MemberVo;
-import com.spring.naverfilm.service.NaverFilmService;
 import com.spring.reqboard.service.ReqBoardService;
 import com.spring.reqboard.vo.ReqBoardVo;
 
@@ -37,9 +36,6 @@ public class MemberController {
 	
 	@Autowired
 	private ReqBoardService reqBoardService;
-	
-	@Autowired
-	private NaverFilmService service;
 	
 	@Autowired
 	private EmailSender emailSender;
@@ -277,18 +273,4 @@ public class MemberController {
 		reqBoardService.addReqBoard(map);
 		return "reqBoard/reqBoardCheck";
 	}
-	
-	
-	@RequestMapping("/search")
-	@ResponseBody
-	public void FlimList(String keyword, HttpServletResponse response) {
-		String json = service.searchFilm(keyword, 10, 1);
-		//System.out.println(json); 
-		try {
-			response.getWriter().print(json);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}		
-	}
-
 }
