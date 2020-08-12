@@ -122,18 +122,16 @@ public class DpsController {
 		ModelAndView mv = new ModelAndView();
 		List<DpsVo> dpsList = dpsService.getDpsList(map);	
 		MemberVo memberVo = memberService.getMemberInfo(map);
+			
 		
 		mv.addObject("mId", map.get("mId"));
-		mv.addObject("dComId", map.get("dComId"));
-		mv.addObject("dPay", map.get("dPay"));
-		mv.addObject("outDate", map.get("outDate"));
 		
 		mv.addObject("dpsList", dpsList);	
 		mv.addObject("memberVo", memberVo);
 		
-		System.out.println("프린터  맵: " + map);
-		System.out.println("프린터 디파짓리스트 : " + dpsList);
-		System.out.println("프린터 멤버 : " + memberVo);
+		mv.addObject("dPay", map.get("dPay"));
+		System.out.println("프린터  돈: " + map.get("dPay"));
+
 		mv.setViewName("deposit/invoicePrint");
 		
 		return mv;
