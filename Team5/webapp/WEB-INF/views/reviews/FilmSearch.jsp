@@ -164,7 +164,7 @@ $(function(){
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
 								<li class="breadcrumb-item"><a href="/">Home</a></li>
-								<li class="breadcrumb-item active">영화검색</li>
+								<li class="breadcrumb-item active">영화 검색</li>
 							</ol>
 						</div>
 					</div>
