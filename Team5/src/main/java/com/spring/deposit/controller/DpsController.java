@@ -74,8 +74,8 @@ public class DpsController {
 	@RequestMapping("/DPS/Deposit2")
 	public ModelAndView dps2(@RequestParam HashMap<String, Object> map) {
 		
-		// map : mId + dPay + dComVal
 		
+		// map : mId + dPay + dComVal		
 		
 		dpsService.insertDps(map);
 		MemberVo memberVo = memberService.getMemberInfo(map);
