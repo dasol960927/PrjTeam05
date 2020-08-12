@@ -30,7 +30,8 @@
          {CALL  PKG_DPS.PROC_DPS_INSERT(         	
          	#{mId, mode=IN, jdbcType=VARCHAR},         	
             #{dComId, mode=IN, jdbcType=VARCHAR},
-            #{dPay, mode=IN, jdbcType=INTEGER}
+            #{dPay, mode=IN, jdbcType=INTEGER},
+            #{outDate, mode=OUT, jdbcType=VARCHAR}
          ) }		     
      </insert>  
              

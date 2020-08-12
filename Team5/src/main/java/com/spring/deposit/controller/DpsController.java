@@ -59,6 +59,9 @@ public class DpsController {
 		System.out.println("dps1 List : " + dpsList);
 
 		mv.addObject("mId", map.get("mId"));
+		mv.addObject("dComId", map.get("dComId"));
+		mv.addObject("dPay", map.get("dPay"));
+		mv.addObject("outDate", map.get("outDate"));
 		
 		mv.addObject("dpsList", dpsList);	
 		mv.addObject("memberVo", memberVo);
@@ -71,10 +74,11 @@ public class DpsController {
 	@RequestMapping("/DPS/Deposit2")
 	public ModelAndView dps2(@RequestParam HashMap<String, Object> map) {
 		
-		// map : mId + dPay + dComVal
-		System.out.println("dps2 map : " + map);
+		
+		// map : mId + dPay + dComVal		
 		
 		dpsService.insertDps(map);
+		MemberVo memberVo = memberService.getMemberInfo(map);
 		
 		ModelAndView mv = new ModelAndView();
 		 			
@@ -82,11 +86,17 @@ public class DpsController {
 		mv.addObject("mId", map.get("mId"));
 		mv.addObject("dComId", map.get("dComId"));
 		mv.addObject("dPay", map.get("dPay"));
-		//mv.setViewName("redirect:/login");		
+		mv.addObject("outDate", map.get("outDate"));
+		
+		mv.addObject("memberVo", memberVo);
+		//mv.setViewName("redirect:/login");	
+		
+		System.out.println("dps2 map : " + map);		
+		
 		
 		String dComId = (String) map.get("dComId");
 		
-
+		
 		
 		switch(dComId) {
 			case "COM001" :
