@@ -33,7 +33,6 @@ public class DpsController {
 		MemberVo memberVo = memberService.getMemberInfo(map);
 		
 		
-		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("deposit/depositList");
 		mv.addObject("dpsList", dpsList);
@@ -58,7 +57,7 @@ public class DpsController {
 		
 		System.out.println("dps1 map : " + map);
 		System.out.println("dps1 List : " + dpsList);
-		
+
 		mv.addObject("mId", map.get("mId"));
 		
 		mv.addObject("dpsList", dpsList);	
@@ -107,5 +106,9 @@ public class DpsController {
 		return mv;
 	}
 	
+	@RequestMapping("/invoicePrint")
+	public String invoicePrint() {
+		return "deposit/invoicePrint";
+	}
 	
 }

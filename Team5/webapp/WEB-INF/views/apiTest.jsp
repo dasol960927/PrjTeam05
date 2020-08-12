@@ -111,7 +111,7 @@ $(function(){
 		               	html += '<p>개봉일자 : ' + item.repRlsDate + '</p>';
 			            html += '</div>';
 			                
-			            exit = true; //이중 ajax 빠져나오기
+			            exit = true; //이중 ajax 빠져나오기  주희
 					  });
 					  if(exit){ return false;} //이중 ajax 빠져나오기
 				});
