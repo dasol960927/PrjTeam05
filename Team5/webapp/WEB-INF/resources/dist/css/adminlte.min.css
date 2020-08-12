@@ -2671,14 +2671,14 @@ a.btn.disabled, fieldset:disabled a.btn {
 .btn-info {
 	color: #fff;
 	background-color: #A8DBA8;
-	border-color: #FF0558;
+	border-color: #6AAFE6;
 	box-shadow: none
 }
 
 .btn-info:hover {
 	color: #fff;
 	background-color: #79BD9A;
-	border-color: #117a8b
+	border-color: #8EC0E4
 }
 
 .btn-info.focus, .btn-info:focus {
