@@ -19,70 +19,119 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
-
+//Main에서 값 받아오기
 var keywordGet = '<%= (String)request.getParameter("keyword")%>'
 //alert(keywordGet);
 
-$(function(){
+//null 체크
+function nullCheck(string) {
+	var checkValue;
+	if(string == ""){
+		checkValue = '추가예정';
+	}else{
+		checkValue = string;
+	}
+	return checkValue;
+}
+
+//포스터, 스틸컷 url
+function poster(string) {
+	var str = string.split('|');
 	
-    $.ajax({
-    		url : '/search',
-    		type : 'get',
-    		dataType : "json",
-    		data : { keyword: keywordGet,  },
-			  success : function(data) {
-				  console.log(data.items);
-				  var v1 = data.items[0].title; //강철비정상회담 제목나옴
-				  //alert(JSON.stringify(v1));
-				  
-				  var list = data.items;
-				  //alert(JSON.stringify(list));
-				  //var dataList = JSON.stringify(data);
-				  //console.log(dataList);
-				  //var list = JSON.parse(dataList);
-				  //console.log(list);
-				  //alert(list);
-				  var html     = '';
-				  $.each(list, function(index, item) {          
-					  html +=            '<div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">';
-					  html +=              '<div class="card bg-light">';
-					  html +=                '<div class="card-header text-muted border-bottom-0">'
-					  html +=                  	item.title;
-					  html +=                '</div>';
-					  html +=                '<div class="card-body pt-0">';
-					  html +=                 '<div class="row">';
-					  html +=                    '<div class="col-7">';
-					  html +=                      '<h2 class="lead"><b>'+ '★' +  item.userRating + '</b></h2>'
-					  html +=                      '<p class="text-muted text-sm"><b>배우: </b>'+ item.actor +'</p>';
-					  html +=                      '<p class="text-muted text-sm"><b>감독: </b>'+ item.director +'</p>';
-					  html +=                    '</div>';
-					  html +=                    '<div class="col-5 text-center">';
-					  html +=                    	'<img src="' + item.image + '" clas="img-fluid"/>';
-					  html +=                    '</div>';
-					  html +=                  '</div>';
-					  html +=                '</div>';
-					  html +=                '<div class="card-footer">';
-					  html +=                '<div class="text-right">';
-					  html +=                 '<a href="/Likelist" class="btn btn-sm bg-teal">';
-					  html +=                      '<i class="fas fa-heart"></i>';
-					  html +=                  '</a>';
-					  html +=                   '<a href="/filmReview" class="btn btn-sm btn-primary">'
-					  html +=                      '<i></i> 영화 리뷰';
-					  html +=                    '</a>';
-					  html +=                  '</div>';
-					  html +=                '</div>';
-					  html +=              '</div>';
-					  html +=            '</div>';
-					  			
-		                
-					}); 
-				  $('#film').html(html);
-			  },
-			  error    : function(xhr) {
-				  alert(xhr.status + '' + xhr.textStatus);
-			  }
-		  });
-	  });
+	return str;
+}
+
+//제목 자르기
+function title(string) {
+	var str = string.split('^');
+	
+	return str;
+}
+
+$(function(){
+	var url = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70&title='+ keywordGet;
+	var v1 = '';
+	$.ajax({
+		url : url,
+		type : 'get',
+		dataType : "json",
+		async: false,
+		data : {title : keywordGet},
+		success : function(data) {
+			//console.log(data);
+			var json = data.Data[0];
+			//console.log(json);
+
+			var list;
+			var exit= false;
+			var html = '';
+			
+				$.each(json, function(index, item) {
+					list = json.Result;
+					console.log(json.Result);
+										
+					$.each(list, function(index, item) {
+						var tit = title(item.titleEtc); //제목 문자열 자르기
+
+						//포스터
+						var posterVal = '';
+						var pos = poster(item.posters); //포스터 문자열 자르기
+						if(pos == ''){
+							posterVal = '<img src="/img/ReadytoPoster.jpg" alt="포스터 준비중"/>';
+						}else{
+							posterVal = '<img src="' + pos[0] + '" alt="포스터"/>';
+						}
+						
+						//배우
+						if(item.actors.actor[4] == null){
+							var actorVal = '추가예정';
+						}else{
+							actorVal  = nullCheck(item.actors.actor[0].actorNm) + ', ';
+							actorVal += nullCheck(item.actors.actor[1].actorNm) + ', ';
+							actorVal += nullCheck(item.actors.actor[2].actorNm) + ', ';
+							actorVal += nullCheck(item.actors.actor[3].actorNm) + ', ';
+							actorVal += nullCheck(item.actors.actor[4].actorNm)
+			            }
+						
+						html+=            '<div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">';
+						html+=              '<div class="card bg-light">';
+						html+=                '<div class="card-header text-muted border-bottom-0">';
+						html+=                  '<b>'+ item.genre +'</b>';
+						html+=                '</div>';
+						html+=                 '<div class="card-body pt-0">';
+						html+=                   '<div class="row">';
+						html+=                     '<div class="col-7">';
+						html+=                       '<h2 class="lead">'+ tit[1] +'</h2>';
+						html+=                       '<p class="text-muted text-sm"><b>감독: </b>' + item.directors.director[0].directorNm + '</p>';
+						html+=                       '<p class="text-muted text-sm"><b>배우: </b>' + actorVal + '</p>';
+						html+=                     '</div>';
+						html+=                      '<div class="img-fluid">' + posterVal+'</div>';
+						html+=                   '</div>';
+						html+=                 '</div>';
+						html+=                 '<div class="card-footer">';
+						html+=                   '<div class="text-right">';
+						html+=                     '<a href="/Likelist" class="btn btn-sm bg-teal">';
+						html+=                       '<i class="fas fa-heart"></i>';
+						html+=                     '</a>';
+						html+=                     '<a href="/filmReview" class="btn btn-sm btn-primary">';
+						html+=                       '<i class="fas fa-eye"></i> 영화 리뷰';
+						html+=                     '</a>';
+						html+=                   '</div>';
+						html+=                 '</div>';
+						html+=               '</div>';
+						html+=             '</div>';
+			                
+			            exit = true; //이중 ajax 빠져나오기  주희
+					  });
+					  if(exit){ return false;} //이중 ajax 빠져나오기
+				});
+			$('#film').html(html);
+		},
+		error : function(xhr) {
+			alert(xhr.status + '' + xhr.textStatus);
+	  	}
+	});
+});
 </script>
 
 </head>
