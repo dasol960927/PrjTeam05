@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%
+	Date nowTime = new Date();
+	SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd a hh:mm:ss");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,7 +35,7 @@
       <div class="col-12">
         <h2 class="page-header">
           <i class="fas fa-globe"></i> FlimCritics, Inc.
-          <small class="float-right">Date: 2/10/2014</small>
+          <small class="float-right">날짜:<%=sf.format(nowTime) %></small>
         </h2>
       </div>
       <!-- /.col -->
@@ -55,13 +61,7 @@
         </address>
       </div>
       <!-- /.col -->
-      <div class="col-sm-4 invoice-col">
-        <b>Invoice #007612</b><br>
-        <br>
-        <b>Order ID:</b> 4F3S8J<br>
-        <b>Payment Due:</b> 2/22/2014<br>
-        <b>Account:</b> 968-34567
-      </div>
+
       <!-- /.col -->
     </div>
     <!-- /.row -->
@@ -118,16 +118,12 @@
     <div class="row">
       <!-- accepted payments column -->
       <div class="col-6">
-        <p class="lead">Payment Methods:</p>
+        <p class="lead">충전가능한 카드 종류:</p>
         <img src="/dist/img/credit/visa.png" alt="Visa">
         <img src="/dist/img/credit/mastercard.png" alt="Mastercard">
         <img src="/dist/img/credit/american-express.png" alt="American Express">
         <img src="/dist/img/credit/paypal2.png" alt="Paypal">
 
-        <p class="text-muted well well-sm shadow-none" style="margin-top: 10px;">
-          Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, weebly ning heekya handango imeem plugg dopplr
-          jibjab, movity jajah plickers sifteo edmodo ifttt zimbra.
-        </p>
       </div>
       <!-- /.col -->
       <div class="col-6">
@@ -136,20 +132,16 @@
         <div class="table-responsive">
           <table class="table">
             <tr>
-              <th style="width:50%">Subtotal:</th>
-              <td>$250.30</td>
+              <th style="width:50%">가격(&#8361;):</th>
+              <td>${dPay*0.9}</td>
             </tr>
             <tr>
-              <th>Tax (9.3%)</th>
-              <td>$10.34</td>
+              <th>부가세 (10%)</th>
+              <td>${dPay*0.1}</td>
             </tr>
             <tr>
-              <th>Shipping:</th>
-              <td>$5.80</td>
-            </tr>
-            <tr>
-              <th>Total:</th>
-              <td>$265.24</td>
+              <th>합계(&#8361;):</th>
+              <td>${dPay}</td>
             </tr>
           </table>
         </div>
@@ -161,7 +153,6 @@
   <!-- /.content -->
 </div>
 <!-- ./wrapper -->
-
 <script type="text/javascript"> 
   window.addEventListener("load", window.print());
 </script>

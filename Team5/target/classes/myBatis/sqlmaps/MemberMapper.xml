@@ -105,6 +105,13 @@
 			FROM   MEMBERS
 			WHERE  M_ID = #{mId}	 
 	</select>
-     
+      
+    <update id="newPassword" 
+      			parameterType="MemberVO">
+		UPDATE MEMBERS
+		SET    M_PASS = #{mPass}
+		WHERE  M_ID = #{mId} AND M_PHONE = #{mPhone}
+	</update> 
+       
   </mapper>        
 

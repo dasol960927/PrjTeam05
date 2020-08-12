@@ -80,6 +80,9 @@ public class MemberController {
 		case "find_id_result": 
 			link = "members/find_id_result";
 			break;
+		case "find_pass": 
+			link = "members/find_pass";
+			break;
 			
 		//ReqBoardController 에서 안넘어가서 여기에 추가 by박다솔
 		case "reqBoardWriter": 
@@ -239,7 +242,7 @@ public class MemberController {
 	}	
 	
 	// 새로운 비밀번호 생성
-	@RequestMapping("/newPassword")
+	@RequestMapping(value = "/newPassword")
 	public String newPassword(@Valid MemberVo memberVO, HttpSession session) throws Exception {
 		Random r = new Random();
 		int num = r.nextInt(89999) + 10000;
