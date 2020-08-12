@@ -131,7 +131,7 @@
                               </i>
                                	구매
                           </a>
-                          <a class="btn btn-danger btn-sm" href="#">
+                          <a class="btn btn-danger btn-sm" href="/LIKE/delete?mId=${likeVo.mId}&filmId=${likeVo.filmId}">
                               <i class="fas fa-trash">
                               </i>
                               	삭제

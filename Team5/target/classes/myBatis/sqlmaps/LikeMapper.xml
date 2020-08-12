@@ -24,6 +24,7 @@
          ) }     
      </select>
      
+
      <insert id = "LikeInsert" parameterType="hashmap">
  		{CALL PKG_LIKE.PROC_LIKE_INSERT(
  			#{mId, mode=IN, jdbcType = VARCHAR},
@@ -33,6 +34,17 @@
  		    
      	
      </insert>
+
+     <delete id="Delete"
+     	statementType="CALLABLE" parameterType="hashmap">
+         {CALL  PKG_LIKE.PROC_LIKE_DELETE(
+         	#{mId, mode=IN, jdbcType=VARCHAR},
+            #{filmId, mode=IN, jdbcType=VARCHAR}
+         ) }       	
+     
+     
+     </delete>
+     
   
  
              

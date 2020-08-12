@@ -29,8 +29,15 @@ public class LikeDaoImpl implements LikeDao {
 	}
 
 	@Override
+
 	public void setLike(HashMap<String, Object> map) {
 		sqlSession.insert("LIKE.LikeInsert", map);
+
+	}
+	public void setDelete(HashMap<String, Object> map) {
+		
+		sqlSession.delete("LIKE.Delete", map);
+
 		
 	}
 

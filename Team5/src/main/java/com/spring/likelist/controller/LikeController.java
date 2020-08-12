@@ -35,7 +35,7 @@ public class LikeController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("table/likelist");
 		mv.addObject("likeList", likeList);
-		mv.addObject("memberVo", memberVo);
+		mv.addObject("memberVo", memberVo);		
 				
 		System.out.println("LIKE/List map : " + map);
 		System.out.println("likeList : " + likeList);
@@ -44,12 +44,30 @@ public class LikeController {
 		
 	}
 	
+
 	@RequestMapping("/Like")
 	public ModelAndView like(@RequestParam HashMap<String, Object> map) {
 		likeService.setLike(map);
 		
 		System.out.println("찜" + map);
 		return null;
+	}
+
+	@RequestMapping("LIKE/delete")
+	public ModelAndView likeDelete(@RequestParam HashMap<String, Object> map) {
+		
+		System.out.println("map : " + map);
+		likeService.setDelete(map);
+		MemberVo memberVo = memberService.getMemberInfo(map);				
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("redirect:/LIKE/List?mId=" + map.get("mId"));		
+		mv.addObject("memberVo", memberVo);
+		
+		
+		return mv;
+		
+
 	}
 	
 }
