@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -91,13 +92,14 @@
                   </tr>
               </thead>
               <tbody>
+              	<c:forEach var="likeVo" items="${likeList}">
                   <tr>
                       <td>
                           #
                       </td>
                       <td>
                           <a>
-                              	반도
+                              	${likeVo.filmName}
                           </a>
                           <br/>
                           <small>
@@ -121,10 +123,10 @@
                           </ul>
                       </td>
                       <td class="project_progress">
-                              	연상호
+                              	${likeVo.filmDirector}
                       </td>
                       <td class="project-state">
-                          <span>3000</span>
+                          <span>${likeVo.filmPrice}</span>
                       </td>
                       <td class="project-actions text-right">
                           <a class="btn btn-primary btn-sm" href="#">
@@ -144,6 +146,7 @@
                           </a>
                       </td>
                   </tr>
+                </c:forEach>  
               </tbody>
           </table>
         </div>
