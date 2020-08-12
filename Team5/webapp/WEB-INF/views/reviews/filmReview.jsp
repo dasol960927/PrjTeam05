@@ -144,6 +144,7 @@
               <div class="bg-gray py-2 px-3 mt-4">
                 <h2 class="mb-0">
                   3000 P
+                  
                 </h2>
                 <h4 class="mt-0">
                   <small>3000원 충전 필요</small>
