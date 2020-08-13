@@ -11,7 +11,7 @@
   crossorigin="anonymous">
 </script>
 <script>
-//포스터
+//포스터  
 function poster(string) {
 	var str = string.split('|');
 	
