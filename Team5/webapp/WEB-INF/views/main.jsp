@@ -18,6 +18,237 @@
   <link rel="stylesheet" href="/dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+//포스터  
+function poster(string) {
+	var str = string.split('|');
+	
+	return str;
+}
+
+//날짜
+function movieDate(string) {
+	var str = string.replace(/-/g,"");
+	
+	return str;
+}
+
+//제목
+function title(string) {
+	var str = string.split('^');
+	
+	return str;
+}
+
+var v1 = '';
+function getBoxOffice(date, divId) {
+	function kmdbApi(movieNm,openDt) {
+		var kDate = movieDate(openDt);
+		var KMDbUrl = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70'
+				+'&releaseDts=' + kDate + '&title='+ movieNm;
+		var pos = '';
+		$.ajax({
+			url : KMDbUrl,
+			type : 'get',
+			dataType : "json",
+			async: false, //값을 리턴시 해당코드를 추가하여 동기로 변경
+			success : function(data) {
+				//console.log(data);
+				var TotalCount = data.Data[0].Count;
+				if(TotalCount == 0){
+					v1 = '<img src="/img/PosterReady.jpg" alt="포스터 준비중"/>';
+				}else{
+					if(TotalCount > 0){
+						for(var i=0;i<TotalCount;i++){
+							if(kDate == data.Data[0].Result[i].repRlsDate){
+								pos = poster(data.Data[0].Result[i].posters);
+								v1 = '<a href="#"><img src="' + pos[0] + '"/></a>';
+							}else{
+								pos = '';
+							}
+						}
+					}else{
+						pos = poster(data.Data[0].Result[0].posters);
+						v1 = '<a href="#"><img src="' + pos[0] + '"/></a>';
+					}
+				}
+			},
+			error    : function(xhr) {
+				alert(xhr.status + '' + xhr.textStatus);
+		  	}
+		});
+		return v1;
+	}
+	
+	$(function(){	
+		var BoxOfficeUrl = 'http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=b277ae665edf3d36d582a0b696287edc'+
+		   '&targetDt='+ date;
+		
+		$.ajax({
+			url : BoxOfficeUrl,
+			type : 'get',
+			dataType : "json",
+			  success : function(data) {
+				  var list = data.boxOfficeResult.dailyBoxOfficeList;
+				  //console.log(list);
+				  var html = '';
+				  $.each(list, function(index, item) {
+					 	html += '<div>';
+						html += kmdbApi(item.movieNm,item.openDt);
+		               	html += '<p>제목 : ' + item.movieNm + '</p>';
+		                html += '</div>';
+				  });
+				  $('#div0').html(html);
+			  },
+			  error    : function(xhr) {
+				  alert(xhr.status + '' + xhr.textStatus);
+			  }
+		  });
+	});	
+}
+
+//배우
+function getActor(actorVal, divId) {
+	$(function(){
+		var url = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70&' + 
+		     	  'actor=' + actorVal + '&listCount=5&sort=prodYear,1';
+		$.ajax({
+			url : url,
+			type : 'get',
+			dataType : "json",
+			success : function(data) {
+				//console.log(data);
+				
+				var js = data.Data[0].Result;
+				var html = '';
+				$.each(js, function(index, item) {				
+					var posterVal = '';
+					var pos = poster(item.posters); //포스터 문자열 자르기
+					if(pos == ''){
+						posterVal = '<img src="/img/ReadytoPoster.jpg" alt="포스터 준비중"/>';
+					}else{
+						posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
+								'&filmId=' + item.movieId + 
+								'&filmSeq=' + item.movieSeq + 
+								'&filmYear=' + item.prodYear + '"><img src="' + pos[0] + '"/></a>';
+					}
+					
+					html += '<div>';
+					html += posterVal + '<br>';
+		            html += '<p>' + item.title + '</p>';
+		            html += '</div>';
+				});
+				$('#'+divId).html(html);
+			},
+			error : function(xhr) {
+				alert(xhr.status + '' + xhr.textStatus);
+		  	}
+		});
+	});
+}
+
+//감독
+function getDirector(directorVal, divId) {
+	$(function(){
+		var url = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70&' + 
+		     	  'director=' + directorVal + '&listCount=5&sort=prodYear,1';
+		$.ajax({
+			url : url,
+			type : 'get',
+			dataType : "json",
+			success : function(data) {
+				//console.log(data);
+				
+				var js = data.Data[0].Result;
+
+				var html = '';
+				$.each(js, function(index, item) {				
+					var posterVal = '';
+					var pos = poster(item.posters); //포스터 문자열 자르기
+					if(pos == ''){
+						posterVal = '<img src="/img/PosterReady.jpg" alt="포스터 준비중"/>';
+					}else{
+						posterVal = '<a href="/filmReview"><img src="' + pos[0] + '"/></a>';
+					}
+					
+					html += '<div>';
+					html += posterVal + '<br>';
+		            html += '<p>' + item.title + '</p>';
+		            html += '</div>';
+				});
+				$('#'+divId).html(html);
+			},
+			error : function(xhr) {
+				alert(xhr.status + '' + xhr.textStatus);
+		  	}
+		});
+	});
+}
+
+//장르
+function getGenre(genreVal, divId) {
+	$(function(){
+		var url = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70&' + 
+		     	  'genre=' + genreVal + '&listCount=10&sort=prodYear,1&createDts=2019';
+		$.ajax({
+			url : url,
+			type : 'get',
+			dataType : "json",
+			success : function(data) {
+				//console.log(data);
+				
+				var js = data.Data[0].Result;
+
+				var html = '';
+				$.each(js, function(index, item) {				
+					var posterVal = '';
+					var pos = poster(item.posters); //포스터 문자열 자르기
+					if(pos == ''){
+						posterVal = '<img src="/img/PosterReady.jpg" alt="포스터 준비중"/>';
+					}else{
+						posterVal = '<a href="#"><img src="' + pos[0] + '"/></a>';
+					}
+					
+					html += '<div class="col-sm-2">';
+					html += posterVal + '<br>';
+		            html += '<p>' + item.title + '</p>';
+		            html += '</div>';
+				});
+				$('#'+divId).html(html);
+			},
+			error : function(xhr) {
+				alert(xhr.status + '' + xhr.textStatus);
+		  	}
+		});
+	});
+}
+
+var today = new Date();
+var dd = today.getDate()-1;
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+
+if(dd<10) {
+    dd='0'+dd
+} 
+
+if(mm<10) {
+    mm='0'+mm
+} 
+
+today = yyyy+mm+dd;
+
+//console.log(today);
+getBoxOffice(today, 'div0');
+getActor('강동원', 'div1');
+getActor('손예진', 'div2');
+getDirector('봉준호','div3');
+getDirector('박찬욱','div4');
+getGenre('액션','div5')
+getGenre('어드벤처','div6');
+
+</script>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -71,84 +302,28 @@
               </div>
               <div class="card-body">
                 <div>
-                  <div class="btn-group w-100 mb-2">
-                    <a class="btn btn-info active" href="javascript:void(0)" data-filter="all"> 전체영화 </a>
-                    <a class="btn btn-info" href="javascript:void(0)" data-filter="1"> 한국  </a>
-                    <a class="btn btn-info" href="javascript:void(0)" data-filter="2"> 미국 </a>
-                    <a class="btn btn-info" href="javascript:void(0)" data-filter="3"> 일본 </a>
-                    <a class="btn btn-info" href="javascript:void(0)" data-filter="4"> 중국 </a>
+                  <div class="row">
+                    
+			    <h3>박스오피스</h3>
+				<div id=div0></div>
+				<h3>강동원배우</h3>
+				<div id=div1></div>
+				<h3>손예진배우</h3>
+				<div id=div2></div>
+				<h3>봉준호감독</h3>
+				<div id=div3></div>
+				<h3>박찬욱감독</h3>
+				<div id=div4></div>
+				<h3>액션장르</h3>
+				<div id=div5></div>
+				<h3>어드벤처장르</h3>
+				<div id=div6></div>
+				
                   </div>
                 </div>
-               
-                <div>
-                  <div class="filter-container p-0 row">
-                    <div class="filtr-item col-sm-2" data-category="1" data-sort="white sample">
-                      <a href="/filmReview123">
-                        <img src="https://ssl.pstatic.net/imgmovie/mdi/mit110/1516/151646_P01_144220.jpg"  class="img-fluid mb-2"  alt="poster"/>
-                      </a>
-                    </div>
-                    <div class="filtr-item col-sm-2" data-category="2, 4" data-sort="black sample">
-                      <a href="/filmReview123">
-                        <img src="https://ssl.pstatic.net/imgmovie/mdi/mit110/1495/149504_P22_100402.jpg" class="img-fluid mb-2" alt="poster"/>
-                      </a>
-                    </div>
-                    <div class="filtr-item col-sm-2" data-category="3, 4" data-sort="red sample">
-                      <a href="/filmReview123">
-                        <img src="https://ssl.pstatic.net/imgmovie/mdi/mit110/1597/159716_P09_100541.jpg" class="img-fluid mb-2" alt="poster"/>
-                      </a>
-                    </div>
-                    <div class="filtr-item col-sm-2" data-category="3, 4" data-sort="red sample">
-                      <a href="/filmReview123">
-                        <img src="https://ssl.pstatic.net/imgmovie/mdi/mit110/1597/159716_P09_100541.jpg" class="img-fluid mb-2" alt="poster"/>
-                      </a>
-                    </div>
-                    <div class="filtr-item col-sm-2" data-category="2, 4" data-sort="black sample">
-                      <a href="/filmReview123">
-                        <img src="https://ssl.pstatic.net/imgmovie/mdi/mit110/1495/149504_P22_100402.jpg" class="img-fluid mb-2" alt="poster"/>
-                      </a>
-                    </div>
-                    <div class="filtr-item col-sm-2" data-category="1" data-sort="white sample">
-                      <a href="/filmReview123">
-                        <img src="https://ssl.pstatic.net/imgmovie/mdi/mit110/1516/151646_P01_144220.jpg" class="img-fluid mb-2" alt="poster"/>
-                      </a>
-                    </div>
-                    <div class="filtr-item col-sm-2" data-category="1" data-sort="white sample">
-                      <a href="/filmReview123">
-                        <img src="https://ssl.pstatic.net/imgmovie/mdi/mit110/1516/151646_P01_144220.jpg" class="img-fluid mb-2" alt="poster"/>
-                      </a>
-                    </div>
-                    <div class="filtr-item col-sm-2" data-category="2, 4" data-sort="black sample">
-                      <a href="/filmReview123">
-                        <img src="https://ssl.pstatic.net/imgmovie/mdi/mit110/1495/149504_P22_100402.jpg" class="img-fluid mb-2" alt="poster"/>
-                      </a>
-                    </div>
-                    <div class="filtr-item col-sm-2" data-category="3, 4" data-sort="red sample">
-                      <a href="/filmReview123">
-                        <img src="https://ssl.pstatic.net/imgmovie/mdi/mit110/1597/159716_P09_100541.jpg" class="img-fluid mb-2" alt="poster"/>
-                      </a>
-                    </div>
-                    <div class="filtr-item col-sm-2" data-category="1" data-sort="white sample">
-                      <a href="/filmReview123">
-                        <img src="https://ssl.pstatic.net/imgmovie/mdi/mit110/1516/151646_P01_144220.jpg" class="img-fluid mb-2" alt="poster"/>
-                      </a>
-                    </div>
-                    <div class="filtr-item col-sm-2" data-category="1" data-sort="white sample">
-                      <a href="/filmReview123">
-                        <img src="https://ssl.pstatic.net/imgmovie/mdi/mit110/1516/151646_P01_144220.jpg" class="img-fluid mb-2" alt="poster"/>
-                      </a>
-                    </div>
-                    <div class="filtr-item col-sm-2" data-category="2, 4" data-sort="black sample">
-                      <a href="/filmReview123">
-                        <img src="https://ssl.pstatic.net/imgmovie/mdi/mit110/1495/149504_P22_100402.jpg" class="img-fluid mb-2" alt="poster"/>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
               </div>
             </div>
           </div>
- 
         </div>
       </div><!-- /.container-fluid -->
     </section>
@@ -162,7 +337,7 @@
 	<div id="footer">
 		<div>고객센터(이용 및 결제 문의) cs@teamfive.co.kr • 051-629-5232 (유료) <br/>
 		 제휴	및 대외 협력 contact@teamfive.com • 051-629-5232 (유료)</div>
-		<div>주식회사 TeamFive | 대표  송지현| 팀원 김상두 이재혁 박다솔 <a href="/table">김주희</a> | 부산광역시 남구 용당동 부경대용당캠퍼스 공학 6관 | <br/>
+		<div>주식회사 TeamFive | 대표  송지현| 팀원 김상두 이재혁 박다솔 김주희 | 부산광역시 남구 용당동 부경대용당캠퍼스 공학 6관 | <br/>
 		사업자등록번호 8282-2424 | 통신판매업 신고번호 제 2020-부산용당-2020호  <br/>
 		대표번호 051-629-5233 <br/>
 		 개인정보 처리 방침</div>
