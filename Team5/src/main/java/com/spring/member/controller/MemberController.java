@@ -56,9 +56,6 @@ public class MemberController {
 		case "registerForm": 
 			link = "signUp/register";
 			break;
-		case "forgotPassword": 
-			link = "signUp/forgot-password";
-			break;
 		case "filmReview": 
 			link = "reviews/filmReview";
 			break;

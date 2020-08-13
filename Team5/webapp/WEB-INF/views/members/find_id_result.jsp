@@ -70,7 +70,27 @@
         <!-- /.card-body -->
         <div class="card-footer">
           	<a href="/login">로그인</a><br/>
-          	<a href="/forgotPassword">비밀번호를 잊어버리셨나요?</a>
+        </div>
+        <!-- /.card-footer-->
+      </div>
+            <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">비밀번호 찾기</h3>
+
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+              <i class="fas fa-minus"></i></button>
+          </div>
+        </div>
+        <div class="card-body">
+        <form action="/" method="POST">
+	         <input type="text" name="mId" id="mId" value="${ memberVo.mId }"/>
+	       	 <input type="submit" value="비밀번호 찾기"/>
+       	 </form>
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+          	<a href="/login">로그인</a><br/>
         </div>
         <!-- /.card-footer-->
       </div>
