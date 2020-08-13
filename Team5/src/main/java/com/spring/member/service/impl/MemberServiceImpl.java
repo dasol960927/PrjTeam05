@@ -58,6 +58,12 @@ public class MemberServiceImpl implements MemberService {
 		
 	}
 
+	@Override
+	public MemberVo find_pass(HashMap<String, Object> map) {
+		MemberVo memberVo = memberDao.find_pass(map);
+		return memberVo;
+	}
+ 
 
 	@Override
 	public int mIdCheck(String mId) {
@@ -77,7 +83,9 @@ public class MemberServiceImpl implements MemberService {
 		memberDao.newPassword(memberVO);
 		
 	}
- 
+
+
+
 
 
 }

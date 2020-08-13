@@ -63,6 +63,13 @@ public class MemberDaoImpl implements MemberDao {
 	}
 
 	@Override
+	public MemberVo find_pass(HashMap<String, Object> map) {
+		MemberVo memberVo = sqlSession.selectOne("Member.find_pass", map);
+		return memberVo;
+	}
+
+	
+	@Override
 	public int mIdCheck(String mId) {
 		return sqlSession.selectOne("Member.mIdCheck", mId);
 	}
@@ -82,6 +89,7 @@ public class MemberDaoImpl implements MemberDao {
 		sqlSession.update("Member.newPassword", memberVO);
 		
 	}
+
 
 
 }
