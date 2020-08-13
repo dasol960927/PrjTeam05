@@ -38,9 +38,12 @@ function getActor(actorVal, divId) {
 					var posterVal = '';
 					var pos = poster(item.posters); //포스터 문자열 자르기
 					if(pos == ''){
-						posterVal = '<img src="/img/PosterReady.jpg" alt="포스터 준비중"/>';
+						posterVal = '<img src="/img/ReadytoPoster.jpg" alt="포스터 준비중"/>';
 					}else{
-						posterVal = '<a href="#"><img src="' + pos[0] + '"/></a>';
+						posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
+								'&filmId=' + item.movieId + 
+								'&filmSeq=' + item.movieSeq + 
+								'&filmYear=' + item.prodYear + '"><img src="' + pos[0] + '"/></a>';
 					}
 					
 					html += '<div>';
@@ -79,7 +82,7 @@ function getDirector(directorVal, divId) {
 					if(pos == ''){
 						posterVal = '<img src="/img/ReadytoPoster.jpg" alt="포스터 준비중"/>';
 					}else{
-						posterVal = '<a href="#"><img src="' + pos[0] + '"/></a>';
+						posterVal = '<a href="/filmReview"><img src="' + pos[0] + '"/></a>';
 					}
 					
 					html += '<div>';
