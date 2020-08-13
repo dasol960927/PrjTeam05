@@ -98,6 +98,16 @@
 			 	
    </select>
    
+   <select  id="find_pass"
+   			parameterType="hashmap" 
+   			resultType="com.spring.member.vo.MemberVo">
+   			SELECT M_PASS
+			FROM   MEMBERS
+			WHERE  M_ID = #{mId}	 
+			AND    M_PHONE   = #{mPhone}
+			 	
+   </select>
+   
    	<select id="mIdCheck" 
 			parameterType="String" 
    			resultType="int">
@@ -106,12 +116,7 @@
 			WHERE  M_ID = #{mId}	 
 	</select>
       
-    <update id="newPassword" 
-      			parameterType="hashmap">
-		UPDATE MEMBERS
-		SET    M_PASS = #{mPass}
-		WHERE  M_ID = #{mId} AND M_PHONE = #{mPhone}
-	</update> 
+
        
   </mapper>        
 

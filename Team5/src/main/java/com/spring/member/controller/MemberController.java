@@ -241,34 +241,52 @@ public class MemberController {
 		return mv;
 	}	
 	
-	// 새로운 비밀번호 생성
-	@RequestMapping(value = "/newPassword")
-	public String newPassword(@Valid MemberVo memberVO, HttpSession session) throws Exception {
-		Random r = new Random();
-		int num = r.nextInt(89999) + 10000;
-		String npassword = "bapsi" + Integer.toString(num);// 새로운 비밀번호 변경
+	// 비밀번호 찾기
+	@RequestMapping(value="/find_Pass", method=RequestMethod.POST)
+	public ModelAndView find_pass( @RequestParam HashMap<String, Object> map) {
 		
-		memberVO.setmPass(npassword);
-		session.setAttribute("memberVO", memberVO);
-
-		memberService.newPassword(memberVO);
-
-		return "/findPassword";
+		ModelAndView mv = new ModelAndView();
+		
+		MemberVo memberVo = memberService.find_pass(map);
+		System.out.println("memberVo=" + memberVo);
+		String returnURL = "";
+		mv.setViewName("members/find_pass_result");
+		mv.addObject("memberVo", memberVo);
+		returnURL = "redirect:/find_pass_result";
+		return mv;
 	}
 	
-	// 이메일로 비밀번호가 전송이된다.
-		@RequestMapping("/findPassword")
-		public String findPasswordOK(MemberVo memberVO, HttpSession session) throws Exception {
-			memberVO = (MemberVo) session.getAttribute("memberVO");
-			email.setContent("새로운 비밀번호 " + memberVO.getmPass() + " 입니다." );
-			email.setReceiver(memberVO.getmId());
-			email.setSubject("안녕하세요" +memberVO.getmId() +"님  재설정된 비밀번호를 확인해주세요");
-			emailSender.SendEmail(email);
-			
-			System.out.println(email);
-			session.invalidate();
-			return "signUp/login";
-		}
+	
+	
+	
+	
+	
+	
+	/*
+	 * // 새로운 비밀번호 생성
+	 * 
+	 * @RequestMapping(value = "/newPassword") public String newPassword(@Valid
+	 * MemberVo memberVO, HttpSession session) throws Exception { Random r = new
+	 * Random(); int num = r.nextInt(89999) + 10000; String npassword = "bapsi" +
+	 * Integer.toString(num);// 새로운 비밀번호 변경
+	 * 
+	 * memberVO.setmPass(npassword); session.setAttribute("memberVO", memberVO);
+	 * 
+	 * memberService.newPassword(memberVO);
+	 * 
+	 * return "/findPassword"; }
+	 * 
+	 * // 이메일로 비밀번호가 전송이된다.
+	 * 
+	 * @RequestMapping("/findPassword") public String findPasswordOK(MemberVo
+	 * memberVO, HttpSession session) throws Exception { memberVO = (MemberVo)
+	 * session.getAttribute("memberVO"); email.setContent("새로운 비밀번호 " +
+	 * memberVO.getmPass() + " 입니다." ); email.setReceiver(memberVO.getmId());
+	 * email.setSubject("안녕하세요" +memberVO.getmId() +"님  재설정된 비밀번호를 확인해주세요");
+	 * emailSender.SendEmail(email);
+	 * 
+	 * System.out.println(email); session.invalidate(); return "signUp/login"; }
+	 */
 	
 	@RequestMapping("/reqBoard")
 	public String reqBoard(@RequestParam HashMap<String, Object> map) {

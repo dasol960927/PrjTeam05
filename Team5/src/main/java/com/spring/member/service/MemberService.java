@@ -22,6 +22,8 @@ public interface MemberService {
 
 	public MemberVo find_id(HashMap<String, Object> map);
 
+	public MemberVo find_pass(HashMap<String, Object> map);
+	
 	public int mIdCheck(String mId);
 
 	public void MemberDelete(String mId);
@@ -29,6 +31,7 @@ public interface MemberService {
 	public MemberVo getMemberInfo(HashMap<String, Object> map);
 
 	public void newPassword(MemberVo memberVO);
+
 
 
 }
