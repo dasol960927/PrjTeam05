@@ -200,11 +200,13 @@ a.link2:hover{text-decoration:underline;}
                   <i class="fas fa-cart-plus fa-lg mr-2"></i> 
                     	포인트 충전
                 </div>
+                
+				<div class="info-box mb-3 bg-success" style="width:180px;">
+				  <span class="info-box-icon"><i class="far fa-heart"></i></span>
+				  <div class="info-box-content">
+				    <a href="/Likelist" style="color:white;">찜하기</a>
+				</div>
 
-                <div class="btn btn-default btn-lg btn-flat">
-                  <i class="fas fa-heart fa-lg mr-2"></i> 
-                 	<a href="/Likelist">찜하기</a>
-                </div>
               </div>
 
               <div class="mt-4 product-share">
