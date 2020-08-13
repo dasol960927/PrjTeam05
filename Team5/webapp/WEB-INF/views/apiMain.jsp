@@ -215,7 +215,23 @@ function getGenre(genreVal, divId) {
 	});
 }
 
-getBoxOffice('20200812', 'div0');
+var today = new Date();
+var dd = today.getDate()-1;
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+
+if(dd<10) {
+    dd='0'+dd
+} 
+
+if(mm<10) {
+    mm='0'+mm
+} 
+
+today = yyyy+mm+dd;
+
+//console.log(today);
+getBoxOffice(today, 'div0');
 getActor('강동원', 'div1');
 getActor('손예진', 'div2');
 getDirector('봉준호','div3');
