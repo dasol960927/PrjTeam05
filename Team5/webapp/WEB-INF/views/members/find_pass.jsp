@@ -28,9 +28,16 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-3">
+	<div class="card">
+        <div class="card-header">
+          <h3 class="card-title">비밀번호 수정</h3>
 
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+              <i class="fas fa-minus"></i></button>
           </div>
-          <!-- /.col -->          			
+        </div>
+        <div class="card-body">
 		<form action="/update" method="post">
 			<div class="input-group mb-3">
 			  <input type="email" class="form-control" name="mId" value="${ memberVo.mId}" readonly />
@@ -49,8 +56,17 @@
 			  </div>
 			</div>
 			<input type="submit" class="btn btn-primary btn-block" value="수정"/>
-		</form>    
-		  						
+		</form>    		  		
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+          	<a href="/login">로그인</a><br/>
+        </div>
+        <!-- /.card-footer-->
+      </div>
+      <!-- /.card -->	
+          </div>
+          <!-- /.col -->          									
         </div>
         <!-- /.row -->
       </div><!-- /.container-fluid -->

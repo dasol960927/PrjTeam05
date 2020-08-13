@@ -102,6 +102,11 @@ public class MemberController {
 		case "ErrorPage":
 			link = "errorPage/500Page";
 			break;
+			
+			//css추가중
+		case "apiMainCss":
+			link = "apiMainCss";
+			break;
 
 		}
 		

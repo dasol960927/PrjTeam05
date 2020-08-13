@@ -73,7 +73,7 @@
         </div>
         <!-- /.card-footer-->
       </div>
-            <div class="card">
+      <div class="card">
         <div class="card-header">
           <h3 class="card-title">비밀번호 찾기</h3>
 
