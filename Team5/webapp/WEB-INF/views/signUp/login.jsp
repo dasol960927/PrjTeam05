@@ -105,6 +105,9 @@
       <p class="mb-0">
         <a href="/find_idForm" class="text-center">아이디찾기</a>
       </p>
+      <p class="mb-0">
+        <a href="/find_pass" class="text-center">비밀번호찾기</a>
+      </p>
     </div>
     <!-- /.login-card-body -->
   </div>

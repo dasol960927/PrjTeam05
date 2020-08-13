@@ -32,11 +32,11 @@
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">아이디를 잊으셨나요? <br/>이름과 전화번호를 입력해주세요</p>
+      <p class="login-box-msg">비밀번호를 잊으셨나요? <br/>이메일과 전화번호를 입력해주세요</p>
 
-      <form action="/find_Id" method="post">
+      <form action="/newPassword" method="post">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="이름" id="mName" name="mName" required>
+          <input type="text" class="form-control" placeholder="이메일" id="mId" name="mId" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -53,7 +53,7 @@
         </div>
         <div class="row">
           <div class="col-12">
-           <button id="submit" class="btn btn-primary btn-block">아이디 찾기</button>
+           <button id="submit" class="btn btn-primary btn-block">새비밀번호 발급</button>
           </div>
           <!-- /.col -->
         </div>

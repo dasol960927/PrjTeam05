@@ -44,7 +44,7 @@ table { width:800px; margin:0 auto; }
               <a href="/">Home</a>
                 <div class="text-center">
                   <img class="profile-user-img img-fluid img-circle"
-                       src="/dist/img/user4-128x128.jpg"
+                       src="/img/User.jpg"
                        alt="User profile picture">
                 </div>
 
