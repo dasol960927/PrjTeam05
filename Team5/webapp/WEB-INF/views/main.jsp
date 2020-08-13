@@ -83,62 +83,62 @@
                 <div>
                   <div class="filter-container p-0 row">
                     <div class="filtr-item col-sm-2" data-category="1" data-sort="white sample">
-                      <a href="/filmReview">
+                      <a href="/filmReview123">
                         <img src="https://ssl.pstatic.net/imgmovie/mdi/mit110/1516/151646_P01_144220.jpg"  class="img-fluid mb-2"  alt="poster"/>
                       </a>
                     </div>
                     <div class="filtr-item col-sm-2" data-category="2, 4" data-sort="black sample">
-                      <a href="/filmReview">
+                      <a href="/filmReview123">
                         <img src="https://ssl.pstatic.net/imgmovie/mdi/mit110/1495/149504_P22_100402.jpg" class="img-fluid mb-2" alt="poster"/>
                       </a>
                     </div>
                     <div class="filtr-item col-sm-2" data-category="3, 4" data-sort="red sample">
-                      <a href="/filmReview">
+                      <a href="/filmReview123">
                         <img src="https://ssl.pstatic.net/imgmovie/mdi/mit110/1597/159716_P09_100541.jpg" class="img-fluid mb-2" alt="poster"/>
                       </a>
                     </div>
                     <div class="filtr-item col-sm-2" data-category="3, 4" data-sort="red sample">
-                      <a href="/filmReview">
+                      <a href="/filmReview123">
                         <img src="https://ssl.pstatic.net/imgmovie/mdi/mit110/1597/159716_P09_100541.jpg" class="img-fluid mb-2" alt="poster"/>
                       </a>
                     </div>
                     <div class="filtr-item col-sm-2" data-category="2, 4" data-sort="black sample">
-                      <a href="/filmReview">
+                      <a href="/filmReview123">
                         <img src="https://ssl.pstatic.net/imgmovie/mdi/mit110/1495/149504_P22_100402.jpg" class="img-fluid mb-2" alt="poster"/>
                       </a>
                     </div>
                     <div class="filtr-item col-sm-2" data-category="1" data-sort="white sample">
-                      <a href="/filmReview">
+                      <a href="/filmReview123">
                         <img src="https://ssl.pstatic.net/imgmovie/mdi/mit110/1516/151646_P01_144220.jpg" class="img-fluid mb-2" alt="poster"/>
                       </a>
                     </div>
                     <div class="filtr-item col-sm-2" data-category="1" data-sort="white sample">
-                      <a href="/filmReview">
+                      <a href="/filmReview123">
                         <img src="https://ssl.pstatic.net/imgmovie/mdi/mit110/1516/151646_P01_144220.jpg" class="img-fluid mb-2" alt="poster"/>
                       </a>
                     </div>
                     <div class="filtr-item col-sm-2" data-category="2, 4" data-sort="black sample">
-                      <a href="/filmReview">
+                      <a href="/filmReview123">
                         <img src="https://ssl.pstatic.net/imgmovie/mdi/mit110/1495/149504_P22_100402.jpg" class="img-fluid mb-2" alt="poster"/>
                       </a>
                     </div>
                     <div class="filtr-item col-sm-2" data-category="3, 4" data-sort="red sample">
-                      <a href="/filmReview">
+                      <a href="/filmReview123">
                         <img src="https://ssl.pstatic.net/imgmovie/mdi/mit110/1597/159716_P09_100541.jpg" class="img-fluid mb-2" alt="poster"/>
                       </a>
                     </div>
                     <div class="filtr-item col-sm-2" data-category="1" data-sort="white sample">
-                      <a href="/filmReview">
+                      <a href="/filmReview123">
                         <img src="https://ssl.pstatic.net/imgmovie/mdi/mit110/1516/151646_P01_144220.jpg" class="img-fluid mb-2" alt="poster"/>
                       </a>
                     </div>
                     <div class="filtr-item col-sm-2" data-category="1" data-sort="white sample">
-                      <a href="/filmReview">
+                      <a href="/filmReview123">
                         <img src="https://ssl.pstatic.net/imgmovie/mdi/mit110/1516/151646_P01_144220.jpg" class="img-fluid mb-2" alt="poster"/>
                       </a>
                     </div>
                     <div class="filtr-item col-sm-2" data-category="2, 4" data-sort="black sample">
-                      <a href="/filmReview">
+                      <a href="/filmReview123">
                         <img src="https://ssl.pstatic.net/imgmovie/mdi/mit110/1495/149504_P22_100402.jpg" class="img-fluid mb-2" alt="poster"/>
                       </a>
                     </div>
