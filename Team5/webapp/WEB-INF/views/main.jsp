@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="/dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Gothic&display=swap" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
 //포스터  
@@ -94,7 +95,7 @@ function getBoxOffice(date, divId) {
 				  //console.log(list);
 				  var html = '';
 				  $.each(list, function(index, item) {
-					 	html += '<div>';
+					    html += '<div class="col-sm-2">';
 						html += kmdbApi(item.movieNm,item.openDt);
 		               	html += '<p>제목 : ' + item.movieNm + '</p>';
 		                html += '</div>';
@@ -112,7 +113,7 @@ function getBoxOffice(date, divId) {
 function getActor(actorVal, divId) {
 	$(function(){
 		var url = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70&' + 
-		     	  'actor=' + actorVal + '&listCount=5&sort=prodYear,1';
+		     	  'actor=' + actorVal + '&listCount=8&sort=prodYear,1';
 		$.ajax({
 			url : url,
 			type : 'get',
@@ -126,7 +127,7 @@ function getActor(actorVal, divId) {
 					var posterVal = '';
 					var pos = poster(item.posters); //포스터 문자열 자르기
 					if(pos == ''){
-						posterVal = '<img src="/img/ReadytoPoster.jpg" alt="포스터 준비중"/>';
+						posterVal = '<img src="/img/PosterReady.jpg" alt="포스터 준비중"/>';
 					}else{
 						posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
 								'&filmId=' + item.movieId + 
@@ -134,7 +135,7 @@ function getActor(actorVal, divId) {
 								'&filmYear=' + item.prodYear + '"><img src="' + pos[0] + '"/></a>';
 					}
 					
-					html += '<div>';
+					html += '<div class="col-sm-2">';
 					html += posterVal + '<br>';
 		            html += '<p>' + item.title + '</p>';
 		            html += '</div>';
@@ -152,7 +153,7 @@ function getActor(actorVal, divId) {
 function getDirector(directorVal, divId) {
 	$(function(){
 		var url = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70&' + 
-		     	  'director=' + directorVal + '&listCount=5&sort=prodYear,1';
+		     	  'director=' + directorVal + '&listCount=8&sort=prodYear,1';
 		$.ajax({
 			url : url,
 			type : 'get',
@@ -172,7 +173,7 @@ function getDirector(directorVal, divId) {
 						posterVal = '<a href="/filmReview"><img src="' + pos[0] + '"/></a>';
 					}
 					
-					html += '<div>';
+					html += '<div class="col-sm-2">';
 					html += posterVal + '<br>';
 		            html += '<p>' + item.title + '</p>';
 		            html += '</div>';
@@ -190,7 +191,7 @@ function getDirector(directorVal, divId) {
 function getGenre(genreVal, divId) {
 	$(function(){
 		var url = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70&' + 
-		     	  'genre=' + genreVal + '&listCount=10&sort=prodYear,1&createDts=2019';
+		     	  'genre=' + genreVal + '&listCount=8&sort=prodYear,1&createDts=2019';
 		$.ajax({
 			url : url,
 			type : 'get',
@@ -215,7 +216,8 @@ function getGenre(genreVal, divId) {
 		            html += '<p>' + item.title + '</p>';
 		            html += '</div>';
 				});
-				$('#'+divId).html(html);
+				
+				$('#'+ divId).html(html);
 			},
 			error : function(xhr) {
 				alert(xhr.status + '' + xhr.textStatus);
@@ -241,7 +243,7 @@ today = yyyy+mm+dd;
 
 //console.log(today);
 getBoxOffice(today, 'div0');
-getActor('강동원', 'div1');
+getActor('박정민', 'div1');
 getActor('손예진', 'div2');
 getDirector('봉준호','div3');
 getDirector('박찬욱','div4');
@@ -249,6 +251,14 @@ getGenre('액션','div5')
 getGenre('어드벤처','div6');
 
 </script>
+
+<style>
+	.category{width:100%; clear:both;}
+	.col-sm-2{width:215px; padding:0px; margin:0px; float:left;}
+	h3{font-family: 'Black Han Sans', sans-serif;
+		font-family: 'Nanum Gothic', sans-serif;}
+</style>
+
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -303,21 +313,42 @@ getGenre('어드벤처','div6');
               <div class="card-body">
                 <div>
                   <div class="row">
-                    
-			    <h3>박스오피스</h3>
-				<div id=div0></div>
-				<h3>강동원배우</h3>
-				<div id=div1></div>
-				<h3>손예진배우</h3>
-				<div id=div2></div>
-				<h3>봉준호감독</h3>
+                  
+               <div class="category">
+				    <h3>현재 상영하는 영화</h3>
+					<div id=div0></div>
+			   </div>
+				
+				<div class="category">
+					<h3>믿고 보는<b>박정민</b>배우</h3>
+					<div id=div1></div>
+				</div>
+				
+				<div class="category">
+					<h3>믿고 보는 <b>손예진</b>배우</h3>
+					<div id=div2></div>
+				</div>
+				
+				<div class="category">
+				<h3>Made by<b>봉준호</b>감독</h3>
 				<div id=div3></div>
-				<h3>박찬욱감독</h3>
+				</div>
+				
+				<div class="category">
+				<h3>Made by<b>박찬욱</b>감독</h3>
 				<div id=div4></div>
-				<h3>액션장르</h3>
+				</div>
+				
+				<div class="category">
+				<h3>속이 뻥 뚫리는 <b>액션</b>영화</h3>
 				<div id=div5></div>
-				<h3>어드벤처장르</h3>
+				</div>
+				
+				<div class="category">
+				<h3>같이 모험을 떠나봐요~ <b>어드벤처</b></h3>
 				<div id=div6></div>
+				</div>
+			  
 				
                   </div>
                 </div>
