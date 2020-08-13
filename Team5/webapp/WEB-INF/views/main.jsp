@@ -113,7 +113,7 @@ function getBoxOffice(date, divId) {
 function getActor(actorVal, divId) {
 	$(function(){
 		var url = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70&' + 
-		     	  'actor=' + actorVal + '&listCount=8&sort=prodYear,1';
+		     	  'actor=' + actorVal + '&listCount=10&sort=prodYear,1';
 		$.ajax({
 			url : url,
 			type : 'get',
@@ -135,10 +135,10 @@ function getActor(actorVal, divId) {
 								'&filmYear=' + item.prodYear + '"><img src="' + pos[0] + '"/></a>';
 					}
 					
-					html += '<div class="col-sm-2">';
+					html += '<span class="col-sm-2">';
 					html += posterVal + '<br>';
 		            html += '<p>' + item.title + '</p>';
-		            html += '</div>';
+		            html += '</span>';
 				});
 				$('#'+divId).html(html);
 			},
@@ -153,7 +153,7 @@ function getActor(actorVal, divId) {
 function getDirector(directorVal, divId) {
 	$(function(){
 		var url = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70&' + 
-		     	  'director=' + directorVal + '&listCount=8&sort=prodYear,1';
+		     	  'director=' + directorVal + '&listCount=10&sort=prodYear,1';
 		$.ajax({
 			url : url,
 			type : 'get',
@@ -191,7 +191,7 @@ function getDirector(directorVal, divId) {
 function getGenre(genreVal, divId) {
 	$(function(){
 		var url = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70&' + 
-		     	  'genre=' + genreVal + '&listCount=8&sort=prodYear,1&createDts=2019';
+		     	  'genre=' + genreVal + '&listCount=10&sort=prodYear,1&createDts=2019';
 		$.ajax({
 			url : url,
 			type : 'get',
@@ -276,6 +276,15 @@ getGenre('어드벤처','div6');
       </div>
     </form>
 
+  
+<!-- 찜하트 -->
+<div class="info-box mb-3 bg-success">
+  <span class="info-box-icon"><i class="far fa-heart"></i></span>
+  <div class="info-box-content">
+    <span class="info-box-text">찜하기</span>
+  </div>
+</div>
+              
   
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -389,14 +398,10 @@ getGenre('어드벤처','div6');
 <script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- jQuery UI -->
 <script src="/plugins/jquery-ui/jquery-ui.min.js"></script>
-<!-- Ekko Lightbox -->
-<script src="/plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
 <!-- AdminLTE App -->
 <script src="/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/dist/js/demo.js"></script>
-<!-- Filterizr-->
-<script src="/plugins/filterizr/jquery.filterizr.min.js"></script>
 <!-- Page specific script -->
 </body>
 </html>
