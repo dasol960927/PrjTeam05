@@ -38,7 +38,17 @@
             #{result, mode=OUT, jdbcType=CURSOR, 
                javaType=ResultSet, resultMap=RevListMap }
          ) }     
-     </select>     
+     </select>
+     
+     <insert id="GrdInsert" statementType="CALLABLE" 
+        parameterType="hashmap" >
+         {CALL  PKG_REV.PROC_GRD_INSERT(         	
+         	#{mId, mode=IN, jdbcType=VARCHAR},         	
+            #{filmId, mode=IN, jdbcType=VARCHAR},
+            #{grdScore, mode=IN, jdbcType=NUMERIC},
+            #{grdConts, mode=IN, jdbcType=VARCHAR}
+         ) }		     
+     </insert>          
      
     
  

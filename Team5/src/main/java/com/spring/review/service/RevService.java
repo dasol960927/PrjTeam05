@@ -11,4 +11,6 @@ public interface RevService {
 
 	List<RevVo> getRevList(HashMap<String, Object> map);
 
+	void insertGrd(HashMap<String, Object> map);
+
 }

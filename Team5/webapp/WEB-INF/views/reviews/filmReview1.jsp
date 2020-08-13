@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,6 +40,16 @@
 }
 .starR1.on{background-position:0 0;}
 .starR2.on{background-position:-15px 0;}
+
+table{
+    border: 1px solid #444444;
+    border-collapse: collapse;
+}
+th, td{
+    border: 1px solid #444444;
+    padding: 10px;
+
+}
 </style>
 </head>
 <body class="hold-transition sidebar-mini">
@@ -182,15 +193,41 @@
           <div class="row mt-4">
             <nav class="w-100">
               <div class="nav nav-tabs" id="product-tab" role="tablist">
-                <a class="nav-item nav-link" id="product-desc-tab" data-toggle="tab" href="#product-desc" role="tab" aria-controls="product-desc" aria-selected="true">영화설명</a>
-                <a class="nav-item nav-link active" id="product-comments-tab" data-toggle="tab" href="#product-comments" role="tab" aria-controls="product-comments" aria-selected="false">리뷰</a>
-                <a class="nav-item nav-link" id="product-rating-tab" data-toggle="tab" href="#product-rating" role="tab" aria-controls="product-rating" aria-selected="false">평점</a>
+                <a class="nav-item nav-link" id="product-desc-tab"  href="/filmReview"  >영화설명</a>
+                <a class="nav-item nav-link" id="product-comments-tab"  href="/REVIEW/grdList?filmId=F00004"aria-selected="true" style="background-color:#878787; color:#ECFFFF">리뷰</a>
+                <a class="nav-item nav-link" id="product-rating-tab"  href="/REVIEW/revList?filmId=F00001" >평점</a>
               </div>
             </nav>
-            <div class="tab-content p-3" id="nav-tabContent">
-              <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab">태국에서 충격적인 납치사건이 발생하고<br/> 마지막 청부살인 미션을 끝낸 암살자 인남(황정민)은 그것이 자신과 관계된 것임을 알게 된다.<br/>인남은 곧바로 태국으로 향하고, 조력자 유이(박정민)를 만나 사건을 쫓기 시작한다.<br/>한편, 자신의 형제가 인남에게 암살당한 것을 알게 된 레이(이정재). <br/>무자비한 복수를 계획한 레이는 인남을 추격하기 위해 태국으로 향하는데...<br/>처절한 암살자 VS 무자비한 추격자멈출 수 없는 두 남자의 지독한 추격이 시작된다!</div>
-              <div class="tab-pane fade" id="product-comments" role="tabpanel" aria-labelledby="product-comments-tab">재미있게 잘 봤습니다. 연기구멍이 아무도 없음</div>
-              <div class="tab-pane fade" id="product-rating" role="tabpanel" aria-labelledby="product-rating-tab">6점</div>
+            <div class="tab-content p-3" id="nav-tabContent" style="border:1px solid black; width:100%">
+            
+              <table> 
+                <tr>
+                  <th width="100px">한줄평</th>
+                  <th width="900px">
+                    총 : 00건&nbsp;&nbsp;&nbsp; 
+                  		
+					<input type="button" value="내 한줄평 작성하기" 
+					onclick="window.open('/REVIEW/insertGrdForm?mId=${login.mId}&filmId=${filmId}', '팝업창이름', 'width=500, height=500','location=no', 'resizable=no')">
+                  </th>                                    
+                </tr> 
+                
+                 <c:forEach var="revVo" items="${grdList}">
+                 <tr>	            
+              	   <td width="300px">
+              	   		<%  %>
+              	   		${revVo.grdScore}
+              	   </td>
+              	   <td width="700px">
+              	   ${revVo.grdConts}<br/>
+              	   ${revVo.mId}&nbsp;${revVo.revDate}<br/>
+              	   좋아요 : <a href="#">${revVo.goodCnt}</a> 싫어요 : <a href="#">${revVo.badCnt}</a>
+              	   </td>   
+ 				 </tr>	             
+                 </c:forEach>
+               
+              </table> 
+                           
+              
             </div>
           </div>
         </div>

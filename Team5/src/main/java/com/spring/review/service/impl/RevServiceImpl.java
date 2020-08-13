@@ -31,5 +31,12 @@ public class RevServiceImpl implements RevService {
 		
 		return revList;
 	}
+
+	@Override
+	public void insertGrd(HashMap<String, Object> map) {
+		
+		revDao.insertGrd(map);
+		
+	}
 	
 }
