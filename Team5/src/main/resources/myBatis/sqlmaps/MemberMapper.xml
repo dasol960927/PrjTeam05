@@ -101,11 +101,9 @@
    <select  id="find_pass"
    			parameterType="hashmap" 
    			resultType="com.spring.member.vo.MemberVo">
-   			SELECT M_PASS
+   			SELECT M_ID ,M_PASS
 			FROM   MEMBERS
-			WHERE  M_ID = #{mId}	 
-			AND    M_PHONE   = #{mPhone}
-			 	
+			WHERE  M_ID = #{mId}	 		 	
    </select>
    
    	<select id="mIdCheck" 

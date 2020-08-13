@@ -77,9 +77,6 @@ public class MemberController {
 		case "find_id_result": 
 			link = "members/find_id_result";
 			break;
-		case "find_pass": 
-			link = "members/find_pass";
-			break;
 			
 		//ReqBoardController 에서 안넘어가서 여기에 추가 by박다솔
 		case "reqBoardWriter": 
@@ -105,10 +102,10 @@ public class MemberController {
 		case "ErrorPage":
 			link = "errorPage/500Page";
 			break;
-			
+
 		}
-	
 		
+
 		return link;
 	}
 	
@@ -238,6 +235,27 @@ public class MemberController {
 		return mv;
 	}	
 	
+
+	
+	@RequestMapping("/find_pass")
+	public ModelAndView find_pass(@RequestParam HashMap<String, Object> map) {
+		MemberVo memberVo = memberService.find_pass(map);
+		
+		System.out.println("비번찾기 맵이다" + map);
+		
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("memberVo", memberVo);
+		mv.setViewName("members/find_pass");
+
+		
+		return mv;
+	}
+	
+
+	
+	
+	/*
+	 * 	
 	// 비밀번호 찾기
 	@RequestMapping(value="/find_Pass", method=RequestMethod.POST)
 	public ModelAndView find_pass( @RequestParam HashMap<String, Object> map) {
@@ -252,14 +270,6 @@ public class MemberController {
 		returnURL = "redirect:/find_pass_result";
 		return mv;
 	}
-	
-	
-	
-	
-	
-	
-	
-	/*
 	 * // 새로운 비밀번호 생성
 	 * 
 	 * @RequestMapping(value = "/newPassword") public String newPassword(@Valid

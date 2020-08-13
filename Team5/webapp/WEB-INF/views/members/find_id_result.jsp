@@ -83,10 +83,9 @@
           </div>
         </div>
         <div class="card-body">
-        <form action="/" method="POST">
-	         <input type="text" name="mId" id="mId" value="${ memberVo.mId }"/>
-	         
-	       	 <input type="submit" value="비밀번호 찾기"/>
+        <form action="/find_pass" method="POST">
+	         <input type="email" class="form-control" name="mId"  value="${ memberVo.mId }"/>
+	       	 <input type="submit" class="btn btn-primary btn-block" value="비밀번호 찾기"/>
        	 </form>
         </div>
         <!-- /.card-body -->
