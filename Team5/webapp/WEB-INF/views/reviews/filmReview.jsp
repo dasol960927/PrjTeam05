@@ -97,8 +97,6 @@
 
 			<!-- Main content -->
 			<section class="content">
-
-<<<<<<< HEAD
             </div>
           </div>
           <div class="row mt-4">
@@ -119,7 +117,6 @@
         <!-- /.card-body -->
       </div>
       <!-- /.card -->
-=======
 				<!-- Default box -->
 				<div class="card card-solid">
 					<div class="card-body">
@@ -155,7 +152,6 @@
 									출연진: 황정민, 이정재, 박정민, 박소이, 최희서 <br /> 감독 :홍원찬 <br /> 개봉일:
 									2020.08.05
 								</p>
->>>>>>> branch 'master' of https://github.com/dasol960927/PrjTeam05
 
 								<hr>
 								<h4>Graph</h4>
@@ -259,7 +255,6 @@
 					<!-- /.card-body -->
 				</div>
 				<!-- /.card -->
-
 			</section>
 			<!-- /.content -->
 		</div>
