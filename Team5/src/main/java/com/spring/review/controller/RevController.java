@@ -57,8 +57,7 @@ public class RevController {
 		System.out.println(map);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("reviews/insertGrdForm");
-		
-		
+				
 		return mv;		
 	}
 	
