@@ -2670,15 +2670,15 @@ a.btn.disabled, fieldset:disabled a.btn {
 
 .btn-info {
 	color: #fff;
-	background-color: #FF0558;
-	border-color: #FF0558;
+	background-color: #285943;
+	border-color: #285943;
 	box-shadow: none
 }
 
 .btn-info:hover {
 	color: #fff;
-	background-color: #138496;
-	border-color: #117a8b
+	background-color: #79BD9A;
+	border-color: #79BD9A;
 }
 
 .btn-info.focus, .btn-info:focus {

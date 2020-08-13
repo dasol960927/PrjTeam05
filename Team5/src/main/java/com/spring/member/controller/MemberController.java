@@ -59,9 +59,6 @@ public class MemberController {
 		case "forgotPassword": 
 			link = "signUp/forgot-password";
 			break;
-		case "filmReview": 
-			link = "reviews/filmReview";
-			break;
 		case "table": 
 			link = "table/table";
 			break;
@@ -79,9 +76,6 @@ public class MemberController {
 			break;
 		case "find_id_result": 
 			link = "members/find_id_result";
-			break;
-		case "find_pass": 
-			link = "members/find_pass";
 			break;
 			
 		//ReqBoardController 에서 안넘어가서 여기에 추가 by박다솔
@@ -109,9 +103,14 @@ public class MemberController {
 			link = "errorPage/500Page";
 			break;
 			
+			//css추가중
+		case "apiMainCss":
+			link = "apiMainCss";
+			break;
+
 		}
-	
 		
+
 		return link;
 	}
 	
@@ -241,34 +240,65 @@ public class MemberController {
 		return mv;
 	}	
 	
-	// 새로운 비밀번호 생성
-	@RequestMapping(value = "/newPassword")
-	public String newPassword(@Valid MemberVo memberVO, HttpSession session) throws Exception {
-		Random r = new Random();
-		int num = r.nextInt(89999) + 10000;
-		String npassword = "bapsi" + Integer.toString(num);// 새로운 비밀번호 변경
+
+	
+	@RequestMapping("/find_pass")
+	public ModelAndView find_pass(@RequestParam HashMap<String, Object> map) {
+		MemberVo memberVo = memberService.find_pass(map);
 		
-		memberVO.setmPass(npassword);
-		session.setAttribute("memberVO", memberVO);
+		System.out.println("비번찾기 맵이다" + map);
+		
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("memberVo", memberVo);
+		mv.setViewName("members/find_pass");
 
-		memberService.newPassword(memberVO);
-
-		return "/findPassword";
+		
+		return mv;
 	}
 	
-	// 이메일로 비밀번호가 전송이된다.
-		@RequestMapping("/findPassword")
-		public String findPasswordOK(MemberVo memberVO, HttpSession session) throws Exception {
-			memberVO = (MemberVo) session.getAttribute("memberVO");
-			email.setContent("새로운 비밀번호 " + memberVO.getmPass() + " 입니다." );
-			email.setReceiver(memberVO.getmId());
-			email.setSubject("안녕하세요" +memberVO.getmId() +"님  재설정된 비밀번호를 확인해주세요");
-			emailSender.SendEmail(email);
-			
-			System.out.println(email);
-			session.invalidate();
-			return "signUp/login";
-		}
+
+	
+	
+	/*
+	 * 	
+	// 비밀번호 찾기
+	@RequestMapping(value="/find_Pass", method=RequestMethod.POST)
+	public ModelAndView find_pass( @RequestParam HashMap<String, Object> map) {
+		
+		ModelAndView mv = new ModelAndView();
+		
+		MemberVo memberVo = memberService.find_pass(map);
+		System.out.println("memberVo=" + memberVo);
+		String returnURL = "";
+		mv.setViewName("members/find_pass_result");
+		mv.addObject("memberVo", memberVo);
+		returnURL = "redirect:/find_pass_result";
+		return mv;
+	}
+	 * // 새로운 비밀번호 생성
+	 * 
+	 * @RequestMapping(value = "/newPassword") public String newPassword(@Valid
+	 * MemberVo memberVO, HttpSession session) throws Exception { Random r = new
+	 * Random(); int num = r.nextInt(89999) + 10000; String npassword = "bapsi" +
+	 * Integer.toString(num);// 새로운 비밀번호 변경
+	 * 
+	 * memberVO.setmPass(npassword); session.setAttribute("memberVO", memberVO);
+	 * 
+	 * memberService.newPassword(memberVO);
+	 * 
+	 * return "/findPassword"; }
+	 * 
+	 * // 이메일로 비밀번호가 전송이된다.
+	 * 
+	 * @RequestMapping("/findPassword") public String findPasswordOK(MemberVo
+	 * memberVO, HttpSession session) throws Exception { memberVO = (MemberVo)
+	 * session.getAttribute("memberVO"); email.setContent("새로운 비밀번호 " +
+	 * memberVO.getmPass() + " 입니다." ); email.setReceiver(memberVO.getmId());
+	 * email.setSubject("안녕하세요" +memberVO.getmId() +"님  재설정된 비밀번호를 확인해주세요");
+	 * emailSender.SendEmail(email);
+	 * 
+	 * System.out.println(email); session.invalidate(); return "signUp/login"; }
+	 */
 	
 	@RequestMapping("/reqBoard")
 	public String reqBoard(@RequestParam HashMap<String, Object> map) {

@@ -20,11 +20,14 @@ public interface MemberDao {
 
 		public MemberVo find_id(HashMap<String, Object> map);
 
+		public MemberVo find_pass(HashMap<String, Object> map);
+		
 		public int mIdCheck(String mId);
 
 		public void MemberDelete(String mId);
 
 		public void newPassword(MemberVo memberVO);
+
 
 
 }

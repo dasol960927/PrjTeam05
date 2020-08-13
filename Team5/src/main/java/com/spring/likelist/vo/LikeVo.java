@@ -4,12 +4,11 @@ public class LikeVo {
 	
 	private String likeId;
 	private String mId;
-	private String filmId;
+	private String docId;
 	private String filmName;
 	private String filmActor;
 	private String filmDirector;
 	private int filmPrice;
-	
 	
 	public String getLikeId() {
 		return likeId;
@@ -23,11 +22,11 @@ public class LikeVo {
 	public void setmId(String mId) {
 		this.mId = mId;
 	}
-	public String getFilmId() {
-		return filmId;
+	public String getDocId() {
+		return docId;
 	}
-	public void setFilmId(String filmId) {
-		this.filmId = filmId;
+	public void setDocId(String docId) {
+		this.docId = docId;
 	}
 	public String getFilmName() {
 		return filmName;
@@ -54,12 +53,13 @@ public class LikeVo {
 		this.filmPrice = filmPrice;
 	}
 	
-	
 	@Override
 	public String toString() {
-		return "LikeVo [likeId=" + likeId + ", mId=" + mId + ", filmId=" + filmId + ", filmName=" + filmName
+		return "LikeVo [likeId=" + likeId + ", mId=" + mId + ", docId=" + docId + ", filmName=" + filmName
 				+ ", filmActor=" + filmActor + ", filmDirector=" + filmDirector + ", filmPrice=" + filmPrice + "]";
-	}	
+	}
 	
+	
+
 	
 }
