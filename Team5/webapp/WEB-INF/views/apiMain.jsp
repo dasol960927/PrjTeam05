@@ -11,7 +11,7 @@
   crossorigin="anonymous">
 </script>
 <script>
-//포스터  
+//포스터
 function poster(string) {
 	var str = string.split('|');
 	
@@ -54,14 +54,20 @@ function getBoxOffice(date, divId) {
 						for(var i=0;i<TotalCount;i++){
 							if(kDate == data.Data[0].Result[i].repRlsDate){
 								pos = poster(data.Data[0].Result[i].posters);
-								v1 = '<a href="#"><img src="' + pos[0] + '"/></a>';
+								v1 = '<a href="/filmReview?docId=' + data.Data[0].Result[i].DOCID + 
+								'&filmId=' + data.Data[0].Result[i].movieId + 
+								'&filmSeq=' + data.Data[0].Result[i].movieSeq + 
+								'&filmYear=' + data.Data[0].Result[i].prodYear + '"><img src="' + pos[0] + '"/></a>';
 							}else{
 								pos = '';
 							}
 						}
 					}else{
 						pos = poster(data.Data[0].Result[0].posters);
-						v1 = '<a href="#"><img src="' + pos[0] + '"/></a>';
+						v1 = '<a href="/filmReview?docId=' + data.Data[0].Result[i].DOCID + 
+						'&filmId=' + data.Data[0].Result[i].movieId + 
+						'&filmSeq=' + data.Data[0].Result[i].movieSeq + 
+						'&filmYear=' + data.Data[0].Result[i].prodYear + '"><img src="' + pos[0] + '"/></a>';
 					}
 				}
 			},
@@ -149,7 +155,7 @@ function getDirector(directorVal, divId) {
 			type : 'get',
 			dataType : "json",
 			success : function(data) {
-				//console.log(data);
+				console.log(data);
 				
 				var js = data.Data[0].Result;
 
@@ -160,7 +166,10 @@ function getDirector(directorVal, divId) {
 					if(pos == ''){
 						posterVal = '<img src="/img/PosterReady.jpg" alt="포스터 준비중"/>';
 					}else{
-						posterVal = '<a href="/filmReview"><img src="' + pos[0] + '"/></a>';
+						posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
+						'&filmId=' + item.movieId + 
+						'&filmSeq=' + item.movieSeq + 
+						'&filmYear=' + item.prodYear + '"><img src="' + pos[0] + '"/></a>';
 					}
 					
 					html += '<div>';
@@ -198,7 +207,10 @@ function getGenre(genreVal, divId) {
 					if(pos == ''){
 						posterVal = '<img src="/img/PosterReady.jpg" alt="포스터 준비중"/>';
 					}else{
-						posterVal = '<a href="#"><img src="' + pos[0] + '"/></a>';
+						posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
+						'&filmId=' + item.movieId + 
+						'&filmSeq=' + item.movieSeq + 
+						'&filmYear=' + item.prodYear + '"><img src="' + pos[0] + '"/></a>';
 					}
 					
 					html += '<div>';
@@ -215,6 +227,7 @@ function getGenre(genreVal, divId) {
 	});
 }
 
+// 어제 날짜 구하기
 var today = new Date();
 var dd = today.getDate()-1;
 var mm = today.getMonth()+1; //January is 0!

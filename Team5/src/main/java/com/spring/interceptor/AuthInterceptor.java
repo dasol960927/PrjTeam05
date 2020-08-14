@@ -30,6 +30,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 		case "/find_pass" :	
 		case "/registerMember" :
 		case "/loginCheck":
+		case "/img/lalaland.jpg":
 			 return true; // 제외
 		}
 		
