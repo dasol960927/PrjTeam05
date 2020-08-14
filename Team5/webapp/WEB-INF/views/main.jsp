@@ -260,7 +260,7 @@ getActor('손예진', 'div2');
 getDirector('봉준호','div3');
 getDirector('박찬욱','div4');
 getGenre('액션','div5')
-getGenre('어드벤처','div6');
+getGenre('미스터리','div6');
 
 </script>
 
@@ -356,7 +356,7 @@ getGenre('어드벤처','div6');
 				</div>
 				
 				<div class="category">
-				<h3>같이 모험을 떠나봐요~ <b>어드벤처</b></h3>
+				<h3>올 여름을 시원하게 <b>미스터리</b></h3>
 				<div id=div6></div>
 				</div>
 			  
