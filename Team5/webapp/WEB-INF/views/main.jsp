@@ -275,16 +275,6 @@ getGenre('어드벤처','div6');
         </div>
       </div>
     </form>
-
-  
-<!-- 찜하트 -->
-<div class="info-box mb-3 bg-success">
-  <span class="info-box-icon"><i class="far fa-heart"></i></span>
-  <div class="info-box-content">
-    <span class="info-box-text">찜하기</span>
-  </div>
-</div>
-              
   
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
