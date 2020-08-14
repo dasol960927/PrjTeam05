@@ -104,8 +104,9 @@ $(function(){
 
 			var list;
 			var exit= false;
-			var html = '';
-			
+			var html  = '';
+			var html2 = '';
+			var html3 = '';
 				$.each(json, function(index, item) {
 					list = json.Result;
 					console.log(json.Result);
@@ -124,13 +125,14 @@ $(function(){
 							}
 						}
 
+						
 						//포스터
 						var posterVal = '';
 						var pos = poster(item.posters); //포스터 문자열 자르기
 						if(pos == ''){
-							posterVal = '<img src="/img/PosterReady.jpg" alt="포스터 준비중"/>';
+							posterVal = '<img src="/img/PosterReady.jpg" class="product-image" alt="포스터 준비중"/>';
 						}else{
-							posterVal = '<img src="' + pos[0] + '"/>';
+							posterVal = '<img src="' + pos[0] + '" class="product-image" alt="포스터"/>';
 						}
 						
 						//배우
@@ -145,25 +147,30 @@ $(function(){
 			            }
 						
 
-						html+=            '<div class="col-12 col-sm-6">';
+
 						html+=              '<h3 class="d-inline-block d-sm-none">Films Review</h3>'
 						html+=              '<div class="col-12">';
 						html+=                posterVal;
 						html+=              '</div>';
 						html+=              '<div class="col-12 product-image-thumbs">';
-						html+=                '<div class="product-image-thumb ">'+ stllsVal +'</div>';
+						html+=                '<div class="product-image-thumb">'+ '<img src="'+stl[0]+'"/>' + '</div>';
+						html+=                '<div class="product-image-thumb">'+ '<img src="'+stl[1]+'"/>' + '</div>';
+						html+=                '<div class="product-image-thumb active">'+ '<img src="'+stl[2]+'"/>' + '</div>';
 						html+=              '</div>';
-						html+=            '</div>';
-						html+=            '<div class="col-12 col-sm-6">';
-						html+=              '<h3 class="my-3">'+ tit[0] +'</h3>';
-						html+=              '<p>' + '출연진: ' +  actorVal + '<br/>' +  '감독 :' + item.directors.director[0].directorNm  + '<br/>' + '개봉일:' + item.repRlsDate + '</p>';
-						html+=              '<hr>';
+
+						html2+=              '<h3 class="my-3">' + tit[1] + '</h3>';
+			            html2+= 			 '<p>배우:' + actorVal + '<br/> 감독 :' + item.directors.director[0].directorNm + '<br/> 개봉일: ' + item.repRlsDate + '</p>';
+			            html2+=				 '<hr>';
 			                
+			            html3 += nullCheck(item.plots.plot[0].plotText);
 			            exit = true; //이중 ajax 빠져나오기
 					  });
 					  if(exit){ return false;} //이중 ajax 빠져나오기
 				});
 			$('#here').html(html);
+			$('#here2').html(html2);
+			$('#here3').html(html3);
+			
 		},
 		error : function(xhr) {
 			alert(xhr.status + '' + xhr.textStatus);
@@ -177,7 +184,8 @@ $(function(){
 </head>
 
 <body class="hold-transition sidebar-mini">
-
+<!-- Site wrapper -->
+<div class="wrapper">
     <!-- SEARCH FORM -->
     <form class="form-inline ml-3" method="POST" action="/FilmSearch">
       <div class="input-group input-group-sm">
@@ -212,12 +220,20 @@ $(function(){
     </section>
 
     <!-- Main content -->
-    <section class="content" >
-		<div class="card card-solid">
-		<div class="card-body">
-		<div class="row" id="here">
-      <!-- Default box -->
+    <section class="content">
 
+      <!-- Default box -->
+      <div class="card card-solid">
+        <div class="card-body">
+          <div class="row" >
+			<div class="col-12 col-sm-6" id="here">
+            
+           
+            </div>
+            <div class="col-12 col-sm-6">
+            <span id="here2">
+    
+             </span>
               <h4>Graph</h4>
 				<!-- DONUT CHART -->
 	            <div class="card card-danger">
@@ -249,13 +265,7 @@ $(function(){
 				  <span class="starR2">★</span>
 				  <span class="starR1">★</span>
 				  <span class="starR2">★</span>
-				  <script>
-				  $('.starRev span').click(function(){
-					  $(this).parent().children('span').removeClass('on');
-					  $(this).addClass('on').prevAll('span').addClass('on');
-					  return false;
-					});
-				  </script>
+
 				</div>
 
               <div class="bg-gray py-2 px-3 mt-4">
@@ -301,12 +311,14 @@ $(function(){
           <div class="row mt-4">
             <nav class="w-100">
               <div class="nav nav-tabs" id="product-tab" role="tablist">
-                <a class="nav-item nav-link" id="product-desc-tab"  href="/filmReview"  >영화설명</a>
+                <a class="nav-item nav-link" id="product-desc-tab"  href="#" style="background-color:#878787; color:#ECFFFF">영화설명</a>
                 <a class="nav-item nav-link" id="product-comments-tab"  href="/REVIEW/grdList?filmId=F00004" >리뷰</a>
-                <a class="nav-item nav-link" id="product-rating-tab"  href="/REVIEW/revList?filmId=F00001" style="background-color:#878787; color:#ECFFFF">평점</a>
+                <a class="nav-item nav-link" id="product-rating-tab"  href="/REVIEW/revList?filmId=F00001">평점</a>
               </div>
             </nav>
             <div class="tab-content p-3" id="nav-tabContent" >
+
+				 <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab"><span id="here3"></span></div>
 
             </div>
           </div>
@@ -314,7 +326,7 @@ $(function(){
         <!-- /.card-body -->
       </div>
       <!-- /.card -->
-
+	</div>
     </section>
     <!-- /.content -->
   </div>
@@ -350,5 +362,55 @@ $(function(){
 <script src="/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/dist/js/demo.js"></script>
+ <script>
+ $('.starRev span').click(function(){
+  $(this).parent().children('span').removeClass('on');
+  $(this).addClass('on').prevAll('span').addClass('on');
+  return false;
+});
+ </script>
+<script>
+  $(function () {
+    /* ChartJS
+     * -------
+     * Here we will create a few charts using ChartJS
+     */
+
+    //-------------
+    //- DONUT CHART -
+    //-------------
+    // Get context with jQuery - using jQuery's .get() method.
+    var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
+    var donutData        = {
+      labels: [
+          '10대', 
+          '20대',
+          '30대', 
+          '40대', 
+          '50대', 
+          '60대 이상', 
+      ],
+      datasets: [
+        {
+          data: [700,500,400,600,300,100],
+          backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+        }
+      ]
+    }
+    var donutOptions     = {
+      maintainAspectRatio : false,
+      responsive : true,
+    }
+    //Create pie or douhnut chart
+    // You can switch between pie and douhnut using the method below.
+    var donutChart = new Chart(donutChartCanvas, {
+      type: 'doughnut',
+      data: donutData,
+      options: donutOptions      
+    })
+
+  });
+
+</script>
 </body>
 </html>
