@@ -178,10 +178,13 @@
 									<!-- /.card-body -->
 								</div>
 								<!-- /.card -->
-
+								
+								<div>
 								<h4 class="mt-3">
 									영화 <small>별점</small>
 								</h4>
+								</div>
+								
 								<div class="starRev">
 									<span class="starR1 on">★</span> <span class="starR2">★</span>
 									<span class="starR1">★</span> <span class="starR2">★</span> <span
@@ -200,13 +203,14 @@
 													return false;
 												});
 									</script>
-								</div>
+								<br>
+								<br>
 
-								<div class="bg-gray py-2 px-3 mt-4">
-									<h2 class="mb-0">3000 P</h2>
-									<h4 class="mt-0">
-										<small>3000원 충전 필요</small>
-									</h4>
+								<div class="bg-gray">
+									<h2 class="mb-0">영화가격 : ${fVo.filmPrice }P</h2>
+									<br>
+									<br>
+									<h4 class="mt-0">잔여 캐시 : ${ login.mCash }P</h4>
 								</div>
 
 								<div class="mt-4">
