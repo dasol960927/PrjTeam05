@@ -27,7 +27,7 @@ public class RevController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("reviews/filmReview1");
 		
-		mv.addObject("filmId", map.get("filmId"));
+		mv.addObject("filmId", map.get("filmId"));		
 		mv.addObject("grdList", grdList);
 		
 		System.out.println(map);
@@ -37,7 +37,8 @@ public class RevController {
 	}
 	
 	@RequestMapping("/REVIEW/revList")
-	public ModelAndView revList(@RequestParam HashMap<String, Object> map) {
+	public ModelAndView revList1(@RequestParam HashMap<String, Object> map) {
+		
 		
 		// map : filmId 하나, 무조건 들어와야됨
 		List<RevVo> revList = revService.getRevList(map);
@@ -45,11 +46,43 @@ public class RevController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("reviews/filmReview2");
 		
-		mv.addObject("filmId", map.get("filmId"));
+		mv.addObject("filmId", map.get("filmId"));		
 		mv.addObject("revList", revList);
 		
 		return mv;
 	}	
+
+
+	
+	
+	@RequestMapping("/REVIEW/reviewRead")
+	public ModelAndView reviewRead(@RequestParam HashMap<String, Object> map) {
+		
+		// map : revIdx
+		System.out.println("reviewRead map : " + map);
+
+		
+		RevVo revVo = revService.getRevConts(map);
+		List<RevVo> revList1 = revService.getRevList(map);
+		List<RevVo> revList2 = revService.getRevList2(map);
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("reviews/filmReviewConts");
+		
+		mv.addObject("revIdx", map.get("revIdx"));
+		mv.addObject("filmId", map.get("filmId"));
+		mv.addObject("revVo", revVo);
+		mv.addObject("revList1", revList1);
+		mv.addObject("revList2", revList2);
+
+		System.out.println("reviewRead list1 : " + revList1);
+		System.out.println("reviewRead list2 : " + revList2);
+		
+		return mv;
+	}
+	
+	
+	
 	
 	@RequestMapping("/REVIEW/insertGrdForm")
 	public ModelAndView insertGrdForm(@RequestParam HashMap<String, Object> map){
@@ -77,3 +110,4 @@ public class RevController {
 	
 	
 }
+

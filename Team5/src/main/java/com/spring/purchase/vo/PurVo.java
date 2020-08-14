@@ -6,7 +6,7 @@ public class PurVo {
 	private String pId;
 	private String mId;	
 	private String pDate;
-	private String filmId;
+	private String docId;
 	private String filmName;
 	private int filmPrice;
 	
@@ -32,11 +32,11 @@ public class PurVo {
 	public void setpDate(String pDate) {
 		this.pDate = pDate;
 	}
-	public String getFilmId() {
-		return filmId;
+	public String getdocId() {
+		return docId;
 	}
-	public void setFilmId(String filmId) {
-		this.filmId = filmId;
+	public void setdocId(String docId) {
+		this.docId = docId;
 	}
 	public String getFilmName() {
 		return filmName;
@@ -61,7 +61,7 @@ public class PurVo {
 	
 	@Override
 	public String toString() {
-		return "PurVo [pId=" + pId + ", mId=" + mId + ", pDate=" + pDate + ", filmId=" + filmId + ", filmName="
+		return "PurVo [pId=" + pId + ", mId=" + mId + ", pDate=" + pDate + ", docId=" + docId + ", filmName="
 				+ filmName + ", filmPrice=" + filmPrice + ", oErrMsg=" + oErrMsg + "]";
 	}
 	

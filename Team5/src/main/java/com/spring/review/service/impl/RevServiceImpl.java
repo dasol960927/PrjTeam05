@@ -32,11 +32,32 @@ public class RevServiceImpl implements RevService {
 		return revList;
 	}
 
+	
+	@Override
+	public List<RevVo> getRevList2(HashMap<String, Object> map) {
+		
+		List<RevVo> revList = revDao.getRevList2(map);
+		
+		return revList;
+	}
+	
+	
 	@Override
 	public void insertGrd(HashMap<String, Object> map) {
 		
 		revDao.insertGrd(map);
 		
 	}
+
+	@Override
+	public RevVo getRevConts(HashMap<String, Object> map) {
+		
+		RevVo revVo = revDao.getRevConts(map);
+		return revVo;
+	}
+
+
+
+
 	
 }

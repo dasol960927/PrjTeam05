@@ -13,4 +13,8 @@ public interface RevDao {
 
 	void insertGrd(HashMap<String, Object> map);
 
+	RevVo getRevConts(HashMap<String, Object> map);
+
+	List<RevVo> getRevList2(HashMap<String, Object> map);
+
 }

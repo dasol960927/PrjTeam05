@@ -24,7 +24,7 @@
       <select id="loginCheck" 
 			parameterType="hashmap" 
          	resultType="com.spring.member.vo.MemberVo">
-		SELECT M_ID , M_PASS, M_NAME, M_GENDER, M_BDATE, M_CASH
+		SELECT M_ID , M_PASS, M_NAME, M_GENDER, M_BDATE, M_CASH, M_NickName
 		FROM   MEMBERS
 		WHERE  M_ID   = #{mId} 
 		AND    M_PASS = #{mPass}	

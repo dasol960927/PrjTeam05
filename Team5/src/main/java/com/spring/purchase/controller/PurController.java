@@ -52,7 +52,7 @@ public class PurController {
 		 			
 		
 		mv.addObject("mId", map.get("mId"));
-		mv.addObject("filmId", map.get("filmId"));
+		mv.addObject("docId", map.get("docId"));
 		mv.addObject("filmPrice", map.get("filmPrice"));
 		mv.addObject("oErrMsg", map.get("oErrMsg"));		
 				

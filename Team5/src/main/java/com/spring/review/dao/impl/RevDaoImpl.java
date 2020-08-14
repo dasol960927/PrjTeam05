@@ -27,18 +27,41 @@ public class RevDaoImpl implements RevDao {
 
 	@Override
 	public List<RevVo> getRevList(HashMap<String, Object> map) {
-
+		
+		
 		sqlSession.selectList("REVIEW.RevList", map);
+		
 		List<RevVo> revList = (List<RevVo>) map.get("result");
 		
 		return revList;
 	}
 
 	@Override
+	public List<RevVo> getRevList2(HashMap<String, Object> map) {
+		
+		sqlSession.selectList("REVIEW.RevList2", map);
+		
+		List<RevVo> revList = (List<RevVo>) map.get("result");
+		
+		return revList;
+	}	
+	
+	@Override
 	public void insertGrd(HashMap<String, Object> map) {
 		
 		sqlSession.insert("REVIEW.GrdInsert", map);
 		
 	}
+
+	@Override
+	public RevVo getRevConts(HashMap<String, Object> map) {
+		sqlSession.selectList("REVIEW.RevConts", map);
+		List<RevVo> revList = (List<RevVo>) map.get("result");
+		RevVo revVo = revList.get(0);
+		
+		return revVo;
+	}
+
+
 	
 }

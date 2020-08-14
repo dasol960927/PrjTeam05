@@ -2,6 +2,7 @@ package com.spring.review.vo;
 
 public class RevVo {
 	
+	private int revIdx;	//게터세터
 	private String mId;
 	private String filmId;
 	private String revTitle;
@@ -13,11 +14,17 @@ public class RevVo {
 	private String revDate;
 	private char revGubun;
 	private int revLvl;
-	private int revNref;
+	private int parentIdx;
 	
 	
 	
 	
+	public int getRevIdx() {
+		return revIdx;
+	}
+	public void setRevIdx(int revIdx) {
+		this.revIdx = revIdx;
+	}
 	public String getmId() {
 		return mId;
 	}
@@ -84,22 +91,23 @@ public class RevVo {
 	public void setRevLvl(int revLvl) {
 		this.revLvl = revLvl;
 	}
-	public int getRevNref() {
-		return revNref;
+	public int getParentIdx() {
+		return parentIdx;
 	}
-	public void setRevNref(int revNref) {
-		this.revNref = revNref;
+	public void setParentIdx(int parentIdx) {
+		this.parentIdx = parentIdx;
 	}
-	
 	
 	
 	@Override
 	public String toString() {
-		return "RevVo [mId=" + mId + ", filmId=" + filmId + ", revTitle=" + revTitle + ", revConts=" + revConts
-				+ ", grdScore=" + grdScore + ", grdConts=" + grdConts + ", goodCnt=" + goodCnt + ", badCnt=" + badCnt
-				+ ", revDate=" + revDate + ", revGubun=" + revGubun + ", revLvl=" + revLvl + ", revNref=" + revNref
-				+ "]";
+		return "RevVo [revIdx=" + revIdx + ", mId=" + mId + ", filmId=" + filmId + ", revTitle=" + revTitle
+				+ ", revConts=" + revConts + ", grdScore=" + grdScore + ", grdConts=" + grdConts + ", goodCnt="
+				+ goodCnt + ", badCnt=" + badCnt + ", revDate=" + revDate + ", revGubun=" + revGubun + ", revLvl="
+				+ revLvl + ", parentIdx=" + parentIdx + "]";
 	}
+
+	
 	
 	
 	

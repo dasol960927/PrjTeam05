@@ -5,7 +5,8 @@
   <mapper namespace="REVIEW">
 
      <!-- 결과처리를 위한 map 설정  -->
-     <resultMap id="RevListMap" type="com.spring.review.vo.RevVo"> 
+     <resultMap id="RevListMap" type="com.spring.review.vo.RevVo">
+       <result property="revIdx"       column="REV_IDX" javaType="int" /> 
        <result property="mId"       column="M_ID" javaType="string" />   
        <result property="filmId"     column="FILM_ID" javaType="string" />   
        <result property="revTitle"     column="REV_TITLE" javaType="string" />   
@@ -17,7 +18,7 @@
        <result property="revDate"      column="REV_DATE" javaType="string" />
        <result property="revGubun"      column="REV_GUBUN"  />
        <result property="revLvl"      column="REV_LVL" javaType="int" />
-       <result property="revNref"      column="REV_NREF" javaType="int" />                
+       <result property="parentIdx"      column="PARENT_IDX" javaType="int" />                
      </resultMap>
    
      <select id="GrdList"
@@ -33,12 +34,25 @@
      <select id="RevList"
          statementType="CALLABLE" parameterType="hashmap" 
          resultType="com.spring.review.vo.RevVo">
-         {CALL  PKG_REV.PROC_REV_LIST(
+         {CALL  PKG_REV.PROC_REV_LIST1(
          	#{filmId, mode=IN, jdbcType=VARCHAR},
+         	#{revIdx, mode=IN, jdbcType=NUMERIC},
+         	#{revLvl, mode=IN, jdbcType=NUMERIC},
             #{result, mode=OUT, jdbcType=CURSOR, 
                javaType=ResultSet, resultMap=RevListMap }
          ) }     
      </select>
+     
+     <select id="RevList2"
+         statementType="CALLABLE" parameterType="hashmap" 
+         resultType="com.spring.review.vo.RevVo">
+         {CALL  PKG_REV.PROC_REV_LIST2(         	
+         	#{revIdx, mode=IN, jdbcType=NUMERIC},
+         	#{revLvl, mode=IN, jdbcType=NUMERIC},
+            #{result, mode=OUT, jdbcType=CURSOR, 
+               javaType=ResultSet, resultMap=RevListMap }
+         ) }     
+     </select>     
      
      <insert id="GrdInsert" statementType="CALLABLE" 
         parameterType="hashmap" >
@@ -50,7 +64,15 @@
          ) }		     
      </insert>          
      
-    
+    <select id="RevConts"
+         statementType="CALLABLE" parameterType="hashmap" 
+         resultType="com.spring.review.vo.RevVo">
+         {CALL  PKG_REV.PROC_REV_CONTS(
+         	#{revIdx, mode=IN, jdbcType=NUMERIC},
+            #{result, mode=OUT, jdbcType=CURSOR, 
+               javaType=ResultSet, resultMap=RevListMap }
+         ) }     
+     </select>
  
              
   </mapper>        

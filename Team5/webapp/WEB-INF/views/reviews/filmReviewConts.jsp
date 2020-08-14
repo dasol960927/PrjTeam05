@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>       
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -85,6 +85,21 @@ a.link1:hover{text-decoration:underline;}
 a.link2:hover{text-decoration:underline;}
 
 </style>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script language="javaScript">
+
+	function btnToggle(){
+		
+		$("#btnToggle").click(function(){				
+			
+			//window.location.href='#tblToggle';
+			
+			$("#tblToggle").toggle();			
+		});
+		
+	}
+
+</script>
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
@@ -235,22 +250,78 @@ a.link2:hover{text-decoration:underline;}
             <div class="tab-content p-3" id="nav-tabContent" >
               <table> 
                 <tr>
-                  <th width="100px">리뷰&nbsp;&nbsp;&nbsp;</th>
-                  <th width="900px"> 총 : 00건  로그인아이디 : ${login.mNickName}</th>                                    
-                </tr> 
-                
-                 <c:forEach var="revVo" items="${revList}">
+                  <th width="50px">제목&nbsp;&nbsp;&nbsp;</th>
+                  <th width="400px"> ${revVo.revTitle} </th>
+                  <th width="150px"> 작성자 / 작성일 </th>
+                  <th width="300px"> ${revVo.mId} / ${revVo.revDate} </th>                                    
+                </tr>    
+                 
                  <tr>             	   
-              	   <td colspan="2" >
-              	   <a class="link1" href="/REVIEW/reviewRead?revIdx=${revVo.revIdx}&revLvl=${revVo.revLvl}">${revVo.revTitle}</a>
-              	   &nbsp;&nbsp;${revVo.mId}&nbsp;&nbsp;${revVo.revDate}&nbsp;&nbsp;추천:${revVo.goodCnt}
-              	   
-              	   <a class="link2" href="/REVIEW/reviewRead?revIdx=${revVo.revIdx}&revLvl=${revVo.revLvl}"><p id="pContents">${revVo.revConts}</p></a>
-              	   <br/>              	   
+              	   <td colspan="4" width="1000px">
+              	   		${revVo.revConts}              	                 	   
               	   </td>   
  				 </tr>	             
-                 </c:forEach>
-               
+                 <tr>             	   
+              	   <td colspan="4" >              	   		
+              	   		댓글 : 0   <a href="#">새로고침(네이버영화에서는 img파일사용)</a>
+              	   		<input type="button" name="revLvl1Submit" value="등록" />  						            	   		              	   		              	                 	   
+              	   </td>   
+ 				 </tr>                 
+                 <tr>
+                   <td colspan="4">             	   
+              	   	 <textarea id="revLvl1" name="revLvl1" cols="200" rows="2"
+              	   	 style="resize:none" 
+              	   	 placeholder="댓글을 남겨주세요.영화와 상관없는 내용은 약관에 의해 제재를 받을 수 있습니다">
+              	   	 </textarea>
+              	   </td>
+ 				 </tr>
+ 				 
+ 				 
+				<!--   				 
+ 				 <c:forEach var="revVo1" items="${revList1}">
+	 				 <tr>
+	 				 	<td>${revVo1.mId}</td>
+	 				 	<td>${revVo1.revConts}</td>
+	 				 	<td>
+	 				 	<input type="button" id="btnToggle" value="토글버튼" onclick="btnToggle()"/>
+	 				 	</td>
+	 				 </tr>
+ 				  	
+ 				 
+ 				 <c:forEach var="revVo2" items="${revList2}">
+	 				 
+	 				 	<c:choose>					
+							<c:when test="${revVo1.revIdx eq revVo2.parentIdx}">
+							<tr id="tblToggle">			
+			 				   	<td colspan="1"><span>${revVo2.mId}</span></td>
+			 				 	<td colspan="3"><span>${revVo2.revConts}</span></td>
+			 				</tr>		 	
+		 				 	</c:when>		 				 	
+		 			    </c:choose>
+											 			    
+				 </c:forEach>	 			    
+	 			 </c:forEach>	 				 	
+ 				 -->
+ 				 <c:forEach var="revVo" items="${revList}">
+	 				 <tr>
+	 				 	<td>${revVo.mId}</td>
+	 				 	<td>${revVo.revConts}</td>
+	 				 	<td>
+	 				 	<input type="button" id="btnToggle" value="토글버튼" onclick="btnToggle()"/>
+	 				 	</td>
+	 				 </tr>				 
+ 				 
+	 				 	<c:choose>					
+							<c:when test="${revVo.revIdx eq revVo.parentIdx}">
+							<tr id="tblToggle">			
+			 				   	<td colspan="1"><span>${revVo.mId}</span></td>
+			 				 	<td colspan="3"><span>${revVo.revConts}</span></td>
+			 				</tr>		 	
+		 				 	</c:when>		 				 	
+		 			    </c:choose> 				 
+	 			 </c:forEach> 		
+	 			 
+	 			 		                
               </table> 
             </div>
           </div>

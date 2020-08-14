@@ -126,12 +126,12 @@
                               </i>
                               	보기
                           </a>
-                          <a class="btn btn-info btn-sm" href="/PUR/purFilm?mId=${likeVo.mId}&filmId=${likeVo.filmId}&filmPrice=${likeVo.filmPrice}">
+                          <a class="btn btn-info btn-sm" href="/PUR/purFilm?mId=${likeVo.mId}&docId=${likeVo.docId}&filmPrice=${likeVo.filmPrice}">
                               <i class="far fa-credit-card">
                               </i>
                                	구매
                           </a>
-                          <a class="btn btn-danger btn-sm" href="/LIKE/delete?mId=${likeVo.mId}&filmId=${likeVo.filmId}">
+                          <a class="btn btn-danger btn-sm" href="/LIKE/delete?mId=${likeVo.mId}&docId=${likeVo.docId}">
                               <i class="fas fa-trash">
                               </i>
                               	삭제
