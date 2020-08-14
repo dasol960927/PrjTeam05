@@ -79,7 +79,10 @@ $(function(){
 						if(pos == ''){
 							posterVal = '<img src="/img/PosterReady.jpg" alt="포스터 준비중"/>';
 						}else{
-							posterVal = '<img src="' + pos[0] + '" alt="포스터"/>';
+							posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
+							'&filmId=' + item.movieId + 
+							'&filmSeq=' + item.movieSeq + 
+							'&filmYear=' + item.prodYear + '"><img src="' + pos[0] + '" alt="포스터"/></a>';
 						}
 						
 						//배우
