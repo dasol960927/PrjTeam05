@@ -155,7 +155,7 @@ $(function(){
 						html+=              '</div>';
 						html+=            '</div>';
 						html+=            '<div class="col-12 col-sm-6">';
-						html+=              '<h3 class="my-3">'+ tit[1] +'</h3>';
+						html+=              '<h3 class="my-3">'+ tit[0] +'</h3>';
 						html+=              '<p>' + '출연진: ' +  actorVal + '<br/>' +  '감독 :' + item.directors.director[0].directorNm  + '<br/>' + '개봉일:' + item.repRlsDate + '</p>';
 						html+=              '<hr>';
 			                
@@ -177,8 +177,6 @@ $(function(){
 </head>
 
 <body class="hold-transition sidebar-mini">
-<!-- Site wrapper -->
-<div class="wrapper">
 
     <!-- SEARCH FORM -->
     <form class="form-inline ml-3" method="POST" action="/FilmSearch">
