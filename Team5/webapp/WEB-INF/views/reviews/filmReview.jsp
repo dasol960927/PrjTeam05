@@ -158,7 +158,7 @@ $(function(){
 						html+=                '<div class="product-image-thumb">'+ '<img src="'+stl[2]+'"/>' + '</div>';
 						html+=              '</div>';
 
-						html2+=              '<h3 class="my-3">' + tit[1] + '</h3>';
+						html2+=              '<h3 class="my-3">' + tit[0] + '</h3>';
 			            html2+= 			 '<p>배우:' + actorVal + '<br/> 감독 :' + item.directors.director[0].directorNm + '<br/> 개봉일: ' + item.repRlsDate + '</p>';
 			            html2+=				 '<hr>';
 			                
