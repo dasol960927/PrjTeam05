@@ -155,7 +155,7 @@ $(function(){
 						html+=              '<div class="col-12 product-image-thumbs">';
 						html+=                '<div class="product-image-thumb">'+ '<img src="'+stl[0]+'"/>' + '</div>';
 						html+=                '<div class="product-image-thumb">'+ '<img src="'+stl[1]+'"/>' + '</div>';
-						html+=                '<div class="product-image-thumb active">'+ '<img src="'+stl[2]+'"/>' + '</div>';
+						html+=                '<div class="product-image-thumb">'+ '<img src="'+stl[2]+'"/>' + '</div>';
 						html+=              '</div>';
 
 						html2+=              '<h3 class="my-3">' + tit[1] + '</h3>';
