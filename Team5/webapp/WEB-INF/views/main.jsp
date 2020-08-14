@@ -21,7 +21,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Gothic&display=swap" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
-//포스터  
+//포스터
 function poster(string) {
 	var str = string.split('|');
 	
@@ -64,14 +64,20 @@ function getBoxOffice(date, divId) {
 						for(var i=0;i<TotalCount;i++){
 							if(kDate == data.Data[0].Result[i].repRlsDate){
 								pos = poster(data.Data[0].Result[i].posters);
-								v1 = '<a href="#"><img src="' + pos[0] + '"/></a>';
+								v1 = '<a href="/filmReview?docId=' + data.Data[0].Result[i].DOCID + 
+								'&filmId=' + data.Data[0].Result[i].movieId + 
+								'&filmSeq=' + data.Data[0].Result[i].movieSeq + 
+								'&filmYear=' + data.Data[0].Result[i].prodYear + '"><img src="' + pos[0] + '"/></a>';
 							}else{
 								pos = '';
 							}
 						}
 					}else{
 						pos = poster(data.Data[0].Result[0].posters);
-						v1 = '<a href="#"><img src="' + pos[0] + '"/></a>';
+						v1 = '<a href="/filmReview?docId=' + data.Data[0].Result[i].DOCID + 
+						'&filmId=' + data.Data[0].Result[i].movieId + 
+						'&filmSeq=' + data.Data[0].Result[i].movieSeq + 
+						'&filmYear=' + data.Data[0].Result[i].prodYear + '"><img src="' + pos[0] + '"/></a>';
 					}
 				}
 			},
@@ -95,7 +101,7 @@ function getBoxOffice(date, divId) {
 				  //console.log(list);
 				  var html = '';
 				  $.each(list, function(index, item) {
-					    html += '<div class="col-sm-2">';
+					 	html += '<div class="col-sm-2">';
 						html += kmdbApi(item.movieNm,item.openDt);
 		               	html += '<p>제목 : ' + item.movieNm + '</p>';
 		                html += '</div>';
@@ -113,7 +119,7 @@ function getBoxOffice(date, divId) {
 function getActor(actorVal, divId) {
 	$(function(){
 		var url = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70&' + 
-		     	  'actor=' + actorVal + '&listCount=10&sort=prodYear,1';
+		     	  'actor=' + actorVal + '&listCount=5&sort=prodYear,1';
 		$.ajax({
 			url : url,
 			type : 'get',
@@ -127,7 +133,7 @@ function getActor(actorVal, divId) {
 					var posterVal = '';
 					var pos = poster(item.posters); //포스터 문자열 자르기
 					if(pos == ''){
-						posterVal = '<img src="/img/PosterReady.jpg" alt="포스터 준비중"/>';
+						posterVal = '<img src="/img/ReadytoPoster.jpg" alt="포스터 준비중"/>';
 					}else{
 						posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
 								'&filmId=' + item.movieId + 
@@ -135,10 +141,10 @@ function getActor(actorVal, divId) {
 								'&filmYear=' + item.prodYear + '"><img src="' + pos[0] + '"/></a>';
 					}
 					
-					html += '<span class="col-sm-2">';
+					html += '<div class="col-sm-2">';
 					html += posterVal + '<br>';
 		            html += '<p>' + item.title + '</p>';
-		            html += '</span>';
+		            html += '</div>';
 				});
 				$('#'+divId).html(html);
 			},
@@ -153,13 +159,13 @@ function getActor(actorVal, divId) {
 function getDirector(directorVal, divId) {
 	$(function(){
 		var url = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70&' + 
-		     	  'director=' + directorVal + '&listCount=10&sort=prodYear,1';
+		     	  'director=' + directorVal + '&listCount=5&sort=prodYear,1';
 		$.ajax({
 			url : url,
 			type : 'get',
 			dataType : "json",
 			success : function(data) {
-				//console.log(data);
+				console.log(data);
 				
 				var js = data.Data[0].Result;
 
@@ -170,7 +176,10 @@ function getDirector(directorVal, divId) {
 					if(pos == ''){
 						posterVal = '<img src="/img/PosterReady.jpg" alt="포스터 준비중"/>';
 					}else{
-						posterVal = '<a href="/filmReview"><img src="' + pos[0] + '"/></a>';
+						posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
+						'&filmId=' + item.movieId + 
+						'&filmSeq=' + item.movieSeq + 
+						'&filmYear=' + item.prodYear + '"><img src="' + pos[0] + '"/></a>';
 					}
 					
 					html += '<div class="col-sm-2">';
@@ -208,7 +217,10 @@ function getGenre(genreVal, divId) {
 					if(pos == ''){
 						posterVal = '<img src="/img/PosterReady.jpg" alt="포스터 준비중"/>';
 					}else{
-						posterVal = '<a href="#"><img src="' + pos[0] + '"/></a>';
+						posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
+						'&filmId=' + item.movieId + 
+						'&filmSeq=' + item.movieSeq + 
+						'&filmYear=' + item.prodYear + '"><img src="' + pos[0] + '"/></a>';
 					}
 					
 					html += '<div class="col-sm-2">';
@@ -216,8 +228,7 @@ function getGenre(genreVal, divId) {
 		            html += '<p>' + item.title + '</p>';
 		            html += '</div>';
 				});
-				
-				$('#'+ divId).html(html);
+				$('#'+divId).html(html);
 			},
 			error : function(xhr) {
 				alert(xhr.status + '' + xhr.textStatus);
@@ -226,6 +237,7 @@ function getGenre(genreVal, divId) {
 	});
 }
 
+// 어제 날짜 구하기
 var today = new Date();
 var dd = today.getDate()-1;
 var mm = today.getMonth()+1; //January is 0!
@@ -248,7 +260,7 @@ getActor('손예진', 'div2');
 getDirector('봉준호','div3');
 getDirector('박찬욱','div4');
 getGenre('액션','div5')
-getGenre('어드벤처','div6');
+getGenre('미스터리','div6');
 
 </script>
 
@@ -275,16 +287,6 @@ getGenre('어드벤처','div6');
         </div>
       </div>
     </form>
-
-  
-<!-- 찜하트 -->
-<div class="info-box mb-3 bg-success">
-  <span class="info-box-icon"><i class="far fa-heart"></i></span>
-  <div class="info-box-content">
-    <span class="info-box-text">찜하기</span>
-  </div>
-</div>
-              
   
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -354,7 +356,7 @@ getGenre('어드벤처','div6');
 				</div>
 				
 				<div class="category">
-				<h3>같이 모험을 떠나봐요~ <b>어드벤처</b></h3>
+				<h3>올 여름을 시원하게 <b>미스터리</b></h3>
 				<div id=div6></div>
 				</div>
 			  

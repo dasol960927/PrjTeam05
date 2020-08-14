@@ -15,11 +15,9 @@
    }
 </style>
 <script>
-
 //Main에서 값 받아오기
 var keywordGet = '<%= (String)request.getParameter("keyword")%>'
 //alert(keywordGet);
-
 //null 체크
 function nullCheck(string) {
 	var checkValue;
@@ -30,21 +28,18 @@ function nullCheck(string) {
 	}
 	return checkValue;
 }
-
 //포스터, 스틸컷 url
 function poster(string) {
 	var str = string.split('|');
 	
 	return str;
 }
-
 //제목 자르기
 function title(string) {
 	var str = string.split('^');
 	
 	return str;
 }
-
 $(function(){
 	var url = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70&title='+ keywordGet;
 	var v1 = '';
@@ -58,7 +53,6 @@ $(function(){
 			//console.log(data);
 			var json = data.Data[0];
 			//console.log(json);
-
 			var list;
 			var exit= false;
 			var html = '';
@@ -80,14 +74,16 @@ $(function(){
 								stllsVal +='<a href="#"><img src="'+stl[i]+'"/></a>';
 							}
 						}
-
 						//포스터
 						var posterVal = '';
 						var pos = poster(item.posters); //포스터 문자열 자르기
 						if(pos == ''){
 							posterVal = '<img src="/img/PosterReady.jpg" alt="포스터 준비중"/>';
 						}else{
-							posterVal = '<a href="#"><img src="' + pos[0] + '"/></a>';
+							posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
+							'&filmId=' + item.movieId + 
+							'&filmSeq=' + item.movieSeq + 
+							'&filmYear=' + item.prodYear + '"><img src="' + pos[0] + '"/></a>';
 						}
 						
 						//배우
@@ -103,11 +99,11 @@ $(function(){
 						
 						html += '<div>';
 						html += posterVal + '<br>';
-						html += stllsVal;
+						//html += stllsVal;
 			            html += '<p>제목 : ' + tit[1] + '</p>';
-			           	html += '<p>감독 : ' + item.directors.director[0].directorNm + '</p>';
-			           	html += '<p>배우 : ' +  actorVal + '</p>';
-			           	html += '<p>줄거리 : ' + nullCheck(item.plots.plot[0].plotText) + '</p>';
+			           	//html += '<p>감독 : ' + item.directors.director[0].directorNm + '</p>';
+			           	//html += '<p>배우 : ' +  actorVal + '</p>';
+			           	//html += '<p>줄거리 : ' + nullCheck(item.plots.plot[0].plotText) + '</p>';
 		               	html += '<p>개봉일자 : ' + item.repRlsDate + '</p>';
 			            html += '</div>';
 			                
@@ -122,7 +118,6 @@ $(function(){
 	  	}
 	});
 });
-
 </script>
 </head>
 <body>
