@@ -28,6 +28,79 @@ table { width:800px; margin:0 auto; }
   <link rel="stylesheet" href="/dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+
+//null 체크
+function nullCheck(string) {
+   var checkValue;
+   if(string == ""){
+      checkValue = '추가예정';
+   }else{
+      checkValue = string;
+   }
+   return checkValue;
+}
+
+//제목 자르기
+function title(string) {
+   var str = string.split('^');
+   
+   return str;
+}
+
+$(function(){
+	
+	var filmId = $(".filmId");
+	var filmSeq = $(".filmSeq");
+	
+	for (var i = 0; i < filmId.length; i++) {
+	var seq = $(filmSeq[i]).val();
+	var url = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70&'+
+    '&movieId=' + $(filmId[i]).val() + 
+    '&movieSeq=' + seq;
+   var v1 = '';
+   $.ajax({
+      url : url,
+      type : 'get',
+      dataType : "json",
+      success : function(data) {
+         //console.log(data);
+         var json = data.Data[0];
+         //console.log(json);
+
+         var list;
+         var exit= false;
+         var html  = '';
+            $.each(json, function(index, item) {
+               list = json.Result;
+               console.log(json.Result);
+                              
+               $.each(list, function(index, item) {
+                  var tit = title(item.titleEtc); //제목 문자열 자르기
+
+                  html+= tit[0];
+          
+                     exit = true; //이중 ajax 빠져나오기
+                 });
+                 if(exit){ return false;} //이중 ajax 빠져나오기
+            });
+            
+            alert(html);
+            
+            $("#here").append(html);
+         
+      },
+      error : function(xhr) {
+         alert(xhr.status + '' + xhr.textStatus);
+        }
+   });
+   
+	}
+	
+});
+
+</script>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -135,8 +208,10 @@ table { width:800px; margin:0 auto; }
 					<c:forEach var="purVo" items="${purList}">
 						<tr>				
 							<td>${ purVo.pDate }</td>
-							<td>${ purVo.filmName }</td>
-							<td>${ purVo.filmPrice }</td>				
+							<td id="here"></td>
+							<td>${ purVo.comVal }</td>
+							<input type="hidden" class="filmId" value="${ purVo.filmId }" />				
+							<input type="hidden" class="filmSeq" value="${ purVo.filmSeq }" />				
 						</tr>
 					</c:forEach>
                   </tbody>
