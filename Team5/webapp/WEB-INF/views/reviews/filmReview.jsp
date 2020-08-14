@@ -144,21 +144,26 @@ $(function(){
 							actorVal += nullCheck(item.actors.actor[4].actorNm);
 			            }
 						
-						html += '<div>';
-						html += posterVal + '<br>';
-						html += stllsVal;
-			            html += '<p>제목 : ' + tit[1] + '</p>';
-			           	html += '<p>감독 : ' + item.directors.director[0].directorNm + '</p>';
-			           	html += '<p>배우 : ' +  actorVal + '</p>';
-			           	html += '<p>줄거리 : ' + nullCheck(item.plots.plot[0].plotText) + '</p>';
-		               	html += '<p>개봉일자 : ' + item.repRlsDate + '</p>';
-			            html += '</div>';
+
+						html+=            '<div class="col-12 col-sm-6">';
+						html+=              '<h3 class="d-inline-block d-sm-none">Films Review</h3>'
+						html+=              '<div class="col-12">';
+						html+=                posterVal;
+						html+=              '</div>';
+						html+=              '<div class="col-12 product-image-thumbs">';
+						html+=                '<div class="product-image-thumb ">'+ stllsVal +'</div>';
+						html+=              '</div>';
+						html+=            '</div>';
+						html+=            '<div class="col-12 col-sm-6">';
+						html+=              '<h3 class="my-3">'+ tit[1] +'</h3>';
+						html+=              '<p>' + '출연진: ' +  actorVal + '<br/>' +  '감독 :' + item.directors.director[0].directorNm  + '<br/>' + '개봉일:' + item.repRlsDate + '</p>';
+						html+=              '<hr>';
 			                
-			            exit = true; //이중 ajax 빠져나오기  주희
+			            exit = true; //이중 ajax 빠져나오기
 					  });
 					  if(exit){ return false;} //이중 ajax 빠져나오기
 				});
-			$('#div1').html(html);
+			$('#here').html(html);
 		},
 		error : function(xhr) {
 			alert(xhr.status + '' + xhr.textStatus);
@@ -171,9 +176,181 @@ $(function(){
 
 </head>
 
-<body>
-	<div id=div1>
-	</div>
-</body>
+<body class="hold-transition sidebar-mini">
+<!-- Site wrapper -->
+<div class="wrapper">
 
+    <!-- SEARCH FORM -->
+    <form class="form-inline ml-3" method="POST" action="/FilmSearch">
+      <div class="input-group input-group-sm">
+        <input class="form-control form-control-navbar" type="search" placeholder="영화작품 제목을 검색해보세요."  size="50" aria-label="Search" id="keyword" name="keyword">
+        <div class="input-group-append">
+          <button class="btn btn-navbar" type="submit">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>영화 감상</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item active">Film Review </li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content" >
+		<div class="card card-solid">
+		<div class="card-body">
+		<div class="row" id="here">
+      <!-- Default box -->
+
+              <h4>Graph</h4>
+				<!-- DONUT CHART -->
+	            <div class="card card-danger">
+	              <div class="card-header">
+	                <h3 class="card-title">Donut Chart</h3>
+	
+	                <div class="card-tools">
+	                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+	                  </button>
+	                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+	                </div>
+	              </div>
+	              <div class="card-body">
+	                <canvas id="donutChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+	              </div>
+	              <!-- /.card-body -->
+	            </div>
+	            <!-- /.card -->
+
+              <h4 class="mt-3">영화 <small>별점</small></h4>
+			  <div class="starRev">
+				  <span class="starR1 on">★</span>
+				  <span class="starR2">★</span>
+				  <span class="starR1">★</span>
+				  <span class="starR2">★</span>
+				  <span class="starR1">★</span>
+				  <span class="starR2">★</span>
+				  <span class="starR1">★</span>
+				  <span class="starR2">★</span>
+				  <span class="starR1">★</span>
+				  <span class="starR2">★</span>
+				  <script>
+				  $('.starRev span').click(function(){
+					  $(this).parent().children('span').removeClass('on');
+					  $(this).addClass('on').prevAll('span').addClass('on');
+					  return false;
+					});
+				  </script>
+				</div>
+
+              <div class="bg-gray py-2 px-3 mt-4">
+                <h2 class="mb-0">
+                  3000 P
+                </h2>
+                <h4 class="mt-0">
+                  <small>3000원 충전 필요</small>
+                </h4>
+              </div>
+
+              <div class="mt-4">
+                <div class="btn btn-primary btn-lg btn-flat">
+                  <i class="fas fa-cart-plus fa-lg mr-2"></i> 
+                    	포인트 충전
+                </div>
+                
+				<div class="info-box mb-3 bg-success" style="width:180px;">
+				  <span class="info-box-icon"><i class="far fa-heart"></i></span>
+				  <div class="info-box-content">
+				    <a href="/Likelist" style="color:white;">찜하기</a>
+				</div>
+
+              </div>
+
+              <div class="mt-4 product-share">
+                <a href="#" class="text-gray">
+                  <i class="fab fa-facebook-square fa-2x"></i>
+                </a>
+                <a href="#" class="text-gray">
+                  <i class="fab fa-twitter-square fa-2x"></i>
+                </a>
+                <a href="#" class="text-gray">
+                  <i class="fas fa-envelope-square fa-2x"></i>
+                </a>
+                <a href="#" class="text-gray">
+                  <i class="fas fa-rss-square fa-2x"></i>
+                </a>
+              </div>
+
+            </div>
+          </div>
+          <div class="row mt-4">
+            <nav class="w-100">
+              <div class="nav nav-tabs" id="product-tab" role="tablist">
+                <a class="nav-item nav-link" id="product-desc-tab"  href="/filmReview"  >영화설명</a>
+                <a class="nav-item nav-link" id="product-comments-tab"  href="/REVIEW/grdList?filmId=F00004" >리뷰</a>
+                <a class="nav-item nav-link" id="product-rating-tab"  href="/REVIEW/revList?filmId=F00001" style="background-color:#878787; color:#ECFFFF">평점</a>
+              </div>
+            </nav>
+            <div class="tab-content p-3" id="nav-tabContent" >
+
+            </div>
+          </div>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <b>Version</b> 1.0.0
+    </div>
+    <div>고객센터(이용 및 결제 문의) cs@teamfive.co.kr • 051-629-5232 (유료) <br/>
+		 제휴	및 대외 협력 contact@teamfive.com • 051-629-5232 (유료)</div>
+		<div>주식회사 TeamFive | 대표 송지현 | 팀원 김상두 이재혁 박다솔 김주희 | 부산광역시 남구 용당동 부경대용당캠퍼스 공학 6관 | <br/>
+		사업자등록번호 8282-2424 | 통신판매업 신고번호 제 2020-부산용당-2020호  <br/>
+		대표번호 051-629-5233 <br/>
+		 개인정보 처리 방침</div>
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- ChartJS -->
+<script src="/plugins/chart.js/Chart.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="/dist/js/demo.js"></script>
+</body>
 </html>
