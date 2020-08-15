@@ -79,7 +79,7 @@ $(function(){
                $.each(list, function(index, item) {
                   var tit = title(item.titleEtc); //제목 문자열 자르기
 
-                  html+= tit[0];
+                    html += tit[0];
           
                      exit = true; //이중 ajax 빠져나오기
                  });
@@ -88,7 +88,7 @@ $(function(){
             
             alert(html);
             
-            $("#here").append(html);
+            $(".here").html(html);
          
       },
       error : function(xhr) {
@@ -208,7 +208,8 @@ $(function(){
 					<c:forEach var="purVo" items="${purList}">
 						<tr>				
 							<td>${ purVo.pDate }</td>
-							<td id="here"></td>
+							<td class="here"></td>
+							<td>${ purVo.filmId }${ purVo.filmSeq }</td>
 							<td>${ purVo.comVal }</td>
 							<input type="hidden" class="filmId" value="${ purVo.filmId }" />				
 							<input type="hidden" class="filmSeq" value="${ purVo.filmSeq }" />				

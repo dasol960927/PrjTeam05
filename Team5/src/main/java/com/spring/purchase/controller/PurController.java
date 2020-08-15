@@ -29,7 +29,6 @@ public class PurController {
 		
 		List<PurVo> purList = purService.getPurList(map);
 		MemberVo memberVo = memberService.getMemberInfo(map);
-		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("purchase/purchaseList");
 		mv.addObject("purList", purList);

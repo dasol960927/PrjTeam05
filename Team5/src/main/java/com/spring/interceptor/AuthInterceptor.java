@@ -34,9 +34,6 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 		case "/plugins/fontawesome-free/css/all.min.css":
 		case "/plugins/icheck-bootstrap/icheck-bootstrap.min.css":
 		case "/dist/css/adminlte.min.css":
-		case "/plugins/jquery/jquery.min.js":
-		case "/plugins/bootstrap/js/bootstrap.bundle.min.js":
-		case "/dist/js/adminlte.min.js":
 					
 			 return true; // 제외
 		}
