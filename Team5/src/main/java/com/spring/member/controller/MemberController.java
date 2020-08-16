@@ -118,8 +118,9 @@ public class MemberController {
 		String errCode = (String) map.get("outErrCode");
 		if(errCode.equals("8282")) {
 			mv.setViewName("redirect:/registerForm");
-		}else
+		}else if(errCode.equals("200")) {
 			mv.setViewName("redirect:/login");
+		}
 		return mv;
 	}
 	
