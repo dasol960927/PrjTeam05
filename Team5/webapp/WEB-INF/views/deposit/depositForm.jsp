@@ -48,9 +48,7 @@ table { width:800px; margin:0 auto; }
                        alt="User profile picture">
                 </div>
 
-                <h3 class="profile-username text-center">${ mName }</h3>
-
-                <p class="text-muted text-center">${mBdate} (${memberVo.mGender}), ${memberVo.mPhone}</p>
+                <h3 class="profile-username text-center">${ memberVo.mName }&nbsp;&nbsp;&nbsp;님</h3>
 
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
