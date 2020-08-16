@@ -31,25 +31,13 @@
    } );
 
 </script>
+<style>
+#product-desc{ width:750px; }
+</style>
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
 <div class="wrapper">
-
-    <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="찾고 싶은 문의사항을 키워드를 검색하세요." size="50" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
-
-
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -69,7 +57,7 @@
       </div><!-- /.container-fluid -->
     </section>
 
-    <!-- Main content -->
+
       <!-- Default box -->
       <div class="card card-solid">
         <div class="card-body">
@@ -86,7 +74,7 @@
             </nav>
             <div class="tab-content p-3" id="nav-tabContent">
               <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab">
-               <table id="myTable"  border="1px solid black;" width="50%;" height="60%">
+               <table id="myTable"  border="1px solid black;" width="100%;" height="100%">
                   <thead>                  
                     <tr>
                       <th style="width: 100px">작성자</th>
@@ -109,30 +97,10 @@
               
               </div>
               <!-- /.card-body -->
-              <div class="card-footer clearfix">
-                <ul class="pagination pagination-sm m-0 float-right">
-                  <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
-                </ul>
-              </div>
-            </div>
             
             <!-- //////////////////////// -->  
 				
               </div>
-              <div class="tab-pane fade" id="product-comments" role="tabpanel" aria-labelledby="product-comments-tab">
-
-				<div>
-				<table>
-				
-				
-				
-				</table>
-				</div>
-			  </div>
             </div>
           </div>
         </div>
