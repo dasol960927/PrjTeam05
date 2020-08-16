@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>FlimCritics | Posters</title>
+  <title>FlimCritics | Main</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -265,8 +265,9 @@ getGenre('미스터리','div6');
 </script>
 
 <style>
-	.category{width:100%; clear:both;}
-	.col-sm-2{width:215px; padding:0px; margin:0px; float:left;}
+	.category{width:1200px; height:100%; clear:both; }
+	.col-sm-2{width:321px; height:350px;  padding:0px; margin:1px; float:left; }
+	#div0, #div1, #div2, #div3, #div3, #div4, #div5, #div6 {width:1300px; height:800px;}
 	h3{font-family: 'Black Han Sans', sans-serif;
 		font-family: 'Nanum Gothic', sans-serif;}
 </style>
