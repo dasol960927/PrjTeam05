@@ -119,7 +119,7 @@ function getBoxOffice(date, divId) {
 function getActor(actorVal, divId) {
 	$(function(){
 		var url = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70&' + 
-		     	  'actor=' + actorVal + '&listCount=5&sort=prodYear,1';
+		     	  'actor=' + actorVal + '&listCount=10&sort=prodYear,1';
 		$.ajax({
 			url : url,
 			type : 'get',
@@ -133,7 +133,7 @@ function getActor(actorVal, divId) {
 					var posterVal = '';
 					var pos = poster(item.posters); //포스터 문자열 자르기
 					if(pos == ''){
-						posterVal = '<img src="/img/ReadytoPoster.jpg" alt="포스터 준비중"/>';
+						posterVal = '<img src="/img/PosterReady.jpg" alt="포스터 준비중"/>';
 					}else{
 						posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
 								'&filmId=' + item.movieId + 
@@ -159,7 +159,7 @@ function getActor(actorVal, divId) {
 function getDirector(directorVal, divId) {
 	$(function(){
 		var url = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70&' + 
-		     	  'director=' + directorVal + '&listCount=5&sort=prodYear,1';
+		     	  'director=' + directorVal + '&listCount=10&sort=prodYear,1';
 		$.ajax({
 			url : url,
 			type : 'get',
