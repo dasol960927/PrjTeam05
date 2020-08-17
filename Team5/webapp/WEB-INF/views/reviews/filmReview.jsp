@@ -96,7 +96,6 @@ $(function(){
 		url : url,
 		type : 'get',
 		dataType : "json",
-		async: false,
 		success : function(data) {
 			//console.log(data);
 			var json = data.Data[0];
@@ -179,8 +178,9 @@ $(function(){
 });
 
 </script>
-
-
+<style>
+.starRev{width:170px; height:50px;}
+</style>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -237,7 +237,7 @@ $(function(){
 				<!-- DONUT CHART -->
 	            <div class="card card-danger">
 	              <div class="card-header">
-	                <h3 class="card-title">연령별 평점</h3>
+	                <h3 class="card-title">평점</h3>
 	
 	                <div class="card-tools">
 	                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
@@ -262,7 +262,6 @@ $(function(){
 				  <span class="starR2">별8</span>
 				  <span class="starR1">별9</span>
 				  <span class="starR2">별10</span>
-
 				</div>
 
               <div class="bg-gray py-2 px-3 mt-4">
@@ -270,23 +269,30 @@ $(function(){
                   3000 P
                 </h2>
                 <h4 class="mt-0">
-                  <small>3000원 충전 필요</small>
+                  <small>${login.mName }님의 잔여금액:&nbsp;&nbsp;&nbsp; ${login.mCash }P</small>
                 </h4>
               </div>
 
               <div class="mt-4">
-                <div class="btn btn-primary btn-lg btn-flat">
-                  <i class="fas fa-cart-plus fa-lg mr-2"></i> 
-                    	포인트 충전
-                </div>
-                
-				<div class="info-box mb-3 bg-success" style="width:180px;">
+              
+             <div id="btns" style="width:700px; height: 80px; clear:both;">
+              <div class="info-box mb-3 bg-success" style="width:180px; height:70px; margin-right:15px; float:left;">
 				  <span class="info-box-icon"><i class="far fa-heart"></i></span>
 				  <div class="info-box-content">
 				    <a href="/Likelist" style="color:white;">찜하기</a>
 				</div>
-
               </div>
+              
+                <div class="btn btn-primary btn-lg btn-flat" style="float:left; width:180px; height:70px; margin-left:5px;">
+                  <i class="fas fa-cart-plus fa-lg mr-2"></i> 
+                    	<a href="/DPS/List?mId=${memberVo.mId }" style="color:white;">포인트 충전</a>
+                </div>
+                <div class="btn btn-primary btn-lg btn-flat" style="float:left; width:180px; height:70px; margin-left:5px;">
+                  <i class="far fa-credit-card"></i> 
+                    	<a href="#" style="color:white;">구매하기</a>
+                </div>
+				</div>
+
 
               <div class="mt-4 product-share">
                 <a href="#" class="text-gray">
@@ -309,8 +315,8 @@ $(function(){
             <nav class="w-100">
               <div class="nav nav-tabs" id="product-tab" role="tablist">
                 <a class="nav-item nav-link" id="product-desc-tab"  href="#" style="background-color:#878787; color:#ECFFFF">영화설명</a>
-                <a class="nav-item nav-link" id="product-comments-tab"  href="/REVIEW/grdList?filmId=F00004" >리뷰</a>
-                <a class="nav-item nav-link" id="product-rating-tab"  href="/REVIEW/revList?filmId=F00001">평점</a>
+                <a class="nav-item nav-link" id="product-comments-tab"  href="/REVIEW/grdList?docId=K22319&filmId=K&filmSeq=22319&filmYear=2020" >리뷰</a>
+                <a class="nav-item nav-link" id="product-rating-tab"  href="/REVIEW/revList?docId=K22319&filmId=K&filmSeq=22319&filmYear=2020">평점</a>
               </div>
             </nav>
             <div class="tab-content p-3" id="nav-tabContent" >
@@ -368,6 +374,24 @@ $(function(){
  </script>
 <script>
   $(function () {
+	  
+	  var docIdVal = '${docId}';
+	  
+	  $.ajax({
+			url : '/Chart/Grd',
+			type: 'GET',
+			data: {'docId' : docIdVal},
+			datatype: 'json',
+			success : function(datas) {
+					$datas.each(function(index, item){
+						alert(item.cntGrdScore);
+					});
+			}, 
+				error : function(xhr) {
+					alert('차트데이터'+ xhr.status + '' + xhr.textStatus);
+				}
+			});
+	  
     /* ChartJS
      * -------
      * Here we will create a few charts using ChartJS
@@ -380,15 +404,15 @@ $(function(){
     var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
     var donutData        = {
       labels: [
-          '10대', 
-          '20대',
-          '30대', 
-          '40대', 
-          '50대 이상'
+          '1점', 
+          '2점', 
+          '3점',
+          '4점',
+          '5점'
       ],
       datasets: [
         {
-          data: [700,500,400,600,300],
+          data: [1,2,3,4,5],
           backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc'],
         }
       ]

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="CHART">
+
+     <!-- 결과처리를 위한 map 설정  -->
+     <resultMap id="ChartMap" type="com.spring.chart.vo.ChartVo"> 
+       <result property="docId"    	   column="DOC_ID"         javaType="string" />   
+       <result property="grdScore"     column="GRD_ID"         javaType="double" />   
+       <result property="cntGrdScore"  column="CNT_GRD_SCORE"  javaType="int" />   
+       <result property="mGender"      column="M_GENDER"       javaType="string" />   
+       <result property="ages"  	   column="AGES"           javaType="string" />   
+     </resultMap>
+   
+     <select id="Grd"
+         statementType="CALLABLE" parameterType="hashmap" 
+         resultType="com.spring.chart.vo.ChartVo">
+         {CALL  PKG_CHART.PROC_CHART_GRD(
+         	#{docId, mode = IN, jdbcType = VARCHAR},
+            #{result, mode=OUT, jdbcType=CURSOR, 
+               javaType=ResultSet, resultMap=ChartMap }
+         ) }     
+     </select>
+      
+         
+     <select id="Gender"
+         statementType="CALLABLE" parameterType="hashmap" 
+         resultType="com.spring.chart.vo.ChartVo">
+         {CALL  PKG_CHART.PROC_CHART_GENDER(
+         	#{docId, mode = IN, jdbcType = VARCHAR},
+            #{result, mode=OUT, jdbcType=CURSOR, 
+               javaType=ResultSet, resultMap=ChartMap }
+         ) }     
+     </select>
+     
+     <select id="Age"
+         statementType="CALLABLE" parameterType="hashmap" 
+         resultType="com.spring.chart.vo.ChartVo">
+         {CALL  PKG_CHART.PROC_CHART_AGE(
+         	#{docId, mode = IN, jdbcType = VARCHAR},
+            #{result, mode=OUT, jdbcType=CURSOR, 
+               javaType=ResultSet, resultMap=ChartMap }
+         ) }     
+     </select>
+       
+             
+  </mapper>        
+
