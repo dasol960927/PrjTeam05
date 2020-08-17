@@ -18,26 +18,18 @@
   <link rel="stylesheet" href="/dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css"/> 
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://cdn.datatables.net/t/bs-3.3.6/jqc-1.12.0,dt-1.10.11/datatables.min.js"></script>
+  
+
+<style>
+.card-body{ width:850px;}
+</style>
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
 <div class="wrapper">
-
-    <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="찾고 싶은 문의사항을 키워드를 검색하세요." size="50" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
-
-
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -57,8 +49,6 @@
       </div><!-- /.container-fluid -->
     </section>
 
-    <!-- Main content -->
-    <section class="content">
 
       <!-- Default box -->
       <div class="card card-solid">
@@ -70,13 +60,14 @@
           <div class="row mt-4">
             <nav class="w-100">
               <div class="nav nav-tabs" id="product-tab" role="tablist">
-                <a href="/Board?gubun=N" class="nav-item nav-link" id="product-comments-tab">공지사항</a>
+				<a href="/Board?gubun=N" class="nav-item nav-link" id="product-comments-tab">공지사항</a>
                 <a href="/Board?gubun=F" class="nav-item nav-link" id="product-comments-tab">FAQ</a>
               </div>
             </nav>
             <div class="tab-content p-3" id="nav-tabContent">
-              <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab">
-               <table class="table table-bordered">
+              <h3>공지사항</h3>
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
                   <thead>                  
                     <tr>
                       <th style="width: 100px">작성자</th>
@@ -87,40 +78,20 @@
                   </thead>
                   <tbody>
                 <c:forEach var = "boardVo" items = "${ boardList }">
-				<tr>
-				<td>${ boardVo.mId }</td>
-				<td>${ boardVo.bName }</td>
-				<td>${ boardVo.bCnt }</td>
-				<td>${ boardVo.bDate }</td>
-				</tr>
-				</c:forEach>
+					<tr>
+					<td>${ boardVo.mId }</td>
+					<td>${ boardVo.bName }</td>
+					<td>${ boardVo.bCnt }</td>
+					<td>${ boardVo.bDate }</td>
+					</tr>
+					</c:forEach>
                   </tbody>
-                </table>				
+                </table>
               </div>
-              <div class="tab-pane fade" id="product-comments" role="tabpanel" aria-labelledby="product-comments-tab">
-
-				<div>
-				<table>
+              <!-- /.card-body -->
+            <!-- //////////////////////// -->  
 				
-				<tr> 
-				  <td>작성자</td> 
-				  <td>제목</td> 
-				  <td>조회수</td>  
-				  <td>작성일</td> 
-				</tr>
-				
-				<c:forEach var = "boardVo" items = "${ boardList }">
-				<tr>
-				<td>${ boardVo.mId }</td>
-				<td>${ boardVo.bName }</td>
-				<td>${ boardVo.bCnt }</td>
-				<td>${ boardVo.bDate }</td>
-				</tr>
-				</c:forEach>
-				
-				</table>
-				</div>
-			  </div>
+              </div>
             </div>
           </div>
         </div>
@@ -128,8 +99,6 @@
       </div>
       <!-- /.card -->
 
-    </section>
-    <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
 
@@ -150,20 +119,38 @@
     <!-- Control sidebar content goes here -->
   </aside>
   <!-- /.control-sidebar -->
-</div>
-<!-- ./wrapper -->
+
 
 <!-- jQuery -->
 <script src="/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- ChartJS -->
-<script src="/plugins/chart.js/Chart.min.js"></script>
+<!-- DataTables -->
+<script src="/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 <!-- AdminLTE App -->
 <script src="/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/dist/js/demo.js"></script>
-
-
+<!-- page script -->
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true,
+      "autoWidth": false,
+    });
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+</script>
 </body>
 </html>

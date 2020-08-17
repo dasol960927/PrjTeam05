@@ -158,7 +158,7 @@ $(function(){
 						html+=                '<div class="product-image-thumb">'+ '<img src="'+stl[2]+'"/>' + '</div>';
 						html+=              '</div>';
 
-						html2+=              '<h3 class="my-3">' + tit[1] + '</h3>';
+						html2+=              '<h3 class="my-3">' + tit[0] + '</h3>';
 			            html2+= 			 '<p>배우:' + actorVal + '<br/> 감독 :' + item.directors.director[0].directorNm + '<br/> 개봉일: ' + item.repRlsDate + '</p>';
 			            html2+=				 '<hr>';
 			                
@@ -234,16 +234,13 @@ $(function(){
             <span id="here2">
     
              </span>
-              <h4>Graph</h4>
 				<!-- DONUT CHART -->
 	            <div class="card card-danger">
 	              <div class="card-header">
-	                <h3 class="card-title">Donut Chart</h3>
+	                <h3 class="card-title">연령별 평점</h3>
 	
 	                <div class="card-tools">
-	                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-	                  </button>
-	                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+	                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
 	                </div>
 	              </div>
 	              <div class="card-body">
@@ -255,16 +252,16 @@ $(function(){
 
               <h4 class="mt-3">영화 <small>별점</small></h4>
 			  <div class="starRev">
-				  <span class="starR1 on">★</span>
-				  <span class="starR2">★</span>
-				  <span class="starR1">★</span>
-				  <span class="starR2">★</span>
-				  <span class="starR1">★</span>
-				  <span class="starR2">★</span>
-				  <span class="starR1">★</span>
-				  <span class="starR2">★</span>
-				  <span class="starR1">★</span>
-				  <span class="starR2">★</span>
+				  <span class="starR1 on">별1</span>
+				  <span class="starR2">별2</span>
+				  <span class="starR1">별3</span>
+				  <span class="starR2">별4</span>
+				  <span class="starR1">별5</span>
+				  <span class="starR2">별6</span>
+				  <span class="starR1">별7</span>
+				  <span class="starR2">별8</span>
+				  <span class="starR1">별9</span>
+				  <span class="starR2">별10</span>
 
 				</div>
 
@@ -387,13 +384,12 @@ $(function(){
           '20대',
           '30대', 
           '40대', 
-          '50대', 
-          '60대 이상', 
+          '50대 이상'
       ],
       datasets: [
         {
-          data: [700,500,400,600,300,100],
-          backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+          data: [700,500,400,600,300],
+          backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc'],
         }
       ]
     }

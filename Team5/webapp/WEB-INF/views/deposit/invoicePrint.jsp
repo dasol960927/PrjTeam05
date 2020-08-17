@@ -110,15 +110,7 @@
     <!-- /.row -->
 
     <div class="row">
-      <!-- accepted payments column -->
-      <div class="col-6">
-        <p class="lead">충전가능한 카드 종류:</p>
-        <img src="/dist/img/credit/visa.png" alt="Visa">
-        <img src="/dist/img/credit/mastercard.png" alt="Mastercard">
-        <img src="/dist/img/credit/american-express.png" alt="American Express">
-        <img src="/dist/img/credit/paypal2.png" alt="Paypal">
 
-      </div>
       <!-- /.col -->
       <div class="col-6">
         <p class="lead">Amount Due 2/22/2014</p>

@@ -48,9 +48,7 @@ table { width:800px; margin:0 auto; }
                        alt="User profile picture">
                 </div>
 				
-                <h3 class="profile-username text-center">${ memberVo.mName }</h3>
-
-                <p class="text-muted text-center">${memberVo.mBdate} (${memberVo.mGender}), ${memberVo.mPhone}</p>
+                <h3 class="profile-username text-center">${ memberVo.mName }&nbsp;&nbsp;&nbsp;님</h3>
 
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
@@ -78,42 +76,29 @@ table { width:800px; margin:0 auto; }
             </div>
             <!-- /.card -->
 
-            <!-- About Me Box -->
+             <!-- About Me Box -->
             <div class="card card-primary">
               <div class="card-header">
                 <h3 class="card-title">About Me</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <strong><i class="fas fa-book mr-1"></i> Education</strong>
-
+                <strong><i class="fas fa-user mr-1"></i>닉네임</strong>
                 <p class="text-muted">
-                  B.S. in Computer Science from the University of Tennessee at Knoxville
+                  ${memberVo.mNickName}
                 </p>
-
                 <hr>
-
-                <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
-
-                <p class="text-muted">Malibu, California</p>
-
+                <strong><i class="fas fa-user mr-1"></i> 성별</strong>
+                <p class="text-muted">${memberVo.mGender}</p>
                 <hr>
-
-                <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
-
+                <strong><i class="fas fa-user mr-1"></i> 생년월일</strong>
                 <p class="text-muted">
-                  <span class="tag tag-danger">UI Design</span>
-                  <span class="tag tag-success">Coding</span>
-                  <span class="tag tag-info">Javascript</span>
-                  <span class="tag tag-warning">PHP</span>
-                  <span class="tag tag-primary">Node.js</span>
+                  <span class="tag tag-info">${memberVo.mBdate}</span>
                 </p>
-
                 <hr>
+                <strong><i class="fas fg-lg fa-phone mr-1"></i> 전화번호</strong>
 
-                <strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
-
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
+                <p class="text-muted">${memberVo.mPhone}</p>
               </div>
               <!-- /.card-body -->
             </div>

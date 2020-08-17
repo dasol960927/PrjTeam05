@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>FlimCritics | Posters</title>
+  <title>FlimCritics | Main</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -119,7 +119,7 @@ function getBoxOffice(date, divId) {
 function getActor(actorVal, divId) {
 	$(function(){
 		var url = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70&' + 
-		     	  'actor=' + actorVal + '&listCount=5&sort=prodYear,1';
+		     	  'actor=' + actorVal + '&listCount=10&sort=prodYear,1';
 		$.ajax({
 			url : url,
 			type : 'get',
@@ -133,7 +133,7 @@ function getActor(actorVal, divId) {
 					var posterVal = '';
 					var pos = poster(item.posters); //포스터 문자열 자르기
 					if(pos == ''){
-						posterVal = '<img src="/img/ReadytoPoster.jpg" alt="포스터 준비중"/>';
+						posterVal = '<img src="/img/PosterReady.jpg" alt="포스터 준비중"/>';
 					}else{
 						posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
 								'&filmId=' + item.movieId + 
@@ -159,7 +159,7 @@ function getActor(actorVal, divId) {
 function getDirector(directorVal, divId) {
 	$(function(){
 		var url = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70&' + 
-		     	  'director=' + directorVal + '&listCount=5&sort=prodYear,1';
+		     	  'director=' + directorVal + '&listCount=10&sort=prodYear,1';
 		$.ajax({
 			url : url,
 			type : 'get',
@@ -265,8 +265,9 @@ getGenre('미스터리','div6');
 </script>
 
 <style>
-	.category{width:100%; clear:both;}
-	.col-sm-2{width:215px; padding:0px; margin:0px; float:left;}
+	.category{width:1200px; height:100%; clear:both; }
+	.col-sm-2{width:321px; height:350px;  padding:0px; margin:1px; float:left; }
+	#div0, #div1, #div2, #div3, #div3, #div4, #div5, #div6 {width:1300px; height:800px;}
 	h3{font-family: 'Black Han Sans', sans-serif;
 		font-family: 'Nanum Gothic', sans-serif;}
 </style>
