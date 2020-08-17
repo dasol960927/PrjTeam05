@@ -96,7 +96,6 @@ $(function(){
 		url : url,
 		type : 'get',
 		dataType : "json",
-		async: false,
 		success : function(data) {
 			//console.log(data);
 			var json = data.Data[0];
@@ -269,6 +268,9 @@ $(function(){
                 <h2 class="mb-0">
                   3000 P
                 </h2>
+                <h4 class="mt-0">
+                  <small>${login.mName }님의 잔여금액:&nbsp;&nbsp;&nbsp; ${login.mCash }P</small>
+                </h4>
               </div>
 
               <div class="mt-4">
@@ -313,8 +315,8 @@ $(function(){
             <nav class="w-100">
               <div class="nav nav-tabs" id="product-tab" role="tablist">
                 <a class="nav-item nav-link" id="product-desc-tab"  href="#" style="background-color:#878787; color:#ECFFFF">영화설명</a>
-                <a class="nav-item nav-link" id="product-comments-tab"  href="/REVIEW/grdList?docId=K22319" >리뷰</a>
-                <a class="nav-item nav-link" id="product-rating-tab"  href="/REVIEW/revList?docId=K22319">평점</a>
+                <a class="nav-item nav-link" id="product-comments-tab"  href="/REVIEW/grdList?docId=K22319&filmId=K&filmSeq=22319&filmYear=2020" >리뷰</a>
+                <a class="nav-item nav-link" id="product-rating-tab"  href="/REVIEW/revList?docId=K22319&filmId=K&filmSeq=22319&filmYear=2020">평점</a>
               </div>
             </nav>
             <div class="tab-content p-3" id="nav-tabContent" >
@@ -372,6 +374,8 @@ $(function(){
  </script>
 <script>
   $(function () {
+
+	  
     /* ChartJS
      * -------
      * Here we will create a few charts using ChartJS

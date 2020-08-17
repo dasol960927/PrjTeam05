@@ -192,15 +192,13 @@ $(function(){
 						html2+=              '<h3 class="my-3">' + tit[0] + '</h3>';
 			            html2+= 			 '<p>배우:' + actorVal + '<br/> 감독 :' + item.directors.director[0].directorNm + '<br/> 개봉일: ' + item.repRlsDate + '</p>';
 			            html2+=				 '<hr>';
-			                
-			            html3 += nullCheck(item.plots.plot[0].plotText);
+
 			            exit = true; //이중 ajax 빠져나오기
 					  });
 					  if(exit){ return false;} //이중 ajax 빠져나오기
 				});
 			$('#here').html(html);
 			$('#here2').html(html2);
-			$('#here3').html(html3);
 			
 		},
 		error : function(xhr) {
@@ -327,7 +325,7 @@ $(function(){
                   3000 P
                 </h2>
                 <h4 class="mt-0">
-                  <small>3000원 충전 필요</small>
+                  <small>${login.mName }님의 잔여금액:&nbsp;&nbsp;&nbsp; ${login.mCash }P</small>
                 </h4>
               </div>
 
