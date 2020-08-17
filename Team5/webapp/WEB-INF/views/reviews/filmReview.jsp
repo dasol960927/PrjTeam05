@@ -237,7 +237,7 @@ $(function(){
 				<!-- DONUT CHART -->
 	            <div class="card card-danger">
 	              <div class="card-header">
-	                <h3 class="card-title">연령별 평점</h3>
+	                <h3 class="card-title">평점</h3>
 	
 	                <div class="card-tools">
 	                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
@@ -288,7 +288,7 @@ $(function(){
                     	<a href="/DPS/List?mId=${memberVo.mId }" style="color:white;">포인트 충전</a>
                 </div>
                 <div class="btn btn-primary btn-lg btn-flat" style="float:left; width:180px; height:70px; margin-left:5px;">
-                  <i class="fas fa-cart-plus fa-lg mr-2"></i> 
+                  <i class="far fa-credit-card"></i> 
                     	<a href="#" style="color:white;">구매하기</a>
                 </div>
 				</div>
@@ -374,7 +374,23 @@ $(function(){
  </script>
 <script>
   $(function () {
-
+	  
+	  var docIdVal = '${docId}';
+	  
+	  $.ajax({
+			url : '/Chart/Grd',
+			type: 'GET',
+			data: {'docId' : docIdVal},
+			datatype: 'json',
+			success : function(datas) {
+					$datas.each(function(index, item){
+						alert(item.cntGrdScore);
+					});
+			}, 
+				error : function(xhr) {
+					alert('차트데이터'+ xhr.status + '' + xhr.textStatus);
+				}
+			});
 	  
     /* ChartJS
      * -------
@@ -388,15 +404,15 @@ $(function(){
     var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
     var donutData        = {
       labels: [
-          '10대', 
-          '20대',
-          '30대', 
-          '40대', 
-          '50대 이상'
+          '1점', 
+          '2점', 
+          '3점',
+          '4점',
+          '5점'
       ],
       datasets: [
         {
-          data: [700,500,400,600,300],
+          data: [1,2,3,4,5],
           backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc'],
         }
       ]

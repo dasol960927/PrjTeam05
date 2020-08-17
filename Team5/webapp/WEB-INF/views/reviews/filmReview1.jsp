@@ -289,7 +289,7 @@ $(function(){
                     	<a href="/DPS/List?mId=${memberVo.mId }" style="color:white;">포인트 충전</a>
                 </div>
                 <div class="btn btn-primary btn-lg btn-flat" style="float:left; width:180px; height:70px; margin-left:5px;">
-                  <i class="fas fa-cart-plus fa-lg mr-2"></i> 
+                 	<i class="far fa-credit-card"></i> 
                     	<a href="#" style="color:white;">구매하기</a>
                 </div>
 				</div>
