@@ -179,8 +179,9 @@ $(function(){
 });
 
 </script>
-
-
+<style>
+.starRev{width:170px; height:50px;}
+</style>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -262,16 +263,12 @@ $(function(){
 				  <span class="starR2">별8</span>
 				  <span class="starR1">별9</span>
 				  <span class="starR2">별10</span>
-
 				</div>
 
               <div class="bg-gray py-2 px-3 mt-4">
                 <h2 class="mb-0">
                   3000 P
                 </h2>
-                <h4 class="mt-0">
-                  <small>3000원 충전 필요</small>
-                </h4>
               </div>
 
               <div class="mt-4">
@@ -309,8 +306,8 @@ $(function(){
             <nav class="w-100">
               <div class="nav nav-tabs" id="product-tab" role="tablist">
                 <a class="nav-item nav-link" id="product-desc-tab"  href="#" style="background-color:#878787; color:#ECFFFF">영화설명</a>
-                <a class="nav-item nav-link" id="product-comments-tab"  href="/REVIEW/grdList?filmId=F00004" >리뷰</a>
-                <a class="nav-item nav-link" id="product-rating-tab"  href="/REVIEW/revList?filmId=F00001">평점</a>
+                <a class="nav-item nav-link" id="product-comments-tab"  href="/REVIEW/grdList?docId=K22319" >리뷰</a>
+                <a class="nav-item nav-link" id="product-rating-tab"  href="/REVIEW/revList?docId=K22319">평점</a>
               </div>
             </nav>
             <div class="tab-content p-3" id="nav-tabContent" >

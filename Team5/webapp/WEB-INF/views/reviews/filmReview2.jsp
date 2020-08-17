@@ -83,8 +83,132 @@ th, td{
 
 a.link1:hover{text-decoration:underline;}
 a.link2:hover{text-decoration:underline;}
-
+.starRev{width:170px; height:50px;}
 </style>
+<script>
+var movieId = '<%= (String)request.getParameter("filmId")%>'
+var movieSeq = '<%= (String)request.getParameter("filmSeq")%>'
+//console.log(movieId);
+//console.log(movieSeq);
+
+//alert(keywordGet);
+
+//null 체크
+function nullCheck(string) {
+	var checkValue;
+	if(string == ""){
+		checkValue = '추가예정';
+	}else{
+		checkValue = string;
+	}
+	return checkValue;
+}
+
+//포스터, 스틸컷 url
+function poster(string) {
+	var str = string.split('|');
+	
+	return str;
+}
+
+//제목 자르기
+function title(string) {
+	var str = string.split('^');
+	
+	return str;
+}
+
+$(function(){
+	var url = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70&'+
+			'&movieId=' + movieId + 
+			'&movieSeq=' + movieSeq;
+	var v1 = '';
+	$.ajax({
+		url : url,
+		type : 'get',
+		dataType : "json",
+		async: false,
+		success : function(data) {
+			//console.log(data);
+			var json = data.Data[0];
+			//console.log(json);
+
+			var list;
+			var exit= false;
+			var html  = '';
+			var html2 = '';
+			var html3 = '';
+				$.each(json, function(index, item) {
+					list = json.Result;
+					console.log(json.Result);
+										
+					$.each(list, function(index, item) {
+						var tit = title(item.titleEtc); //제목 문자열 자르기
+						
+						//스틸컷
+						var stllsVal = '';
+						var stl = poster(item.stlls); //스틸컷 문자열 자르기
+						if(stl == ""){
+							stllsVal += '<img src="/img/ready.jpg" alt="스틸컷 준비중"/>';
+						}else{
+							for(var i=0; i<3; i++) {
+								stllsVal +='<img src="'+stl[i]+'"/>';
+							}
+						}
+
+						
+						//포스터
+						var posterVal = '';
+						var pos = poster(item.posters); //포스터 문자열 자르기
+						if(pos == ''){
+							posterVal = '<img src="/img/PosterReady.jpg" class="product-image" alt="포스터 준비중"/>';
+						}else{
+							posterVal = '<img src="' + pos[0] + '" class="product-image" alt="포스터"/>';
+						}
+						
+						//배우
+						if(item.actors.actor[4] == null){
+							var actorVal = '추가예정';
+						}else{
+							actorVal  = nullCheck(item.actors.actor[0].actorNm) + ', ';
+							actorVal += nullCheck(item.actors.actor[1].actorNm) + ', ';
+							actorVal += nullCheck(item.actors.actor[2].actorNm) + ', ';
+							actorVal += nullCheck(item.actors.actor[3].actorNm) + ', ';
+							actorVal += nullCheck(item.actors.actor[4].actorNm);
+			            }
+						
+
+
+						html+=              '<h3 class="d-inline-block d-sm-none">Films Review</h3>'
+						html+=              '<div class="col-12">';
+						html+=                posterVal;
+						html+=              '</div>';
+						html+=              '<div class="col-12 product-image-thumbs">';
+						html+=                '<div class="product-image-thumb">'+ '<img src="'+stl[0]+'"/>' + '</div>';
+						html+=                '<div class="product-image-thumb">'+ '<img src="'+stl[1]+'"/>' + '</div>';
+						html+=                '<div class="product-image-thumb">'+ '<img src="'+stl[2]+'"/>' + '</div>';
+						html+=              '</div>';
+
+						html2+=              '<h3 class="my-3">' + tit[0] + '</h3>';
+			            html2+= 			 '<p>배우:' + actorVal + '<br/> 감독 :' + item.directors.director[0].directorNm + '<br/> 개봉일: ' + item.repRlsDate + '</p>';
+			            html2+=				 '<hr>';
+			                
+			            html3 += nullCheck(item.plots.plot[0].plotText);
+			            exit = true; //이중 ajax 빠져나오기
+					  });
+					  if(exit){ return false;} //이중 ajax 빠져나오기
+				});
+			$('#here').html(html);
+			$('#here2').html(html2);
+			$('#here3').html(html3);
+			
+		},
+		error : function(xhr) {
+			alert(xhr.status + '' + xhr.textStatus);
+	  	}
+	});
+});
+</script>
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
@@ -146,16 +270,13 @@ a.link2:hover{text-decoration:underline;}
               <p>출연진: 황정민, 이정재, 박정민, 박소이, 최희서 <br/> 감독 :홍원찬 <br/> 개봉일: 2020.08.05</p>
 
               <hr>
-              <h4>Graph</h4>
-				<!-- DONUT CHART -->
+            <!-- DONUT CHART -->
 	            <div class="card card-danger">
 	              <div class="card-header">
-	                <h3 class="card-title">Donut Chart</h3>
+	                <h3 class="card-title">연령별 평점</h3>
 	
 	                <div class="card-tools">
-	                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-	                  </button>
-	                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+	                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
 	                </div>
 	              </div>
 	              <div class="card-body">
@@ -164,6 +285,7 @@ a.link2:hover{text-decoration:underline;}
 	              <!-- /.card-body -->
 	            </div>
 	            <!-- /.card -->
+
 
               <h4 class="mt-3">영화 <small>별점</small></h4>
 			  <div class="starRev">
@@ -190,9 +312,6 @@ a.link2:hover{text-decoration:underline;}
                 <h2 class="mb-0">
                   3000 P
                 </h2>
-                <h4 class="mt-0">
-                  <small>3000원 충전 필요</small>
-                </h4>
               </div>
 
               <div class="mt-4">
@@ -230,8 +349,8 @@ a.link2:hover{text-decoration:underline;}
             <nav class="w-100">
               <div class="nav nav-tabs" id="product-tab" role="tablist">
                 <a class="nav-item nav-link" id="product-desc-tab"  href="/filmReview"  >영화설명</a>
-                <a class="nav-item nav-link" id="product-comments-tab"  href="/REVIEW/grdList?filmId=F00004" >리뷰</a>
-                <a class="nav-item nav-link" id="product-rating-tab"  href="/REVIEW/revList?filmId=F00001" style="background-color:#878787; color:#ECFFFF">평점</a>
+                <a class="nav-item nav-link" id="product-comments-tab"  href="/REVIEW/grdList?docId=K22319" >리뷰</a>
+                <a class="nav-item nav-link" id="product-rating-tab"  href="/REVIEW/revList?docId=K22319" style="background-color:#878787; color:#ECFFFF">평점</a>
               </div>
             </nav>
             <div class="tab-content p-3" id="nav-tabContent" >
@@ -260,6 +379,7 @@ a.link2:hover{text-decoration:underline;}
         <!-- /.card-body -->
       </div>
       <!-- /.card -->
+      </div>
 
     </section>
     <!-- /.content -->
