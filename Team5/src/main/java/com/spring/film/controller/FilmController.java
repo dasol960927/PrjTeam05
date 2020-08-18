@@ -47,7 +47,7 @@ public class FilmController {
 		mv.addObject("filmSeq", vo.getFilmSeq());
 		mv.addObject("filmYear", vo.getFilmYear());
 		
-		
+	
 		System.out.println(mv);
 		mv.setViewName("reviews/filmReview");
 		return mv;

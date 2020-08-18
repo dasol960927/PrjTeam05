@@ -391,13 +391,14 @@ $(function(){
 	  var docIdVal = '${docId}';
 	  
 	  $.ajax({
-			url : '/Chart/Grd',
+			url : '/Chart/Gender',
 			type: 'GET',
 			data: {'docId' : docIdVal},
 			datatype: 'json',
 			success : function(datas) {
-					$datas.each(function(index, item){
-						alert(item.cntGrdScore);
+					$.each(datas, function(index, item){
+						alert(item.mGender + "," + item.cntGrdScore);
+						
 					});
 			}, 
 				error : function(xhr) {
