@@ -22,13 +22,14 @@ public class FilmController {
 		System.out.println("필름컨트롤러의 " + map);
 		
 		filmService.setFilm(map);
+		FilmVo fVo = filmService.getPrice(map);
 		String docId = (String) map.get("docId");
 		
 		ModelAndView mv = new ModelAndView();
-		FilmVo vo = new FilmVo();
-		vo.setDocId(docId);
+//		FilmVo fVo = new FilmVo();
+//		fVo.setDocId(docId);
 		
-		mv.addObject("docId", vo.getDocId());
+		mv.addObject("fVo", fVo);
 		System.out.println(mv);
 		mv.setViewName("reviews/filmReview");
 		return mv;
