@@ -396,52 +396,59 @@ $(function(){
 			data: {'docId' : docIdVal},
 			datatype: 'json',
 			success : function(datas) {
+					
+				var list1 = [];
+				var list2 = [];
+				
+				
 					$.each(datas, function(index, item){
-						alert(item.mGender + "," + item.cntGrdScore);
+						alert( item.mGender+ "," + item.cntGrdScore);
 						
+						list1.push(item.mGender);
+						list2.push(item.cntGrdScore);
+						
+						 /* ChartJS
+					     * -------
+					     * Here we will create a few charts using ChartJS
+					     */
+
+					    //-------------
+					    //- DONUT CHART -
+					    //-------------
+					    // Get context with jQuery - using jQuery's .get() method.
+					    
 					});
+					
+					var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
+				    var donutData        = {
+				      labels: 
+				    	  list1
+				      ,
+				      datasets: [
+				        {
+				          data: list2,
+				          backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc'],
+				        }
+				      ]
+				    }
+				    var donutOptions     = {
+				      maintainAspectRatio : false,
+				      responsive : true,
+				    }
+				    //Create pie or douhnut chart
+				    // You can switch between pie and douhnut using the method below.
+				    var donutChart = new Chart(donutChartCanvas, {
+				      type: 'doughnut',
+				      data: donutData,
+				      options: donutOptions      
+				    })
 			}, 
 				error : function(xhr) {
 					//alert('차트데이터'+ xhr.status + '' + xhr.textStatus);
 				}
 			});
 	  
-    /* ChartJS
-     * -------
-     * Here we will create a few charts using ChartJS
-     */
-
-    //-------------
-    //- DONUT CHART -
-    //-------------
-    // Get context with jQuery - using jQuery's .get() method.
-    var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
-    var donutData        = {
-      labels: [
-          '1점', 
-          '2점', 
-          '3점',
-          '4점',
-          '5점'
-      ],
-      datasets: [
-        {
-          data: [1,2,3,4,5],
-          backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc'],
-        }
-      ]
-    }
-    var donutOptions     = {
-      maintainAspectRatio : false,
-      responsive : true,
-    }
-    //Create pie or douhnut chart
-    // You can switch between pie and douhnut using the method below.
-    var donutChart = new Chart(donutChartCanvas, {
-      type: 'doughnut',
-      data: donutData,
-      options: donutOptions      
-    })
+   
 
   });
 
