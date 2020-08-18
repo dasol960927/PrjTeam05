@@ -78,6 +78,9 @@ public class RevController {
 		
 		mv.addObject("revIdx", map.get("revIdx"));
 		mv.addObject("docId", map.get("docId"));
+		mv.addObject("filmId", map.get("filmId"));
+		mv.addObject("filmSeq", map.get("filmSeq"));
+		mv.addObject("filmYear", map.get("filmYear"));
 		mv.addObject("revVo", revVo);
 		mv.addObject("revList1", revList1);
 		mv.addObject("revList2", revList2);

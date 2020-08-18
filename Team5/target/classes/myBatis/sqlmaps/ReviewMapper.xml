@@ -48,7 +48,7 @@
          statementType="CALLABLE" parameterType="hashmap" 
          resultType="com.spring.review.vo.RevVo">
          {CALL  PKG_REV.PROC_REV_LIST2(         	
-         	#{docId, mode=IN, jdbcType=NUMERIC},
+         	#{revIdx, mode=IN, jdbcType=NUMERIC},
          	#{revLvl, mode=IN, jdbcType=NUMERIC},
             #{result, mode=OUT, jdbcType=CURSOR, 
                javaType=ResultSet, resultMap=RevListMap }

@@ -210,17 +210,30 @@ $(function(){
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script language="javaScript">
 
-	function btnToggle(){
+	
+	function btnToggle(index){
 		
-		$("#btnToggle").click(function(){				
+						
 			
 			//window.location.href='#tblToggle';
 			
-			$("#tblToggle").toggle();			
-		});
+			//$("#tblToggle").toggle();
+            if($('.vo2.' + index).css('display') == 'none'){
+                $('.vo2.' + index).show();
+            }else{
+                $('.vo2.' + index).hide();
+            }
+	
 		
 	}
-
+	
+	
+	$(document).ready(function(){
+		
+		$(".vo2").css("display", "none");
+		
+	});
+	
 </script>
 </head>
 <body class="hold-transition sidebar-mini">
@@ -369,9 +382,9 @@ $(function(){
           <div class="row mt-4">
             <nav class="w-100">
               <div class="nav nav-tabs" id="product-tab" role="tablist">
-                <a class="nav-item nav-link" id="product-desc-tab"  href="/?docId=K22319&filmId=K&filmSeq=22319&filmYear=2020"  >영화설명</a>
-                <a class="nav-item nav-link" id="product-comments-tab"  href="/REVIEW/grdList?docId=K22319" >리뷰</a>
-                <a class="nav-item nav-link" id="product-rating-tab"  href="/REVIEW/revList?docId=K22319" style="background-color:#878787; color:#ECFFFF">평점</a>
+                <a class="nav-item nav-link" id="product-desc-tab"  href="/filmReview?docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmSeq}"  >영화설명</a>
+                <a class="nav-item nav-link" id="product-comments-tab"  href="/REVIEW/grdList?docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}" >리뷰</a>
+                <a class="nav-item nav-link" id="product-rating-tab"  href="/REVIEW/revList?docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}" style="background-color:#878787; color:#ECFFFF">평점</a>
               </div>
             </nav>
             <div class="tab-content p-3" id="nav-tabContent" >
@@ -404,31 +417,44 @@ $(function(){
  				 </tr>
  				 
  				 
-				<!--   				 
+				   				 
  				 <c:forEach var="revVo1" items="${revList1}">
 	 				 <tr>
-	 				 	<td>${revVo1.mId}</td>
-	 				 	<td>${revVo1.revConts}</td>
-	 				 	<td>
-	 				 	<input type="button" id="btnToggle" value="토글버튼" onclick="btnToggle()"/>
+	 				 	<td colspan="1">${revVo1.mId}</td>
+	 				 	<td colspan="2">${revVo1.revConts}</td>
+	 				 	<td colspan="1">
+	 				 	<input type="button" id="btnToggle" value="토글버튼" onclick="btnToggle('${ revVo1.revIdx }')"/>
 	 				 	</td>
 	 				 </tr>
  				  	
- 				 
+                 <tr class="vo2 ${ revVo1.revIdx }">
+                   <td colspan="3">             	   
+              	   	 <textarea id="revLvl2" name="revLvl2" cols="200" rows="2"
+              	   	 	style="resize:none" 
+              	   	 	placeholder="댓글을 남겨주세요.영화와 상관없는 내용은 약관에 의해 제재를 받을 수 있습니다">
+              	   	 </textarea>
+              	   </td>
+              	   <td colspan="1">
+              	   		<input type="button" name="" value="등록하기" />
+              	   </td>
+ 				 </tr> 				 
  				 <c:forEach var="revVo2" items="${revList2}">
-	 				 
+
 	 				 	<c:choose>					
 							<c:when test="${revVo1.revIdx eq revVo2.parentIdx}">
-							<tr id="tblToggle">			
+							
+							<tr class="vo2 ${ revVo1.revIdx }">			
 			 				   	<td colspan="1"><span>${revVo2.mId}</span></td>
 			 				 	<td colspan="3"><span>${revVo2.revConts}</span></td>
-			 				</tr>		 	
+		 				 	</tr>
+			 						 	
 		 				 	</c:when>		 				 	
 		 			    </c:choose>
 											 			    
 				 </c:forEach>	 			    
 	 			 </c:forEach>	 				 	
- 				 -->
+ 				
+ 				<!-- 
  				 <c:forEach var="revVo" items="${revList}">
 	 				 <tr>
 	 				 	<td>${revVo.mId}</td>
@@ -447,7 +473,7 @@ $(function(){
 		 				 	</c:when>		 				 	
 		 			    </c:choose> 				 
 	 			 </c:forEach> 		
-	 			 
+	 			  -->
 	 			 		                
               </table> 
             </div>
