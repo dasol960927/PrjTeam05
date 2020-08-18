@@ -30,6 +30,7 @@ public class ChartDaoImpl implements ChartDao {
 
 	@Override
 	public List<ChartVo> getAge(HashMap<String, Object> map) {
+		System.out.println("차트다오임플에서 받아오는 맵" + map);
 		List<ChartVo> ChartList = sqlSession.selectList("CHART.Age" ,map);
 		return ChartList;
 	}

@@ -44,12 +44,11 @@ public class PurController {
 	// 테스트용
 	@RequestMapping("/PUR/purFilm")
 	public ModelAndView purFilm(@RequestParam HashMap<String, Object> map) {
-		
+		System.out.println("구매컨트롤러" + map);
 		purService.insertPur(map);
 		
 		ModelAndView mv = new ModelAndView();
 		 			
-		
 		mv.addObject("mId", map.get("mId"));
 		mv.addObject("docId", map.get("docId"));
 		mv.addObject("filmPrice", map.get("filmPrice"));

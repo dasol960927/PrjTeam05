@@ -5,7 +5,7 @@ public class FilmVo {
 	private String filmId;
 	private String filmSeq;
 	private String filmYear;
-	private String filmPrice;
+	private int filmPrice;
 	
 	public String getDocId() {
 		return docId;
@@ -31,10 +31,10 @@ public class FilmVo {
 	public void setFilmYear(String filmYear) {
 		this.filmYear = filmYear;
 	}
-	public String getFilmPrice() {
+	public int getFilmPrice() {
 		return filmPrice;
 	}
-	public void setFilmPrice(String filmPrice) {
+	public void setFilmPrice(int filmPrice) {
 		this.filmPrice = filmPrice;
 	}
 	

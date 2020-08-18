@@ -10,7 +10,7 @@
        <result property="filmId"  	column="FILM_ID" javaType="string" />   
        <result property="filmSeq"  	column="FILM_SEQ" javaType="string" />   
        <result property="filmYear"   column="FILM_YEAR" javaType="string" />     
-       <result property="filmPrice"   column="FILM_PRICE" javaType="string" />     
+       <result property="filmPrice"   column="FILM_PRICE" />     
      </resultMap>
  
      <insert id="FilmInsert"

@@ -270,7 +270,6 @@ $(function(){
 				<div class="bg-gray">
 					<h2 class="mb-0">영화가격 : ${fVo.filmPrice }P</h2>
 					<br>
-					<br>
 					<h4 class="mt-0">잔여 캐시 : ${ login.mCash }P</h4>
 				</div>
 
@@ -285,16 +284,16 @@ $(function(){
                
                 <div class="btn btn-default btn-lg btn-flat" style="float:left; margin-left:5px; height: 48px;">
                   <i class="fas fa-heart fa-lg mr-2" style="color:red"></i> 
-                  <a href="/Like?mId=${ login.mId }&docId=${docId }">찜하기2</a>
+                  <a href="/Like?mId=${ login.mId }&docId=${fVo.docId }">찜하기2</a>
                </div>
                          
                 <div class="btn btn-primary btn-lg btn-flat" style="float:left; margin-left:5px;">
                   <i class="fas fa-cart-plus fa-lg mr-2"></i> 
-                    	<a href="/DPS/List?mId=${memberVo.mId }" style="color:white;">포인트 충전</a>
+                    	<a href="/DPS/List?mId=${login.mId }" style="color:white;">포인트 충전</a>
                 </div>
                 <div class="btn btn-primary btn-lg btn-flat" style="float:left; margin-left:5px;">
                   <i class="far fa-credit-card"></i> 
-                    	<a href="#" style="color:white;">구매하기</a>
+                    	<a href="/PUR/purFilm?mId=${login.mId }&docId=${fVo.docId}&filmPrice=${fVo.filmPrice}" style="color:white;">구매하기</a>
                 </div>
 				
 			 </div>
