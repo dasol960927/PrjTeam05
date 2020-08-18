@@ -57,8 +57,6 @@
 <script>
 var movieId = '<%= (String)request.getParameter("filmId")%>'
 var movieSeq = '<%= (String)request.getParameter("filmSeq")%>'
-alert(movieId);
-alert(movieSeq);
 
 //console.log(movieId);
 //console.log(movieSeq);
