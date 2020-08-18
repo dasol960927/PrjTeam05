@@ -16,6 +16,7 @@ public class RevVo {
 	private int    revLvl;
 	private int    parentIdx;
 	private int    revNref;
+	private String oCnt;
 	
 	// 영화 api 가져오기
 	private String filmId;
@@ -107,8 +108,13 @@ public class RevVo {
 	}
 	public void setRevNref(int revNref) {
 		this.revNref = revNref;
+	}	
+	public String getoCnt() {
+		return oCnt;
 	}
-	
+	public void setoCnt(String oCnt) {
+		this.oCnt = oCnt;
+	}
 	
 	
 	public String getFilmId() {
@@ -134,7 +140,7 @@ public class RevVo {
 	public RevVo() {}	
 	public RevVo(int revIdx, String mId, String docId, String revTitle, String revConts, double grdScore,
 			String grdConts, int goodCnt, int badCnt, String revDate, char revGubun, int revLvl, int parentIdx,
-			int revNref, String filmId, String filmSeq, String filmYear) {		
+			int revNref, String oCnt, String filmId, String filmSeq, String filmYear) {		
 		this.revIdx = revIdx;
 		this.mId = mId;
 		this.docId = docId;
@@ -149,10 +155,12 @@ public class RevVo {
 		this.revLvl = revLvl;
 		this.parentIdx = parentIdx;
 		this.revNref = revNref;
+		this.oCnt = oCnt;
 		this.filmId = filmId;
 		this.filmSeq = filmSeq;
 		this.filmYear = filmYear;
 	}
+	
 	
 	
 	@Override
@@ -160,9 +168,11 @@ public class RevVo {
 		return "RevVo [revIdx=" + revIdx + ", mId=" + mId + ", docId=" + docId + ", revTitle=" + revTitle
 				+ ", revConts=" + revConts + ", grdScore=" + grdScore + ", grdConts=" + grdConts + ", goodCnt="
 				+ goodCnt + ", badCnt=" + badCnt + ", revDate=" + revDate + ", revGubun=" + revGubun + ", revLvl="
-				+ revLvl + ", parentIdx=" + parentIdx + ", revNref=" + revNref + ", filmId=" + filmId + ", filmSeq="
-				+ filmSeq + ", filmYear=" + filmYear + "]";
+				+ revLvl + ", parentIdx=" + parentIdx + ", revNref=" + revNref + ", oCnt=" + oCnt + ", filmId=" + filmId
+				+ ", filmSeq=" + filmSeq + ", filmYear=" + filmYear + "]";
 	}
+	
+	
 
 	
 	

@@ -40,7 +40,8 @@
          	#{revIdx, mode=IN, jdbcType=NUMERIC},
          	#{revLvl, mode=IN, jdbcType=NUMERIC},
             #{result, mode=OUT, jdbcType=CURSOR, 
-               javaType=ResultSet, resultMap=RevListMap }
+               javaType=ResultSet, resultMap=RevListMap },
+			#{oCnt, mode=OUT, jdbcType=VARCHAR}               
          ) }     
      </select>
      

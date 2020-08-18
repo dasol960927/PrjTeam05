@@ -386,7 +386,7 @@ a.link2:hover{text-decoration:underline;}
 			 <table> 
                 <tr>
                   <th width="100px">리뷰&nbsp;&nbsp;&nbsp;</th>
-                  <th width="900px"> 총 : 00건  로그인아이디 : ${login.mNickName}</th>                                    
+                  <th width="900px"> 총 ${oCnt}  &nbsp;&nbsp;&nbsp; 로그인아이디 : ${login.mNickName}</th>                                    
                 </tr> 
                 
                  <c:forEach var="revVo" items="${revList}">

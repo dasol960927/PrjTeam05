@@ -84,6 +84,25 @@ th, td{
 a.link1:hover{text-decoration:underline;}
 a.link2:hover{text-decoration:underline;}
 .starRev{width:170px; height:50px;}
+
+.btn{
+
+  background-color: ;
+  border: none;
+  color: white;
+  padding: 15px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+
+
+
+
 </style>
 <script>
 var movieId = '<%= (String)request.getParameter("filmId")%>'
@@ -211,6 +230,7 @@ $(function(){
 <script language="javaScript">
 
 	
+	
 	function btnToggle(index){
 		
 						
@@ -230,7 +250,7 @@ $(function(){
 	
 	$(document).ready(function(){
 		
-		$(".vo2").css("display", "none");
+		$(".vo2").css("display", "none");		
 		
 	});
 	
@@ -403,8 +423,9 @@ $(function(){
  				 </tr>	             
                  <tr>             	   
               	   <td colspan="4" >              	   		
-              	   		댓글 : 0   <a href="#">새로고침(네이버영화에서는 img파일사용)</a>
-              	   		<input type="button" name="revLvl1Submit" value="등록" />  						            	   		              	   		              	                 	   
+              	   		댓글 : 총 ${oCnt}   <a href="#">새로고침(네이버영화에서는 img파일사용)</a>
+              	   		<!-- <input type="button" name="revLvl1Submit" value="등록" /> -->
+              	   		<a class="btn" href="">등록</a>  						            	   		              	   		              	                 	   
               	   </td>   
  				 </tr>                 
                  <tr>
@@ -417,17 +438,16 @@ $(function(){
  				 </tr>
  				 
  				 
-				   				 
+ 				 
+ 				 				   				 
  				 <c:forEach var="revVo1" items="${revList1}">
+ 				 	
 	 				 <tr>
 	 				 	<td colspan="1">${revVo1.mId}</td>
-	 				 	<td colspan="2">${revVo1.revConts}</td>
-	 				 	<td colspan="1">
-	 				 	<input type="button" id="btnToggle" value="토글버튼" onclick="btnToggle('${ revVo1.revIdx }')"/>
-	 				 	</td>
+	 				 	<td colspan="3">${revVo1.revConts}</td> 				 	
 	 				 </tr>
  				  	
-                 <tr class="vo2 ${ revVo1.revIdx }">
+                 <tr class="vo2 ${ revVo1.revIdx }" >
                    <td colspan="3">             	   
               	   	 <textarea id="revLvl2" name="revLvl2" cols="200" rows="2"
               	   	 	style="resize:none" 
@@ -437,21 +457,29 @@ $(function(){
               	   <td colspan="1">
               	   		<input type="button" name="" value="등록하기" />
               	   </td>
- 				 </tr> 				 
- 				 <c:forEach var="revVo2" items="${revList2}">
-
+ 				 </tr> 		
+ 				 <c:set var="count" value="0" />		 
+ 				  				 
+					<c:forEach var="revVo2" items="${revList2}">			
 	 				 	<c:choose>					
 							<c:when test="${revVo1.revIdx eq revVo2.parentIdx}">
 							
-							<tr class="vo2 ${ revVo1.revIdx }">			
+							<tr class="vo2 ${ revVo1.revIdx }">
+								<td colspan="1"></td>			
 			 				   	<td colspan="1"><span>${revVo2.mId}</span></td>
-			 				 	<td colspan="3"><span>${revVo2.revConts}</span></td>
+			 				 	<td colspan="2"><span>${revVo2.revConts}</span></td>
 		 				 	</tr>
-			 						 	
+		 				 	<c:set var="count" value="${count + 1}" />
+		 				 				 					 	
 		 				 	</c:when>		 				 	
-		 			    </c:choose>
+		 			    </c:choose>   
 											 			    
-				 </c:forEach>	 			    
+				 </c:forEach>
+		 			<tr>
+		 				<td colspan="4">
+		 				<input type="button" id="btnToggle" value="답글${ count }개" onclick="btnToggle('${ revVo1.revIdx }')"/>
+		 				</td>
+		 			</tr> 				 	 			    
 	 			 </c:forEach>	 				 	
  				
  				<!-- 

@@ -54,7 +54,10 @@ public class RevController {
 		mv.addObject("filmId", map.get("filmId"));
 		mv.addObject("filmSeq", map.get("filmSeq"));
 		mv.addObject("filmYear", map.get("filmYear"));
+		mv.addObject("oCnt", map.get("oCnt"));
 		mv.addObject("revList", revList);
+		
+		System.out.println(map);
 		
 		return mv;
 	}	
@@ -81,6 +84,7 @@ public class RevController {
 		mv.addObject("filmId", map.get("filmId"));
 		mv.addObject("filmSeq", map.get("filmSeq"));
 		mv.addObject("filmYear", map.get("filmYear"));
+		mv.addObject("oCnt", map.get("oCnt"));
 		mv.addObject("revVo", revVo);
 		mv.addObject("revList1", revList1);
 		mv.addObject("revList2", revList2);

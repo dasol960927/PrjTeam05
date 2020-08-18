@@ -41,7 +41,7 @@ public class RevDaoImpl implements RevDao {
 		
 		sqlSession.selectList("REVIEW.RevList2", map);
 		
-		List<RevVo> revList = (List<RevVo>) map.get("result");
+		List<RevVo> revList = (List<RevVo>) map.get("result");		
 		
 		return revList;
 	}	
