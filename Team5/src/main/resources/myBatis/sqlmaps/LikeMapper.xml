@@ -6,11 +6,8 @@
 
      <!-- 결과처리를 위한 map 설정  -->
      <resultMap id="LikeListMap" type="com.spring.likelist.vo.LikeVo"> 
-       <result property="mId"       column="M_ID" javaType="string" />   
-       <result property="docId"     column="FILM_ID" javaType="string" />   
-       <result property="filmName"     column="FILM_NAME" javaType="string" />   
-       <result property="filmActor"   column="FILM_ACTOR" javaType="string" />   
-       <result property="filmDirector"     column="FILM_DIRECTOR" javaType="string" />   
+       <result property="mId"            column="M_ID" javaType="string" />   
+       <result property="docId"          column="DOC_ID" javaType="string" />   
        <result property="filmPrice"      column="FILM_PRICE" javaType="int" />                
      </resultMap>
    
