@@ -87,10 +87,10 @@ a.link2:hover{text-decoration:underline;}
 
 .btn{
 
-  background-color: ;
+  background-color: #878787;
   border: none;
   color: white;
-  padding: 15px 30px;
+  padding: 10px 15px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -420,23 +420,27 @@ $(function(){
               	   <td colspan="4" width="1000px">
               	   		${revVo.revConts}              	                 	   
               	   </td>   
- 				 </tr>	             
+ 				 </tr>
+ 				 
+ 				 <form action="/REVIEW/insRevLvl1?docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}" method="post">	             
                  <tr>             	   
               	   <td colspan="4" >              	   		
               	   		댓글 : 총 ${oCnt}   <a href="#">새로고침(네이버영화에서는 img파일사용)</a>
-              	   		<!-- <input type="button" name="revLvl1Submit" value="등록" /> -->
-              	   		<a class="btn" href="">등록</a>  						            	   		              	   		              	                 	   
+              	   		              	   		
+              	   		<input type="submit" class="btn" value="답글 달기" />              	   			
+						<input type="hidden" name="revIdx" value="${revIdx}" />
+						<input type="hidden" name="mId" value="${login.mId}" />            	   			  						            	   		              	   		              	                 	   	
               	   </td>   
  				 </tr>                 
                  <tr>
                    <td colspan="4">             	   
-              	   	 <textarea id="revLvl1" name="revLvl1" cols="200" rows="2"
+              	   	 <textarea id="revLvl1" name="revConts" cols="200" rows="2"
               	   	 style="resize:none" 
               	   	 placeholder="댓글을 남겨주세요.영화와 상관없는 내용은 약관에 의해 제재를 받을 수 있습니다">
               	   	 </textarea>
               	   </td>
  				 </tr>
- 				 
+ 				 </form>
  				 
  				 
  				 				   				 
@@ -446,18 +450,26 @@ $(function(){
 	 				 	<td colspan="1">${revVo1.mId}</td>
 	 				 	<td colspan="3">${revVo1.revConts}</td> 				 	
 	 				 </tr>
- 				  	
-                 <tr class="vo2 ${ revVo1.revIdx }" >
-                   <td colspan="3">             	   
-              	   	 <textarea id="revLvl2" name="revLvl2" cols="200" rows="2"
-              	   	 	style="resize:none" 
-              	   	 	placeholder="댓글을 남겨주세요.영화와 상관없는 내용은 약관에 의해 제재를 받을 수 있습니다">
-              	   	 </textarea>
-              	   </td>
-              	   <td colspan="1">
-              	   		<input type="button" name="" value="등록하기" />
-              	   </td>
- 				 </tr> 		
+ 				 
+ 				 <form action="/REVIEW/insRevLvl2?docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}" method="post"> 	
+	                 <tr class="vo2 ${ revVo1.revIdx }" >
+	                   <td colspan="3">             	   
+	              	   	 <textarea id="revLvl2" name="revLvl2" cols="200" rows="2"
+	              	   	 	style="resize:none" 
+	              	   	 	placeholder="댓글을 남겨주세요.영화와 상관없는 내용은 약관에 의해 제재를 받을 수 있습니다">
+	              	   	 </textarea>
+	              	   </td>
+	              	   <td colspan="1">
+	              	   		<input class="btn" type="submit" name="revConts" value="답글 달기" />
+	              	   		
+	              	   		<input type="hidden" name="revIdx" value="${revVo1.revIdx}" />
+	              	   		<input type="hidden" name="mId" value="${login.mId}" />
+	              	   </td>
+	 				 </tr>
+	 				 
+	 				 
+ 				 </form>
+ 				  		
  				 <c:set var="count" value="0" />		 
  				  				 
 					<c:forEach var="revVo2" items="${revList2}">			

@@ -123,6 +123,30 @@ public class RevController {
 		mv.addObject("filmYear", map.get("filmYear"));
 		
 		return mv;
+	}
+	
+	@RequestMapping("/REVIEW/insRevLvl1")
+	public ModelAndView insRevLvl1(@RequestParam HashMap<String, Object> map) {
+		
+		System.out.println("form1 map : " + map );
+		
+		//revService.insRevLvl1(map);
+		ModelAndView mv = new ModelAndView();	
+		mv.setViewName("redirect:/REVIEW/filmReviewConts");		
+		
+		return mv;
+	}
+	
+	@RequestMapping("/REVIEW/insRevLvl2")
+	public ModelAndView insRevLvl2(@RequestParam HashMap<String, Object> map) {
+		
+		System.out.println("form2 map : " + map );
+		
+		//revService.insRevLvl2(map);
+		ModelAndView mv = new ModelAndView();	
+		mv.setViewName("redirect:/REVIEW/filmReviewConts");		
+		
+		return mv;
 	}	
 	
 	
