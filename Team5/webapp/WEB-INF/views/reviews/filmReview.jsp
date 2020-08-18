@@ -265,34 +265,44 @@ $(function(){
 				  <span class="starR2">별10</span>
 				</div>
 
-              <div class="bg-gray py-2 px-3 mt-4">
-                <h2 class="mb-0">
-                  3000 P
-                </h2>
-                <h4 class="mt-0">
-                  <small>${login.mName }님의 잔여금액:&nbsp;&nbsp;&nbsp; ${login.mCash }P</small>
-                </h4>
-              </div>
+				<br>
+				<br>
+
+				<div class="bg-gray">
+					<h2 class="mb-0">영화가격 : ${fVo.filmPrice }P</h2>
+					<br>
+					<h4 class="mt-0">잔여 캐시 : ${ login.mCash }P</h4>
+				</div>
 
               <div class="mt-4">
               
              <div id="btns" style="width:700px; height: 80px; clear:both;">
-              <div class="info-box mb-3 bg-success" style="width:180px; height:70px; margin-right:15px; float:left;">
-				  <span class="info-box-icon"><i class="far fa-heart"></i></span>
-				  <div class="info-box-content">
-				    <a href="/Likelist" style="color:white;">찜하기</a>
-				</div>
-              </div>
-              
-                <div class="btn btn-primary btn-lg btn-flat" style="float:left; width:180px; height:70px; margin-left:5px;">
+         
+                <div class="btn btn-default btn-lg btn-flat" style="float:left; margin-left:5px; height: 48px;">
+                  <i class="fas fa-heart fa-lg mr-2"></i> 
+                  <a href="/Like?mId=${ login.mId }&docId=${docId }">찜하기</a>
+               </div>
+               
+                <div class="btn btn-default btn-lg btn-flat" style="float:left; margin-left:5px; height: 48px;">
+                  <i class="fas fa-heart fa-lg mr-2" style="color:red"></i> 
+                  <a href="/Like?mId=${ login.mId }&docId=${fVo.docId }">찜하기2</a>
+               </div>
+                         
+                <div class="btn btn-primary btn-lg btn-flat" style="float:left; margin-left:5px;">
                   <i class="fas fa-cart-plus fa-lg mr-2"></i> 
-                    	<a href="/DPS/List?mId=${memberVo.mId }" style="color:white;">포인트 충전</a>
+                    	<a href="/DPS/List?mId=${login.mId }" style="color:white;">포인트 충전</a>
                 </div>
-                <div class="btn btn-primary btn-lg btn-flat" style="float:left; width:180px; height:70px; margin-left:5px;">
+                <div class="btn btn-primary btn-lg btn-flat" style="float:left; margin-left:5px;">
                   <i class="far fa-credit-card"></i> 
-                    	<a href="#" style="color:white;">구매하기</a>
+
+                    	<a href="/PUR/purFilm?mId=${login.mId }&docId=${fVo.docId}&filmPrice=${fVo.filmPrice}" style="color:white;">구매하기</a>
+                </div>
+				
+			 </div>
+
                 </div>                           
 				</div>
+
 
 
               <div class="mt-4 product-share">
@@ -379,17 +389,18 @@ $(function(){
 	  var docIdVal = '${docId}';
 	  
 	  $.ajax({
-			url : '/Chart/Grd',
+			url : '/Chart/Gender',
 			type: 'GET',
 			data: {'docId' : docIdVal},
 			datatype: 'json',
 			success : function(datas) {
-					$datas.each(function(index, item){
-						alert(item.cntGrdScore);
+					$.each(datas, function(index, item){
+						alert(item.mGender + "," + item.cntGrdScore);
+						
 					});
 			}, 
 				error : function(xhr) {
-					alert('차트데이터'+ xhr.status + '' + xhr.textStatus);
+					//alert('차트데이터'+ xhr.status + '' + xhr.textStatus);
 				}
 			});
 	  

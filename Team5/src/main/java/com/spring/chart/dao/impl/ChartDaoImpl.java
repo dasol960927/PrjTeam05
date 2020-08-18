@@ -24,7 +24,9 @@ public class ChartDaoImpl implements ChartDao {
 
 	@Override
 	public List<ChartVo> getGender(HashMap<String, Object> map) {
-		List<ChartVo> ChartList = sqlSession.selectList("CHART.Gender" ,map);
+		System.out.println("차트다오임플에서 받아오는 맵" + map);
+		sqlSession.selectList("CHART.Gender" ,map);
+		List<ChartVo> ChartList = (List<ChartVo>) map.get("result");
 		return ChartList;
 	}
 

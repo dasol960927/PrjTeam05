@@ -7,8 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.spring.chart.service.ChartService;
 import com.spring.chart.vo.ChartVo;
 
@@ -31,10 +34,16 @@ public class ChartController {
 	}
 	
 	@RequestMapping("/Chart/Gender")
-	public List<ChartVo> ChartGender(@RequestParam HashMap<String, Object> map) {
+	@ResponseBody
+	public List<ChartVo> ChartGender(@RequestParam HashMap<String, Object> map) throws Exception {
 		System.out.println("성별 맵 " + map);
 		List<ChartVo> ChartList = chartService.getGender(map);
 		System.out.println("성별 리스트 " + ChartList);
+		
+		ObjectMapper mapper = new ObjectMapper();
+		String jsonChartList = mapper.writeValueAsString(ChartList);
+		
+		System.out.println("json으로 변경" + jsonChartList);
 		return ChartList;
 	}
 	
