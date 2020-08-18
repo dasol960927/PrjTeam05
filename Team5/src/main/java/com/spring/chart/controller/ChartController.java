@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.chart.service.ChartService;
 import com.spring.chart.vo.ChartVo;
@@ -18,11 +19,15 @@ public class ChartController {
 	private ChartService chartService;
 	
 	@RequestMapping("/Chart/Grd")
-	public List<ChartVo> ChartGrd(@RequestParam HashMap<String, Object> map) {
+	public ModelAndView ChartGrd(@RequestParam HashMap<String, Object> map) {
+		ModelAndView mv = new ModelAndView();
+		
 		System.out.println("평점 맵 " + map);
 		List<ChartVo> ChartList = chartService.getGrd(map);
 		System.out.println("평점 리스트 " + map);
-		return ChartList;
+		mv.addObject("ChartList", ChartList);
+		mv.setViewName("/chartData/");
+		return mv;
 	}
 	
 	@RequestMapping("/Chart/Gender")
