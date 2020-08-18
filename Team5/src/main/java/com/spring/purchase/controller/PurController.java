@@ -33,6 +33,7 @@ public class PurController {
 		mv.setViewName("purchase/purchaseList");
 		mv.addObject("purList", purList);
 		mv.addObject("memberVo", memberVo);	
+		mv.addObject("docId", map.get("docId"));
 		
 		//mv.addObject("mId", map.get("mId"));
 		

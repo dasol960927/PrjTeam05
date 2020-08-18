@@ -375,9 +375,9 @@ a.link2:hover{text-decoration:underline;}
           <div class="row mt-4">
             <nav class="w-100">
               <div class="nav nav-tabs" id="product-tab" role="tablist">
-                <a class="nav-item nav-link" id="product-desc-tab"  href="/filmReview?docId=K22319&filmId=K&filmSeq=22319&filmYear=2020" >영화설명</a>
-                <a class="nav-item nav-link" id="product-comments-tab"  href="/REVIEW/grdList?docId=K22319&filmId=K&filmSeq=22319&filmYear=2020"  >리뷰</a>
-                <a class="nav-item nav-link" id="product-rating-tab"  href="/REVIEW/revList?docId=K22319&filmId=K&filmSeq=22319&filmYear=2020" style="background-color:#878787; color:#ECFFFF">평점</a>
+                <a class="nav-item nav-link" id="product-desc-tab"  href="/filmReview?docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmSeq}" >영화설명</a>
+                <a class="nav-item nav-link" id="product-comments-tab"  href="/REVIEW/grdList?docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}"  >리뷰</a>
+                <a class="nav-item nav-link" id="product-rating-tab"  href="/REVIEW/revList?docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}" style="background-color:#878787; color:#ECFFFF">평점</a>
               </div>
             </nav>
             <div class="tab-content p-3" id="nav-tabContent" >

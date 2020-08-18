@@ -11,14 +11,20 @@
 
 	function submitClick(){
 		var mId = $("#mId").val();
-		var filmId = $("#filmId").val();
+		var docId = $("#docId").val();
 		var grdScore = $("#grdScore").val();
 		grdScore *= 1;
 		var grdConts = $("#grdConts").val();
 		
+		var filmId = $("#filmId").val();
+		var filmSeq = $("#filmSeq").val();
+		var filmYear = $("#filmYear").val();
+						
+		
 		
 		//opener.window.document.location.href="'/REVIEW/insertGrd?grdConts='+ grdConts '&grdScore='+grdScore'";
-		opener.document.location.href='/REVIEW/insertGrd?mId=' + mId + '&filmId=' + filmId + '&grdScore=' + grdScore + '&grdConts=' + grdConts;
+		opener.document.location.href='/REVIEW/insertGrd?mId=' + mId + '&docId=' + docId + '&grdScore=' + grdScore + '&grdConts='
+					+ grdConts + '&filmId=' + filmId + '&filmSeq=' + filmSeq + '&filmYear=' + filmYear;
 		window.close();
 	}
 	
@@ -32,7 +38,10 @@
 </head>
 <%
    String mId = request.getParameter("mId");
+   String docId = request.getParameter("docId");
    String filmId = request.getParameter("filmId");
+   String filmSeq = request.getParameter("filmSeq");
+   String filmYear = request.getParameter("filmYear");
 %>
 <body>
 	
@@ -48,7 +57,12 @@
 			</tr>
 			
 			<input type="hidden" id="mId" value="<%=mId%>"/>
+			<input type="hidden" id="docId" value="<%=docId%>"/>
 			<input type="hidden" id="filmId" value="<%=filmId%>"/>
+			<input type="hidden" id="filmSeq" value="<%=filmSeq%>"/>
+			<input type="hidden" id="filmYear" value="<%=filmYear%>"/>
+						
+			
 						
 		</table>		
 		<input type="button" name="btnCancel" value="취소" onclick="cancelClick()" />
