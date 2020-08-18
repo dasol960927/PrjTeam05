@@ -23,12 +23,23 @@ public class FilmController {
 		
 		filmService.setFilm(map);
 		String docId = (String) map.get("docId");
+		String filmId = (String) map.get("filmId");
+		String filmSeq = (String) map.get("filmSeq");
+		String filmYear = (String) map.get("filmYear");
 		
 		ModelAndView mv = new ModelAndView();
 		FilmVo vo = new FilmVo();
 		vo.setDocId(docId);
+		vo.setFilmId(filmId);
+		vo.setFilmSeq(filmSeq);
+		vo.setFilmYear(filmYear);
 		
 		mv.addObject("docId", vo.getDocId());
+		mv.addObject("filmId", vo.getFilmId());
+		mv.addObject("filmSeq", vo.getFilmSeq());
+		mv.addObject("filmYear", vo.getFilmYear());
+		
+		
 		System.out.println(mv);
 		mv.setViewName("reviews/filmReview");
 		return mv;

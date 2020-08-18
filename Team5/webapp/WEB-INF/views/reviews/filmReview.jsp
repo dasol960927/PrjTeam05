@@ -57,6 +57,9 @@
 <script>
 var movieId = '<%= (String)request.getParameter("filmId")%>'
 var movieSeq = '<%= (String)request.getParameter("filmSeq")%>'
+alert(movieId);
+alert(movieSeq);
+
 //console.log(movieId);
 //console.log(movieSeq);
 
@@ -290,7 +293,7 @@ $(function(){
                 <div class="btn btn-primary btn-lg btn-flat" style="float:left; width:180px; height:70px; margin-left:5px;">
                   <i class="far fa-credit-card"></i> 
                     	<a href="#" style="color:white;">구매하기</a>
-                </div>
+                </div>                           
 				</div>
 
 
@@ -314,9 +317,9 @@ $(function(){
           <div class="row mt-4">
             <nav class="w-100">
               <div class="nav nav-tabs" id="product-tab" role="tablist">
-                <a class="nav-item nav-link" id="product-desc-tab"  href="#" style="background-color:#878787; color:#ECFFFF">영화설명</a>
-                <a class="nav-item nav-link" id="product-comments-tab"  href="/REVIEW/grdList?docId=K22319&filmId=K&filmSeq=22319&filmYear=2020" >리뷰</a>
-                <a class="nav-item nav-link" id="product-rating-tab"  href="/REVIEW/revList?docId=K22319&filmId=K&filmSeq=22319&filmYear=2020">평점</a>
+                <a class="nav-item nav-link" id="product-desc-tab"  href="/filmReview?docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmSeq}" style="background-color:#878787; color:#ECFFFF">영화설명</a>
+                <a class="nav-item nav-link" id="product-comments-tab"  href="/REVIEW/grdList?docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}">리뷰</a>
+                <a class="nav-item nav-link" id="product-rating-tab"  href="/REVIEW/revList?docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}">평점</a>
               </div>
             </nav>
             <div class="tab-content p-3" id="nav-tabContent" >
