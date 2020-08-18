@@ -18,6 +18,16 @@
   <link rel="stylesheet" href="/dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous">
+</script>
+<script>
+
+</script>
+
+  
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
@@ -99,7 +109,74 @@
                       </td>
                       <td>
                           <a>
-                              	${likeVo.filmName}
+							<div id =${likeVo.docId}></div>
+                              <script>
+								var str = '${likeVo.docId}';
+								film(str);
+
+								//포스터, 스틸컷 url
+								function poster(string) {
+									var str = string.split('|');
+									return str;
+								}
+								//제목 자르기
+								function title(string) {
+									var str = string.split('^');
+									return str;
+								}
+								
+								function film(string) {
+									var FilmId = "" + string; //강제로 string 형으로 바꾸기
+									var FilmSeq = "" + string; 
+									var sFilmId = FilmId.substr(0,1); //K22321 로 받아와서 첫번째 글자만 자르기
+									var sFilmSeq = FilmSeq.substr(1,5);
+										
+									$(function(){
+										var url = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70';
+										$.ajax({
+											url : url,
+											type : 'get',
+											dataType : "json",
+											async: false,
+											data : {movieId : sFilmId, movieSeq : sFilmSeq},
+											success : function(data) {
+												//console.log(data);
+													
+												var json = data.Data[0].Result[0];
+												//console.log(json);
+												var html = '';
+
+												//제목 문자열 자르기
+												var titleName = ""+data.Data[0].Result[0].titleEtc;
+												var tit = title(titleName); 
+												
+												//포스터
+												var posterVal = '';
+												var posterImage = ""+data.Data[0].Result[0].posters;
+												var pos = poster(posterImage); //포스터 문자열 자르기
+												if(pos == ''){
+													posterVal = '<img src="/img/PosterReady.jpg" alt="포스터 준비중"/>';
+												}else{
+													posterVal = '<a href="/filmReview?docId=' + data.Data[0].Result[0].DOCID + 
+													'&filmId=' + data.Data[0].Result[0].movieId + 
+													'&filmSeq=' + data.Data[0].Result[0].movieSeq + 
+													'&filmYear=' + data.Data[0].Result[0].prodYear + '"><img src="' + pos[0] + '"/></a>';
+												}
+															
+												html += '<div>';
+												html += posterVal + '<br>';
+												html += '<p>제목 : ' + tit[0] + '</p>';
+												html += '</div>';
+												
+												$('#'+string).html(html);
+											},
+											error : function(xhr) {
+												alert(xhr.status + '' + xhr.textStatus);
+											}
+										});
+									});
+								}
+								</script>
                           </a>
                           <br/>
                           <small>
@@ -109,13 +186,13 @@
                       <td>
                           <ul class="list-inline">
                               <li class="list-inline-item">
-                                   	 ${likeVo.filmActor}
+                                   	 ${likeVo.docId}
                               </li>               
                               
                           </ul>
                       </td>
                       <td class="project_progress">
-                              	${likeVo.filmDirector}
+                              <c:out value="${i}"/>
                       </td>
                       <td class="project-state">
                           <span>${likeVo.filmPrice}</span>
