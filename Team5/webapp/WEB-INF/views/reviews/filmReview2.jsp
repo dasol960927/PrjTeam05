@@ -204,7 +204,7 @@ a.link2:hover{text-decoration:underline;}
                  <c:forEach var="revVo" items="${revList}">
                  <tr>             	   
               	   <td colspan="2" >
-              	   <a class="link1" href="/REVIEW/reviewRead?revIdx=${revVo.revIdx}&revLvl=${revVo.revLvl}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}">${revVo.revTitle}</a>
+              	   <a class="link1" href="/REVIEW/reviewRead?revIdx=${revVo.revIdx}&revLvl=${revVo.revLvl}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}&mId=${login.mId}">${revVo.revTitle}</a>
               	   &nbsp;&nbsp;${revVo.mId}&nbsp;&nbsp;${revVo.revDate}&nbsp;&nbsp;추천:${revVo.goodCnt}
               	   
               	   <a class="link2" href="/REVIEW/reviewRead?revIdx=${revVo.revIdx}&revLvl=${revVo.revLvl}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}"><p id="pContents">${revVo.revConts}</p></a>

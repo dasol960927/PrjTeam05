@@ -287,7 +287,8 @@ a.link2:hover{text-decoration:underline;}
  				 
  				 				   				 
  				 <c:forEach var="revVo1" items="${revList1}">
- 				 	
+ 				 
+ 		 							 	
 	 				 <tr>
 	 				 	<td colspan="1">${revVo1.mId}</td>
 	 				 	<td colspan="2">${revVo1.revConts}</td>
@@ -298,6 +299,7 @@ a.link2:hover{text-decoration:underline;}
 	 				 	싫어요:<a href="/REVIEW/insRev12Cnt?sGubun=B&revLvl=${revLvl}&lvl0Idx=${revIdx}&revIdx=${revVo1.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}&mId=${login.mId}">${revVo1.badCnt}</a>
 	 				 	</td> 				 	
 	 				 </tr>
+	 				
  				 
  				 <form action="/REVIEW/insRevLvl2?docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}" method="post"> 	
 	                 <tr class="vo2 ${ revVo1.revIdx }" >
@@ -339,6 +341,7 @@ a.link2:hover{text-decoration:underline;}
 											 			    
 				 </c:forEach>
 		 			<tr>
+		 			
 	 				 	<c:choose>					
 							<c:when test="${count eq 0}">		 			
 				 				<td colspan="4">
@@ -350,7 +353,8 @@ a.link2:hover{text-decoration:underline;}
 				 				<input type="button" id="btnToggle" value="답글${ count }개" onclick="btnToggle('${ revVo1.revIdx }')"/>
 				 				</td>		 				 	
 		 				 	</c:otherwise>		 				 	
-		 			    </c:choose>   		 				
+		 			    </c:choose>
+		 			       		 					
 		 			</tr>
 		 			 				 	 			    
 	 			 </c:forEach>	 				 	

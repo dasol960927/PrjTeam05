@@ -42,6 +42,8 @@
          	#{docId, mode=IN, jdbcType=VARCHAR},
          	#{revIdx, mode=IN, jdbcType=NUMERIC},
          	#{revLvl, mode=IN, jdbcType=NUMERIC},
+         	#{mId, mode=IN, jdbcType=VARCHAR},         	        	
+         	
             #{result, mode=OUT, jdbcType=CURSOR, 
                javaType=ResultSet, resultMap=RevListMap },
 			#{oCnt, mode=OUT, jdbcType=VARCHAR}               

@@ -57,6 +57,9 @@ public class RevController {
 		mv.addObject("oCnt", map.get("oCnt"));
 		mv.addObject("revList", revList);
 		
+		//테스트
+		mv.addObject("mId", map.get("mId"));
+		
 		System.out.println(map);
 		
 		return mv;
@@ -89,6 +92,9 @@ public class RevController {
 		mv.addObject("revVo", revVo);
 		mv.addObject("revList1", revList1);
 		mv.addObject("revList2", revList2);
+		
+		//테스트
+		mv.addObject("mId", map.get("mId"));
 
 		System.out.println("reviewRead list1 : " + revList1);
 		System.out.println("reviewRead list2 : " + revList2);
