@@ -62,7 +62,7 @@
 				<!-- DONUT CHART -->
 	            <div class="card card-danger">
 	              <div class="card-header">
-	                <h3 class="card-title">평점</h3>
+	                <h3 class="card-title">연령별 리뷰수</h3>
 	
 	                <div class="card-tools">
 	                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
