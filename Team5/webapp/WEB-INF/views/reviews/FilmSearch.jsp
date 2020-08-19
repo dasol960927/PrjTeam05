@@ -103,7 +103,7 @@ $(function(){
 						html+=                 '</div>';
 						html+=                 '<div class="card-footer">';
 						html+=                   '<div class="text-right">';
-						html+=                     '<a href="/Likelist" class="btn btn-sm bg-teal">';
+						html+=                     '<a href="/LIKE/List?mId=${login.mId}" class="btn btn-sm bg-teal">';
 						html+=                       '<i class="fas fa-heart"></i>';
 						html+=                     '</a>';
 						html+=                     '<a href="/filmReview?docId=' + item.DOCID + '&filmId=' + item.movieId + '&filmSeq=' + item.movieSeq + '&filmYear=' + item.prodYear + '" class="btn btn-sm btn-primary">';
