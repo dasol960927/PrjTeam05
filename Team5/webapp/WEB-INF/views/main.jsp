@@ -137,9 +137,10 @@ function getActor(actorVal, divId) {
 						posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
 								'&filmId=' + item.movieId + 
 								'&filmSeq=' + item.movieSeq + 
-								'&filmYear=' + item.prodYear +' &mId=' + mId + '"><img src="' + pos[0] + '"/></a>';
-								'&filmYear=' + item.prodYear + 
-								'&genre=' + item.genre + '"><img src="' + pos[0] + '"/></a>';
+								'&filmYear=' + item.prodYear +
+								'&mId=' + mId + 
+								'&genre=' + item.genre +
+								'"><img src="' + pos[0] + '"/></a>';
 					}
 					
 					html += '<div class="col-sm-2">';
