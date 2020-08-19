@@ -30,10 +30,6 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 		case "/find_pass" :	
 		case "/registerMember" :
 		case "/loginCheck":
-		case "/img/lalaland.jpg":
-		case "/plugins/fontawesome-free/css/all.min.css":
-		case "/plugins/icheck-bootstrap/icheck-bootstrap.min.css":
-		case "/dist/css/adminlte.min.css":
 					
 			 return true; // 제외
 		}
