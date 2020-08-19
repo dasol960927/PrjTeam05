@@ -1,13 +1,219 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>FilmCritics | FilmReview</title>
+
+<!-- Tell the browser to be responsive to screen width -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+<!-- Ionicons -->
+<link rel="stylesheet"
+	href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<!-- overlayScrollbars -->
+<link rel="stylesheet" href="/dist/css/adminlte.min.css">
+<!-- Google Font: Source Sans Pro -->
+<link
+	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700"
+	rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<style>
+.starR1 {
+	background:
+		url('http://miuu227.godohosting.com/images/icon/ico_review.png')
+		no-repeat -52px 0;
+	background-size: auto 100%;
+	width: 15px;
+	height: 30px;
+	float: left;
+	text-indent: -9999px;
+	cursor: pointer;
+}
+
+.starR2 {
+	background:
+		url('http://miuu227.godohosting.com/images/icon/ico_review.png')
+		no-repeat right 0;
+	background-size: auto 100%;
+	width: 15px;
+	height: 30px;
+	float: left;
+	text-indent: -9999px;
+	cursor: pointer;
+}
+
+.starR1.on {
+	background-position: 0 0;
+}
+
+.starR2.on {
+	background-position: -15px 0;
+}
+</style>
+<script>
+var movieId = '<%= (String)request.getParameter("filmId")%>'
+var movieSeq = '<%= (String)request.getParameter("filmSeq")%>'
+//alert(movieId);
+//alert(movieSeq);
+
+//console.log(movieId);
+//console.log(movieSeq);
+
+//alert(keywordGet);
+
+//null 체크
+function nullCheck(string) {
+	var checkValue;
+	if(string == ""){
+		checkValue = '추가예정';
+	}else{
+		checkValue = string;
+	}
+	return checkValue;
+}
+
+//포스터, 스틸컷 url
+function poster(string) {
+	var str = string.split('|');
+	return str;
+}
+
+//제목 자르기
+function title(string) {
+	var str = string.split('^');
+	
+	return str;
+}
+
+$(function(){
+	var url = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70&'+
+			'&movieId=' + movieId + 
+			'&movieSeq=' + movieSeq;
+	var v1 = '';
+	$.ajax({
+		url : url,
+		type : 'get',
+		dataType : "json",
+		success : function(data) {
+			//console.log(data);
+			var json = data.Data[0];
+			//console.log(json);
+
+			var list;
+			var exit= false;
+			var html  = '';
+			var html2 = '';
+			var html3 = '';
+				$.each(json, function(index, item) {
+					list = json.Result;
+					console.log(json.Result);
+										
+					$.each(list, function(index, item) {
+						var tit = title(item.titleEtc); //제목 문자열 자르기
+						
+						//스틸컷
+						var stllsVal = '';
+						var stl = poster(item.stlls); //스틸컷 문자열 자르기
+						if(stl == ""){
+							stllsVal += '<img src="/img/ready.jpg" alt="스틸컷 준비중"/>';
+						}else{
+							for(var i=0; i<3; i++) {
+								stllsVal +='<img src="'+stl[i]+'"/>';
+							}
+						}
+
+						
+						//포스터
+						var posterVal = '';
+						var pos = poster(item.posters); //포스터 문자열 자르기
+						if(pos == ''){
+							posterVal = '<img src="/img/PosterReady.jpg" class="product-image" alt="포스터 준비중"/>';
+						}else{
+							posterVal = '<img src="' + pos[0] + '" class="product-image" alt="포스터"/>';
+						}
+						
+						//배우
+						if(item.actors.actor[4] == null){
+							var actorVal = '추가예정';
+						}else{
+							actorVal  = nullCheck(item.actors.actor[0].actorNm) + ', ';
+							actorVal += nullCheck(item.actors.actor[1].actorNm) + ', ';
+							actorVal += nullCheck(item.actors.actor[2].actorNm) + ', ';
+							actorVal += nullCheck(item.actors.actor[3].actorNm) + ', ';
+							actorVal += nullCheck(item.actors.actor[4].actorNm);
+			            }
+						
+
+
+						html+=              '<h3 class="d-inline-block d-sm-none">Films Review</h3>'
+						html+=              '<div class="col-12">';
+						html+=                posterVal;
+						html+=              '</div>';
+						html+=              '<div class="col-12 product-image-thumbs">';
+						html+=                '<div class="product-image-thumb">'+ '<img src="'+stl[0]+'"/>' + '</div>';
+						html+=                '<div class="product-image-thumb">'+ '<img src="'+stl[1]+'"/>' + '</div>';
+						html+=                '<div class="product-image-thumb">'+ '<img src="'+stl[2]+'"/>' + '</div>';
+						html+=              '</div>';
+
+						html2+=              '<h3 class="my-3">' + tit[0] + '</h3>';
+			            html2+= 			 '<p>배우:' + actorVal + '<br/> 감독 :' + item.directors.director[0].directorNm + '<br/> 개봉일: ' + item.repRlsDate + '</p>';
+			            html2+=				 '<hr>';
+			                
+			            html3 += nullCheck(item.plots.plot[0].plotText);
+			            exit = true; //이중 ajax 빠져나오기
+					  });
+					  if(exit){ return false;} //이중 ajax 빠져나오기
+				});
+			$('#here').html(html);
+			$('#here2').html(html2);
+			$('#here3').html(html3);
+			
+		},
+		error : function(xhr) {
+			alert(xhr.status + '' + xhr.textStatus);
+	  	}
+	});
+	
+	$("#divBtnLike").on("click", function(){
+		var loginMid = '${login.mId}';
+		var docId = '${fVo.docId}';
+		$.ajax({
+			url : '/Like',
+			data : {mId : loginMid, docId : docId },
+			dataType : 'json',
+			type : 'get',
+			success : function(data){
+				if(data.likeChk == 'N'){
+					$("#btnLike").css("color","black");
+					alert("찜 취소됐쪙 ~~ ><");
+				}else{
+					$("#btnLike").css("color", "red");
+					alert("찜 됐쪙~! ><");
+				}
+			},
+			error : function(xhr){
+				alert("error: " + xhr.status + "," + xhr.textStatus);
+			}
+		})
+	});
+	
+
+});
+
+</script>
+<style>
+.starRev{width:170px; height:50px;}
+</style>
+
 <%@ include file="/WEB-INF/include/admin.jsp" %>
 <%@ include file="/WEB-INF/include/ReviewCommon.jsp" %>
+
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -101,17 +307,22 @@
               <div class="mt-4">
               
              <div id="btns" style="width:700px; height: 80px; clear:both;">
-         
-                <div class="btn btn-default btn-lg btn-flat" style="float:left; margin-left:5px; height: 48px;">
-                  <i class="fas fa-heart fa-lg mr-2"></i> 
-                  <a href="/Like?mId=${ login.mId }&docId=${docId }">찜하기</a>
+             
+             <c:choose>
+              <c:when test="${likeChk eq 'Y'}">
+                <div class="btn btn-default btn-lg btn-flat" id = "divBtnLike" style="float:left; margin-left:5px; height: 48px;">
+                  <i class="fas fa-heart fa-lg mr-2" id = "btnLike" style="color:red"></i>찜하기 
+                  <%-- <a href="/Like?mId=${ login.mId }&docId=${fVo.docId }"></a> --%>
                </div>
-               
-                <div class="btn btn-default btn-lg btn-flat" style="float:left; margin-left:5px; height: 48px;">
-                  <i class="fas fa-heart fa-lg mr-2" style="color:red"></i> 
-                  <a href="/Like?mId=${ login.mId }&docId=${fVo.docId }">찜하기2</a>
+              </c:when>
+              <c:otherwise>
+                <div class="btn btn-default btn-lg btn-flat" id = "divBtnLike" style="float:left; margin-left:5px; height: 48px;">
+                  <i class="fas fa-heart fa-lg mr-2" id = "btnLike"></i>찜하기
+                  <%-- <a href="/Like?mId=${ login.mId }&docId=${docId }">찜하기</a> --%>
                </div>
-                         
+              </c:otherwise>
+             </c:choose>
+                
                 <div class="btn btn-primary btn-lg btn-flat" style="float:left; margin-left:5px;">
                   <i class="fas fa-cart-plus fa-lg mr-2"></i> 
                     	<a href="/DPS/List?mId=${login.mId }" style="color:white;">포인트 충전</a>
@@ -169,7 +380,10 @@
   <!-- /.content-wrapper -->
 
 
-
+<div id = ttest style="clear:both;">
+	<%@ include file="/WEB-INF/include/ReviewTest.jsp" %>
+	<div id = divTest style="width:220px; height:330px;"></div>
+</div>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -178,6 +392,50 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- ChartJS -->
+<script src="/plugins/chart.js/Chart.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="/dist/js/demo.js"></script>
+ <script>
+ $('.starRev span').click(function(){
+  $(this).parent().children('span').removeClass('on');
+  $(this).addClass('on').prevAll('span').addClass('on');
+  return false;
+});
+ </script>
+<script>
+  $(function () {
+	  
+	  var docIdVal = '${docId}';
+	  
+	  $.ajax({
+			url : '/Chart/Gender',
+			type: 'GET',
+			data: {'docId' : docIdVal},
+			datatype: 'json',
+			success : function(datas) {
+					$.each(datas, function(index, item){
+						//alert(item.mGender + "," + item.cntGrdScore);
+						
+					});
+			}, 
+				error : function(xhr) {
+					//alert('차트데이터'+ xhr.status + '' + xhr.textStatus);
+				}
+			});
+</script>
+	  
+    /* ChartJS
+     * -------
+     * Here we will create a few charts using ChartJS
+     */
 
 <%@ include file="/WEB-INF/include/footer.jsp" %>
 <%@ include file="/WEB-INF/include/doughnutChart.jsp" %>

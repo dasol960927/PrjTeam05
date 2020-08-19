@@ -38,6 +38,12 @@ public class LikeServiceImpl implements LikeService {
 		
 	}
 
+	@Override
+	public LikeVo getLikeChk(HashMap<String, Object> map) {
+		LikeVo LVo = likeDao.getLikeChk(map);
+		return LVo;
+	}
+
 
 	
 	

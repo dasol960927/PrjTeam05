@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.likelist.service.LikeService;
@@ -46,11 +47,16 @@ public class LikeController {
 	
 
 	@RequestMapping("/Like")
-	public ModelAndView like(@RequestParam HashMap<String, Object> map) {
+	@ResponseBody
+	public LikeVo like(@RequestParam HashMap<String, Object> map) {
+		System.out.println("찜" + map);
+	
 		likeService.setLike(map);
 		
-		System.out.println("찜" + map);
-		return null;
+		LikeVo LVo = likeService.getLikeChk(map);
+		System.out.println(LVo);
+		
+		return LVo;
 	}
 
 	@RequestMapping("LIKE/delete")
