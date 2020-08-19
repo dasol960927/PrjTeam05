@@ -25,6 +25,12 @@
   				$("#mPass").focus();
   				return;
   			}
+  		   if(mPass.length < 4 || mPass.length > 12){
+               alert("비밀번호는 4~12자 이내로 입력 가능 합니다");
+               $("#mPass").focus();
+               return;
+            }
+  			
   		});
   	});	
   
