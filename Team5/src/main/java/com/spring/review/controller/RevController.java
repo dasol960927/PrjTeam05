@@ -170,6 +170,7 @@ public class RevController {
 	public ModelAndView insRev12Cnt(@RequestParam HashMap<String, Object> map) {
 		
 		System.out.println("좋아요싫어요 map : " + map );
+	
 		
 		//revService.insRev12Cnt(map);
 		ModelAndView mv = new ModelAndView();		
