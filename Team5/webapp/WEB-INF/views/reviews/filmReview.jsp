@@ -81,7 +81,6 @@ function nullCheck(string) {
 //포스터, 스틸컷 url
 function poster(string) {
 	var str = string.split('|');
-	
 	return str;
 }
 
