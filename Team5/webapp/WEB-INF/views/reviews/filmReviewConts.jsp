@@ -249,15 +249,18 @@ a.link2:hover{text-decoration:underline;}
               </div>
             </nav>
             <div class="tab-content p-3" id="nav-tabContent" >
-              <table> 
-                <tr>
-                  <th width="50px">제목&nbsp;&nbsp;&nbsp;</th>
-                  <th width="400px"> ${revVo.revTitle} </th>
-                  <th width="150px"> 작성자 / 작성일 </th>
-                  <th width="300px"> ${revVo.mId} / ${revVo.revDate} </th>                                    
-                </tr>    
-                 
-                 <tr>             	   
+             
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                    <th width="50px">제목&nbsp;&nbsp;&nbsp;</th>
+                    <th width="400px"> ${revVo.revTitle} </th>
+                    <th width="150px"> 작성자 / 작성일 </th>
+                    <th width="300px"> ${revVo.mId} / ${revVo.revDate} </th>     
+                  </tr>
+                  </thead>
+                  <tbody>
+                                 <tr>             	   
               	   <td colspan="4" width="1000px">
               	   		${revVo.revConts}              	                 	   
               	   </td>   
@@ -378,8 +381,8 @@ a.link2:hover{text-decoration:underline;}
 		 			    </c:choose> 				 
 	 			 </c:forEach> 		
 	 			  -->
-	 			 		                
-              </table> 
+                  </tbody>
+                </table>
             </div>
           </div>
         </div>
