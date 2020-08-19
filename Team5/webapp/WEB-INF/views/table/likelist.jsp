@@ -7,27 +7,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>FlimCritics | Likelist</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="/dist/css/adminlte.min.css">
-  <!-- Google Font: Source Sans Pro -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-  <script
-  src="https://code.jquery.com/jquery-3.5.1.min.js"
-  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-  crossorigin="anonymous">
-</script>
-<script>
-
-</script>
-
-  
+   <%@ include file="/WEB-INF/include/admin.jsp" %>
+   <style>
+		.category{width:1200px; height:100%; clear:both; }
+   </style>
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
@@ -79,145 +62,78 @@
           </div>
         </div>
         <div class="card-body p-0">
-          <table class="table table-striped projects">
-              <thead>
-                  <tr>
-                      <th style="width: 1%">
-                          #
-                      </th>
-                      <th style="width: 20%">
-                          	영화명
-                      </th>
-                      <th style="width: 30%">
-                          	배우
-                      </th>
-                      <th>
-                           	감독
-                      </th>
-                      <th style="width: 8%" class="text-center">
-                           	가격(P)
-                      </th>
-                      <th style="width: 20%">
-                      </th>
-                  </tr>
-              </thead>
-              <tbody>
-              	<c:forEach var="likeVo" items="${likeList}">
-                  <tr>
-                      <td>
-                          #
-                      </td>
-                      <td>
-                          <a>
-							<div id =${likeVo.docId}></div>
-                              <script>
-								var str = '${likeVo.docId}';
-								film(str);
-
-								//포스터, 스틸컷 url
-								function poster(string) {
-									var str = string.split('|');
-									return str;
-								}
-								//제목 자르기
-								function title(string) {
-									var str = string.split('^');
-									return str;
-								}
-								
-								function film(string) {
-									var FilmId = "" + string; //강제로 string 형으로 바꾸기
-									var FilmSeq = "" + string; 
-									var sFilmId = FilmId.substr(0,1); //K22321 로 받아와서 첫번째 글자만 자르기
-									var sFilmSeq = FilmSeq.substr(1,5);
-										
-									$(function(){
-										var url = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70';
-										$.ajax({
-											url : url,
-											type : 'get',
-											dataType : "json",
-											async: false,
-											data : {movieId : sFilmId, movieSeq : sFilmSeq},
-											success : function(data) {
-												//console.log(data);
+        	<div class="category">
+				<c:forEach var="likeVo" items="${likeList}">
+					<div id =${likeVo.docId}></div>
+					<script>
+						var str = '${likeVo.docId}';
+						film(str);
+	
+						//포스터, 스틸컷 url
+						function poster(string) {
+							var str = string.split('|');
+							return str;
+						}
+						//제목 자르기
+						function title(string) {
+							var str = string.split('^');
+							return str;
+						}
+									
+						function film(string) {
+							var FilmId = "" + string; //강제로 string 형으로 바꾸기
+							var FilmSeq = "" + string; 
+							var sFilmId = FilmId.substr(0,1); //K22321 로 받아와서 첫번째 글자만 자르기
+							var sFilmSeq = FilmSeq.substr(1,5);
+											
+							$(function(){
+								var url = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70';
+								$.ajax({
+									url : url,
+									type : 'get',
+									dataType : "json",
+									async: false,
+									data : {movieId : sFilmId, movieSeq : sFilmSeq},
+									success : function(data) {
+										//console.log(data);
 													
-												var json = data.Data[0].Result[0];
-												//console.log(json);
-												var html = '';
-
-												//제목 문자열 자르기
-												var titleName = ""+data.Data[0].Result[0].titleEtc;
-												var tit = title(titleName); 
-												
-												//포스터
-												var posterVal = '';
-												var posterImage = ""+data.Data[0].Result[0].posters;
-												var pos = poster(posterImage); //포스터 문자열 자르기
-												if(pos == ''){
-													posterVal = '<img src="/img/PosterReady.jpg" alt="포스터 준비중"/>';
-												}else{
-													posterVal = '<a href="/filmReview?docId=' + data.Data[0].Result[0].DOCID + 
-													'&filmId=' + data.Data[0].Result[0].movieId + 
-													'&filmSeq=' + data.Data[0].Result[0].movieSeq + 
-													'&filmYear=' + data.Data[0].Result[0].prodYear + '"><img src="' + pos[0] + '"/></a>';
-												}
-															
-												html += '<div>';
-												html += posterVal + '<br>';
-												html += '<p>제목 : ' + tit[0] + '</p>';
-												html += '</div>';
-												
-												$('#'+string).html(html);
-											},
-											error : function(xhr) {
-												alert(xhr.status + '' + xhr.textStatus);
-											}
-										});
-									});
-								}
-								</script>
-                          </a>
-                          <br/>
-                          <small>
-                              	<!-- 개봉일자 2020. 어느날 -->
-                          </small>
-                      </td>
-                      <td>
-                          <ul class="list-inline">
-                              <li class="list-inline-item">
-                                   	 ${likeVo.docId}
-                              </li>               
-                              
-                          </ul>
-                      </td>
-                      <td class="project_progress">
-                              <c:out value="${i}"/>
-                      </td>
-                      <td class="project-state">
-                          <span>${likeVo.filmPrice}</span>
-                      </td>
-                      <td class="project-actions text-right">
-                          <a class="btn btn-primary btn-sm" href="#">
-                              <i class="fas fa-eye">
-                              </i>
-                              	보기
-                          </a>
-                          <a class="btn btn-info btn-sm" href="/PUR/purFilm?mId=${likeVo.mId}&docId=${likeVo.docId}&filmPrice=${likeVo.filmPrice}">
-                              <i class="far fa-credit-card">
-                              </i>
-                               	구매
-                          </a>
-                          <a class="btn btn-danger btn-sm" href="/LIKE/delete?mId=${likeVo.mId}&docId=${likeVo.docId}">
-                              <i class="fas fa-trash">
-                              </i>
-                              	삭제
-                          </a>
-                      </td>
-                  </tr>
-                </c:forEach>  
-              </tbody>
-          </table>
+										var json = data.Data[0].Result[0];
+										//console.log(json);
+										var html = '';
+	
+											//제목 문자열 자르기
+										var titleName = ""+data.Data[0].Result[0].titleEtc;
+										var tit = title(titleName); 
+													
+											//포스터
+										var posterVal = '';
+										var posterImage = ""+data.Data[0].Result[0].posters;
+										var pos = poster(posterImage); //포스터 문자열 자르기
+										if(pos == ''){
+											posterVal = '<img src="/img/PosterReady.jpg" alt="포스터 준비중"/>';
+										}else{
+											posterVal = '<a href="/filmReview?docId=' + data.Data[0].Result[0].DOCID + 
+											'&filmId=' + data.Data[0].Result[0].movieId + 
+											'&filmSeq=' + data.Data[0].Result[0].movieSeq + 
+											'&filmYear=' + data.Data[0].Result[0].prodYear + '"><img src="' + pos[0] + '"/></a>';
+										}
+																
+										html += '<div>';
+										html += posterVal + '<br>';
+										html += '<p>' + tit[0] + '</p>';
+										html += '</div>';
+													
+										$('#'+string).html(html);
+									},
+										error : function(xhr) {
+										alert(xhr.status + '' + xhr.textStatus);
+									}
+								});
+							});
+						}
+					</script>
+				</c:forEach> 
+			</div> 
         </div>
         <!-- /.card-body -->
       </div>
@@ -228,17 +144,7 @@
   </div>
   <!-- /.content-wrapper -->
 
-  <footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-      <b>Version</b> 1.0.0
-    </div>
-       <div>고객센터(이용 및 결제 문의) cs@teamfive.co.kr • 051-629-5232 (유료) <br/>
-	 제휴	및 대외 협력 contact@teamfive.com • 051-629-5232 (유료)</div>
-	<div>주식회사 TeamFive | 대표 송지현 | 팀원 김상두 이재혁 박다솔 김주희 | 부산광역시 남구 용당동 부경대용당캠퍼스 공학 6관 | <br/>
-	사업자등록번호 8282-2424 | 통신판매업 신고번호 제 2020-부산용당-2020호  <br/>
-	대표번호 051-629-5233 <br/>
-	 개인정보 처리 방침</div>
-  </footer>
+   <%@ include file="/WEB-INF/include/footer.jsp" %>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -248,13 +154,5 @@
 </div>
 <!-- ./wrapper -->
 
-<!-- jQuery -->
-<script src="/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="/dist/js/demo.js"></script>
 </body>
 </html>

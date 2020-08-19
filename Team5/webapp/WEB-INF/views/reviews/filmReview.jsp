@@ -7,6 +7,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>FilmCritics | FilmReview</title>
+<<<<<<< HEAD
 <!-- Tell the browser to be responsive to screen width -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -210,6 +211,10 @@ $(function(){
 <style>
 .starRev{width:170px; height:50px;}
 </style>
+
+<%@ include file="/WEB-INF/include/admin.jsp" %>
+<%@ include file="/WEB-INF/include/ReviewCommon.jsp" %>
+
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -226,8 +231,6 @@ $(function(){
         </div>
       </div>
     </form>
-
-
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -266,7 +269,7 @@ $(function(){
 				<!-- DONUT CHART -->
 	            <div class="card card-danger">
 	              <div class="card-header">
-	                <h3 class="card-title">평점</h3>
+	                <h3 class="card-title">연령별 리뷰수</h3>
 	
 	                <div class="card-tools">
 	                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
@@ -354,7 +357,7 @@ $(function(){
               </div>
 
             </div>
-          </div>
+
           <div class="row mt-4">
             <nav class="w-100">
               <div class="nav nav-tabs" id="product-tab" role="tablist">
@@ -366,30 +369,22 @@ $(function(){
             <div class="tab-content p-3" id="nav-tabContent" >
 
 				 <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab"><span id="here3"></span></div>
-
             </div>
           </div>
         </div>
         <!-- /.card-body -->
       </div>
       <!-- /.card -->
-	</div>
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
 
-  <footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-      <b>Version</b> 1.0.0
-    </div>
-    <div>고객센터(이용 및 결제 문의) cs@teamfive.co.kr • 051-629-5232 (유료) <br/>
-		 제휴	및 대외 협력 contact@teamfive.com • 051-629-5232 (유료)</div>
-		<div>주식회사 TeamFive | 대표 송지현 | 팀원 김상두 이재혁 박다솔 김주희 | 부산광역시 남구 용당동 부경대용당캠퍼스 공학 6관 | <br/>
-		사업자등록번호 8282-2424 | 통신판매업 신고번호 제 2020-부산용당-2020호  <br/>
-		대표번호 051-629-5233 <br/>
-		 개인정보 처리 방침</div>
-  </footer>
+
+<div id = ttest style="clear:both;">
+	<%@ include file="/WEB-INF/include/ReviewTest.jsp" %>
+	<div id = divTest style="width:220px; height:330px;"></div>
+</div>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -399,6 +394,7 @@ $(function(){
 </div>
 <!-- ./wrapper -->
 
+<<<<<<< HEAD
 <!-- jQuery -->
 <script src="/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
@@ -441,41 +437,14 @@ $(function(){
      * -------
      * Here we will create a few charts using ChartJS
      */
+=======
+<%@ include file="/WEB-INF/include/footer.jsp" %>
+<%@ include file="/WEB-INF/include/doughnutChart.jsp" %>
+>>>>>>> branch 'master' of https://github.com/dasol960927/PrjTeam05
 
-    //-------------
-    //- DONUT CHART -
-    //-------------
-    // Get context with jQuery - using jQuery's .get() method.
-    var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
-    var donutData        = {
-      labels: [
-          '1점', 
-          '2점', 
-          '3점',
-          '4점',
-          '5점'
-      ],
-      datasets: [
-        {
-          data: [1,2,3,4,5],
-          backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc'],
-        }
-      ]
-    }
-    var donutOptions     = {
-      maintainAspectRatio : false,
-      responsive : true,
-    }
-    //Create pie or douhnut chart
-    // You can switch between pie and douhnut using the method below.
-    var donutChart = new Chart(donutChartCanvas, {
-      type: 'doughnut',
-      data: donutData,
-      options: donutOptions      
-    })
 
-  });
 
-</script>
+
+
 </body>
 </html>

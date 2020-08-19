@@ -6,20 +6,14 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>FlimCritics | Main</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
-  <!-- Ekko Lightbox -->
-  <link rel="stylesheet" href="/plugins/ekko-lightbox/ekko-lightbox.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+ 
+  <%@ include file="/WEB-INF/include/admin.jsp" %>
   <!-- Theme style -->
   <link rel="stylesheet" href="/dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Gothic&display=swap" rel="stylesheet">
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
 <script>
 //포스터
 function poster(string) {
@@ -67,7 +61,8 @@ function getBoxOffice(date, divId) {
 								v1 = '<a href="/filmReview?docId=' + data.Data[0].Result[i].DOCID + 
 								'&filmId=' + data.Data[0].Result[i].movieId + 
 								'&filmSeq=' + data.Data[0].Result[i].movieSeq + 
-								'&filmYear=' + data.Data[0].Result[i].prodYear + '"><img src="' + pos[0] + '"/></a>';
+								'&filmYear=' + data.Data[0].Result[i].prodYear + 
+								'&genre='+ data.Data[0].Result[i].genre + '"><img src="' + pos[0] + '"/></a>';
 							}else{
 								pos = '';
 							}
@@ -77,7 +72,8 @@ function getBoxOffice(date, divId) {
 						v1 = '<a href="/filmReview?docId=' + data.Data[0].Result[i].DOCID + 
 						'&filmId=' + data.Data[0].Result[i].movieId + 
 						'&filmSeq=' + data.Data[0].Result[i].movieSeq + 
-						'&filmYear=' + data.Data[0].Result[i].prodYear + '"><img src="' + pos[0] + '"/></a>';
+						'&filmYear=' + data.Data[0].Result[i].prodYear + 
+						'&genre='+ data.Data[0].Result[i].genre + '"><img src="' + pos[0] + '"/></a>';
 					}
 				}
 			},
@@ -141,7 +137,12 @@ function getActor(actorVal, divId) {
 						posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
 								'&filmId=' + item.movieId + 
 								'&filmSeq=' + item.movieSeq + 
+<<<<<<< HEAD
 								'&filmYear=' + item.prodYear +' &mId=' + mId + '"><img src="' + pos[0] + '"/></a>';
+=======
+								'&filmYear=' + item.prodYear + 
+								'&genre=' + item.genre + '"><img src="' + pos[0] + '"/></a>';
+>>>>>>> branch 'master' of https://github.com/dasol960927/PrjTeam05
 					}
 					
 					html += '<div class="col-sm-2">';
@@ -182,7 +183,8 @@ function getDirector(directorVal, divId) {
 						posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
 						'&filmId=' + item.movieId + 
 						'&filmSeq=' + item.movieSeq + 
-						'&filmYear=' + item.prodYear + '"><img src="' + pos[0] + '"/></a>';
+						'&filmYear=' + item.prodYear + 
+						'&genre=' + item.genre + '"><img src="' + pos[0] + '"/></a>';
 					}
 					
 					html += '<div class="col-sm-2">';
@@ -223,7 +225,8 @@ function getGenre(genreVal, divId) {
 						posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
 						'&filmId=' + item.movieId + 
 						'&filmSeq=' + item.movieSeq + 
-						'&filmYear=' + item.prodYear + '"><img src="' + pos[0] + '"/></a>';
+						'&filmYear=' + item.prodYear + 
+						'&genre=' + item.genre + '"><img src="' + pos[0] + '"/></a>';
 					}
 					
 					html += '<div class="col-sm-2">';
@@ -377,19 +380,7 @@ getGenre('미스터리','div6');
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-      <b>Version</b> 1.0.0
-    </div>
-	<div id="footer">
-		<div>고객센터(이용 및 결제 문의) cs@teamfive.co.kr • 051-629-5232 (유료) <br/>
-		 제휴	및 대외 협력 contact@teamfive.com • 051-629-5232 (유료)</div>
-		<div>주식회사 TeamFive | 대표  송지현| 팀원 김상두 이재혁 박다솔 김주희 | 부산광역시 남구 용당동 부경대용당캠퍼스 공학 6관 | <br/>
-		사업자등록번호 8282-2424 | 통신판매업 신고번호 제 2020-부산용당-2020호  <br/>
-		대표번호 051-629-5233 <br/>
-		 개인정보 처리 방침</div>
-	</div>
-  </footer>
+<%@ include file="/WEB-INF/include/footer.jsp" %>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -399,16 +390,5 @@ getGenre('미스터리','div6');
 </div>
 <!-- ./wrapper -->
 
-<!-- jQuery -->
-<script src="/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap -->
-<script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- jQuery UI -->
-<script src="/plugins/jquery-ui/jquery-ui.min.js"></script>
-<!-- AdminLTE App -->
-<script src="/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="/dist/js/demo.js"></script>
-<!-- Page specific script -->
 </body>
 </html>

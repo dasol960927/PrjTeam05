@@ -22,6 +22,7 @@ public class ChartController {
 	private ChartService chartService;
 	
 	@RequestMapping("/Chart/Grd")
+	@ResponseBody
 	public ModelAndView ChartGrd(@RequestParam HashMap<String, Object> map) {
 		ModelAndView mv = new ModelAndView();
 		
@@ -48,10 +49,12 @@ public class ChartController {
 	}
 	
 	@RequestMapping("/Chart/Age")
+	@ResponseBody
 	public List<ChartVo> ChartAge(@RequestParam HashMap<String, Object> map) {
 		System.out.println("나이 맵 " + map);
 		List<ChartVo> ChartList = chartService.getAge(map);
 		System.out.println("나이 리스트 " + ChartList);
+		
 		return ChartList;
 	}
 	

@@ -41,7 +41,7 @@ public class RevDaoImpl implements RevDao {
 		
 		sqlSession.selectList("REVIEW.RevList2", map);
 		
-		List<RevVo> revList = (List<RevVo>) map.get("result");
+		List<RevVo> revList = (List<RevVo>) map.get("result");		
 		
 		return revList;
 	}	
@@ -60,6 +60,20 @@ public class RevDaoImpl implements RevDao {
 		RevVo revVo = revList.get(0);
 		
 		return revVo;
+	}
+
+	@Override
+	public void insRevLvl1(HashMap<String, Object> map) {
+		
+		sqlSession.insert("REVIEW.RevInsLvl1", map);
+		
+	}
+
+	@Override
+	public void insRevLvl2(HashMap<String, Object> map) {
+		
+		sqlSession.insert("REVIEW.RevInsLvl2", map);
+		
 	}
 
 
