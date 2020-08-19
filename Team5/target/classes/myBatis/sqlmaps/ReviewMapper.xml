@@ -19,7 +19,10 @@
        <result property="revGubun"     column="REV_GUBUN"  />
        <result property="revLvl"       column="REV_LVL" javaType="int" />
        <result property="parentIdx"    column="PARENT_IDX" javaType="int" />  
-       <result property="revNref"      column="REV_NREF" javaType="int" />               
+       <result property="revNref"      column="REV_NREF" javaType="int" />
+              
+	   <result property="symId"      column="SYM_ID" javaType="string" />              
+       <result property="symGubun"      column="SYM_GUBUN" />               
      </resultMap>
    
      <select id="GrdList"
@@ -84,7 +87,7 @@
             #{revIdx, mode=IN, jdbcType=NUMERIC},
             #{revConts, mode=IN, jdbcType=VARCHAR}
          ) }		     
-     </insert>          
+     </insert>         
      
                
      
@@ -97,6 +100,15 @@
                javaType=ResultSet, resultMap=RevListMap }
          ) }     
      </select>
+ 
+      <insert id="SymInsert" statementType="CALLABLE" 
+        parameterType="hashmap" >
+         {CALL  PKG_REV.PROC_SYM_INSERT(         	
+         	#{revIdx, mode=IN, jdbcType=NUMERIC},         	
+            #{mId, mode=IN, jdbcType=VARCHAR},
+            #{sGubun, mode=IN}            
+         ) }		     
+     </insert>
  
  
      <select id="Chart"

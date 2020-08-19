@@ -172,11 +172,11 @@ public class RevController {
 		System.out.println("좋아요싫어요 map : " + map );
 	
 		
-		//revService.insRev12Cnt(map);
+		revService.insertSym(map);
 		ModelAndView mv = new ModelAndView();		
 		mv.setViewName("redirect:/REVIEW/reviewRead");
 		
-		mv.addObject("revIdx", map.get("revIdx"));
+		mv.addObject("revIdx", map.get("lvl0Idx"));
 		mv.addObject("revLvl", map.get("revLvl"));
 		
 		mv.addObject("docId", map.get("docId"));
