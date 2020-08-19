@@ -7,6 +7,7 @@ public class ChartVo {
 	private int	   cntGrdScore;
 	private String mGender;
 	private String ages;
+	private String str;
 	
 	// Getter / Settter
 	public String getDocId() {
@@ -39,24 +40,29 @@ public class ChartVo {
 	public void setAges(String ages) {
 		this.ages = ages;
 	}
-	
-	
+	public String getStr() {
+		return str;
+	}
+	public void setStr(String str) {
+		this.str = str;
+	}
 	// Constructor
 	public ChartVo(){}
-	public ChartVo(String docId, double grdScore, int cntGrdScore, String mGender, String ages) {
+	public ChartVo(String docId, double grdScore, int cntGrdScore, String mGender, String ages, String str) {
 		super();
 		this.docId = docId;
 		this.grdScore = grdScore;
 		this.cntGrdScore = cntGrdScore;
 		this.mGender = mGender;
 		this.ages = ages;
+		this.str  = str;
 	}
 	
 	
 	@Override
 	public String toString() {
 		return "ChartVo [docId=" + docId + ", grdScore=" + grdScore + ", cntGrdScore=" + cntGrdScore + ", mGender="
-				+ mGender + ", ages=" + ages + "]";
+				+ mGender + ", ages=" + ages + ", str=" + str +"]";
 	}
 	
 	

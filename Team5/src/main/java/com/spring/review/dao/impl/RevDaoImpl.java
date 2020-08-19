@@ -62,6 +62,20 @@ public class RevDaoImpl implements RevDao {
 		return revVo;
 	}
 
+	@Override
+	public void insRevLvl1(HashMap<String, Object> map) {
+		
+		sqlSession.insert("REVIEW.RevInsLvl1", map);
+		
+	}
+
+	@Override
+	public void insRevLvl2(HashMap<String, Object> map) {
+		
+		sqlSession.insert("REVIEW.RevInsLvl2", map);
+		
+	}
+
 
 	
 }

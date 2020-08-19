@@ -160,7 +160,7 @@ a.link2:hover{text-decoration:underline;}
 				<!-- DONUT CHART -->
 	            <div class="card card-danger">
 	              <div class="card-header">
-	                <h3 class="card-title">연령별 평점</h3>
+	                <h3 class="card-title">연령별 리뷰수</h3>
 	
 	                <div class="card-tools">
 	                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
@@ -270,6 +270,7 @@ a.link2:hover{text-decoration:underline;}
               	   		              	   		
               	   		<input type="submit" class="btn" value="답글 달기" />              	   			
 						<input type="hidden" name="revIdx" value="${revIdx}" />
+						<input type="hidden" name="revLvl" value="${revLvl}" />
 						<input type="hidden" name="mId" value="${login.mId}" />            	   			  						            	   		              	   		              	                 	   	
               	   </td>   
  				 </tr>                 
@@ -289,13 +290,17 @@ a.link2:hover{text-decoration:underline;}
  				 	
 	 				 <tr>
 	 				 	<td colspan="1">${revVo1.mId}</td>
-	 				 	<td colspan="3">${revVo1.revConts}</td> 				 	
+	 				 	<td colspan="2">${revVo1.revConts}</td>
+	 				 	<td colspan="1">
+	 				 	좋아요:<a href="/REVIEW/insRev12Cnt?sGubun=G&revLvl=${revLvl}&revIdx=${revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}">${revVo1.goodCnt}</a>&nbsp;&nbsp;
+	 				 	싫어요:<a href="/REVIEW/insRev12Cnt?sGubun=B&revLvl=${revLvl}&revIdx=${revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}">${revVo1.badCnt}</a>
+	 				 	</td> 				 	
 	 				 </tr>
  				 
  				 <form action="/REVIEW/insRevLvl2?docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}" method="post"> 	
 	                 <tr class="vo2 ${ revVo1.revIdx }" >
 	                   <td colspan="3">             	   
-	              	   	 <textarea id="revLvl2" name="revLvl2" cols="200" rows="2"
+	              	   	 <textarea id="revLvl2" name="revConts" cols="200" rows="2"
 	              	   	 	style="resize:none" 
 	              	   	 	placeholder="댓글을 남겨주세요.영화와 상관없는 내용은 약관에 의해 제재를 받을 수 있습니다">
 	              	   	 </textarea>
@@ -303,10 +308,13 @@ a.link2:hover{text-decoration:underline;}
 	              	   <td colspan="1">
 	              	   		<input class="btn" type="submit" name="revConts" value="답글 달기" />
 	              	   		
+	              	   		<input type="hidden" name="lvl0Idx" value="${revIdx}" />
+	              	   		<input type="hidden" name="revLvl" value="${revLvl}" />
+	              	   			              	   		
 	              	   		<input type="hidden" name="revIdx" value="${revVo1.revIdx}" />
 	              	   		<input type="hidden" name="mId" value="${login.mId}" />
 	              	   </td>
-	 				 </tr>
+	 				 </tr>	 				 
 	 				 
 	 				 
  				 </form>
