@@ -43,7 +43,15 @@ $(function(){
 		});
 		 
 	    $("#btnRegister").click(function(){
+   			 var mId   = $("#mId").val();
 	  		 var mPass = $("#mPass").val();
+	  		 var exptext = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
+	  		 if(exptext.test(mId)==false){
+  				//이메일 형식이 알파벳+숫자@알파벳+숫자.알파벳+숫자 형식이 아닐경우			
+  				alert("이메일형식이 올바르지 않습니다.");
+  				$("#mId").focus();
+  				return false;
+  			 }
 			 if(mPass.length < 4 || mPass.length > 12){
 		         alert("비밀번호는 4~12자 이내로 입력 가능 합니다");
 		         $("#mPass").focus();
