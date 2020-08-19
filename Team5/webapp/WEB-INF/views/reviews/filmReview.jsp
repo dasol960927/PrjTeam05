@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>FilmCritics | FilmReview</title>
-<<<<<<< HEAD
+
 <!-- Tell the browser to be responsive to screen width -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -394,7 +394,6 @@ $(function(){
 </div>
 <!-- ./wrapper -->
 
-<<<<<<< HEAD
 <!-- jQuery -->
 <script src="/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
@@ -432,19 +431,15 @@ $(function(){
 					//alert('차트데이터'+ xhr.status + '' + xhr.textStatus);
 				}
 			});
+</script>
 	  
     /* ChartJS
      * -------
      * Here we will create a few charts using ChartJS
      */
-=======
+
 <%@ include file="/WEB-INF/include/footer.jsp" %>
 <%@ include file="/WEB-INF/include/doughnutChart.jsp" %>
->>>>>>> branch 'master' of https://github.com/dasol960927/PrjTeam05
-
-
-
-
 
 </body>
 </html>
