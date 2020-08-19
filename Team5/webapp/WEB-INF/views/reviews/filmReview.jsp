@@ -177,10 +177,24 @@
   <!-- /.content-wrapper -->
 
 
-<div id = ttest style="clear:both;">
+
 	<%@ include file="/WEB-INF/include/ReviewTest.jsp" %>
-	<div id = divTest style="width:220px; height:330px;"></div>
-</div>
+	<div class="gallery">
+	 	<ul class="clearfix">
+	 		<span id="divTest"></span>	
+	 	</ul>
+	 </div>
+	 
+	 <div class="g_item">
+	 	<ul>
+	 		<li class="on"></li>
+	 		<li></li>
+	 		<li></li>
+	 		<li></li>
+	 		<li></li>
+	 	</ul>
+	 </div>
+
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
