@@ -161,32 +161,35 @@ th, td{
             <div class="tab-content p-3" id="nav-tabContent" >
 
 				 <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab">
-				  <table> 
-                <tr>
-                  <th width="100px">한줄평</th>
-                  <th width="900px">
-                    총 : 00건&nbsp;&nbsp;&nbsp; 
-                  		
-					<input type="button" value="내 한줄평 작성하기" 
-					onclick="window.open('/REVIEW/insertGrdForm?mId=${login.mId}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}', '팝업창이름', 'width=500, height=500','location=no', 'resizable=no')">
-                  </th>                                    
-                </tr> 
-                
-                 <c:forEach var="revVo" items="${grdList}">
-                 <tr>	            
-              	   <td width="300px">
-              	   		<%  %>
-              	   		${revVo.grdScore}
-              	   </td>
-              	   <td width="700px">
-              	   ${revVo.grdConts}<br/>
-              	   ${revVo.mId}&nbsp;${revVo.revDate}<br/>
-              	   좋아요 : <a href="#">${revVo.goodCnt}</a> 싫어요 : <a href="#">${revVo.badCnt}</a>
-              	   </td>   
- 				 </tr>	             
-                 </c:forEach>
-               
-   </table> 
+
+               <table id="example1" class="table table-bordered table-striped">
+                 <thead>                  
+                   <tr>
+                     <th style="width: 100px">한줄평</th>
+                     <th>총 : 00건&nbsp;&nbsp;&nbsp; 
+				  
+				  <input type="button" value="내 한줄평 작성하기" 
+				onclick="window.open('/REVIEW/insertGrdForm?mId=${login.mId}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}', '팝업창이름', 'width=500, height=500','location=no', 'resizable=no')">
+				 
+				 </th>
+                   </tr>
+                 </thead>
+                 <tbody>
+               <c:forEach var="revVo" items="${grdList}">
+			   <tr>	            
+             	   <td width="300px">
+             	   		<%  %>
+             	   		${revVo.grdScore}
+             	   </td>
+             	   <td width="700px">
+             	   ${revVo.grdConts}<br/>
+             	   ${revVo.mId}&nbsp;${revVo.revDate}<br/>
+             	   좋아요 : <a href="#">${revVo.goodCnt}</a> 싫어요 : <a href="#">${revVo.badCnt}</a>
+             	   </td>   
+				 </tr>	             
+                </c:forEach>
+                 </tbody>
+               </table>
 				 </div>
 
             </div>
@@ -226,6 +229,24 @@ th, td{
   return false;
 });
  </script>
+ <!-- page script -->
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true,
+      "autoWidth": false,
+    });
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+</script>
 
 <%@ include file="/WEB-INF/include/doughnutChart.jsp" %>
 </body>
