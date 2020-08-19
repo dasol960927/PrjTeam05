@@ -181,5 +181,6 @@
 
 <%@ include file="/WEB-INF/include/footer.jsp" %>
 <%@ include file="/WEB-INF/include/doughnutChart.jsp" %>
+
 </body>
 </html>

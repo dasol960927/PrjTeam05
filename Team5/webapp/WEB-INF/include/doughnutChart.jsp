@@ -1,19 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <script>
- $('.starRev span').click(function(){
-  $(this).parent().children('span').removeClass('on');
-  $(this).addClass('on').prevAll('span').addClass('on');
-  return false;
-});
- </script>
+
 <script>
   $(function () {
 	  
 	  var docIdVal = '${docId}';
 	  
 	  $.ajax({
-			url : '/Chart/Gender',
+			url : '/Chart/Age',
 			type: 'GET',
 			data: {'docId' : docIdVal},
 			datatype: 'json',
@@ -25,7 +19,7 @@
 				
 					$.each(datas, function(index, item){
 						
-						labelData.push(item.mGender);
+						labelData.push(item.str);
 						grdData.push(item.cntGrdScore);
 
 					    //-------------
@@ -43,7 +37,7 @@
 				      datasets: [
 				        {
 				          data: grdData,
-				          backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc'],
+				          backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', 'red'],
 				        }
 				      ]
 				    }
@@ -60,7 +54,7 @@
 				    })
 			}, 
 				error : function(xhr) {
-					//alert('차트데이터'+ xhr.status + '' + xhr.textStatus);
+					alert('차트데이터'+ xhr.status + '' + xhr.textStatus);
 				}
 			});
 	  
