@@ -114,6 +114,8 @@ function getBoxOffice(date, divId) {
 //배우
 function getActor(actorVal, divId) {
 	$(function(){
+		var mId = $("#mId").val();
+		
 		var url = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70&' + 
 		     	  'actor=' + actorVal + '&listCount=10&sort=prodYear,1';
 		$.ajax({
@@ -125,6 +127,7 @@ function getActor(actorVal, divId) {
 				
 				var js = data.Data[0].Result;
 				var html = '';
+				//var mId = '${login.mId}';
 				$.each(js, function(index, item) {				
 					var posterVal = '';
 					var pos = poster(item.posters); //포스터 문자열 자르기
@@ -134,13 +137,17 @@ function getActor(actorVal, divId) {
 						posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
 								'&filmId=' + item.movieId + 
 								'&filmSeq=' + item.movieSeq + 
+<<<<<<< HEAD
+								'&filmYear=' + item.prodYear +' &mId=' + mId + '"><img src="' + pos[0] + '"/></a>';
+=======
 								'&filmYear=' + item.prodYear + 
 								'&genre=' + item.genre + '"><img src="' + pos[0] + '"/></a>';
+>>>>>>> branch 'master' of https://github.com/dasol960927/PrjTeam05
 					}
 					
 					html += '<div class="col-sm-2">';
 					html += posterVal + '<br>';
-		            html += '<p>' + item.title + '</p>';
+		            html += '<p>'+ item.title + '</p>';
 		            html += '</div>';
 				});
 				$('#'+divId).html(html);
@@ -273,6 +280,7 @@ getGenre('미스터리','div6');
 
 </head>
 <body class="hold-transition sidebar-mini">
+<input type = "hidden" id = "mId" value = "${login.mId }"/>
 <div class="wrapper">
 
 

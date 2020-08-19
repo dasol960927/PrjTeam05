@@ -10,12 +10,17 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.film.service.FilmService;
 import com.spring.film.vo.FilmVo;
+import com.spring.likelist.service.LikeService;
+import com.spring.likelist.vo.LikeVo;
 
 @Controller
 public class FilmController {
 	
 	@Autowired
 	private FilmService filmService; 
+	
+	@Autowired
+	private LikeService likeService;
 
 	@RequestMapping("/filmReview")
 	public ModelAndView filmReview(@RequestParam HashMap<String, Object> map) {
@@ -23,6 +28,10 @@ public class FilmController {
 		
 		filmService.setFilm(map);
 		FilmVo fVo = filmService.getPrice(map);
+		
+		//로그인 한 사람의 likechk를 받아오기 위한 코드
+		LikeVo LVo = likeService.getLikeChk(map);
+		
 		String docId = (String) map.get("docId");
 		String filmId = (String) map.get("filmId");
 		String filmSeq = (String) map.get("filmSeq");
@@ -46,6 +55,7 @@ public class FilmController {
 		mv.addObject("filmId", vo.getFilmId());
 		mv.addObject("filmSeq", vo.getFilmSeq());
 		mv.addObject("filmYear", vo.getFilmYear());
+		mv.addObject("likeChk", LVo.getLikeChk());
 		
 	
 		System.out.println(mv);

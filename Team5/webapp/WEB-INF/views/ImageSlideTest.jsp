@@ -72,7 +72,7 @@ var idx = 2;
 	<h1>이미지슬라이드 시작</h1>
 	 <div class="gallery">
 	 	<ul class="clearfix">
-	 		<li><div class="img">하지마라고!</div></li>		
+	 		<li><div class="img">하지마라고!!!</div></li>		
 	 		<li><div class="img">하지마라고!</div></li>		
 	 		<li><div class="img">하지마라고!</div></li>		
 	 		<li><div class="img">하지마라고!</div></li>		
