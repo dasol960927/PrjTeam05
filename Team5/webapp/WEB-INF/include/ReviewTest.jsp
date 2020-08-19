@@ -8,12 +8,13 @@ li{list-style:none;}
 .clear{clear: both;}    
 .gallery{width: 900px; margin: 20px auto; border: 1px solid #ccc; overflow: hidden; padding-left:0; }
 .gallery ul{width: 300%; position: relative; left: -300px;}
-.gallery ul li {float: left; width: 215px; height: 330px; box-sizing: border-box; padding: 15px; text-align: center; line-height: 150px;}
+.gallery ul li {float: left; width: 225px; height: 340px; box-sizing: border-box; padding: 15px; text-align: center; line-height: 340px;}
 
 
 .g_item{width: 860px; margin: 0 auto; text-align: center;}
 .g_item ul li{display: inline-block; margin-right: 10px; background: #ccc; width: 10px; height: 10px; border-radius: 50%;}
 .g_item ul li.on{background: #f00;}
+
 </style>
 <script>
 var gall  = setInterval(galleryFun, 2000);
@@ -140,7 +141,7 @@ $(function(){
 				
 				html+=              '<li><div class="img">';
 				html+= 				posterVal;
-				html+=              '<p>' + tit[0] + '</p></div></li>';
+				html+=              '<b>' + tit[0] + '</b></div></li>';
 			    
 			                
 				});
