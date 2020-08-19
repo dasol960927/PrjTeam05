@@ -76,6 +76,13 @@ public class RevDaoImpl implements RevDao {
 		
 	}
 
+	@Override
+	public void insertSym(HashMap<String, Object> map) {
+		
+		sqlSession.insert("REVIEW.SymInsert", map);
+		
+	}
+
 
 	
 }

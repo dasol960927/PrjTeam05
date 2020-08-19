@@ -292,8 +292,10 @@ a.link2:hover{text-decoration:underline;}
 	 				 	<td colspan="1">${revVo1.mId}</td>
 	 				 	<td colspan="2">${revVo1.revConts}</td>
 	 				 	<td colspan="1">
-	 				 	좋아요:<a href="/REVIEW/insRev12Cnt?sGubun=G&revLvl=${revLvl}&revIdx=${revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}">${revVo1.goodCnt}</a>&nbsp;&nbsp;
-	 				 	싫어요:<a href="/REVIEW/insRev12Cnt?sGubun=B&revLvl=${revLvl}&revIdx=${revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}">${revVo1.badCnt}</a>
+	 				 	${revVo1.symId}
+	 				 	${revVo1.symGubun}
+	 				 	좋아요:<a href="/REVIEW/insRev12Cnt?sGubun=G&revLvl=${revLvl}&lvl0Idx=${revIdx}&revIdx=${revVo1.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}&mId=${login.mId}">${revVo1.goodCnt}</a>&nbsp;&nbsp;
+	 				 	싫어요:<a href="/REVIEW/insRev12Cnt?sGubun=B&revLvl=${revLvl}&lvl0Idx=${revIdx}&revIdx=${revVo1.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}&mId=${login.mId}">${revVo1.badCnt}</a>
 	 				 	</td> 				 	
 	 				 </tr>
  				 
@@ -337,10 +339,20 @@ a.link2:hover{text-decoration:underline;}
 											 			    
 				 </c:forEach>
 		 			<tr>
-		 				<td colspan="4">
-		 				<input type="button" id="btnToggle" value="답글${ count }개" onclick="btnToggle('${ revVo1.revIdx }')"/>
-		 				</td>
-		 			</tr> 				 	 			    
+	 				 	<c:choose>					
+							<c:when test="${count eq 0}">		 			
+				 				<td colspan="4">
+				 				<input type="button" id="btnToggle" value="답글작성" onclick="btnToggle('${ revVo1.revIdx }')"/>
+				 				</td>
+		 				 	</c:when>
+		 				 	<c:otherwise>
+				 				<td colspan="4">
+				 				<input type="button" id="btnToggle" value="답글${ count }개" onclick="btnToggle('${ revVo1.revIdx }')"/>
+				 				</td>		 				 	
+		 				 	</c:otherwise>		 				 	
+		 			    </c:choose>   		 				
+		 			</tr>
+		 			 				 	 			    
 	 			 </c:forEach>	 				 	
  				
  				<!-- 

@@ -21,6 +21,8 @@ public interface RevService {
 
 	void insRevLvl2(HashMap<String, Object> map);
 
+	void insertSym(HashMap<String, Object> map);
+
 	
 
 }
