@@ -16,7 +16,10 @@ public class RevVo {
 	private int    revLvl;
 	private int    parentIdx;
 	private int    revNref;
+		
 	private String oCnt;
+	
+	private int lvl0Idx;
 	
 	// 영화 api 가져오기
 	private String filmId;
@@ -109,12 +112,24 @@ public class RevVo {
 	public void setRevNref(int revNref) {
 		this.revNref = revNref;
 	}	
+	
+	
 	public String getoCnt() {
 		return oCnt;
 	}
 	public void setoCnt(String oCnt) {
 		this.oCnt = oCnt;
 	}
+	
+		
+	
+	public int getLvl0Idx() {
+		return lvl0Idx;
+	}
+	public void setLvl0Idx(int lvl0Idx) {
+		this.lvl0Idx = lvl0Idx;
+	}
+	
 	
 	
 	public String getFilmId() {
@@ -140,7 +155,7 @@ public class RevVo {
 	public RevVo() {}	
 	public RevVo(int revIdx, String mId, String docId, String revTitle, String revConts, double grdScore,
 			String grdConts, int goodCnt, int badCnt, String revDate, char revGubun, int revLvl, int parentIdx,
-			int revNref, String oCnt, String filmId, String filmSeq, String filmYear) {		
+			int revNref, String oCnt, int lvl0Idx, String filmId, String filmSeq, String filmYear) {		
 		this.revIdx = revIdx;
 		this.mId = mId;
 		this.docId = docId;
@@ -156,11 +171,11 @@ public class RevVo {
 		this.parentIdx = parentIdx;
 		this.revNref = revNref;
 		this.oCnt = oCnt;
+		this.lvl0Idx = lvl0Idx;
 		this.filmId = filmId;
 		this.filmSeq = filmSeq;
 		this.filmYear = filmYear;
 	}
-	
 	
 	
 	@Override
@@ -168,13 +183,10 @@ public class RevVo {
 		return "RevVo [revIdx=" + revIdx + ", mId=" + mId + ", docId=" + docId + ", revTitle=" + revTitle
 				+ ", revConts=" + revConts + ", grdScore=" + grdScore + ", grdConts=" + grdConts + ", goodCnt="
 				+ goodCnt + ", badCnt=" + badCnt + ", revDate=" + revDate + ", revGubun=" + revGubun + ", revLvl="
-				+ revLvl + ", parentIdx=" + parentIdx + ", revNref=" + revNref + ", oCnt=" + oCnt + ", filmId=" + filmId
-				+ ", filmSeq=" + filmSeq + ", filmYear=" + filmYear + "]";
+				+ revLvl + ", parentIdx=" + parentIdx + ", revNref=" + revNref + ", oCnt=" + oCnt + ", lvl0Idx="
+				+ lvl0Idx + ", filmId=" + filmId + ", filmSeq=" + filmSeq + ", filmYear=" + filmYear + "]";
 	}
 	
-	
 
-	
-	
 
 }

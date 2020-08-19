@@ -270,6 +270,7 @@ a.link2:hover{text-decoration:underline;}
               	   		              	   		
               	   		<input type="submit" class="btn" value="답글 달기" />              	   			
 						<input type="hidden" name="revIdx" value="${revIdx}" />
+						<input type="hidden" name="revLvl" value="${revLvl}" />
 						<input type="hidden" name="mId" value="${login.mId}" />            	   			  						            	   		              	   		              	                 	   	
               	   </td>   
  				 </tr>                 
@@ -295,7 +296,7 @@ a.link2:hover{text-decoration:underline;}
  				 <form action="/REVIEW/insRevLvl2?docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}" method="post"> 	
 	                 <tr class="vo2 ${ revVo1.revIdx }" >
 	                   <td colspan="3">             	   
-	              	   	 <textarea id="revLvl2" name="revLvl2" cols="200" rows="2"
+	              	   	 <textarea id="revLvl2" name="revConts" cols="200" rows="2"
 	              	   	 	style="resize:none" 
 	              	   	 	placeholder="댓글을 남겨주세요.영화와 상관없는 내용은 약관에 의해 제재를 받을 수 있습니다">
 	              	   	 </textarea>
@@ -303,6 +304,9 @@ a.link2:hover{text-decoration:underline;}
 	              	   <td colspan="1">
 	              	   		<input class="btn" type="submit" name="revConts" value="답글 달기" />
 	              	   		
+	              	   		<input type="hidden" name="lvl0Idx" value="${revIdx}" />
+	              	   		<input type="hidden" name="revLvl" value="${revLvl}" />
+	              	   			              	   		
 	              	   		<input type="hidden" name="revIdx" value="${revVo1.revIdx}" />
 	              	   		<input type="hidden" name="mId" value="${login.mId}" />
 	              	   </td>

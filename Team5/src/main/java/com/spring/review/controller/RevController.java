@@ -80,6 +80,7 @@ public class RevController {
 		mv.setViewName("reviews/filmReviewConts");
 		
 		mv.addObject("revIdx", map.get("revIdx"));
+		mv.addObject("revLvl", map.get("revLvl"));
 		mv.addObject("docId", map.get("docId"));
 		mv.addObject("filmId", map.get("filmId"));
 		mv.addObject("filmSeq", map.get("filmSeq"));
@@ -130,9 +131,17 @@ public class RevController {
 		
 		System.out.println("form1 map : " + map );
 		
-		//revService.insRevLvl1(map);
+		revService.insRevLvl1(map);
 		ModelAndView mv = new ModelAndView();	
-		mv.setViewName("redirect:/REVIEW/filmReviewConts");		
+		mv.setViewName("redirect:/REVIEW/reviewRead");
+		
+		mv.addObject("revIdx", map.get("revIdx"));
+		mv.addObject("revLvl", map.get("revLvl"));
+		
+		mv.addObject("docId", map.get("docId"));
+		mv.addObject("filmId", map.get("filmId"));
+		mv.addObject("filmSeq", map.get("filmSeq"));
+		mv.addObject("filmYear", map.get("filmYear"));		
 		
 		return mv;
 	}
@@ -142,9 +151,17 @@ public class RevController {
 		
 		System.out.println("form2 map : " + map );
 		
-		//revService.insRevLvl2(map);
-		ModelAndView mv = new ModelAndView();	
-		mv.setViewName("redirect:/REVIEW/filmReviewConts");		
+		revService.insRevLvl2(map);
+		ModelAndView mv = new ModelAndView();		
+		mv.setViewName("redirect:/REVIEW/reviewRead");
+		
+		mv.addObject("revIdx", map.get("lvl0Idx"));
+		mv.addObject("revLvl", map.get("revLvl"));
+		
+		mv.addObject("docId", map.get("docId"));
+		mv.addObject("filmId", map.get("filmId"));
+		mv.addObject("filmSeq", map.get("filmSeq"));
+		mv.addObject("filmYear", map.get("filmYear"));		
 		
 		return mv;
 	}	

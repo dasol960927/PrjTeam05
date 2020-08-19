@@ -56,6 +56,20 @@ public class RevServiceImpl implements RevService {
 		return revVo;
 	}
 
+	@Override
+	public void insRevLvl1(HashMap<String, Object> map) {
+		
+		revDao.insRevLvl1(map);
+		
+	}
+
+	@Override
+	public void insRevLvl2(HashMap<String, Object> map) {
+		
+		revDao.insRevLvl2(map);
+		
+	}
+
 
 
 

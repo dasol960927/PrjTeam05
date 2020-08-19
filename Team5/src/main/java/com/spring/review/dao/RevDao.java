@@ -17,4 +17,8 @@ public interface RevDao {
 
 	List<RevVo> getRevList2(HashMap<String, Object> map);
 
+	void insRevLvl1(HashMap<String, Object> map);
+
+	void insRevLvl2(HashMap<String, Object> map);
+
 }
