@@ -45,8 +45,8 @@
 %>
 <body class="hold-transition sidebar-mini">
 	
-			<h1>평점(1~5, 단위:0.5)</h1>
-			<input type="text" id="grdScore" name="grdScore" class="form-control" value=""/>
+
+			<input type="text" id="grdScore" name="grdScore" class="form-control" placeholder="평점(1~5, 단위:0.5)을 숫자로 입력해주세요" value=""/>
 
 			
 			<input type="hidden" id="mId" value="<%=mId%>"/>
