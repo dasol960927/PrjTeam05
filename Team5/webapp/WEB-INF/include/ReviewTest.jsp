@@ -68,9 +68,12 @@ $(function(){
 				var posterVal = '';
 				var pos = poster(item.posters); //포스터 문자열 자르기
 				if(pos == ''){
-					posterVal = '<img src="/img/PosterReady.jpg" class="product-image" alt="포스터 준비중"/>';
+					posterVal = '<img src="/img/PosterReady.jpg" alt="포스터 준비중"/>';
 				}else{
-					posterVal = '<img src="' + pos[0] + '" class="product-image" alt="포스터"/>';
+					posterVal = '<a href="/filmReview?docId=' + data.Data[0].Result[0].DOCID + 
+					'&filmId=' + data.Data[0].Result[0].movieId + 
+					'&filmSeq=' + data.Data[0].Result[0].movieSeq + 
+					'&filmYear=' + data.Data[0].Result[0].prodYear + '"><img src="' + pos[0] + '"/></a>';
 				}
 
 				
