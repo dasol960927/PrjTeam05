@@ -290,7 +290,11 @@ a.link2:hover{text-decoration:underline;}
  				 	
 	 				 <tr>
 	 				 	<td colspan="1">${revVo1.mId}</td>
-	 				 	<td colspan="3">${revVo1.revConts}</td> 				 	
+	 				 	<td colspan="2">${revVo1.revConts}</td>
+	 				 	<td colspan="1">
+	 				 	좋아요:<a href="/REVIEW/insRev12Cnt?sGubun=G&revLvl=${revLvl}&revIdx=${revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}">${revVo1.goodCnt}</a>&nbsp;&nbsp;
+	 				 	싫어요:<a href="/REVIEW/insRev12Cnt?sGubun=B&revLvl=${revLvl}&revIdx=${revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}">${revVo1.badCnt}</a>
+	 				 	</td> 				 	
 	 				 </tr>
  				 
  				 <form action="/REVIEW/insRevLvl2?docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}" method="post"> 	

@@ -164,6 +164,27 @@ public class RevController {
 		mv.addObject("filmYear", map.get("filmYear"));		
 		
 		return mv;
+	}
+	
+	@RequestMapping("/REVIEW/insRev12Cnt")
+	public ModelAndView insRev12Cnt(@RequestParam HashMap<String, Object> map) {
+		
+		System.out.println("좋아요싫어요 map : " + map );
+	
+		
+		//revService.insRev12Cnt(map);
+		ModelAndView mv = new ModelAndView();		
+		mv.setViewName("redirect:/REVIEW/reviewRead");
+		
+		mv.addObject("revIdx", map.get("revIdx"));
+		mv.addObject("revLvl", map.get("revLvl"));
+		
+		mv.addObject("docId", map.get("docId"));
+		mv.addObject("filmId", map.get("filmId"));
+		mv.addObject("filmSeq", map.get("filmSeq"));
+		mv.addObject("filmYear", map.get("filmYear"));		
+		
+		return mv;
 	}	
 	
 	
