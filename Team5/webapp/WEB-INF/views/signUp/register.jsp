@@ -41,7 +41,15 @@ $(function(){
 				}
 			});
 		});
-	
+		 
+	    $("#btnRegister").click(function(){
+	  		 var mPass = $("#mPass").val();
+			 if(mPass.length < 4 || mPass.length > 12){
+		         alert("비밀번호는 4~12자 이내로 입력 가능 합니다");
+		         $("#mPass").focus();
+		         return false;
+		      }
+     	});
 	
 		// 비밀번호 재확인
 		$('input[type=password]').focusout(function () {
@@ -161,7 +169,7 @@ $(function(){
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <input type="submit" class="btn btn-primary btn-block" value="회원가입 "/>
+            <input type="submit" class="btn btn-primary btn-block" id="btnRegister" value="회원가입 "/>
           </div>
           <!-- /.col -->
         </div>
