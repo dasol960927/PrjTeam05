@@ -17,6 +17,9 @@ public interface LikeDao {
 	void setDelete(HashMap<String, Object> map);
 
 
+	LikeVo getLikeChk(HashMap<String, Object> map);
+
+
 	
 
 }

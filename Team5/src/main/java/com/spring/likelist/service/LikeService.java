@@ -15,6 +15,8 @@ public interface LikeService {
 
 	void setDelete(HashMap<String, Object> map);
 
+	LikeVo getLikeChk(HashMap<String, Object> map);
+
 
 	
 

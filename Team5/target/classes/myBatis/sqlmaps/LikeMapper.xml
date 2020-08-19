@@ -29,7 +29,6 @@
  		
  		)}
  		    
-     	
      </insert>
 
      <delete id="Delete"
@@ -39,9 +38,18 @@
             #{filmId, mode=IN, jdbcType=VARCHAR}
          ) }       	
      
-     
      </delete>
      
+     <select id = "getLikeChk"
+		statementType="CALLABLE" parameterType="hashmap" 
+		resultType="com.spring.likelist.vo.LikeVo">    
+         
+		SELECT nvl(max(LIKECHK), 'null') AS LIKECHK FROM LIKELIST 
+		WHERE M_ID = #{mId}
+		AND DOC_ID = #{docId}
+
+     
+     </select>
   
  
              

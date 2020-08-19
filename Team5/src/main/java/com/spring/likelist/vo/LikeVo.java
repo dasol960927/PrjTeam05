@@ -5,6 +5,7 @@ public class LikeVo {
 	private String likeId;
 	private String mId;
 	private String docId;
+	private String likeChk;
 	private int filmPrice;
 	
 	
@@ -26,6 +27,12 @@ public class LikeVo {
 	public void setDocId(String docId) {
 		this.docId = docId;
 	}
+	public String getLikeChk() {
+		return likeChk;
+	}
+	public void setLikeChk(String likeChk) {
+		this.likeChk = likeChk;
+	}
 	public int getFilmPrice() {
 		return filmPrice;
 	}
@@ -33,18 +40,11 @@ public class LikeVo {
 		this.filmPrice = filmPrice;
 	}
 	
-	public LikeVo() {}
-	public LikeVo(String likeId, String mId, String docId, int filmPrice) {
-		super();
-		this.likeId = likeId;
-		this.mId = mId;
-		this.docId = docId;
-		this.filmPrice = filmPrice;
-	}
 	
 	@Override
 	public String toString() {
-		return "LikeVo [likeId=" + likeId + ", mId=" + mId + ", docId=" + docId + ", filmPrice=" + filmPrice + "]";
+		return "LikeVo [likeId=" + likeId + ", mId=" + mId + ", docId=" + docId + ", likeChk=" + likeChk
+				+ ", filmPrice=" + filmPrice + "]";
 	}
 	
 	

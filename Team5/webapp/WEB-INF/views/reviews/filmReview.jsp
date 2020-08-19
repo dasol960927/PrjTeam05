@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -57,8 +58,8 @@
 <script>
 var movieId = '<%= (String)request.getParameter("filmId")%>'
 var movieSeq = '<%= (String)request.getParameter("filmSeq")%>'
-alert(movieId);
-alert(movieSeq);
+//alert(movieId);
+//alert(movieSeq);
 
 //console.log(movieId);
 //console.log(movieSeq);
@@ -178,6 +179,31 @@ $(function(){
 			alert(xhr.status + '' + xhr.textStatus);
 	  	}
 	});
+	
+	$("#divBtnLike").on("click", function(){
+		var loginMid = '${login.mId}';
+		var docId = '${fVo.docId}';
+		$.ajax({
+			url : '/Like',
+			data : {mId : loginMid, docId : docId },
+			dataType : 'json',
+			type : 'get',
+			success : function(data){
+				if(data.likeChk == 'N'){
+					$("#btnLike").css("color","black");
+					alert("찜 취소됐쪙 ~~ ><");
+				}else{
+					$("#btnLike").css("color", "red");
+					alert("찜 됐쪙~! ><");
+				}
+			},
+			error : function(xhr){
+				alert("error: " + xhr.status + "," + xhr.textStatus);
+			}
+		})
+	});
+	
+
 });
 
 </script>
@@ -279,17 +305,22 @@ $(function(){
               <div class="mt-4">
               
              <div id="btns" style="width:700px; height: 80px; clear:both;">
-         
-                <div class="btn btn-default btn-lg btn-flat" style="float:left; margin-left:5px; height: 48px;">
-                  <i class="fas fa-heart fa-lg mr-2"></i> 
-                  <a href="/Like?mId=${ login.mId }&docId=${docId }">찜하기</a>
+             
+             <c:choose>
+              <c:when test="${likeChk eq 'Y'}">
+                <div class="btn btn-default btn-lg btn-flat" id = "divBtnLike" style="float:left; margin-left:5px; height: 48px;">
+                  <i class="fas fa-heart fa-lg mr-2" id = "btnLike" style="color:red"></i>찜하기 
+                  <%-- <a href="/Like?mId=${ login.mId }&docId=${fVo.docId }"></a> --%>
                </div>
-               
-                <div class="btn btn-default btn-lg btn-flat" style="float:left; margin-left:5px; height: 48px;">
-                  <i class="fas fa-heart fa-lg mr-2" style="color:red"></i> 
-                  <a href="/Like?mId=${ login.mId }&docId=${fVo.docId }">찜하기2</a>
+              </c:when>
+              <c:otherwise>
+                <div class="btn btn-default btn-lg btn-flat" id = "divBtnLike" style="float:left; margin-left:5px; height: 48px;">
+                  <i class="fas fa-heart fa-lg mr-2" id = "btnLike"></i>찜하기
+                  <%-- <a href="/Like?mId=${ login.mId }&docId=${docId }">찜하기</a> --%>
                </div>
-                         
+              </c:otherwise>
+             </c:choose>
+                
                 <div class="btn btn-primary btn-lg btn-flat" style="float:left; margin-left:5px;">
                   <i class="fas fa-cart-plus fa-lg mr-2"></i> 
                     	<a href="/DPS/List?mId=${login.mId }" style="color:white;">포인트 충전</a>
@@ -397,7 +428,7 @@ $(function(){
 			datatype: 'json',
 			success : function(datas) {
 					$.each(datas, function(index, item){
-						alert(item.mGender + "," + item.cntGrdScore);
+						//alert(item.mGender + "," + item.cntGrdScore);
 						
 					});
 			}, 

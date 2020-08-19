@@ -40,10 +40,10 @@ public class ChartController {
 		List<ChartVo> ChartList = chartService.getGender(map);
 		System.out.println("성별 리스트 " + ChartList);
 		
-		ObjectMapper mapper = new ObjectMapper();
-		String jsonChartList = mapper.writeValueAsString(ChartList);
-		
-		System.out.println("json으로 변경" + jsonChartList);
+//		ObjectMapper mapper = new ObjectMapper();
+//		String jsonChartList = mapper.writeValueAsString(ChartList);
+//		
+//		System.out.println("json으로 변경" + jsonChartList);
 		return ChartList;
 	}
 	

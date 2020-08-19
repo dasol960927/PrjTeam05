@@ -23,8 +23,7 @@ public class LikeDaoImpl implements LikeDao {
 		
 		sqlSession.selectList("LIKE.LikeList", map);
 		List<LikeVo> likeList = (List<LikeVo>) map.get("result");
-				
-		
+			
 		return likeList;
 	}
 
@@ -39,6 +38,14 @@ public class LikeDaoImpl implements LikeDao {
 		sqlSession.delete("LIKE.Delete", map);
 
 		
+	}
+
+	@Override
+	public LikeVo getLikeChk(HashMap<String, Object> map) {
+		System.out.println("asdasdasd"+map);
+		LikeVo LVo = sqlSession.selectOne("LIKE.getLikeChk", map);
+		System.out.println("라이크다오임플에서 getLikeChk " + LVo);
+		return LVo;
 	}
 
 	
