@@ -49,6 +49,7 @@ $(function(){
 		         $("#mPass").focus();
 		         return false;
 		      }
+			 
      	});
 	
 		// 비밀번호 재확인
