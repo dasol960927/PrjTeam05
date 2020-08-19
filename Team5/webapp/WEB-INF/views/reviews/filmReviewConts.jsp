@@ -310,8 +310,7 @@ a.link2:hover{text-decoration:underline;}
 	              	   		<input type="hidden" name="revIdx" value="${revVo1.revIdx}" />
 	              	   		<input type="hidden" name="mId" value="${login.mId}" />
 	              	   </td>
-	 				 </tr>
-	 				 
+	 				 </tr>	 				 
 	 				 
  				 </form>
  				  		
