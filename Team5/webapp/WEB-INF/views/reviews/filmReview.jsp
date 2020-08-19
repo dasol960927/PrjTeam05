@@ -169,7 +169,10 @@
   <!-- /.content-wrapper -->
 
 
-
+<div id = ttest style="clear:both;">
+	<%@ include file="/WEB-INF/include/ReviewTest.jsp" %>
+	<div id = divTest style="width:220px; height:330px;"></div>
+</div>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -181,6 +184,10 @@
 
 <%@ include file="/WEB-INF/include/footer.jsp" %>
 <%@ include file="/WEB-INF/include/doughnutChart.jsp" %>
+
+
+
+
 
 </body>
 </html>

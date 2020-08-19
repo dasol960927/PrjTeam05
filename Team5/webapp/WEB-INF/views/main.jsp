@@ -61,7 +61,8 @@ function getBoxOffice(date, divId) {
 								v1 = '<a href="/filmReview?docId=' + data.Data[0].Result[i].DOCID + 
 								'&filmId=' + data.Data[0].Result[i].movieId + 
 								'&filmSeq=' + data.Data[0].Result[i].movieSeq + 
-								'&filmYear=' + data.Data[0].Result[i].prodYear + '"><img src="' + pos[0] + '"/></a>';
+								'&filmYear=' + data.Data[0].Result[i].prodYear + 
+								'&genre='+ data.Data[0].Result[i].genre + '"><img src="' + pos[0] + '"/></a>';
 							}else{
 								pos = '';
 							}
@@ -71,7 +72,8 @@ function getBoxOffice(date, divId) {
 						v1 = '<a href="/filmReview?docId=' + data.Data[0].Result[i].DOCID + 
 						'&filmId=' + data.Data[0].Result[i].movieId + 
 						'&filmSeq=' + data.Data[0].Result[i].movieSeq + 
-						'&filmYear=' + data.Data[0].Result[i].prodYear + '"><img src="' + pos[0] + '"/></a>';
+						'&filmYear=' + data.Data[0].Result[i].prodYear + 
+						'&genre='+ data.Data[0].Result[i].genre + '"><img src="' + pos[0] + '"/></a>';
 					}
 				}
 			},
@@ -132,7 +134,8 @@ function getActor(actorVal, divId) {
 						posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
 								'&filmId=' + item.movieId + 
 								'&filmSeq=' + item.movieSeq + 
-								'&filmYear=' + item.prodYear + '"><img src="' + pos[0] + '"/></a>';
+								'&filmYear=' + item.prodYear + 
+								'&genre=' + item.genre + '"><img src="' + pos[0] + '"/></a>';
 					}
 					
 					html += '<div class="col-sm-2">';
@@ -173,7 +176,8 @@ function getDirector(directorVal, divId) {
 						posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
 						'&filmId=' + item.movieId + 
 						'&filmSeq=' + item.movieSeq + 
-						'&filmYear=' + item.prodYear + '"><img src="' + pos[0] + '"/></a>';
+						'&filmYear=' + item.prodYear + 
+						'&genre=' + item.genre + '"><img src="' + pos[0] + '"/></a>';
 					}
 					
 					html += '<div class="col-sm-2">';
@@ -214,7 +218,8 @@ function getGenre(genreVal, divId) {
 						posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
 						'&filmId=' + item.movieId + 
 						'&filmSeq=' + item.movieSeq + 
-						'&filmYear=' + item.prodYear + '"><img src="' + pos[0] + '"/></a>';
+						'&filmYear=' + item.prodYear + 
+						'&genre=' + item.genre + '"><img src="' + pos[0] + '"/></a>';
 					}
 					
 					html += '<div class="col-sm-2">';
