@@ -23,38 +23,22 @@ public class ChartController {
 	
 	@RequestMapping("/Chart/Grd")
 	@ResponseBody
-	public ModelAndView ChartGrd(@RequestParam HashMap<String, Object> map) {
-		ModelAndView mv = new ModelAndView();
-		
-		System.out.println("평점 맵 " + map);
+	public List<ChartVo> ChartGrd(@RequestParam HashMap<String, Object> map) {
 		List<ChartVo> ChartList = chartService.getGrd(map);
-		System.out.println("평점 리스트 " + map);
-		mv.addObject("ChartList", ChartList);
-		mv.setViewName("/chartData/");
-		return mv;
+		return ChartList;
 	}
 	
 	@RequestMapping("/Chart/Gender")
 	@ResponseBody
 	public List<ChartVo> ChartGender(@RequestParam HashMap<String, Object> map) throws Exception {
-		System.out.println("성별 맵 " + map);
 		List<ChartVo> ChartList = chartService.getGender(map);
-		System.out.println("성별 리스트 " + ChartList);
-		
-//		ObjectMapper mapper = new ObjectMapper();
-//		String jsonChartList = mapper.writeValueAsString(ChartList);
-//		
-//		System.out.println("json으로 변경" + jsonChartList);
 		return ChartList;
 	}
 	
 	@RequestMapping("/Chart/Age")
 	@ResponseBody
 	public List<ChartVo> ChartAge(@RequestParam HashMap<String, Object> map) {
-		System.out.println("나이 맵 " + map);
-		List<ChartVo> ChartList = chartService.getAge(map);
-		System.out.println("나이 리스트 " + ChartList);
-		
+		List<ChartVo> ChartList = chartService.getAge(map);	
 		return ChartList;
 	}
 	
