@@ -192,6 +192,7 @@ public class RevVo {
 		this.filmId = filmId;
 		this.filmSeq = filmSeq;
 		this.filmYear = filmYear;
+		
 	}
 	
 	
