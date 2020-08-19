@@ -286,8 +286,7 @@ a.link2:hover{text-decoration:underline;}
  				 
  				 
  				 				   				 
- 				 <c:forEach var="revVo1" items="${revList1}">
- 				 
+ 				 <c:forEach var="revVo1" items="${revList1}"> 				 
  		 							 	
 	 				 <tr>
 	 				 	<td colspan="1">${revVo1.mId}</td>
