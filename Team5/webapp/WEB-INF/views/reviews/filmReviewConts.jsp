@@ -321,9 +321,9 @@ a.link2:hover{text-decoration:underline;}
 	 				 	${revVo1.symId}
 	 				 	${revVo1.symGubun}
 	 				 	<br />
-	 				 	좋아요:<a href="/REVIEW/insRev12Cnt?sGubun=G&revLvl=${revLvl}&lvl0Idx=${revIdx}&revIdx=${revVo1.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}&mId=${login.mId}">${revVo1.goodCnt}</a>
+	 				 	<i class="fas fa-thumbs-up"></i>:<a href="/REVIEW/insRev12Cnt?sGubun=G&revLvl=${revLvl}&lvl0Idx=${revIdx}&revIdx=${revVo1.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}&mId=${login.mId}">${revVo1.goodCnt}</a>
 	 				 	<br />	 				 	
-	 				 	싫어요:<a href="/REVIEW/insRev12Cnt?sGubun=B&revLvl=${revLvl}&lvl0Idx=${revIdx}&revIdx=${revVo1.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}&mId=${login.mId}">${revVo1.badCnt}</a>
+	 				 	<i class="fas fa-thumbs-up" style="transform: scaleY(-1);"></i>:<a href="/REVIEW/insRev12Cnt?sGubun=B&revLvl=${revLvl}&lvl0Idx=${revIdx}&revIdx=${revVo1.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}&mId=${login.mId}">${revVo1.badCnt}</a>
 	 				 	</td> 				 	
 	 				 </tr>
 	 				
