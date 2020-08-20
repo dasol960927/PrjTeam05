@@ -156,6 +156,29 @@ $(function(){
 			alert(xhr.status + '' + xhr.textStatus);
 	  	}
 	});
+	
+	$("#divBtnLike").on("click", function(){
+		var loginMid = '${login.mId}';
+		var docId = '${fVo.docId}';
+		$.ajax({
+			url : '/Like',
+			data : {mId : loginMid, docId : docId },
+			dataType : 'json',
+			type : 'get',
+			success : function(data){
+				if(data.likeChk == 'N'){
+					$("#btnLike").css("color","black");
+					alert("찜 취소됐쪙 ~~ ><");
+				}else{
+					$("#btnLike").css("color", "red");
+					alert("찜 됐쪙~! ><");
+				}
+			},
+			error : function(xhr){
+				alert("error: " + xhr.status + "," + xhr.textStatus);
+			}
+		})
+	});
 });
 
 </script>
