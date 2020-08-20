@@ -209,6 +209,7 @@ function getDirector(directorVal, divId) {
 //장르
 function getGenre(genreVal, divId) {
 	$(function(){
+		var mId = $("#mId").val();
 		var url = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70&' + 
 		     	  'genre=' + genreVal + '&listCount=10&sort=prodYear,1&createDts=2019';
 		$.ajax({
