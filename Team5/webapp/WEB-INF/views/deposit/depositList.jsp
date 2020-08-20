@@ -43,7 +43,7 @@ table { width:800px; margin:0 auto; }
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
                   	<br/>
-                    <b>찜한 영화</b> <p class="float-right" >&nbsp;&nbsp;&nbsp;편</p><a class="float-right" href="#">${memberVo.cntl}</a> 
+                    <b>찜한 영화</b> <p class="float-right" >&nbsp;&nbsp;&nbsp;편</p><a class="float-right" href="/LIKE/List?mId=${memberVo.mId}">${memberVo.cntl}</a> 
                   </li>
                   <li class="list-group-item">
                   	<br/>

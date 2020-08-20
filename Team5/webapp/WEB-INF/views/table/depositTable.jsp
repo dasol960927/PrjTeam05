@@ -40,11 +40,17 @@
                   </li>
                   <li class="list-group-item">
                   	<br/>
-                    <b>구매내역</b><a class="float-right" href="/PUR/purFilm?mId=${memberVo.mId}">구매하기(프로시저테스트용)</a> <p class="float-right" >&nbsp;&nbsp;&nbsp;건</p><a class="float-right" href="/PUR/List?mId=${memberVo.mId}">${memberVo.cntp}</a>
+                    <b>구매내역</b>
+                    <%-- <a class="float-right" href="/PUR/purFilm?mId=${memberVo.mId}">구매하기</a> --%>
+                    <p class="float-right" >&nbsp;건&nbsp;&nbsp;</p>
+                    <a class="float-right" href="/PUR/List?mId=${memberVo.mId}">${memberVo.cntp}</a>
                   </li>
                   <li class="list-group-item">
                   	<br/>
-                    <b>충전내역</b> <a class="float-right" href="/DPS/Deposit1?mId=${memberVo.mId}">충전하기</a> <p class="float-right">&nbsp;&nbsp;건&nbsp;&nbsp;</p> <a class="float-right" href="/DPS/List?mId=${memberVo.mId}">${memberVo.cntd}</a>  
+                    <b>충전내역</b> 
+                    <a class="float-right" href="/DPS/Deposit1?mId=${memberVo.mId}">충전하기</a> 
+                    <p class="float-right">&nbsp;건&nbsp;&nbsp;</p> 
+                    <a class="float-right" href="/DPS/List?mId=${memberVo.mId}">${memberVo.cntd}</a>  
                   </li>
                 </ul>
 				<br/>

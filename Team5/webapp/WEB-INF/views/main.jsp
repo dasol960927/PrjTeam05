@@ -39,6 +39,7 @@ function title(string) {
 var v1 = '';
 function getBoxOffice(date, divId) {
 	function kmdbApi(movieNm,openDt) {
+		var mId = $("#mId").val();
 		var kDate = movieDate(openDt);
 		var KMDbUrl = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70'
 				+'&releaseDts=' + kDate + '&title='+ movieNm;
@@ -62,7 +63,8 @@ function getBoxOffice(date, divId) {
 								'&filmId=' + data.Data[0].Result[i].movieId + 
 								'&filmSeq=' + data.Data[0].Result[i].movieSeq + 
 								'&filmYear=' + data.Data[0].Result[i].prodYear + 
-								'&genre='+ data.Data[0].Result[i].genre + '"><img src="' + pos[0] + '"/></a>';
+								'&genre='+ data.Data[0].Result[i].genre + 
+								'&mId=' + mId + '"><img src="' + pos[0] + '"/></a>';
 							}else{
 								pos = '';
 							}
@@ -73,7 +75,8 @@ function getBoxOffice(date, divId) {
 						'&filmId=' + data.Data[0].Result[i].movieId + 
 						'&filmSeq=' + data.Data[0].Result[i].movieSeq + 
 						'&filmYear=' + data.Data[0].Result[i].prodYear + 
-						'&genre='+ data.Data[0].Result[i].genre + '"><img src="' + pos[0] + '"/></a>';
+						'&genre='+ data.Data[0].Result[i].genre +
+						'&mId=' + mId + '"><img src="' + pos[0] + '"/></a>';
 					}
 				}
 			},
@@ -137,9 +140,10 @@ function getActor(actorVal, divId) {
 						posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
 								'&filmId=' + item.movieId + 
 								'&filmSeq=' + item.movieSeq + 
-								'&filmYear=' + item.prodYear +' &mId=' + mId + '"><img src="' + pos[0] + '"/></a>';
+								'&filmYear=' + item.prodYear +
 								'&filmYear=' + item.prodYear + 
-								'&genre=' + item.genre + '"><img src="' + pos[0] + '"/></a>';
+								'&genre=' + item.genre + 
+								'&mId=' + mId + '"><img src="' + pos[0] + '"/></a>';
 					}
 					
 					html += '<div class="col-sm-2">';
@@ -159,6 +163,7 @@ function getActor(actorVal, divId) {
 //감독
 function getDirector(directorVal, divId) {
 	$(function(){
+		var mId = $("#mId").val();
 		var url = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70&' + 
 		     	  'director=' + directorVal + '&listCount=10&sort=prodYear,1';
 		$.ajax({
@@ -180,8 +185,10 @@ function getDirector(directorVal, divId) {
 						posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
 						'&filmId=' + item.movieId + 
 						'&filmSeq=' + item.movieSeq + 
+						'&filmYear=' + item.prodYear +
 						'&filmYear=' + item.prodYear + 
-						'&genre=' + item.genre + '"><img src="' + pos[0] + '"/></a>';
+						'&genre=' + item.genre + 
+						'&mId=' + mId + '"><img src="' + pos[0] + '"/></a>';
 					}
 					
 					html += '<div class="col-sm-2">';

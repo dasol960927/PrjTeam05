@@ -49,7 +49,7 @@
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
                   	<br/>
-                    <b>찜한 영화</b> <p class="float-right" >&nbsp;&nbsp;&nbsp;편</p><a class="float-right" href="#">${memberVo.cntl}</a> 
+                    <b>찜한 영화</b> <p class="float-right" >&nbsp;&nbsp;&nbsp;편</p><a class="float-right" href="/LIKE/List?mId=${memberVo.mId}">${memberVo.cntl}</a> 
                   </li>
                   <li class="list-group-item">
                   	<br/>
@@ -57,7 +57,10 @@
                   </li>
                   <li class="list-group-item">
                   	<br/>
-                    <b>구매내역</b><a class="float-right" href="/PUR/purFilm?mId=${memberVo.mId}">구매하기(프로시저테스트용)</a> <p class="float-right" >&nbsp;&nbsp;&nbsp;건</p><a class="float-right" href="/PUR/List?mId=${memberVo.mId}">${memberVo.cntp}</a>
+                    <b>구매내역</b> 
+                    <%-- <a class="float-right" href="/PUR/purFilm?mId=${memberVo.mId}">구매하기</a> --%>
+                    <p class="float-right" >&nbsp;건&nbsp;&nbsp;</p>
+                    <a class="float-right" href="/PUR/List?mId=${memberVo.mId}">${memberVo.cntp}</a>
                   </li>
                   <li class="list-group-item">
                   	<br/>

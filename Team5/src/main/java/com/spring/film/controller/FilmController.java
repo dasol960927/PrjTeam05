@@ -12,6 +12,8 @@ import com.spring.film.service.FilmService;
 import com.spring.film.vo.FilmVo;
 import com.spring.likelist.service.LikeService;
 import com.spring.likelist.vo.LikeVo;
+import com.spring.member.service.MemberService;
+import com.spring.member.vo.MemberVo;
 
 @Controller
 public class FilmController {
@@ -21,6 +23,9 @@ public class FilmController {
 	
 	@Autowired
 	private LikeService likeService;
+	
+	@Autowired
+	private MemberService memberService;
 
 	@RequestMapping("/filmReview")
 	public ModelAndView filmReview(@RequestParam HashMap<String, Object> map) {
@@ -31,6 +36,8 @@ public class FilmController {
 		
 		//로그인 한 사람의 likechk를 받아오기 위한 코드
 		LikeVo LVo = likeService.getLikeChk(map);
+		
+		MemberVo memberVo = memberService.getMemberInfo(map);
 		
 		String docId = (String) map.get("docId");
 		String filmId = (String) map.get("filmId");
@@ -56,6 +63,7 @@ public class FilmController {
 		mv.addObject("filmSeq", vo.getFilmSeq());
 		mv.addObject("filmYear", vo.getFilmYear());
 		mv.addObject("likeChk", LVo.getLikeChk());
+		mv.addObject("mVo", memberVo);
 		
 	
 		System.out.println(mv);

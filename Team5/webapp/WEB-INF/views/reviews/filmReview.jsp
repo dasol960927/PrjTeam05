@@ -301,7 +301,7 @@ $(function(){
 				<div class="bg-gray">
 					<h2 class="mb-0">영화가격 : ${fVo.filmPrice }P</h2>
 					<br>
-					<h4 class="mt-0">잔여 캐시 : ${ login.mCash }P</h4>
+					<h4 class="mt-0">잔여 캐시 : ${ mVo.mCash }P</h4>
 				</div>
 
               <div class="mt-4">
@@ -393,49 +393,6 @@ $(function(){
 </div>
 <!-- ./wrapper -->
 
-<!-- jQuery -->
-<script src="/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- ChartJS -->
-<script src="/plugins/chart.js/Chart.min.js"></script>
-<!-- AdminLTE App -->
-<script src="/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="/dist/js/demo.js"></script>
- <script>
- $('.starRev span').click(function(){
-  $(this).parent().children('span').removeClass('on');
-  $(this).addClass('on').prevAll('span').addClass('on');
-  return false;
-});
- </script>
-<script>
-  $(function () {
-	  
-	  var docIdVal = '${docId}';
-	  
-	  $.ajax({
-			url : '/Chart/Gender',
-			type: 'GET',
-			data: {'docId' : docIdVal},
-			datatype: 'json',
-			success : function(datas) {
-					$.each(datas, function(index, item){
-						//alert(item.mGender + "," + item.cntGrdScore);
-						
-					});
-			}, 
-				error : function(xhr) {
-					//alert('차트데이터'+ xhr.status + '' + xhr.textStatus);
-				}
-			});
-</script>
-	  
-    /* ChartJS
-     * -------
-     * Here we will create a few charts using ChartJS
-     */
 
 <%@ include file="/WEB-INF/include/footer.jsp" %>
 <%@ include file="/WEB-INF/include/doughnutChart.jsp" %>
