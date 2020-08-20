@@ -51,7 +51,7 @@ function getBoxOffice(date, divId) {
 			dataType : "json",
 			async: false, //값을 리턴시 해당코드를 추가하여 동기로 변경
 			success : function(data) {
-				console.log(data);
+				//console.log(data);
 				var TotalCount = data.Data[0].Count;
 				v1 = '<img src="/img/PosterReady.jpg" alt="포스터 준비중"/>';
 				if(TotalCount == 0){
@@ -98,7 +98,7 @@ function getBoxOffice(date, divId) {
 			type : 'get',
 			dataType : "json",
 			  success : function(data) {
-				  console.log(data);
+				  //console.log(data);
 				  var list = data.boxOfficeResult.dailyBoxOfficeList;
 				  //console.log(list);
 				  var html = '';
