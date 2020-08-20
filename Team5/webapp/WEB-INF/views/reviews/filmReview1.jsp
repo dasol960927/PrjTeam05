@@ -51,14 +51,26 @@ th, td{
                  <tbody>
                <c:forEach var="revVo" items="${grdList}">
 			   <tr>	            
-             	   <td width="300px">
-             	   		<%  %>
+             	   <td width="300px">             	   		
              	   		${revVo.grdScore}
              	   </td>
              	   <td width="700px">
              	   ${revVo.grdConts}<br/>
-             	   ${revVo.mId}&nbsp;${revVo.revDate}<br/>
-             	   좋아요 : <a href="#">${revVo.goodCnt}</a> 싫어요 : <a href="#">${revVo.badCnt}</a>
+             	   ${revVo.mId}&nbsp;${revVo.revDate}<br/>             	   
+             	   <c:choose>
+             	   <c:when test="${revVo.symGubun eq 'G'.charAt(0)}">
+             	   <i class="fas fa-thumbs-up" id="good" style="color:green;"></i>: <a href="/REVIEW/insGrdCnt?sGubun=G&revIdx=${revVo.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmSeq}&mId=${login.mId}">${revVo.goodCnt}</a> 
+             	   <i class="fas fa-thumbs-up" id="bad" style="transform: scaleY(-1); color:gray;"></i>: <a href="/REVIEW/insGrdCnt?sGubun=B&revIdx=${revVo.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmSeq}&mId=${login.mId}">${revVo.badCnt}</a>
+             	   </c:when>
+             	   <c:when test="${revVo.symGubun eq 'B'.charAt(0)}">
+             	   <i class="fas fa-thumbs-up" id="good" style="color:gray;"></i>: <a href="/REVIEW/insGrdCnt?sGubun=G&revIdx=${revVo.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmSeq}&mId=${login.mId}">${revVo.goodCnt}</a> 
+             	   <i class="fas fa-thumbs-up" id="bad" style="transform: scaleY(-1); color:green;"></i>: <a href="/REVIEW/insGrdCnt?sGubun=B&revIdx=${revVo.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmSeq}&mId=${login.mId}">${revVo.badCnt}</a>
+             	   </c:when>
+             	   <c:otherwise>
+             	   <i class="fas fa-thumbs-up" id="good" style="color:gray;"></i>: <a href="/REVIEW/insGrdCnt?sGubun=G&revIdx=${revVo.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmSeq}&mId=${login.mId}">${revVo.goodCnt}</a> 
+             	   <i class="fas fa-thumbs-up" id="bad" style="transform: scaleY(-1); color:gray;"></i>: <a href="/REVIEW/insGrdCnt?sGubun=B&revIdx=${revVo.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmSeq}&mId=${login.mId}">${revVo.badCnt}</a>
+             	   </c:otherwise>             	                	   
+             	   </c:choose>
              	   </td>   
 				 </tr>	             
                 </c:forEach>

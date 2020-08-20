@@ -30,6 +30,7 @@
          resultType="com.spring.review.vo.RevVo">
          {CALL  PKG_REV.PROC_GRD_LIST(
          	#{docId, mode=IN, jdbcType=VARCHAR},
+         	#{mId, mode=IN, jdbcType=VARCHAR},
             #{result, mode=OUT, jdbcType=CURSOR, 
                javaType=ResultSet, resultMap=RevListMap }
          ) }     

@@ -190,10 +190,11 @@ public class RevController {
 	@RequestMapping("/REVIEW/insRev12Cnt")
 	public ModelAndView insRev12Cnt(@RequestParam HashMap<String, Object> map) {
 
-		System.out.println("좋아요싫어요 map : " + map);
+		System.out.println("좋아요싫어요 map : " + map);		
 
 		revService.insertSym(map);
-		ModelAndView mv = new ModelAndView();
+		ModelAndView mv = new ModelAndView();				
+		
 		mv.setViewName("redirect:/REVIEW/reviewRead");
 
 		mv.addObject("revIdx", map.get("lvl0Idx"));
@@ -203,8 +204,31 @@ public class RevController {
 		mv.addObject("filmId", map.get("filmId"));
 		mv.addObject("filmSeq", map.get("filmSeq"));
 		mv.addObject("filmYear", map.get("filmYear"));
+		//
+		mv.addObject("mId", map.get("mId"));
 
 		return mv;
 	}
+	
+	@RequestMapping("/REVIEW/insGrdCnt")
+	public ModelAndView insGrdCnt(@RequestParam HashMap<String, Object> map) {
+
+		System.out.println("좋아요싫어요 map : " + map);		
+
+		revService.insertSym(map);
+		ModelAndView mv = new ModelAndView();				
+		
+		mv.setViewName("redirect:/REVIEW/grdList");
+
+		mv.addObject("docId", map.get("docId"));
+		mv.addObject("filmId", map.get("filmId"));
+		mv.addObject("filmSeq", map.get("filmSeq"));
+		mv.addObject("filmYear", map.get("filmYear"));
+		//
+		mv.addObject("mId", map.get("mId"));
+
+		return mv;
+	}	
+	
 
 }
