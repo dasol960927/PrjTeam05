@@ -182,6 +182,55 @@ $(function(){
 });
 </script>
 
+
+
+<!-- 구매버튼 -->
+<script>
+   $(function(){
+      $('#btnPur').on('click', function(){
+         if(confirm("구매하시겠습니까 ?") == true){
+            var vmId = '${login.mId}';
+            var vdocId = '${fVo.docId}';
+            var vfilmPrice = '${fVo.filmPrice}';
+            
+            $.ajax({
+               url : '/PUR/purFilm',
+               data : {mId : vmId, docId : vdocId, filmPrice : vfilmPrice},
+               dataType : 'json',
+               type : 'get',
+               success : function(data){
+                  var oErrMsg = data.model.oErrMsg;
+                  var oOverlapFilm = data.model.oOverlapFilm;
+                  
+                  if(oErrMsg == null){
+                     if(oOverlapFilm == null){
+                        alert('구매 되었습니다.');
+                     }else
+                        alert(oOverlapFilm);
+                  }else
+                     alert(oErrMsg);
+               },
+               error : function(xhr){
+                  alert("error: " + xhr.status + "," + xhr.textStatus);
+               }
+               
+            })
+            /* 
+            $(location).attr("href", "/PUR/purFilm?mId=${login.mId }&docId=${fVo.docId}&filmPrice=${fVo.filmPrice}");
+              alert("구매되었습니다");
+               */
+          }
+          else{
+              return ;
+          }
+      })
+   })
+   
+   
+</script>
+
+
+
 <input type = "hidden" id = "mId" value = "${login.mId }"/>
 <!-- Site wrapper -->
 <div class="wrapper">
@@ -292,7 +341,7 @@ $(function(){
                   <i class="fas fa-cart-plus fa-lg mr-2"></i> 
                     	<a href="/DPS/List?mId=${login.mId }" style="color:white;">포인트 충전</a>
                 </div>
-                <div class="btn btn-primary btn-lg btn-flat" style="float:left; margin-left:5px;">
+                <div class="btn btn-primary btn-lg btn-flat" id = "btnPur" style="float:left; margin-left:5px;">
                   <i class="far fa-credit-card"></i> 
 
                     	<a href="/PUR/purFilm?mId=${login.mId }&docId=${fVo.docId}&filmPrice=${fVo.filmPrice}" style="color:white;">구매하기</a>
