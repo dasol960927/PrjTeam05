@@ -145,7 +145,7 @@ a.link2:hover{text-decoration:underline;}
               	   		${revVo.revConts}              	                 	   
               	   </td>   
  				 </tr>
- 				 
+ 				  				 
  				 <form action="/REVIEW/insRevLvl1?docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}" method="post">	             
                  <tr>             	   
               	   <td colspan="5" >              	   		
