@@ -283,10 +283,6 @@ a.link2:hover{text-decoration:underline;}
 
               	   <td colspan="4" width="1000px">
 
-
-
-
-
               	   		${revVo.revConts}              	                 	   
               	   </td>   
  				 </tr>
@@ -309,8 +305,7 @@ a.link2:hover{text-decoration:underline;}
               	   </td>
  				 </tr>
  				 </form>
- 				 
- 				 
+ 				  				 
  				 				   				 
  				 <c:forEach var="revVo1" items="${revList1}"> 				 
  		 							 	
