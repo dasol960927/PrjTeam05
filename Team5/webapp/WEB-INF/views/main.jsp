@@ -36,22 +36,24 @@ function title(string) {
 	return str;
 }
 
-var v1 = '';
+
 function getBoxOffice(date, divId) {
 	function kmdbApi(movieNm,openDt) {
+		var v1 = '';
 		var mId = $("#mId").val();
 		var kDate = movieDate(openDt);
 		var KMDbUrl = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70'
 				+'&releaseDts=' + kDate + '&title='+ movieNm;
-		var pos = '';
+		
 		$.ajax({
 			url : KMDbUrl,
 			type : 'get',
 			dataType : "json",
 			async: false, //값을 리턴시 해당코드를 추가하여 동기로 변경
 			success : function(data) {
-				//console.log(data);
+				console.log(data);
 				var TotalCount = data.Data[0].Count;
+				v1 = '<img src="/img/PosterReady.jpg" alt="포스터 준비중"/>';
 				if(TotalCount == 0){
 					v1 = '<img src="/img/PosterReady.jpg" alt="포스터 준비중"/>';
 				}else{
@@ -96,6 +98,7 @@ function getBoxOffice(date, divId) {
 			type : 'get',
 			dataType : "json",
 			  success : function(data) {
+				  console.log(data);
 				  var list = data.boxOfficeResult.dailyBoxOfficeList;
 				  //console.log(list);
 				  var html = '';
