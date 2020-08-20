@@ -56,6 +56,7 @@
          {CALL  PKG_REV.PROC_REV_LIST2(         	
          	#{revIdx, mode=IN, jdbcType=NUMERIC},
          	#{revLvl, mode=IN, jdbcType=NUMERIC},
+         	#{mId, mode=IN, jdbcType=VARCHAR},
             #{result, mode=OUT, jdbcType=CURSOR, 
                javaType=ResultSet, resultMap=RevListMap }
          ) }     
