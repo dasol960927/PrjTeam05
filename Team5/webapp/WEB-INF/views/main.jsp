@@ -105,7 +105,7 @@ function getBoxOffice(date, divId) {
 				  $.each(list, function(index, item) {
 					 	html += '<div class="col-sm-2">';
 						html += kmdbApi(item.movieNm,item.openDt);
-		               	html += '<p>제목 : ' + item.movieNm + '</p>';
+		               	html += '<p>' + item.movieNm + '</p>';
 		                html += '</div>';
 				  });
 				  $('#div0').html(html);
