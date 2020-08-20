@@ -273,9 +273,9 @@ li{list-style:none;}
 .clearfix { overflow: auto; }
 .clearfix::after {content: ""; clear: both; display: table; }
 .clear{clear: both;}    
-.gallery{width: 900px; margin: 20px auto; border: 1px solid #ccc; overflow: hidden; padding-left:0; }
+.gallery{width: 1000px; height:400px; margin: 20px auto; border: 1px solid #ccc; overflow: hidden; padding-left:0; }
 .gallery ul{width: 300%; position: relative; left: -300px;}
-.gallery ul li {float: left; width: 300px; height: 180px; box-sizing: border-box; padding: 15px; text-align: center; line-height: 150px;}
+.gallery ul li {float: left; width: 300px; height: 180px; box-sizing: border-box; padding: 15px; text-align: center;}
 .gallery ul li .img{border: 3px solid #ccc;}
 
 .g_item{width: 900px; margin: 0 auto; text-align: center;}
@@ -285,50 +285,60 @@ li{list-style:none;}
 </head>
 <body>
 
-<div class="w3-content" id="here" style="width:230px; border:1px solid black;">
-</div>
-
-
-
-
 <div class="gallery">
- <ul class="clearfix" id="hi">
-   
- </ul>
+	<ul class="clearfix" id="hi">
+	
+
+
+	</ul>
 </div>
 
-<div class="g_item">
+
+	<div class="g_item">
   <ul>
     <li class="on"></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
   </ul>
 </div>
 
 
 
 
-<script>
-var slideIndex = 1;
-showDivs(slideIndex);
 
-function plusDivs(n) {
-  showDivs(slideIndex += n);
-}
+<div class="w3-content" style="max-width:230px;position:relative; border:1px solid black;">
+			<div class="w3-display-container mySlides" >
+				<img src="/img/Aha.jpg" class="img" style="postion:absolute; left:10px;">
+				<div
+					class="w3-display-bottomleft w3-large w3-container w3-padding-hor-16 w3-black">
+					Trolltunga, Norway</div>
+			</div>
+			
+			<div class="w3-display-container mySlides">
+				<img src="/img/User.jpg" class="img">
+				<div
+					class="w3-display-bottomleft w3-large w3-container w3-padding-hor-16 w3-black">
+					Trolltunga, Norway</div>
+			</div>
+			
+			<div class="w3-display-container mySlides">
+				<img src="/img/kakaopay.jpg" class="img">
+				<div
+					class="w3-display-bottomleft w3-large w3-container w3-padding-hor-16 w3-black">
+					Trolltunga, Norway</div>
+			</div>
+			<a class="w3-btn-floating w3-hover-dark-grey" style="position:absolute;top:52%;left:0;background-color:tomato;" onclick="plusDivs(-1)">❮</a>
+<a class="w3-btn-floating w3-hover-dark-grey" style="position:absolute;top:52%;right:0;background-color:tomato;" onclick="plusDivs(1)">❯</a>
+</div>
 
-function showDivs(n) {
-  var i;
-  var x = $(".mySlides");
-  if (n > x.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = x.length} ;
-  for (i = 0; i < x.length; i++) {
-     x[i].style.display = "none";  
-  }
-  x[slideIndex-1].style.display = "block";  
-}
-</script>
+
 
 
 <!-- 자동 -->
@@ -370,13 +380,46 @@ var idx = 2;
  
  
  $(".g_item ul li").on('click',function(){
-   $(this).addClass("on").siblings().removeClass("on");
-   idx = $(this).index()+1;
-   $(".gallery ul").animate({
-      "left":-300*idx+"px"
-    },1000);
+     $(this).addClass("on").siblings().removeClass("on");
+     idx = $(this).index()+1;
+     $(".gallery ul").animate({
+        "left":-300*idx+"px"
+      },1000);
+     
+   });
    
- });
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+<script>
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = x.length} ;
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";  
+  }
+  x[slideIndex-1].style.display = "block";  
+}
 </script>
 </body>
 </html>
