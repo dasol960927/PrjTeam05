@@ -73,7 +73,7 @@ a.link2:hover{text-decoration:underline;}
                   <thead>
                   <tr>
                     <th  width="100px">리뷰&nbsp;&nbsp;&nbsp;</th>
-                    <th width="900px">총 ${oCnt}  &nbsp;&nbsp;&nbsp; 로그인아이디 : ${login.mNickName}</th>
+                    <th width="900px">총 ${oCnt} 개 </th>
                   </tr>
                   </thead>
                   <tbody>
