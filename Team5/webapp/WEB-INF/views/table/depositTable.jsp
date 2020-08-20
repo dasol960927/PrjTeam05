@@ -14,13 +14,13 @@
 
 
   <%@ include file="/WEB-INF/include/ProfileCommon.jsp" %>
-  <%@ include file="/WEB-INF/include/footer.jsp" %>
         			
         </div>
         <!-- /.row -->
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
+  <%@ include file="/WEB-INF/include/footer.jsp" %>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
