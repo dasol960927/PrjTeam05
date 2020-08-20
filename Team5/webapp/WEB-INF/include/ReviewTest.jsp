@@ -140,7 +140,7 @@ $(function(){
 
 				html+=              '<li><div class="img">';
 				html+= 				posterVal;
-				html+=              '<b>' + tit[0] + '</b></div></li>';
+				html+=              '</div></li>';
 			                
 				});
 			$('#divTest').html(html);
