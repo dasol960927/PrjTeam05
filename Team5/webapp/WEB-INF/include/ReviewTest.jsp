@@ -71,18 +71,15 @@ function genreText(string) {
 	return str;
 }
 
-
 var movieId = '<%= (String)request.getParameter("filmId")%>'
 var movieSeq = '<%= (String)request.getParameter("filmSeq")%>'
 var genreVal = '<%= (String)request.getParameter("genre")%>'
 
 var genre = genreText(genreVal);
 
-
-
 //console.log(movieId);
 //console.log(movieSeq);
-console.log(genre[0]);
+//console.log(genre[0]);
 //alert(keywordGet);
 
 //null 체크
@@ -111,6 +108,7 @@ function title(string) {
 }
 
 $(function(){
+	var mId = $("#mId").val();
 	var url = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70&'+
 			'genre=' + genre[0] + '&createDts=2019&listCount=10';
 	$.ajax({
@@ -120,7 +118,7 @@ $(function(){
 		success : function(data) {
 			//console.log(data);
 			var json = data.Data[0].Result;
-			console.log(data);
+			//console.log(data);
 			var html  = '';
 			$.each(json, function(index, item) {
 				
@@ -132,17 +130,17 @@ $(function(){
 				if(pos == ''){
 					posterVal = '<img src="/img/PosterReady.jpg" alt="포스터 준비중"/>';
 				}else{
-					posterVal = '<a href="/filmReview?docId=' + data.Data[0].Result[0].DOCID + 
-					'&filmId=' + data.Data[0].Result[0].movieId + 
-					'&filmSeq=' + data.Data[0].Result[0].movieSeq + 
-					'&filmYear=' + data.Data[0].Result[0].prodYear + '"><img src="' + pos[0] + '"/></a>';
+					posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
+					'&filmId=' + item.movieId + 
+					'&filmSeq=' + item.movieSeq + 
+					'&filmYear=' + item.prodYear + 
+					'&genre=' + item.genre + 
+					'&mId=' + mId + '"><img src="' + pos[0] + '"/></a>';
 				}
 
-				
 				html+=              '<li><div class="img">';
 				html+= 				posterVal;
-				html+=              '<b>' + tit[0] + '</b></div></li>';
-			    
+				html+=              '</div></li>';
 			                
 				});
 			$('#divTest').html(html);

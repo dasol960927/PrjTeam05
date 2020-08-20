@@ -39,6 +39,7 @@ function title(string) {
 }
 
 $(function(){
+	var mId = $("#mId").val();
 	var url = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70&title='+ keywordGet;
 	var v1 = '';
 	$.ajax({
@@ -58,7 +59,7 @@ $(function(){
 			
 				$.each(json, function(index, item) {
 					list = json.Result;
-					console.log(json.Result);
+					//console.log(json.Result);
 										
 					$.each(list, function(index, item) {
 						var tit = title(item.titleEtc); //제목 문자열 자르기
@@ -72,7 +73,9 @@ $(function(){
 							posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
 							'&filmId=' + item.movieId + 
 							'&filmSeq=' + item.movieSeq + 
-							'&filmYear=' + item.prodYear + '"><img src="' + pos[0] + '" alt="포스터"/></a>';
+							'&filmYear=' + item.prodYear + 
+							'&genre=' + item.genre + 
+							'&mId=' + mId + '"><img src="' + pos[0] + '"/></a>';
 						}
 						
 						//배우
@@ -129,6 +132,7 @@ $(function(){
 
 </head>
 <body class="hold-transition sidebar-mini">
+<input type = "hidden" id = "mId" value = "${login.mId }"/>
 <!-- Site wrapper -->
 <div class="wrapper">
 

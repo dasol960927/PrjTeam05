@@ -78,7 +78,7 @@ $(function(){
 		type : 'get',
 		dataType : "json",
 		success : function(data) {
-			//console.log(data);
+			console.log(data);
 			var json = data.Data[0];
 			//console.log(json);
 
@@ -89,7 +89,7 @@ $(function(){
 			var html3 = '';
 				$.each(json, function(index, item) {
 					list = json.Result;
-					console.log(json.Result);
+					//console.log(json.Result);
 										
 					$.each(list, function(index, item) {
 						var tit = title(item.titleEtc); //제목 문자열 자르기
@@ -156,6 +156,28 @@ $(function(){
 			alert(xhr.status + '' + xhr.textStatus);
 	  	}
 	});
+	
+	$("#divBtnLike").on("click", function(){
+		var loginMid = '${login.mId}';
+		var docId = '${fVo.docId}';
+		$.ajax({
+			url : '/Like',
+			data : {mId : loginMid, docId : docId },
+			dataType : 'json',
+			type : 'get',
+			success : function(data){
+				if(data.likeChk == 'N'){
+					$("#btnLike").css("color","black");
+					alert("찜 취소됐쪙 ~~ ><");
+				}else{
+					$("#btnLike").css("color", "red");
+					alert("찜 됐쪙~! ><");
+				}
+			},
+			error : function(xhr){
+				alert("error: " + xhr.status + "," + xhr.textStatus);
+			}
+		})
+	});
 });
-
 </script>

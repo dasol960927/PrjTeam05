@@ -21,7 +21,6 @@ function poster(string) {
 	
 	return str;
 }
-
 //날짜
 function movieDate(string) {
 	var str = string.replace(/-/g,"");
@@ -36,13 +35,15 @@ function title(string) {
 	return str;
 }
 
-var v1 = '';
+
 function getBoxOffice(date, divId) {
 	function kmdbApi(movieNm,openDt) {
+		var v1 = '';
+		var mId = $("#mId").val();
 		var kDate = movieDate(openDt);
 		var KMDbUrl = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70'
 				+'&releaseDts=' + kDate + '&title='+ movieNm;
-		var pos = '';
+		
 		$.ajax({
 			url : KMDbUrl,
 			type : 'get',
@@ -51,6 +52,7 @@ function getBoxOffice(date, divId) {
 			success : function(data) {
 				//console.log(data);
 				var TotalCount = data.Data[0].Count;
+				v1 = '<img src="/img/PosterReady.jpg" alt="포스터 준비중"/>';
 				if(TotalCount == 0){
 					v1 = '<img src="/img/PosterReady.jpg" alt="포스터 준비중"/>';
 				}else{
@@ -62,7 +64,8 @@ function getBoxOffice(date, divId) {
 								'&filmId=' + data.Data[0].Result[i].movieId + 
 								'&filmSeq=' + data.Data[0].Result[i].movieSeq + 
 								'&filmYear=' + data.Data[0].Result[i].prodYear + 
-								'&genre='+ data.Data[0].Result[i].genre + '"><img src="' + pos[0] + '"/></a>';
+								'&genre='+ data.Data[0].Result[i].genre + 
+								'&mId=' + mId + '"><img src="' + pos[0] + '"/></a>';
 							}else{
 								pos = '';
 							}
@@ -73,7 +76,8 @@ function getBoxOffice(date, divId) {
 						'&filmId=' + data.Data[0].Result[i].movieId + 
 						'&filmSeq=' + data.Data[0].Result[i].movieSeq + 
 						'&filmYear=' + data.Data[0].Result[i].prodYear + 
-						'&genre='+ data.Data[0].Result[i].genre + '"><img src="' + pos[0] + '"/></a>';
+						'&genre='+ data.Data[0].Result[i].genre +
+						'&mId=' + mId + '"><img src="' + pos[0] + '"/></a>';
 					}
 				}
 			},
@@ -93,13 +97,14 @@ function getBoxOffice(date, divId) {
 			type : 'get',
 			dataType : "json",
 			  success : function(data) {
+				  //console.log(data);
 				  var list = data.boxOfficeResult.dailyBoxOfficeList;
 				  //console.log(list);
 				  var html = '';
 				  $.each(list, function(index, item) {
 					 	html += '<div class="col-sm-2">';
 						html += kmdbApi(item.movieNm,item.openDt);
-		               	html += '<p>제목 : ' + item.movieNm + '</p>';
+		               	html += '<p>' + item.movieNm + '</p>';
 		                html += '</div>';
 				  });
 				  $('#div0').html(html);
@@ -138,9 +143,8 @@ function getActor(actorVal, divId) {
 								'&filmId=' + item.movieId + 
 								'&filmSeq=' + item.movieSeq + 
 								'&filmYear=' + item.prodYear +
-								'&mId=' + mId + 
-								'&genre=' + item.genre +
-								'"><img src="' + pos[0] + '"/></a>';
+								'&genre=' + item.genre + 
+								'&mId=' + mId + '"><img src="' + pos[0] + '"/></a>';
 					}
 					
 					html += '<div class="col-sm-2">';
@@ -160,6 +164,7 @@ function getActor(actorVal, divId) {
 //감독
 function getDirector(directorVal, divId) {
 	$(function(){
+		var mId = $("#mId").val();
 		var url = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70&' + 
 		     	  'director=' + directorVal + '&listCount=10&sort=prodYear,1';
 		$.ajax({
@@ -167,7 +172,7 @@ function getDirector(directorVal, divId) {
 			type : 'get',
 			dataType : "json",
 			success : function(data) {
-				console.log(data);
+				//console.log(data);
 				
 				var js = data.Data[0].Result;
 
@@ -182,7 +187,8 @@ function getDirector(directorVal, divId) {
 						'&filmId=' + item.movieId + 
 						'&filmSeq=' + item.movieSeq + 
 						'&filmYear=' + item.prodYear + 
-						'&genre=' + item.genre + '"><img src="' + pos[0] + '"/></a>';
+						'&genre=' + item.genre + 
+						'&mId=' + mId + '"><img src="' + pos[0] + '"/></a>';
 					}
 					
 					html += '<div class="col-sm-2">';
@@ -202,6 +208,7 @@ function getDirector(directorVal, divId) {
 //장르
 function getGenre(genreVal, divId) {
 	$(function(){
+		var mId = $("#mId").val();
 		var url = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70&' + 
 		     	  'genre=' + genreVal + '&listCount=10&sort=prodYear,1&createDts=2019';
 		$.ajax({
@@ -224,7 +231,8 @@ function getGenre(genreVal, divId) {
 						'&filmId=' + item.movieId + 
 						'&filmSeq=' + item.movieSeq + 
 						'&filmYear=' + item.prodYear + 
-						'&genre=' + item.genre + '"><img src="' + pos[0] + '"/></a>';
+						'&genre=' + item.genre + 
+						'&mId=' + mId + '"><img src="' + pos[0] + '"/></a>';
 					}
 					
 					html += '<div class="col-sm-2">';

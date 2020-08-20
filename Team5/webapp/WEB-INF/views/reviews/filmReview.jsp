@@ -14,6 +14,8 @@
 </head>
 
 <body class="hold-transition sidebar-mini">
+
+<input type = "hidden" id = "mId" value = "${login.mId }"/>
 <!-- Site wrapper -->
 <div class="wrapper">
     <!-- SEARCH FORM -->
@@ -98,7 +100,7 @@
 				<div class="bg-gray">
 					<h2 class="mb-0">영화가격 : ${fVo.filmPrice }P</h2>
 					<br>
-					<h4 class="mt-0">잔여 캐시 : ${ login.mCash }P</h4>
+					<h4 class="mt-0">잔여 캐시 : ${ mVo.mCash }P</h4>
 				</div>
 
               <div class="mt-4">
