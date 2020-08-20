@@ -70,6 +70,13 @@ public class RevServiceImpl implements RevService {
 		
 	}
 
+	@Override
+	public void insertSym(HashMap<String, Object> map) {
+		
+		revDao.insertSym(map);
+		
+	}
+
 
 
 

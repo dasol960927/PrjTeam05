@@ -195,16 +195,18 @@ a.link2:hover{text-decoration:underline;}
             <div class="tab-content p-3" id="nav-tabContent" >
 
 				 <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab">
-			 <table> 
-                <tr>
-                  <th width="100px">리뷰&nbsp;&nbsp;&nbsp;</th>
-                  <th width="900px"> 총 ${oCnt}  &nbsp;&nbsp;&nbsp; 로그인아이디 : ${login.mNickName}</th>                                    
-                </tr> 
-                
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                    <th  width="100px">리뷰&nbsp;&nbsp;&nbsp;</th>
+                    <th width="900px">총 ${oCnt}  &nbsp;&nbsp;&nbsp; 로그인아이디 : ${login.mNickName}</th>
+                  </tr>
+                  </thead>
+                  <tbody>
                  <c:forEach var="revVo" items="${revList}">
                  <tr>             	   
               	   <td colspan="2" >
-              	   <a class="link1" href="/REVIEW/reviewRead?revIdx=${revVo.revIdx}&revLvl=${revVo.revLvl}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}">${revVo.revTitle}</a>
+              	   <a class="link1" href="/REVIEW/reviewRead?revIdx=${revVo.revIdx}&revLvl=${revVo.revLvl}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}&mId=${login.mId}">${revVo.revTitle}</a>
               	   &nbsp;&nbsp;${revVo.mId}&nbsp;&nbsp;${revVo.revDate}&nbsp;&nbsp;추천:${revVo.goodCnt}
               	   
               	   <a class="link2" href="/REVIEW/reviewRead?revIdx=${revVo.revIdx}&revLvl=${revVo.revLvl}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}"><p id="pContents">${revVo.revConts}</p></a>
@@ -212,8 +214,8 @@ a.link2:hover{text-decoration:underline;}
               	   </td>   
  				 </tr>	             
                  </c:forEach>
-               
-				</table> 
+                  </tbody>
+                </table>
 				 </div>
             </div>
           </div>
@@ -246,6 +248,24 @@ a.link2:hover{text-decoration:underline;}
 });
  </script>
 <%@ include file="/WEB-INF/include/doughnutChart.jsp" %>
+<!-- page script -->
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true,
+      "autoWidth": false,
+    });
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+</script>
 </body>
 </html>
 

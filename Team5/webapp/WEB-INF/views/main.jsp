@@ -141,9 +141,15 @@ function getActor(actorVal, divId) {
 								'&filmId=' + item.movieId + 
 								'&filmSeq=' + item.movieSeq + 
 								'&filmYear=' + item.prodYear +
+<<<<<<< HEAD
 								'&filmYear=' + item.prodYear + 
 								'&genre=' + item.genre + 
 								'&mId=' + mId + '"><img src="' + pos[0] + '"/></a>';
+=======
+								'&mId=' + mId + 
+								'&genre=' + item.genre +
+								'"><img src="' + pos[0] + '"/></a>';
+>>>>>>> branch 'master' of https://github.com/dasol960927/PrjTeam05/
 					}
 					
 					html += '<div class="col-sm-2">';

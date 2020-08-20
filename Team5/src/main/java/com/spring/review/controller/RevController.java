@@ -57,6 +57,9 @@ public class RevController {
 		mv.addObject("oCnt", map.get("oCnt"));
 		mv.addObject("revList", revList);
 		
+		//테스트
+		mv.addObject("mId", map.get("mId"));
+		
 		System.out.println(map);
 		
 		return mv;
@@ -89,6 +92,9 @@ public class RevController {
 		mv.addObject("revVo", revVo);
 		mv.addObject("revList1", revList1);
 		mv.addObject("revList2", revList2);
+		
+		//테스트
+		mv.addObject("mId", map.get("mId"));
 
 		System.out.println("reviewRead list1 : " + revList1);
 		System.out.println("reviewRead list2 : " + revList2);
@@ -172,11 +178,11 @@ public class RevController {
 		System.out.println("좋아요싫어요 map : " + map );
 	
 		
-		//revService.insRev12Cnt(map);
+		revService.insertSym(map);
 		ModelAndView mv = new ModelAndView();		
 		mv.setViewName("redirect:/REVIEW/reviewRead");
 		
-		mv.addObject("revIdx", map.get("revIdx"));
+		mv.addObject("revIdx", map.get("lvl0Idx"));
 		mv.addObject("revLvl", map.get("revLvl"));
 		
 		mv.addObject("docId", map.get("docId"));

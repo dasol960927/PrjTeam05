@@ -249,6 +249,7 @@ a.link2:hover{text-decoration:underline;}
               </div>
             </nav>
             <div class="tab-content p-3" id="nav-tabContent" >
+<<<<<<< HEAD
               <table> 
                 <tr>
                   <th width="50px">제목&nbsp;&nbsp;&nbsp;</th>
@@ -258,14 +259,29 @@ a.link2:hover{text-decoration:underline;}
                 </tr>    
                  
                  <tr>             	   
+              	   <td colspan="5" width="1000px">
+=======
+             
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                    <th width="50px">제목&nbsp;&nbsp;&nbsp;</th>
+                    <th width="400px"> ${revVo.revTitle} </th>
+                    <th width="150px"> 작성자 / 작성일 </th>
+                    <th width="300px"> ${revVo.mId} / ${revVo.revDate} </th>     
+                  </tr>
+                  </thead>
+                  <tbody>
+                                 <tr>             	   
               	   <td colspan="4" width="1000px">
+>>>>>>> branch 'master' of https://github.com/dasol960927/PrjTeam05
               	   		${revVo.revConts}              	                 	   
               	   </td>   
  				 </tr>
  				 
  				 <form action="/REVIEW/insRevLvl1?docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}" method="post">	             
                  <tr>             	   
-              	   <td colspan="4" >              	   		
+              	   <td colspan="5" >              	   		
               	   		댓글 : 총 ${oCnt}   <a href="#">새로고침(네이버영화에서는 img파일사용)</a>
               	   		              	   		
               	   		<input type="submit" class="btn" value="답글 달기" />              	   			
@@ -275,35 +291,36 @@ a.link2:hover{text-decoration:underline;}
               	   </td>   
  				 </tr>                 
                  <tr>
-                   <td colspan="4">             	   
+                   <td colspan="5">             	   
               	   	 <textarea id="revLvl1" name="revConts" cols="200" rows="2"
-              	   	 style="resize:none" 
-              	   	 placeholder="댓글을 남겨주세요.영화와 상관없는 내용은 약관에 의해 제재를 받을 수 있습니다">
-              	   	 </textarea>
+              	   	 style="resize:none" placeholder="댓글을 남겨주세요.영화와 상관없는 내용은 약관에 의해 제재를 받을 수 있습니다"></textarea>
               	   </td>
  				 </tr>
  				 </form>
  				 
  				 
  				 				   				 
- 				 <c:forEach var="revVo1" items="${revList1}">
- 				 	
+ 				 <c:forEach var="revVo1" items="${revList1}"> 				 
+ 		 							 	
 	 				 <tr>
 	 				 	<td colspan="1">${revVo1.mId}</td>
-	 				 	<td colspan="2">${revVo1.revConts}</td>
+	 				 	<td colspan="3">${revVo1.revConts}</td>
 	 				 	<td colspan="1">
-	 				 	좋아요:<a href="/REVIEW/insRev12Cnt?sGubun=G&revLvl=${revLvl}&revIdx=${revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}">${revVo1.goodCnt}</a>&nbsp;&nbsp;
-	 				 	싫어요:<a href="/REVIEW/insRev12Cnt?sGubun=B&revLvl=${revLvl}&revIdx=${revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}">${revVo1.badCnt}</a>
+	 				 	${revVo1.symId}
+	 				 	${revVo1.symGubun}
+	 				 	<br />
+	 				 	좋아요:<a href="/REVIEW/insRev12Cnt?sGubun=G&revLvl=${revLvl}&lvl0Idx=${revIdx}&revIdx=${revVo1.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}&mId=${login.mId}">${revVo1.goodCnt}</a>
+	 				 	<br />	 				 	
+	 				 	싫어요:<a href="/REVIEW/insRev12Cnt?sGubun=B&revLvl=${revLvl}&lvl0Idx=${revIdx}&revIdx=${revVo1.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}&mId=${login.mId}">${revVo1.badCnt}</a>
 	 				 	</td> 				 	
 	 				 </tr>
+	 				
  				 
  				 <form action="/REVIEW/insRevLvl2?docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}" method="post"> 	
 	                 <tr class="vo2 ${ revVo1.revIdx }" >
-	                   <td colspan="3">             	   
-	              	   	 <textarea id="revLvl2" name="revConts" cols="200" rows="2"
-	              	   	 	style="resize:none" 
-	              	   	 	placeholder="댓글을 남겨주세요.영화와 상관없는 내용은 약관에 의해 제재를 받을 수 있습니다">
-	              	   	 </textarea>
+	                   <td colspan="4">             	   
+	              	   	 <textarea id="revLvl2" name="revConts" cols="200" rows="2" style="resize:none" 
+	              	   	 	placeholder="댓글을 남겨주세요.영화와 상관없는 내용은 약관에 의해 제재를 받을 수 있습니다"></textarea>
 	              	   </td>
 	              	   <td colspan="1">
 	              	   		<input class="btn" type="submit" name="revConts" value="답글 달기" />
@@ -329,6 +346,15 @@ a.link2:hover{text-decoration:underline;}
 								<td colspan="1"></td>			
 			 				   	<td colspan="1"><span>${revVo2.mId}</span></td>
 			 				 	<td colspan="2"><span>${revVo2.revConts}</span></td>
+			 				 	<td colspan="1">
+			 				 	<span>
+			 				 	${revVo2.symId}
+			 				 	${revVo2.symGubun}
+			 				 	좋아요:<a href="/REVIEW/insRev12Cnt?sGubun=G&revLvl=${revLvl}&lvl0Idx=${revIdx}&revIdx=${revVo2.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}&mId=${login.mId}">${revVo2.goodCnt}</a>
+			 				 	<br />
+			 				 	싫어요:<a href="/REVIEW/insRev12Cnt?sGubun=B&revLvl=${revLvl}&lvl0Idx=${revIdx}&revIdx=${revVo2.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}&mId=${login.mId}">${revVo2.badCnt}</a>			 				 	
+			 				 	</span>
+			 				 	</td>
 		 				 	</tr>
 		 				 	<c:set var="count" value="${count + 1}" />
 		 				 				 					 	
@@ -337,10 +363,22 @@ a.link2:hover{text-decoration:underline;}
 											 			    
 				 </c:forEach>
 		 			<tr>
-		 				<td colspan="4">
-		 				<input type="button" id="btnToggle" value="답글${ count }개" onclick="btnToggle('${ revVo1.revIdx }')"/>
-		 				</td>
-		 			</tr> 				 	 			    
+		 			
+	 				 	<c:choose>					
+							<c:when test="${count eq 0}">		 			
+				 				<td colspan="5">
+				 				<input type="button" id="btnToggle" value="답글작성" onclick="btnToggle('${ revVo1.revIdx }')"/>
+				 				</td>
+		 				 	</c:when>
+		 				 	<c:otherwise>
+				 				<td colspan="5">
+				 				<input type="button" id="btnToggle" value="답글${ count }개" onclick="btnToggle('${ revVo1.revIdx }')"/>
+				 				</td>		 				 	
+		 				 	</c:otherwise>		 				 	
+		 			    </c:choose>
+		 			       		 					
+		 			</tr>
+		 			 				 	 			    
 	 			 </c:forEach>	 				 	
  				
  				<!-- 
@@ -363,8 +401,8 @@ a.link2:hover{text-decoration:underline;}
 		 			    </c:choose> 				 
 	 			 </c:forEach> 		
 	 			  -->
-	 			 		                
-              </table> 
+                  </tbody>
+                </table>
             </div>
           </div>
         </div>

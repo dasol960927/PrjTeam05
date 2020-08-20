@@ -19,6 +19,10 @@
 <link rel="stylesheet" href="/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 <!-- pace-progress -->
 <link rel="stylesheet" href="/plugins/pace-progress/themes/black/pace-theme-flat-top.css">
+<!-- summernote -->
+<link rel="stylesheet" href="/plugins/summernote/summernote-bs4.css">
+
+
 
 
 <!-- jQuery 사용을 위한 -->
@@ -43,3 +47,5 @@
 <script src="/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<!-- Summernote -->
+<script src="/plugins/summernote/summernote-bs4.min.js"></script>
