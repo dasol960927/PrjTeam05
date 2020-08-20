@@ -170,7 +170,7 @@ function getDirector(directorVal, divId) {
 			type : 'get',
 			dataType : "json",
 			success : function(data) {
-				console.log(data);
+				//console.log(data);
 				
 				var js = data.Data[0].Result;
 

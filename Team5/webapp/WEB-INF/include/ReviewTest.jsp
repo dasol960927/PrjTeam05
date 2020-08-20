@@ -71,18 +71,15 @@ function genreText(string) {
 	return str;
 }
 
-
 var movieId = '<%= (String)request.getParameter("filmId")%>'
 var movieSeq = '<%= (String)request.getParameter("filmSeq")%>'
 var genreVal = '<%= (String)request.getParameter("genre")%>'
 
 var genre = genreText(genreVal);
 
-
-
 //console.log(movieId);
 //console.log(movieSeq);
-console.log(genre[0]);
+//console.log(genre[0]);
 //alert(keywordGet);
 
 //null 체크
@@ -120,7 +117,7 @@ $(function(){
 		success : function(data) {
 			//console.log(data);
 			var json = data.Data[0].Result;
-			console.log(data);
+			//console.log(data);
 			var html  = '';
 			$.each(json, function(index, item) {
 				
@@ -138,11 +135,9 @@ $(function(){
 					'&filmYear=' + data.Data[0].Result[0].prodYear + '"><img src="' + pos[0] + '"/></a>';
 				}
 
-				
 				html+=              '<li><div class="img">';
 				html+= 				posterVal;
 				html+=              '<b>' + tit[0] + '</b></div></li>';
-			    
 			                
 				});
 			$('#divTest').html(html);

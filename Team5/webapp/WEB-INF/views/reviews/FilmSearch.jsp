@@ -59,7 +59,7 @@ $(function(){
 			
 				$.each(json, function(index, item) {
 					list = json.Result;
-					console.log(json.Result);
+					//console.log(json.Result);
 										
 					$.each(list, function(index, item) {
 						var tit = title(item.titleEtc); //제목 문자열 자르기
