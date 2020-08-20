@@ -249,7 +249,7 @@ a.link2:hover{text-decoration:underline;}
               </div>
             </nav>
             <div class="tab-content p-3" id="nav-tabContent" >
-<<<<<<< HEAD
+
 
               <table> 
                 <tr>
@@ -262,9 +262,9 @@ a.link2:hover{text-decoration:underline;}
                  <tr>             	   
               	   <td colspan="5" width="1000px">
 
-=======
 
->>>>>>> branch 'master' of https://github.com/dasol960927/PrjTeam05
+
+
              
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
@@ -276,17 +276,17 @@ a.link2:hover{text-decoration:underline;}
                   </tr>
                   </thead>
                   <tbody>
-<<<<<<< HEAD
+
                  <tr>             	   
-=======
+
                     <tr>             	   
->>>>>>> branch 'master' of https://github.com/dasol960927/PrjTeam05
+
               	   <td colspan="4" width="1000px">
-<<<<<<< HEAD
 
-=======
 
->>>>>>> branch 'master' of https://github.com/dasol960927/PrjTeam05
+
+
+
               	   		${revVo.revConts}              	                 	   
               	   </td>   
  				 </tr>
@@ -318,12 +318,28 @@ a.link2:hover{text-decoration:underline;}
 	 				 	<td colspan="1">${revVo1.mId}</td>
 	 				 	<td colspan="3">${revVo1.revConts}</td>
 	 				 	<td colspan="1">
-	 				 	${revVo1.symId}
-	 				 	${revVo1.symGubun}
-	 				 	<br />
-	 				 	<i class="fas fa-thumbs-up"></i>:<a href="/REVIEW/insRev12Cnt?sGubun=G&revLvl=${revLvl}&lvl0Idx=${revIdx}&revIdx=${revVo1.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}&mId=${login.mId}">${revVo1.goodCnt}</a>
+	 				 	<%-- ${revVo1.symId}
+	 				 	${revVo1.symGubun} --%>
+	 				<c:choose>
+	 				 	<c:when test="${revVo1.symGubun eq 'G'.charAt(0)}">
 	 				 	<br />	 				 	
-	 				 	<i class="fas fa-thumbs-up" style="transform: scaleY(-1);"></i>:<a href="/REVIEW/insRev12Cnt?sGubun=B&revLvl=${revLvl}&lvl0Idx=${revIdx}&revIdx=${revVo1.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}&mId=${login.mId}">${revVo1.badCnt}</a>
+	 				 	<i class="fas fa-thumbs-up" id="good" style="color:green;"></i>:<a href="/REVIEW/insRev12Cnt?sGubun=G&revLvl=${revLvl}&lvl0Idx=${revIdx}&revIdx=${revVo1.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}&mId=${login.mId}">${revVo1.goodCnt}</a>	 				 	
+	 				 	<br />	 				 	
+	 				 	<i class="fas fa-thumbs-up" id="bad" style="transform: scaleY(-1); color:gray;"></i>:<a href="/REVIEW/insRev12Cnt?sGubun=B&revLvl=${revLvl}&lvl0Idx=${revIdx}&revIdx=${revVo1.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}&mId=${login.mId}">${revVo1.badCnt}</a>
+	 				 	</c:when>
+	 				 	<c:when test="${revVo1.symGubun eq 'B'.charAt(0)}">
+	 				 	<br />
+	 				 	<i class="fas fa-thumbs-up" id="good" style="color:gray;"></i>:<a href="/REVIEW/insRev12Cnt?sGubun=G&revLvl=${revLvl}&lvl0Idx=${revIdx}&revIdx=${revVo1.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}&mId=${login.mId}">${revVo1.goodCnt}</a>
+	 				 	<br />	 				 	
+	 				 	<i class="fas fa-thumbs-up" id="bad" style="transform: scaleY(-1); color:green;"></i>:<a href="/REVIEW/insRev12Cnt?sGubun=B&revLvl=${revLvl}&lvl0Idx=${revIdx}&revIdx=${revVo1.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}&mId=${login.mId}">${revVo1.badCnt}</a>
+	 				 	</c:when>	 				 	
+	 				 	<c:otherwise>	 				 	
+	 				 	<br />	 				 	
+	 				 	<i class="fas fa-thumbs-up" id="good" style="color:gray;"></i>:<a href="/REVIEW/insRev12Cnt?sGubun=G&revLvl=${revLvl}&lvl0Idx=${revIdx}&revIdx=${revVo1.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}&mId=${login.mId}">${revVo1.goodCnt}</a>	 				 	
+	 				 	<br />	 				 	
+	 				 	<i class="fas fa-thumbs-up" id="bad" style="color:gray; transform: scaleY(-1);"></i>:<a href="/REVIEW/insRev12Cnt?sGubun=B&revLvl=${revLvl}&lvl0Idx=${revIdx}&revIdx=${revVo1.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}&mId=${login.mId}">${revVo1.badCnt}</a>	 				 	
+	 				 	</c:otherwise>
+	 				</c:choose>
 	 				 	</td> 				 	
 	 				 </tr>
 	 				
@@ -360,11 +376,25 @@ a.link2:hover{text-decoration:underline;}
 			 				 	<td colspan="2"><span>${revVo2.revConts}</span></td>
 			 				 	<td colspan="1">
 			 				 	<span>
-			 				 	${revVo2.symId}
-			 				 	${revVo2.symGubun}
-			 				 	좋아요:<a href="/REVIEW/insRev12Cnt?sGubun=G&revLvl=${revLvl}&lvl0Idx=${revIdx}&revIdx=${revVo2.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}&mId=${login.mId}">${revVo2.goodCnt}</a>
+			 				 	<%-- ${revVo2.symId}
+			 				 	${revVo2.symGubun} --%>
+			 				 	<c:choose>
+			 				 	<c:when test="${revVo2.symGubun eq 'G'.charAt(0)}">
+			 				 	<i class="fas fa-thumbs-up" id="good" style="color:green;"></i>:<a href="/REVIEW/insRev12Cnt?sGubun=G&revLvl=${revLvl}&lvl0Idx=${revIdx}&revIdx=${revVo2.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}&mId=${login.mId}">${revVo2.goodCnt}</a>
 			 				 	<br />
-			 				 	싫어요:<a href="/REVIEW/insRev12Cnt?sGubun=B&revLvl=${revLvl}&lvl0Idx=${revIdx}&revIdx=${revVo2.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}&mId=${login.mId}">${revVo2.badCnt}</a>			 				 	
+			 				 	<i class="fas fa-thumbs-up" id="bad" style="transform: scaleY(-1); color:gray;"></i>:<a href="/REVIEW/insRev12Cnt?sGubun=B&revLvl=${revLvl}&lvl0Idx=${revIdx}&revIdx=${revVo2.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}&mId=${login.mId}">${revVo2.badCnt}</a>
+			 				 	</c:when>
+			 				 	<c:when test="${revVo2.symGubun eq 'B'.charAt(0)}">
+			 				 	<i class="fas fa-thumbs-up" id="good" style="color:gray;"></i>:<a href="/REVIEW/insRev12Cnt?sGubun=G&revLvl=${revLvl}&lvl0Idx=${revIdx}&revIdx=${revVo2.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}&mId=${login.mId}">${revVo2.goodCnt}</a>
+			 				 	<br />
+			 				 	<i class="fas fa-thumbs-up" id="bad" style="transform: scaleY(-1); color:green;"></i>:<a href="/REVIEW/insRev12Cnt?sGubun=B&revLvl=${revLvl}&lvl0Idx=${revIdx}&revIdx=${revVo2.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}&mId=${login.mId}">${revVo2.badCnt}</a>			 				 	
+			 				 	</c:when>
+			 				 	<c:otherwise>
+			 				 	<i class="fas fa-thumbs-up" id="good" style="color:gray;"></i>:<a href="/REVIEW/insRev12Cnt?sGubun=G&revLvl=${revLvl}&lvl0Idx=${revIdx}&revIdx=${revVo2.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}&mId=${login.mId}">${revVo2.goodCnt}</a>
+			 				 	<br />
+			 				 	<i class="fas fa-thumbs-up" id="bad" style="transform: scaleY(-1); color:gray;"></i>:<a href="/REVIEW/insRev12Cnt?sGubun=B&revLvl=${revLvl}&lvl0Idx=${revIdx}&revIdx=${revVo2.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}&mId=${login.mId}">${revVo2.badCnt}</a>			 				 	
+			 				 	</c:otherwise>
+			 				 	</c:choose>			 				 	
 			 				 	</span>
 			 				 	</td>
 		 				 	</tr>
