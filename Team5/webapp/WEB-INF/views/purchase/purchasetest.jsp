@@ -48,17 +48,16 @@
         </div>
         <!-- /.card-body -->
         <div class="card-footer">
-          	구매목록에서 확인해주세요.
+          	<a href="/PUR/List?mId=${login.mId }"> 구매목록 </a>에서 확인해주세요.
         </div>
         <!-- /.card-footer-->
       </div>
       <!-- /.card -->
-
+	  
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
    <%@ include file="/WEB-INF/include/footer.jsp" %>
 
   <!-- Control Sidebar -->
