@@ -52,8 +52,7 @@
 	function submitClick(){
 		var mId = $("#mId").val();
 		var docId = $("#docId").val();
-		var grdScore = $("#val").attr("value");
-		alert(grdScore);
+		var grdScore = $("#val").attr("value");		
 		grdScore *= 1;
 		var grdConts = $("#grdConts").val();
 		
