@@ -20,8 +20,7 @@ import com.spring.review.vo.RevVo;
 
 @Controller
 public class RevController {
-	static FilmVo fVo;
-
+	
 	@Autowired
 	private RevService revService;
 	
@@ -41,12 +40,9 @@ public class RevController {
 		// map : filmId 하나, 무조건 들어와야됨
 		List<RevVo> grdList = revService.getGrdList(map);
 
-		fVo = filmService.getPrice(map);
-
-		// 로그인 한 사람의 likechk를 받아오기 위한 코드
+		FilmVo fVo = filmService.getPrice(map);
 		LikeVo LVo = likeService.getLikeChk(map);
-
-		MemberVo memberVo = memberService.getMemberInfo(map);
+		MemberVo mVo = memberService.getMemberInfo(map);
 
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("reviews/filmReview1");
@@ -57,6 +53,9 @@ public class RevController {
 		mv.addObject("filmYear", map.get("filmYear"));
 		mv.addObject("mId", map.get("mId"));
 		mv.addObject("grdList", grdList);
+		
+		mv.addObject("fVo", fVo);
+		mv.addObject("mVo", mVo);
 
 		System.out.println("리뷰컨트롤러의" + map);
 		System.out.println(grdList);
@@ -69,7 +68,11 @@ public class RevController {
 
 		// map : filmId 하나, 무조건 들어와야됨
 		List<RevVo> revList = revService.getRevList(map);
-
+				
+		FilmVo fVo = filmService.getPrice(map);
+		LikeVo LVo = likeService.getLikeChk(map);
+		MemberVo mVo = memberService.getMemberInfo(map);
+		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("reviews/filmReview2");
 
@@ -79,6 +82,9 @@ public class RevController {
 		mv.addObject("filmYear", map.get("filmYear"));
 		mv.addObject("oCnt", map.get("oCnt"));
 		mv.addObject("revList", revList);
+		
+		mv.addObject("fVo", fVo);
+		mv.addObject("mVo", mVo);		
 
 		// 테스트
 		mv.addObject("mId", map.get("mId"));
@@ -98,6 +104,10 @@ public class RevController {
 		List<RevVo> revList1 = revService.getRevList(map);
 		List<RevVo> revList2 = revService.getRevList2(map);
 
+		FilmVo fVo = filmService.getPrice(map);
+		LikeVo LVo = likeService.getLikeChk(map);
+		MemberVo mVo = memberService.getMemberInfo(map);
+		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("reviews/filmReviewConts");
 
@@ -112,6 +122,9 @@ public class RevController {
 		mv.addObject("revList1", revList1);
 		mv.addObject("revList2", revList2);
 
+		mv.addObject("fVo", fVo);
+		mv.addObject("mVo", mVo);		
+		
 		// 테스트
 		mv.addObject("mId", map.get("mId"));
 
@@ -144,6 +157,7 @@ public class RevController {
 		mv.addObject("filmId", map.get("filmId"));
 		mv.addObject("filmSeq", map.get("filmSeq"));
 		mv.addObject("filmYear", map.get("filmYear"));
+		mv.addObject("mId", map.get("mId"));
 
 		return mv;
 	}
@@ -164,7 +178,9 @@ public class RevController {
 		mv.addObject("filmId", map.get("filmId"));
 		mv.addObject("filmSeq", map.get("filmSeq"));
 		mv.addObject("filmYear", map.get("filmYear"));
-
+		
+		mv.addObject("mId", map.get("mId"));
+		
 		return mv;
 	}
 
@@ -184,6 +200,8 @@ public class RevController {
 		mv.addObject("filmId", map.get("filmId"));
 		mv.addObject("filmSeq", map.get("filmSeq"));
 		mv.addObject("filmYear", map.get("filmYear"));
+		
+		mv.addObject("mId", map.get("mId"));
 
 		return mv;
 	}

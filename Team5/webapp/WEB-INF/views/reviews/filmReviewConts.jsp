@@ -54,7 +54,7 @@ a.link1:hover{text-decoration:underline;}
 a.link2:hover{text-decoration:underline;}
 .starRev{width:170px; height:50px;}
 
-.btn{
+#btnAdd{
 
   background-color: #878787;
   border: none;
@@ -109,29 +109,14 @@ a.link2:hover{text-decoration:underline;}
             </nav>
             <div class="tab-content p-3" id="nav-tabContent" >
 
-
-              <table> 
-                <tr>
-                  <th width="50px">제목&nbsp;&nbsp;&nbsp;</th>
-                  <th width="400px"> ${revVo.revTitle} </th>
-                  <th width="150px"> 작성자 / 작성일 </th>
-                  <th width="300px"> ${revVo.mId} / ${revVo.revDate} </th>                                    
-                </tr>    
-                 
-                 <tr>             	   
-              	   <td colspan="5" width="1000px">
-
-
-
-
              
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                   <tr>
-                    <th width="50px">제목&nbsp;&nbsp;&nbsp;</th>
-                    <th width="400px"> ${revVo.revTitle} </th>
-                    <th width="150px"> 작성자 / 작성일 </th>
-                    <th width="300px"> ${revVo.mId} / ${revVo.revDate} </th>     
+                    <th width="10%">제목&nbsp;&nbsp;&nbsp;</th>
+                    <th width="20%"> ${revVo.revTitle} </th>
+                    <th width="30%"> 작성자 / 작성일 </th>
+                    <th width="40%"> ${revVo.mId} / ${revVo.revDate} </th>     
                   </tr>
                   </thead>
                   <tbody>
@@ -140,7 +125,7 @@ a.link2:hover{text-decoration:underline;}
 
                     <tr>             	   
 
-              	   <td colspan="4" width="1000px">
+              	   <td colspan="4" width="100%">
 
               	   		${revVo.revConts}              	                 	   
               	   </td>   
@@ -151,7 +136,7 @@ a.link2:hover{text-decoration:underline;}
               	   <td colspan="5" >              	   		
               	   		댓글 : 총 ${oCnt}   <a href="#">새로고침(네이버영화에서는 img파일사용)</a>
               	   		              	   		
-              	   		<input type="submit" class="btn" value="답글 달기" />              	   			
+              	   		<input type="submit" id="btnAdd" value="답글 달기" />              	   			
 						<input type="hidden" name="revIdx" value="${revIdx}" />
 						<input type="hidden" name="revLvl" value="${revLvl}" />
 						<input type="hidden" name="mId" value="${login.mId}" />            	   			  						            	   		              	   		              	                 	   	
@@ -205,7 +190,7 @@ a.link2:hover{text-decoration:underline;}
 	              	   	 	placeholder="댓글을 남겨주세요.영화와 상관없는 내용은 약관에 의해 제재를 받을 수 있습니다"></textarea>
 	              	   </td>
 	              	   <td colspan="1">
-	              	   		<input class="btn" type="submit" name="revConts" value="답글 달기" />
+	              	   		<input id="btnAdd" type="submit" name="revConts" value="답글 달기" />
 	              	   		
 	              	   		<input type="hidden" name="lvl0Idx" value="${revIdx}" />
 	              	   		<input type="hidden" name="revLvl" value="${revLvl}" />
