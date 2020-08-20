@@ -57,6 +57,7 @@ public class FilmController {
 
 
 		mv.addObject("fVo", fVo);
+		System.out.println("필름 컨트롤러에서 fVo" + fVo);
 
 		mv.addObject("docId", vo.getDocId());
 		mv.addObject("filmId", vo.getFilmId());

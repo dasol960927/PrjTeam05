@@ -168,10 +168,10 @@ $(function(){
 			success : function(data){
 				if(data.likeChk == 'N'){
 					$("#btnLike").css("color","black");
-					alert("찜 취소됐쪙 ~~ ><");
+					alert("찜 취소되었습니다");
 				}else{
 					$("#btnLike").css("color", "red");
-					alert("찜 됐쪙~! ><");
+					alert("찜이 되었습니다");
 				}
 			},
 			error : function(xhr){
