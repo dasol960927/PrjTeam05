@@ -21,7 +21,6 @@ function poster(string) {
 	
 	return str;
 }
-
 //날짜
 function movieDate(string) {
 	var str = string.replace(/-/g,"");
