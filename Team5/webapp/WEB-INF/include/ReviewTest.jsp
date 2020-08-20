@@ -108,6 +108,7 @@ function title(string) {
 }
 
 $(function(){
+	var mId = $("#mId").val();
 	var url = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70&'+
 			'genre=' + genre[0] + '&createDts=2019&listCount=10';
 	$.ajax({
@@ -129,10 +130,12 @@ $(function(){
 				if(pos == ''){
 					posterVal = '<img src="/img/PosterReady.jpg" alt="포스터 준비중"/>';
 				}else{
-					posterVal = '<a href="/filmReview?docId=' + data.Data[0].Result[0].DOCID + 
-					'&filmId=' + data.Data[0].Result[0].movieId + 
-					'&filmSeq=' + data.Data[0].Result[0].movieSeq + 
-					'&filmYear=' + data.Data[0].Result[0].prodYear + '"><img src="' + pos[0] + '"/></a>';
+					posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
+					'&filmId=' + item.movieId + 
+					'&filmSeq=' + item.movieSeq + 
+					'&filmYear=' + item.prodYear + 
+					'&genre=' + item.genre + 
+					'&mId=' + mId + '"><img src="' + pos[0] + '"/></a>';
 				}
 
 				html+=              '<li><div class="img">';

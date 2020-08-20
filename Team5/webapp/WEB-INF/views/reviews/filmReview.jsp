@@ -14,6 +14,8 @@
 </head>
 
 <body class="hold-transition sidebar-mini">
+
+<input type = "hidden" id = "mId" value = "${login.mId }"/>
 <!-- Site wrapper -->
 <div class="wrapper">
     <!-- SEARCH FORM -->
