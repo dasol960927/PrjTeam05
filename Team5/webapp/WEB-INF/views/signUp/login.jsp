@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -73,10 +74,9 @@
         <div class="row">
           <div class="col-8">
             <div class="icheck-primary">
-              <input type="checkbox" id="remember">
-              <label for="remember">
-                	로그인 유지
-              </label>
+              <c:if test="${msg == false}">
+		        <p style="color:#f00">로그인 실패</p>
+		      </c:if>
             </div>
           </div>
           <!-- /.col -->
@@ -85,6 +85,7 @@
           </div>
           <!-- /.col -->
         </div>
+       
       </form>
 
       <div class="social-auth-links text-center mb-3">

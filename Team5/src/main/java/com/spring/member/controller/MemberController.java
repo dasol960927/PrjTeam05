@@ -1,6 +1,7 @@
 package com.spring.member.controller;
 
 import java.io.IOException;
+import java.io.Reader;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring.member.email.Email;
 import com.spring.member.email.EmailSender;
@@ -145,7 +147,7 @@ public class MemberController {
 	// 로그인 처리
 	@RequestMapping(value="/loginCheck", method=RequestMethod.POST)
 	public String loginProcess(
-			HttpSession session,
+			HttpSession session, RedirectAttributes rttr,
 			@RequestParam HashMap<String, Object> map) {
 	
 		
@@ -162,6 +164,7 @@ public class MemberController {
 			returnURL = "redirect:/";
 		} else {
 			returnURL = "redirect:/login";
+			rttr.addFlashAttribute("msg", false);
 		}
 		
 		return returnURL;
