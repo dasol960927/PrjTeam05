@@ -160,7 +160,7 @@
                 <a class="nav-item nav-link" id="product-desc-tab"  href="/filmReview?docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmSeq}" style="background-color:#878787; color:#ECFFFF">영화설명</a>
                 <a class="nav-item nav-link" id="product-comments-tab"  href="/REVIEW/grdList?docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}">리뷰</a>
                 <a class="nav-item nav-link" id="product-rating-tab"  href="/REVIEW/revList?docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}&mId=${login.mId}">평점</a>
-                <!-- 맨 마지막에 mId 제발 테스트 끝나면 누가 지워줘 -->
+                <!-- 맨 마지막에 mId만 적용, 나머지도 바꿔야됨 -->
               </div>
             </nav>
             <div class="tab-content p-3" id="nav-tabContent" >
