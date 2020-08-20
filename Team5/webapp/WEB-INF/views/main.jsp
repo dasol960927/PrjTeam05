@@ -141,15 +141,8 @@ function getActor(actorVal, divId) {
 								'&filmId=' + item.movieId + 
 								'&filmSeq=' + item.movieSeq + 
 								'&filmYear=' + item.prodYear +
-<<<<<<< HEAD
-								'&filmYear=' + item.prodYear + 
 								'&genre=' + item.genre + 
 								'&mId=' + mId + '"><img src="' + pos[0] + '"/></a>';
-=======
-								'&mId=' + mId + 
-								'&genre=' + item.genre +
-								'"><img src="' + pos[0] + '"/></a>';
->>>>>>> branch 'master' of https://github.com/dasol960927/PrjTeam05/
 					}
 					
 					html += '<div class="col-sm-2">';
@@ -191,7 +184,6 @@ function getDirector(directorVal, divId) {
 						posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
 						'&filmId=' + item.movieId + 
 						'&filmSeq=' + item.movieSeq + 
-						'&filmYear=' + item.prodYear +
 						'&filmYear=' + item.prodYear + 
 						'&genre=' + item.genre + 
 						'&mId=' + mId + '"><img src="' + pos[0] + '"/></a>';
@@ -236,7 +228,8 @@ function getGenre(genreVal, divId) {
 						'&filmId=' + item.movieId + 
 						'&filmSeq=' + item.movieSeq + 
 						'&filmYear=' + item.prodYear + 
-						'&genre=' + item.genre + '"><img src="' + pos[0] + '"/></a>';
+						'&genre=' + item.genre + 
+						'&mId=' + mId + '"><img src="' + pos[0] + '"/></a>';
 					}
 					
 					html += '<div class="col-sm-2">';
