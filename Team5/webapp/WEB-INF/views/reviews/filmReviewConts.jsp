@@ -249,7 +249,22 @@ a.link2:hover{text-decoration:underline;}
               </div>
             </nav>
             <div class="tab-content p-3" id="nav-tabContent" >
+<<<<<<< HEAD
 
+              <table> 
+                <tr>
+                  <th width="50px">제목&nbsp;&nbsp;&nbsp;</th>
+                  <th width="400px"> ${revVo.revTitle} </th>
+                  <th width="150px"> 작성자 / 작성일 </th>
+                  <th width="300px"> ${revVo.mId} / ${revVo.revDate} </th>                                    
+                </tr>    
+                 
+                 <tr>             	   
+              	   <td colspan="5" width="1000px">
+
+=======
+
+>>>>>>> branch 'master' of https://github.com/dasol960927/PrjTeam05
              
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
@@ -261,9 +276,17 @@ a.link2:hover{text-decoration:underline;}
                   </tr>
                   </thead>
                   <tbody>
+<<<<<<< HEAD
+                 <tr>             	   
+=======
                     <tr>             	   
+>>>>>>> branch 'master' of https://github.com/dasol960927/PrjTeam05
               	   <td colspan="4" width="1000px">
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> branch 'master' of https://github.com/dasol960927/PrjTeam05
               	   		${revVo.revConts}              	                 	   
               	   </td>   
  				 </tr>

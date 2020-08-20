@@ -6,19 +6,62 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-<script language="javaScript">
+<style>
+#val{
+	font-size:30px;
+	font-weight:bold;
+}
+.starR1{
+    background: url('http://miuu227.godohosting.com/images/icon/ico_review.png') no-repeat -52px 0;
+    background-size: auto 100%;
+    width: 15px;
+    height: 30px;
+    float:left;
+    text-indent: -9999px;
+    cursor: pointer;
+}
+.starR2{
+    background: url('http://miuu227.godohosting.com/images/icon/ico_review.png') no-repeat right 0;
+    background-size: auto 100%;
+    width: 15px;
+    height: 30px;
+    float:left;
+    text-indent: -9999px;
+    cursor: pointer;
+}
+.starR1.on{background-position:0 0;}
+.starR2.on{background-position:-15px 0;}
+.starRev{width:170px; height:50px;}
+</style>
+
+<script>
 
 
+/* 	$(document).ready(function(){
+		
+		function cval(){
+			
+		  var length = $('.starR1').length;				  
+		  console.log(length);
+		  document.getElementById("val").innerHTML = length;
+		}
+		
+	}); */
+	
+	
 	function submitClick(){
 		var mId = $("#mId").val();
 		var docId = $("#docId").val();
-		var grdScore = $("#grdScore").val();
+		var grdScore = $("#val").attr("value");
+		alert(grdScore);
 		grdScore *= 1;
 		var grdConts = $("#grdConts").val();
 		
 		var filmId = $("#filmId").val();
 		var filmSeq = $("#filmSeq").val();
 		var filmYear = $("#filmYear").val();
+		
+		
 						
 		
 		
@@ -43,12 +86,43 @@
    String filmSeq = request.getParameter("filmSeq");
    String filmYear = request.getParameter("filmYear");
 %>
+
+
+
 <body class="hold-transition sidebar-mini">
-	
 
-			<input type="text" id="grdScore" name="grdScore" class="form-control" placeholder="평점(1~5, 단위:0.5)을 숫자로 입력해주세요" value=""/>
-
-			
+			<div class="starRev">
+			  <span class="starR1 on">별1_왼쪽</span>
+			  <span class="starR2">별1_오른쪽</span>
+			  <span class="starR1">별2_왼쪽</span>
+			  <span class="starR2">별2_오른쪽</span>
+			  <span class="starR1">별3_왼쪽</span>
+			  <span class="starR2">별3_오른쪽</span>
+			  <span class="starR1">별4_왼쪽</span>
+			  <span class="starR2">별4_오른쪽</span>
+			  <span class="starR1">별5_왼쪽</span>
+			  <span class="starR2">별5_오른쪽</span>
+			</div>
+			<script>
+			$('.starRev span').click(function(){
+				  $(this).parent().children('span').removeClass('on');
+				  $(this).addClass('on').prevAll('span').addClass('on');
+				  
+				   
+					
+				  var length = $('.starR1.on').length + $('.starR2.on').length;				  
+		 		  
+		 		  var val = length * 0.5;
+		  		  		  		  
+		  		  $('#val').html(val);
+		  		  $('#val').attr('value', val);
+		  		   
+				  
+				});
+			</script>
+			<div id="val"></div>			
+			<!-- <input type="text" id="grdScore" name="grdScore" class="form-control" placeholder="평점(1~5, 단위:0.5)을 숫자로 입력해주세요" value=""/> -->
+						
 			<input type="hidden" id="mId" value="<%=mId%>"/>
 			<input type="hidden" id="docId" value="<%=docId%>"/>
 			<input type="hidden" id="filmId" value="<%=filmId%>"/>
