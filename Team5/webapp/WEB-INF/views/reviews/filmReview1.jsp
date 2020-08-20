@@ -40,7 +40,7 @@ th, td{
                  <thead>                  
                    <tr>
                      <th style="width: 100px">한줄평</th>
-                     <th>총 : 00건&nbsp;&nbsp;&nbsp; 
+                     <th>총  ${oCnt} 건&nbsp;&nbsp;&nbsp; 
 				  
 				  <input type="button" value="내 한줄평 작성하기" class="btn btn-blcok btn-info btn-lg" 
 				onclick="window.open('/REVIEW/insertGrdForm?mId=${login.mId}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}', '팝업창이름', 'width=500, height=500','location=no', 'resizable=no')">

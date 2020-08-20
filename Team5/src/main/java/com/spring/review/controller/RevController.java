@@ -51,6 +51,8 @@ public class RevController {
 		mv.addObject("filmId", map.get("filmId"));
 		mv.addObject("filmSeq", map.get("filmSeq"));
 		mv.addObject("filmYear", map.get("filmYear"));
+		mv.addObject("oCnt", map.get("oCnt"));
+		mv.addObject("oAvg", map.get("oAvg"));
 		mv.addObject("mId", map.get("mId"));
 		mv.addObject("grdList", grdList);
 		

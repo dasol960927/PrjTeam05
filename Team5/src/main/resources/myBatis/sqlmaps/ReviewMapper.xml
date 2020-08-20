@@ -32,7 +32,9 @@
          	#{docId, mode=IN, jdbcType=VARCHAR},
          	#{mId, mode=IN, jdbcType=VARCHAR},
             #{result, mode=OUT, jdbcType=CURSOR, 
-               javaType=ResultSet, resultMap=RevListMap }
+               javaType=ResultSet, resultMap=RevListMap },
+			#{oCnt, mode=OUT, jdbcType=VARCHAR},
+			#{oAvg, mode=OUT, jdbcType=NUMERIC}               
          ) }     
      </select>
      

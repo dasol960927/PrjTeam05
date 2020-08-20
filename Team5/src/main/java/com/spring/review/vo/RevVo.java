@@ -17,7 +17,8 @@ public class RevVo {
 	private int    parentIdx;
 	private int    revNref;
 		
-	private String oCnt;	
+	private String oCnt;
+	private int oAvg;
 	private int lvl0Idx;
 	
 	private String symId;
@@ -123,8 +124,13 @@ public class RevVo {
 	public void setoCnt(String oCnt) {
 		this.oCnt = oCnt;
 	}
+	public int getoAvg() {
+		return oAvg;
+	}
+	public void setoAvg(int oAvg) {
+		this.oAvg = oAvg;
+	}
 	
-		
 	
 	public int getLvl0Idx() {
 		return lvl0Idx;
@@ -170,7 +176,7 @@ public class RevVo {
 	public RevVo() {}	
 	public RevVo(int revIdx, String mId, String docId, String revTitle, String revConts, double grdScore,
 			String grdConts, int goodCnt, int badCnt, String revDate, char revGubun, int revLvl, int parentIdx,
-			int revNref, String oCnt, int lvl0Idx, String symId, char symGubun, String filmId, String filmSeq, String filmYear) {		
+			int revNref, String oCnt, int oAvg, int lvl0Idx, String symId, char symGubun, String filmId, String filmSeq, String filmYear) {		
 		this.revIdx = revIdx;
 		this.mId = mId;
 		this.docId = docId;
@@ -186,18 +192,14 @@ public class RevVo {
 		this.parentIdx = parentIdx;
 		this.revNref = revNref;
 		this.oCnt = oCnt;
+		this.oAvg = oAvg;
 		this.lvl0Idx = lvl0Idx;
 		this.symId = symId;
 		this.symGubun = symGubun;
 		this.filmId = filmId;
 		this.filmSeq = filmSeq;
 		this.filmYear = filmYear;
-		
 	}
-	
-	
-	
-	
 	
 	
 	@Override
@@ -205,9 +207,12 @@ public class RevVo {
 		return "RevVo [revIdx=" + revIdx + ", mId=" + mId + ", docId=" + docId + ", revTitle=" + revTitle
 				+ ", revConts=" + revConts + ", grdScore=" + grdScore + ", grdConts=" + grdConts + ", goodCnt="
 				+ goodCnt + ", badCnt=" + badCnt + ", revDate=" + revDate + ", revGubun=" + revGubun + ", revLvl="
-				+ revLvl + ", parentIdx=" + parentIdx + ", revNref=" + revNref + ", oCnt=" + oCnt + ", lvl0Idx="
-				+ lvl0Idx + ", symId=" + symId + ", symGubun=" + symGubun + ", filmId=" + filmId + ", filmSeq="
-				+ filmSeq + ", filmYear=" + filmYear + "]";
+				+ revLvl + ", parentIdx=" + parentIdx + ", revNref=" + revNref + ", oCnt=" + oCnt + ", oAvg=" + oAvg
+				+ ", lvl0Idx=" + lvl0Idx + ", symId=" + symId + ", symGubun=" + symGubun + ", filmId=" + filmId
+				+ ", filmSeq=" + filmSeq + ", filmYear=" + filmYear + "]";
 	}
+	
+	
+
 	
 }
