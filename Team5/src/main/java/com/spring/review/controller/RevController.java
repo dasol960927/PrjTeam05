@@ -20,6 +20,7 @@ import com.spring.review.vo.RevVo;
 
 @Controller
 public class RevController {
+	static FilmVo fVo;
 
 	@Autowired
 	private RevService revService;
@@ -40,7 +41,7 @@ public class RevController {
 		// map : filmId 하나, 무조건 들어와야됨
 		List<RevVo> grdList = revService.getGrdList(map);
 
-		FilmVo fVo = filmService.getPrice(map);
+		fVo = filmService.getPrice(map);
 
 		// 로그인 한 사람의 likechk를 받아오기 위한 코드
 		LikeVo LVo = likeService.getLikeChk(map);

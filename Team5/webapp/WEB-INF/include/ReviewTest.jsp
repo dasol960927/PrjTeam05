@@ -8,7 +8,7 @@ li{list-style:none;}
 .clear{clear: both;}    
 .gallery{width: 900px; margin: 20px auto; border: 1px solid #ccc; overflow: hidden; padding-left:0; }
 .gallery ul{width: 300%; position: relative; left: -300px;}
-.gallery ul li {float: left; width: 225px; height: 340px; box-sizing: border-box; padding: 15px; text-align: center; line-height: 340px;}
+.gallery ul li {float: left; width: 225px; height: 340px; box-sizing: border-box; padding: 15px; text-align: center;}
 
 
 .g_item{width: 860px; margin: 0 auto; text-align: center;}
@@ -140,7 +140,7 @@ $(function(){
 
 				html+=              '<li><div class="img">';
 				html+= 				posterVal;
-				html+=              '</div></li>';
+				html+=              '<b>'+tit[0] +'</b></div></li>';
 			                
 				});
 			$('#divTest').html(html);
