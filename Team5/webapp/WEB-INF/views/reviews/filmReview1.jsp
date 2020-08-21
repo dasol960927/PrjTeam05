@@ -51,8 +51,8 @@ th, td{
                  <tbody>
                <c:forEach var="revVo" items="${grdList}">
 			   <tr>	            
-             	   <td width="300px">             	   		
-             	   		${revVo.grdScore}
+             	   <td width="300px">  
+             	   		<%@ include file="/WEB-INF/include/star.jsp" %>
              	   </td>
              	   <td width="700px">
              	   ${revVo.grdConts}<br/>

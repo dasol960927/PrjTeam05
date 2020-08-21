@@ -296,19 +296,12 @@ $(function(){
 	            </div>
 	            <!-- /.card -->
 
-              <h4 class="mt-3">영화 <small>별점${oAvg}</small></h4>
+              <h4 class="mt-3">영화</h4>
 			  <div class="starRev">
 				  <span class="starR1 on">별1</span>
-				  <span class="starR2">별2</span>
-				  <span class="starR1">별3</span>
-				  <span class="starR2">별4</span>
-				  <span class="starR1">별5</span>
-				  <span class="starR2">별6</span>
-				  <span class="starR1">별7</span>
-				  <span class="starR2">별8</span>
-				  <span class="starR1">별9</span>
-				  <span class="starR2">별10</span>				  
-				</div>				
+				  <span class="starR2 on">별2</span>
+				  <small style="font-weight:bold; font-size:25px;">: ${oAvg}</small> <small>참여 : </small> <small>${oCnt}</small><small>명</small>				  				  
+   			  </div>				
 				<br>
 				<br>
 
