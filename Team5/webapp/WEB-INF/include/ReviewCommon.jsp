@@ -136,6 +136,8 @@ $(function(){
 						html+=                '<div class="product-image-thumb">'+ '<img src="'+stl[0]+'"/>' + '</div>';
 						html+=                '<div class="product-image-thumb">'+ '<img src="'+stl[1]+'"/>' + '</div>';
 						html+=                '<div class="product-image-thumb">'+ '<img src="'+stl[2]+'"/>' + '</div>';
+						html+=                '<div class="product-image-thumb">'+ '<img src="'+stl[3]+'"/>' + '</div>';
+						html+=                '<div class="product-image-thumb">'+ '<img src="'+stl[4]+'"/>' + '</div>';
 						html+=              '</div>';
 
 						html2+=              '<h3 class="my-3">' + tit[0] + '</h3>';
