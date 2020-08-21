@@ -50,19 +50,18 @@ function getBoxOffice(date, divId) {
 			success : function(data) {
 				console.log(data);
 				var TotalCount = data.Data[0].Count;
-				v1 = '<a href="/filmReview?docId=' + data.Data[0].Result[i].DOCID + 
-				'&filmId=' + data.Data[0].Result[i].movieId + 
-				'&filmSeq=' + data.Data[0].Result[i].movieSeq + 
-				'&filmYear=' + data.Data[0].Result[i].prodYear + 
-				'&genre='+ data.Data[0].Result[i].genre + 
-				'&mId=' + mId + '"><img src="/img/PosterReady.jpg" alt="포스터 준비중"/></a>';
+				v1 = '<img src="/img/PosterReady.jpg" alt="포스터 준비중"/></a>';
 				if(TotalCount == 0){
-					v1 = '<a href="/filmReview?docId=' + data.Data[0].Result[i].DOCID + 
-					'&filmId=' + data.Data[0].Result[i].movieId + 
-					'&filmSeq=' + data.Data[0].Result[i].movieSeq + 
-					'&filmYear=' + data.Data[0].Result[i].prodYear + 
-					'&genre='+ data.Data[0].Result[i].genre + 
-					'&mId=' + mId + '"><img src="/img/PosterReady.jpg" alt="포스터 준비중"/></a>';
+					for(var i=0;i<TotalCount;i++){
+						if(kDate == data.Data[0].Result[i].repRlsDate){
+							v1 = '<a href="/filmReview?docId=' + data.Data[0].Result[i].DOCID + 
+							'&filmId=' + data.Data[0].Result[i].movieId + 
+							'&filmSeq=' + data.Data[0].Result[i].movieSeq + 
+							'&filmYear=' + data.Data[0].Result[i].prodYear + 
+							'&genre='+ data.Data[0].Result[i].genre + 
+							'&mId=' + mId + '"><img src="/img/PosterReady.jpg" alt="포스터 준비중"/></a>';
+						}
+					}
 				}else{
 					if(TotalCount > 0){
 						for(var i=0;i<TotalCount;i++){
