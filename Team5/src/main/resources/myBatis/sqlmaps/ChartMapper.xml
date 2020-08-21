@@ -9,10 +9,11 @@
        <result property="docId"    	   column="DOC_ID"         javaType="string" />   
        <result property="grdScore"     column="GRD_ID"         javaType="double" />   
        <result property="cntGrdScore"  column="CNT_GRD_SCORE"  javaType="int" />   
+       <result property="avgGrdScore"  column="AVG_GRD_SCORE"  javaType="double" />   
        <result property="mGender"      column="M_GENDER"       javaType="string" />   
        <result property="ages"  	   column="AGES"           javaType="string" />   
-       <result property="str"  	       column="STR"           javaType="string" />   
-       <result property="oMsg"  	   column="O_MSG"           javaType="string" />   
+       <result property="str"  	       column="STR"            javaType="string" />   
+       <result property="oMsg"  	   column="O_MSG"          javaType="string" />   
      </resultMap>
    
      <select id="Grd"

@@ -9,6 +9,7 @@ public class ChartVo {
 	private String ages;
 	private String str;
 	private String oMsg;
+	private double avgGrdScore;
 	
 	// Getter / Settter
 	public String getDocId() {
@@ -52,6 +53,12 @@ public class ChartVo {
 	}
 	public void setoMsg(String oMsg) {
 		this.oMsg = oMsg;
+	}	
+	public double getAvgGrdScore() {
+		return avgGrdScore;
+	}
+	public void setAvgGrdScore(double avgGrdScore) {
+		this.avgGrdScore = avgGrdScore;
 	}
 	
 	// Constructor

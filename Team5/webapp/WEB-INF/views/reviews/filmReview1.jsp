@@ -36,6 +36,13 @@ th, td{
 
 				 <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab">
 				 <h2 id="max"></h2>
+				 <img src="/img/man.jpg" alt="man" /><span id="man"></span>
+				 <img src="/img/woman.jpg" alt="woman" /><span id="woman"></span>
+				 <div id="container" style="width: 40%; ">
+					<canvas id="canvas"></canvas>
+				 </div>
+				 
+				 
                <table id="example1" class="table table-bordered table-striped">
                  <thead>                  
                    <tr>
@@ -135,6 +142,10 @@ th, td{
   });
 </script>
 
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
+<script src="/js/utils.js"></script>
 <script>
 $(function(){
 	
@@ -156,11 +167,106 @@ $(function(){
 					
 			}, 
 				error : function(xhr) {
-					alert('차트데이터'+ xhr.status + '' + xhr.textStatus);
+					alert('가장좋아하는 데이터'+ xhr.status + '' + xhr.textStatus);
 				}
 			});
-})
-	
+	  
+	  
+	  $.ajax({
+			url : '/Chart/Gender',
+			type: 'GET',
+			data: {'docId' : docIdVal},
+			datatype: 'json',
+			success : function(data) {		
+				$.each(data, function(index, item){
+					if(item.mGender=='남자'){						
+						$('#man').html('남자   ★' + item.avgGrdScore);
+					}else{						
+						$('#woman').html('여자 ★' + item.avgGrdScore);
+					}
+				});
+					
+			}, 
+				error : function(xhr) {
+					alert('남녀데이터'+ xhr.status + '' + xhr.textStatus);
+				}
+			});
+	  
+	  
+	  $.ajax({
+		  url : '/Chart/Grd',
+			type: 'GET',
+			data: {'docId' : docIdVal},
+			datatype: 'json',
+			success : function(datas) {
+				console.log(datas);
+                var labelList     = [];
+                var dataList      = [];
+
+             $.each ( datas , function(index, item) {
+                   
+                labelList.push(item.str);
+                dataList.push(item.avgGrdScore);
+             
+                console.log(labelList);
+                console.log(dataList);
+             });
+             
+             
+            var horizontalBarChartData = {
+       			labels: labelList,
+       			datasets: [{
+       				backgroundColor: [
+                        window.chartColors.red,
+                        window.chartColors.orange,
+                        window.chartColors.yellow,
+                        window.chartColors.green,
+                        window.chartColors.blue,
+                        window.chartColors.blue
+                     ],
+       				borderWidth: 1,
+       				data: dataList
+       			}]
+             
+             };
+            
+    		
+    			//var ctx = $('#canvas').getContext('2d');
+    			var config  = new Chart($('#canvas'), {
+    				type: 'bar',
+    				data: horizontalBarChartData,
+    				options: {
+    					indexAxis: 'y',
+    					// Elements options apply to all of the options unless overridden in a dataset
+    					// In this case, we are setting the border of each horizontal bar to be 2px wide
+    					elements: {
+    						rectangle: {
+    							borderWidth: 2,
+    						}
+    					},
+    					responsive: true,
+    					legend: {
+    						display: false,
+    					},
+    					title: {
+    						display: true,
+    						text: '연령대별 평균 평점'
+    					}
+    				}
+    			});
+
+    		
+
+            
+	  
+			}, 
+			error : function(xhr) {
+				alert('막대그래프데이터'+ xhr.status + '' + xhr.textStatus);
+			}
+	  
+		})
+
+});
 </script>
 
 <%@ include file="/WEB-INF/include/doughnutChart.jsp" %>
