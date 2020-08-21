@@ -95,11 +95,22 @@ $(function(){
 <link rel="stylesheet" href="/lib/w3.css">
 <body>
 
-<div class="w3-content" style="max-width:800px;position:relative" id="here">
+<div class="w3-content" style="max-width:150px;position:relative">
 
+	<div class="w3-display-container mySlides">
+		<img src="http://file.koreafilm.or.kr/thm/01/copy/00/54/39/tn_DST692487.jpg" style="width:100%;">
+	</div>
+	<div class="w3-display-container mySlides">
+		<img src="http://file.koreafilm.or.kr/thm/01/copy/00/54/39/tn_DST692488.jpg" >
+	</div>
+	<div class="w3-display-container mySlides">
+		<img src="http://file.koreafilm.or.kr/thm/01/copy/00/54/39/tn_DST692486.jpg">
+	</div>
+	
+<div id="here"></div>
 
-<a class="w3-btn-floating w3-hover-dark-grey" style="position:absolute;top:52%;left:0;border:1px solid black;" onclick="plusDivs(-1)">❮</a>
-<a class="w3-btn-floating w3-hover-dark-grey" style="position:absolute;top:52%;right:0;border:1px solid black;" onclick="plusDivs(1)">❯</a>
+<a class="w3-btn-floating w3-hover-dark-grey" style="position:absolute;top:52%;left:0;" onclick="plusDivs(-1)"><img src="/img/leftBtn.jpg" alt="왼쪽" style="width:50px; height:50px; background-color:tomato;"></a>
+<a class="w3-btn-floating w3-hover-dark-grey" style="position:absolute;top:52%;right:0;" onclick="plusDivs(1)"><img src="/img/leftBtn.jpg" alt="오른쪽" style="width:50px; height:50px; background-color:tomato; transform:scaleX(-1);"></a>
 
 </div>
 
@@ -113,7 +124,7 @@ function plusDivs(n) {
 
 function showDivs(n) {
   var i;
-  var x = document.getElementsByClassName("mySlides");
+  var x = $(".mySlides");
   if (n > x.length) {slideIndex = 1}    
   if (n < 1) {slideIndex = x.length} ;
   for (i = 0; i < x.length; i++) {
@@ -123,6 +134,5 @@ function showDivs(n) {
 }
 </script>
 
-</body>
 </body>
 </html>

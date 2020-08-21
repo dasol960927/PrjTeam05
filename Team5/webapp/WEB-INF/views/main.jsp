@@ -50,9 +50,19 @@ function getBoxOffice(date, divId) {
 			success : function(data) {
 				//console.log(data);
 				var TotalCount = data.Data[0].Count;
-				v1 = '<img src="/img/PosterReady.jpg" alt="포스터 준비중"/>';
+				v1 = '<a href="/filmReview?docId=' + item.DOCID + 
+					'&filmId=' + item.movieId + 
+					'&filmSeq=' + item.movieSeq + 
+					'&filmYear=' + item.prodYear +
+					'&genre=' + item.genre + 
+					'&mId=' + mId + '"><img src="/img/PosterReady.jpg" alt="포스터 준비중"/></a>';
 				if(TotalCount == 0){
-					v1 = '<img src="/img/PosterReady.jpg" alt="포스터 준비중"/>';
+					v1 = '<a href="/filmReview?docId=' + item.DOCID + 
+						'&filmId=' + item.movieId + 
+						'&filmSeq=' + item.movieSeq + 
+						'&filmYear=' + item.prodYear +
+						'&genre=' + item.genre + 
+						'&mId=' + mId + '"><img src="/img/PosterReady.jpg" alt="포스터 준비중"/></a>';
 				}else{
 					if(TotalCount > 0){
 						for(var i=0;i<TotalCount;i++){
@@ -136,7 +146,12 @@ function getActor(actorVal, divId) {
 					var posterVal = '';
 					var pos = poster(item.posters); //포스터 문자열 자르기
 					if(pos == ''){
-						posterVal = '<img src="/img/PosterReady.jpg" alt="포스터 준비중"/>';
+						posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
+						'&filmId=' + item.movieId + 
+						'&filmSeq=' + item.movieSeq + 
+						'&filmYear=' + item.prodYear +
+						'&genre=' + item.genre + 
+						'&mId=' + mId + '"><img src="/img/PosterReady.jpg" alt="포스터 준비중"/></a>';
 					}else{
 						posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
 								'&filmId=' + item.movieId + 
@@ -181,7 +196,12 @@ function getDirector(directorVal, divId) {
 					var posterVal = '';
 					var pos = poster(item.posters); //포스터 문자열 자르기
 					if(pos == ''){
-						posterVal = '<img src="/img/PosterReady.jpg" alt="포스터 준비중"/>';
+						posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
+							'&filmId=' + item.movieId + 
+							'&filmSeq=' + item.movieSeq + 
+							'&filmYear=' + item.prodYear +
+							'&genre=' + item.genre + 
+							'&mId=' + mId + '"><img src="/img/PosterReady.jpg" alt="포스터 준비중"/></a>';
 					}else{
 						posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
 						'&filmId=' + item.movieId + 
@@ -225,7 +245,12 @@ function getGenre(genreVal, divId) {
 					var posterVal = '';
 					var pos = poster(item.posters); //포스터 문자열 자르기
 					if(pos == ''){
-						posterVal = '<img src="/img/PosterReady.jpg" alt="포스터 준비중"/>';
+						posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
+							'&filmId=' + item.movieId + 
+							'&filmSeq=' + item.movieSeq + 
+							'&filmYear=' + item.prodYear +
+							'&genre=' + item.genre + 
+							'&mId=' + mId + '"><img src="/img/PosterReady.jpg" alt="포스터 준비중"/></a>';
 					}else{
 						posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
 						'&filmId=' + item.movieId + 
