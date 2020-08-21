@@ -73,8 +73,7 @@ th, td{
 				 <div id="container" style="width: 40%; ">
 					<canvas id="canvas"></canvas>
 				 </div>
-				 
-				 
+				 				 
                <table id="example1" class="table table-bordered table-striped">
                  <thead>                  
                    <tr>
