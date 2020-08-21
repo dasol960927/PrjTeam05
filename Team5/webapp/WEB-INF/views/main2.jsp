@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>ImageSlideTest</title>
+  <title>FlimCritics | Main</title>
  
   <%@ include file="/WEB-INF/include/admin.jsp" %>
   <!-- Google Font: Source Sans Pro -->
@@ -95,18 +95,17 @@ function getBoxOffice(date, divId) {
 			type : 'get',
 			dataType : "json",
 			  success : function(data) {
-				 //console.log(data);
+				  //console.log(data);
 				  var list = data.boxOfficeResult.dailyBoxOfficeList;
 				  //console.log(list);
 				  var html = '';
 				  $.each(list, function(index, item) {
-					  //console.log(item.movieNm)
-						html += '<li><div class="img">';
-						html += kmdbApi(item.movieNm,item.openDt); + '<br>';
-			            html += '<p>' + item.movieNm + '</p>';
-			            html += '<li></div>';
+					 	html += '<div class="col-sm-2">';
+						html += kmdbApi(item.movieNm,item.openDt);
+		               	html += '<p>' + item.movieNm + '</p>';
+		                html += '</div>';
 				  });
-				  $('#'+divId).html(html);
+				  $('#div0').html(html);
 			  },
 			  error    : function(xhr) {
 				  alert(xhr.status + '' + xhr.textStatus);
@@ -146,11 +145,10 @@ function getActor(actorVal, divId) {
 								'&mId=' + mId + '"><img src="' + pos[0] + '"/></a>';
 					}
 					
-		
-					html += '<li><div class="img">';
+					html += '<div class="col-sm-2">';
 					html += posterVal + '<br>';
-		            html += '<b>' + item.title + '</b>';
-		            html += '<li></div>';
+		            html += '<p>'+ item.title + '</p>';
+		            html += '</div>';
 				});
 				$('#'+divId).html(html);
 			},
@@ -191,10 +189,10 @@ function getDirector(directorVal, divId) {
 						'&mId=' + mId + '"><img src="' + pos[0] + '"/></a>';
 					}
 					
-					html += '<li><div class="img">';
+					html += '<div class="col-sm-2">';
 					html += posterVal + '<br>';
-		            html += '<b>' + item.title + '</b>';
-		            html += '<li></div>';
+		            html += '<p>' + item.title + '</p>';
+		            html += '</div>';
 				});
 				$('#'+divId).html(html);
 			},
@@ -234,10 +232,11 @@ function getGenre(genreVal, divId) {
 						'&genre=' + item.genre + 
 						'&mId=' + mId + '"><img src="' + pos[0] + '"/></a>';
 					}
-					html += '<li><div class="img">';
+					
+					html += '<div class="col-sm-2">';
 					html += posterVal + '<br>';
-		            html += '<b>' + item.title + '</b>';
-		            html += '<li></div>';
+		            html += '<p>' + item.title + '</p>';
+		            html += '</div>';
 				});
 				$('#'+divId).html(html);
 			},
@@ -265,33 +264,22 @@ if(mm<10) {
 today = yyyy+mm+dd;
 
 //console.log(today);
-getBoxOffice(today, 'ul0');
-getActor('박정민', 'ul1');
-getActor('손예진', 'ul2');
-getDirector('봉준호','ul3');
-getDirector('박찬욱','ul4');
-getGenre('액션','ul5')
-getGenre('미스터리','ul6');
+getBoxOffice(today, 'div0');
+getActor('박정민', 'div1');
+getActor('손예진', 'div2');
+getDirector('봉준호','div3');
+getDirector('박찬욱','div4');
+getGenre('액션','div5')
+getGenre('미스터리','div6');
 
 </script>
 
 <style>
-.category{width:100%; }
-h3{font-family: 'Black Han Sans', sans-serif;
+	.category{width:1200px; height:100%; clear:both; }
+	.col-sm-2{width:321px; height:350px;  padding:0px; margin:1px; float:left; }
+	#div0, #div1, #div2, #div3, #div3, #div4, #div5, #div6 {width:1300px; height:800px;}
+	h3{font-family: 'Black Han Sans', sans-serif;
 		font-family: 'Nanum Gothic', sans-serif;}
-
-li{list-style:none;}
-.clearfix { overflow: auto; }
-.clearfix::after {content: ""; clear: both; display: table; }
-.clear{clear: both;}    
-.gallery{width: 900px; margin: 20px auto; border: 1px solid #ccc; overflow: hidden; padding-left:0; }
-.gallery ul{width: 300%; position: relative; left: -300px; }
-.gallery ul li {float: left; box-sizing: border-box; text-align: center;}
-
-
-.g_item{width: 860px; margin: 0 auto; text-align: center;}
-.g_item ul li{display: inline-block; margin-right: 10px; background: #ccc; width: 10px; height: 10px; border-radius: 50%;}
-.g_item ul li.on{background: #f00;}
 </style>
 
 </head>
@@ -349,141 +337,41 @@ li{list-style:none;}
                 <div>
                   <div class="row">
                   
-                  
-            <div class="category">      
-			<div class="col-sm-2">
-			<h3>현재 상영하는 영화</h3>
-					<div class="gallery">
-				       <ul class="clearfix" id="ul0">
-				       
-				       </ul>
-	   				   </div>
-				    <div class="g_item">
-				       <ul>
-				          <li class="on"></li>
-				          <li></li>
-				          <li></li>
-				          <li></li>
-				          <li></li>
-				       </ul>
-		   		  </div>
-	   		  </div>
-			</div>
-			
-			<div class="category">    
-			<div class="col-sm-2">
-			<h3>믿고 보는<b>박정민</b>배우</h3>
-					<div class="gallery">
-				       <ul class="clearfix" id="ul1">
-				       
-				       </ul>
-	   				   </div>
-				    <div class="g_item">
-				       <ul>
-				          <li class="on"></li>
-				          <li></li>
-				          <li></li>
-				          <li></li>
-				       </ul>
-		   		  </div>
-	   		  </div>
-			</div>
-			
-			<div class="category">    
-			<div class="col-sm-2">
-			<h3>믿고 보는<b>손예진</b>배우</h3>
-					<div class="gallery">
-				       <ul class="clearfix" id="ul2">
-				       
-				       </ul>
-	   				   </div>
-				    <div class="g_item">
-				       <ul>
-				          <li class="on"></li>
-				          <li></li>
-				          <li></li>
-				          <li></li>
-				       </ul>
-		   		  </div>
-	   		  </div>	
-	   		  </div>			
-			
-			 <div class="category">    
-			<div class="col-sm-2">
-			<h3>Made by<b>봉준호</b>감독</h3>
-					<div class="gallery">
-				       <ul class="clearfix" id="ul3">
-				       
-				       </ul>
-	   				   </div>
-				    <div class="g_item">
-				       <ul>
-				          <li class="on"></li>
-				          <li></li>
-				          <li></li>
-				          <li></li>
-				       </ul>
-		   		  </div>
-	   		  </div>
-	   		  </div>
-	   		  
-	   		  
-	   		   <div class="category">    
-	   		 <div class="col-sm-2">
-			<h3>Made by<b>박찬욱</b>감독</h3>
-					<div class="gallery">
-				       <ul class="clearfix" id="ul4">
-				       
-				       </ul>
-	   				   </div>
-				    <div class="g_item">
-				       <ul>
-				          <li class="on"></li>
-				          <li></li>
-				          <li></li>
-				          <li></li>
-				       </ul>
-		   		  </div>
-	   		  </div>
-			</div>
-			
-			 <div class="category">    
-		    <div class="col-sm-2">
-			<h3>속이 뻥 뚫리는 <b>액션</b>영화</h3>
-					<div class="gallery">
-				       <ul class="clearfix" id="ul5">
-				       
-				       </ul>
-	   				   </div>
-				    <div class="g_item">
-				       <ul>
-				          <li class="on"></li>
-				          <li></li>
-				          <li></li>
-				          <li></li>
-				       </ul>
-		   		  </div>
-	   		  </div>
-	   		  </div>
-
-			 <div class="category">    
-		    <div class="col-sm-2">
-			<h3>올 여름을 시원하게 <b>미스터리</b></h3>
-					<div class="gallery">
-				       <ul class="clearfix" id="ul6">
-				       
-				       </ul>
-	   				   </div>
-				    <div class="g_item">
-				       <ul>
-				          <li class="on"></li>
-				          <li></li>
-				          <li></li>
-				          <li></li>
-				       </ul>
-		   		  </div>
-	   		  </div>
-			  </div>
+               <div class="category">
+				    <h3>현재 상영하는 영화</h3>
+					<div id=div0></div>
+			   </div>
+				
+				<div class="category">
+					<h3>믿고 보는<b>박정민</b>배우</h3>
+					<div id=div1></div>
+				</div>
+				
+				<div class="category">
+					<h3>믿고 보는 <b>손예진</b>배우</h3>
+					<div id=div2></div>
+				</div>
+				
+				<div class="category">
+				<h3>Made by<b>봉준호</b>감독</h3>
+				<div id=div3></div>
+				</div>
+				
+				<div class="category">
+				<h3>Made by<b>박찬욱</b>감독</h3>
+				<div id=div4></div>
+				</div>
+				
+				<div class="category">
+				<h3>속이 뻥 뚫리는 <b>액션</b>영화</h3>
+				<div id=div5></div>
+				</div>
+				
+				<div class="category">
+				<h3>올 여름을 시원하게 <b>미스터리</b></h3>
+				<div id=div6></div>
+				</div>
+			  
 				
                   </div>
                 </div>
@@ -506,54 +394,5 @@ li{list-style:none;}
 </div>
 <!-- ./wrapper -->
 
-
-
-
-<script>
-var gall  = setInterval(galleryFun, 2000);
-var inter = true;
-var idx = 2;
-
- function galleryFun(){
-   
-    $(".gallery ul").animate({
-      "left":-300*idx+"px"
-    },300);
-   $(".g_item ul li").eq(idx-1).addClass("on").siblings().removeClass("on");
-   idx++;
-   if(idx> $(".gallery ul li").length-3){
-     $(".gallery ul").animate({
-       "left":0
-     },0);
-     idx=0;
-     
-   }
- }
- 
- 
- $(".gallery , .g_item").hover(function(){
-   if(inter==true){
-     clearInterval(gall);
-     inter=false;
-   }
- },function(){
-   if(inter==false){
-     gall  = setInterval(galleryFun, 2000);
-     inter=true;
-   }
-   
- });
- 
-
- $(".g_item ul li").on('click',function(){
-   $(this).addClass("on").siblings().removeClass("on");
-   idx = $(this).index()+1;
-   $(".gallery ul").animate({
-      "left":-300*idx+"px"
-    },1000);
-   
- });
- 
-</script>
 </body>
 </html>
