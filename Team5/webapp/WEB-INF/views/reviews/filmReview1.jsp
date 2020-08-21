@@ -54,7 +54,6 @@ th, td{
 
 </script>
 </head>
-
 <body class="hold-transition sidebar-mini">
 
           <div class="row mt-4">
