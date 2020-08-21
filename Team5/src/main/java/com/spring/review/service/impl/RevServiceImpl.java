@@ -48,6 +48,13 @@ public class RevServiceImpl implements RevService {
 		revDao.insertGrd(map);
 		
 	}
+	
+	@Override
+	public void insertRev(HashMap<String, Object> map) {
+		
+		revDao.insertRev(map);
+		
+	}	
 
 	@Override
 	public RevVo getRevConts(HashMap<String, Object> map) {
@@ -76,9 +83,5 @@ public class RevServiceImpl implements RevService {
 		revDao.insertSym(map);
 		
 	}
-
-
-
-
 	
 }

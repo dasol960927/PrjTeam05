@@ -52,6 +52,13 @@ public class RevDaoImpl implements RevDao {
 		sqlSession.insert("REVIEW.GrdInsert", map);
 		
 	}
+	
+	@Override
+	public void insertRev(HashMap<String, Object> map) {
+		
+		sqlSession.insert("REVIEW.RevInsert", map);
+		
+	}	
 
 	@Override
 	public RevVo getRevConts(HashMap<String, Object> map) {

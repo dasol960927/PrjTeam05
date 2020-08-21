@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.film.service.FilmService;
@@ -20,16 +21,16 @@ import com.spring.review.vo.RevVo;
 
 @Controller
 public class RevController {
-	
+
 	@Autowired
 	private RevService revService;
-	
+
 	@Autowired
 	private FilmService filmService;
-	
+
 	@Autowired
 	private LikeService likeService;
-	
+
 	@Autowired
 	private MemberService memberService;
 
@@ -55,7 +56,7 @@ public class RevController {
 		mv.addObject("oAvg", map.get("oAvg"));
 		mv.addObject("mId", map.get("mId"));
 		mv.addObject("grdList", grdList);
-		
+
 		mv.addObject("fVo", fVo);
 		mv.addObject("mVo", mVo);
 
@@ -70,11 +71,11 @@ public class RevController {
 
 		// map : filmId 하나, 무조건 들어와야됨
 		List<RevVo> revList = revService.getRevList(map);
-				
+
 		FilmVo fVo = filmService.getPrice(map);
 		LikeVo LVo = likeService.getLikeChk(map);
 		MemberVo mVo = memberService.getMemberInfo(map);
-		
+
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("reviews/filmReview2");
 
@@ -84,9 +85,9 @@ public class RevController {
 		mv.addObject("filmYear", map.get("filmYear"));
 		mv.addObject("oCnt", map.get("oCnt"));
 		mv.addObject("revList", revList);
-		
+
 		mv.addObject("fVo", fVo);
-		mv.addObject("mVo", mVo);		
+		mv.addObject("mVo", mVo);
 
 		// 테스트
 		mv.addObject("mId", map.get("mId"));
@@ -109,7 +110,7 @@ public class RevController {
 		FilmVo fVo = filmService.getPrice(map);
 		LikeVo LVo = likeService.getLikeChk(map);
 		MemberVo mVo = memberService.getMemberInfo(map);
-		
+
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("reviews/filmReviewConts");
 
@@ -125,8 +126,8 @@ public class RevController {
 		mv.addObject("revList2", revList2);
 
 		mv.addObject("fVo", fVo);
-		mv.addObject("mVo", mVo);		
-		
+		mv.addObject("mVo", mVo);
+
 		// 테스트
 		mv.addObject("mId", map.get("mId"));
 
@@ -147,6 +148,8 @@ public class RevController {
 	}
 
 	@RequestMapping("/REVIEW/insertGrd")
+
+	@ResponseBody
 	public ModelAndView insertGrd(@RequestParam HashMap<String, Object> map) {
 
 		// map : {mId=A@naver.com, filmId=F00004, grdScore=4, grdConts=가나다라}
@@ -155,6 +158,35 @@ public class RevController {
 
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("redirect:/REVIEW/grdList");
+		mv.addObject("docId", map.get("docId"));
+		mv.addObject("filmId", map.get("filmId"));
+		mv.addObject("filmSeq", map.get("filmSeq"));
+		mv.addObject("filmYear", map.get("filmYear"));
+		mv.addObject("mId", map.get("mId"));
+
+		return mv;
+	}
+
+
+	@RequestMapping("/REVIEW/insertRevForm")
+	public ModelAndView insertRevForm(@RequestParam HashMap<String, Object> map) {
+
+		System.out.println(map);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("reviews/insertRevForm");
+
+		return mv;
+	}
+
+	@RequestMapping("/REVIEW/insertRev")
+	public ModelAndView insertRev(@RequestParam HashMap<String, Object> map) {
+
+		// map : {mId=A@naver.com, filmId=F00004, grdScore=4, grdConts=가나다라}
+		System.out.println("맵제발" + map);
+		revService.insertRev(map);
+
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("redirect:/REVIEW/revList");
 		mv.addObject("docId", map.get("docId"));
 		mv.addObject("filmId", map.get("filmId"));
 		mv.addObject("filmSeq", map.get("filmSeq"));
@@ -180,9 +212,9 @@ public class RevController {
 		mv.addObject("filmId", map.get("filmId"));
 		mv.addObject("filmSeq", map.get("filmSeq"));
 		mv.addObject("filmYear", map.get("filmYear"));
-		
+
 		mv.addObject("mId", map.get("mId"));
-		
+
 		return mv;
 	}
 
@@ -202,7 +234,7 @@ public class RevController {
 		mv.addObject("filmId", map.get("filmId"));
 		mv.addObject("filmSeq", map.get("filmSeq"));
 		mv.addObject("filmYear", map.get("filmYear"));
-		
+
 		mv.addObject("mId", map.get("mId"));
 
 		return mv;
@@ -211,11 +243,11 @@ public class RevController {
 	@RequestMapping("/REVIEW/insRev12Cnt")
 	public ModelAndView insRev12Cnt(@RequestParam HashMap<String, Object> map) {
 
-		System.out.println("좋아요싫어요 map : " + map);		
+		System.out.println("좋아요싫어요 map : " + map);
 
 		revService.insertSym(map);
-		ModelAndView mv = new ModelAndView();				
-		
+		ModelAndView mv = new ModelAndView();
+
 		mv.setViewName("redirect:/REVIEW/reviewRead");
 
 		mv.addObject("revIdx", map.get("lvl0Idx"));
@@ -230,15 +262,16 @@ public class RevController {
 
 		return mv;
 	}
-	
+
+	/*
 	@RequestMapping("/REVIEW/insGrdCnt")
 	public ModelAndView insGrdCnt(@RequestParam HashMap<String, Object> map) {
 
-		System.out.println("좋아요싫어요 map : " + map);		
+		System.out.println("좋아요싫어요 map : " + map);
 
 		revService.insertSym(map);
-		ModelAndView mv = new ModelAndView();				
-		
+		ModelAndView mv = new ModelAndView();
+
 		mv.setViewName("redirect:/REVIEW/grdList");
 
 		mv.addObject("docId", map.get("docId"));
@@ -249,7 +282,28 @@ public class RevController {
 		mv.addObject("mId", map.get("mId"));
 
 		return mv;
-	}	
+	}
+	*/
+	
+	@RequestMapping("/REVIEW/insGrdCnt")
+	@ResponseBody
+	public HashMap<String, Object> insGrdCnt(@RequestParam HashMap<String, Object> map) {
+
+		System.out.println("좋아요싫어요 map : " + map);
+		revService.insertSym(map);
+		//List<RevVo> grdList = revService.getGrdList(map);
+
+		HashMap<String, Object> newMap = new HashMap<String, Object>();
+		newMap.put("docId", map.get("docId"));
+		newMap.put("filmId", map.get("filmId"));
+		newMap.put("filmSeq", map.get("filmSeq"));
+		newMap.put("filmYear", map.get("filmYear"));
+		newMap.put("mId", map.get("mId"));
+		
+		//newMap.put("grdList", grdList);
+		
+		return newMap;
+	}
 	
 
 }

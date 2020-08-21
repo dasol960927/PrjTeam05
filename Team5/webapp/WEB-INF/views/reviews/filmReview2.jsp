@@ -73,7 +73,11 @@ a.link2:hover{text-decoration:underline;}
                   <thead>
                   <tr>
                     <th  width="100px">리뷰&nbsp;&nbsp;&nbsp;</th>
-                    <th width="900px">총 ${oCnt} 개 </th>
+                    <th width="900px">총 ${oCnt} 개 
+                    
+				  <input type="button" value="내 리뷰 작성하기" class="btn btn-blcok btn-info btn-lg" 
+				onclick="window.open('/REVIEW/insertRevForm?mId=${login.mId}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}', '팝업창이름', 'width=1000, height=1000','location=no', 'resizable=no')">
+				    </th>                    
                   </tr>
                   </thead>
                   <tbody>
@@ -83,7 +87,7 @@ a.link2:hover{text-decoration:underline;}
               	   <a class="link1" href="/REVIEW/reviewRead?revIdx=${revVo.revIdx}&revLvl=${revVo.revLvl}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}&mId=${login.mId}">${revVo.revTitle}</a>
               	   &nbsp;&nbsp;${revVo.mId}&nbsp;&nbsp;${revVo.revDate}&nbsp;&nbsp;추천:${revVo.goodCnt}
               	   
-              	   <a class="link2" href="/REVIEW/reviewRead?revIdx=${revVo.revIdx}&revLvl=${revVo.revLvl}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}"><p id="pContents">${revVo.revConts}</p></a>
+              	   <a class="link2" href="/REVIEW/reviewRead?revIdx=${revVo.revIdx}&revLvl=${revVo.revLvl}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}&mId=${login.mId}"><p id="pContents">${revVo.revConts}</p></a>
               	   <br/>              	   
               	   </td>   
  				 </tr>	             

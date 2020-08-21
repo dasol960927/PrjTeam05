@@ -20,8 +20,40 @@ th, td{
 
 }
 </style>
-</head>
+<script>
+/* a href="/REVIEW/insGrdCnt?sGubun=G&revIdx=${revVo.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmSeq}&mId=${login.mId} */
+	$(function(){
+		var hidRevIdx = $("#hidRevIdx").val();		
+		
+		
+		$('.cGood').on('click', function(){
+			alert("맞음");
+			
+			$.ajax({
+				url : '/REVIEW/insGrdCnt',
+				data : {
+					sGubun : 'G', revIdx : hidRevIdx, docId : '${docId}', fimlId : '${filmId}', 
+					filmSeq : '${filmSeq}', filmYear : '${filmYear}', mId : '${login.mId}'
+				},
+				dataType : 'json',
+				type : 'get',
+				success : function(data){
+					
+					alert('success');
+				},
+				error : function(xhr){
+					alert("error: " + xhr.status + "," + xhr.textStatus);
+				} 
+				
+			});
+			
+		});
+		
+		
+	});
 
+</script>
+</head>
 <body class="hold-transition sidebar-mini">
 
           <div class="row mt-4">
@@ -66,16 +98,23 @@ th, td{
              	   ${revVo.mId}&nbsp;${revVo.revDate}<br/>             	   
              	   <c:choose>
              	   <c:when test="${revVo.symGubun eq 'G'.charAt(0)}">
-             	   <i class="fas fa-thumbs-up" id="good" style="color:green;"></i>: <a href="/REVIEW/insGrdCnt?sGubun=G&revIdx=${revVo.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmSeq}&mId=${login.mId}">${revVo.goodCnt}</a> 
-             	   <i class="fas fa-thumbs-up" id="bad" style="transform: scaleY(-1); color:gray;"></i>: <a href="/REVIEW/insGrdCnt?sGubun=B&revIdx=${revVo.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmSeq}&mId=${login.mId}">${revVo.badCnt}</a>
+             	   <%-- <i class="fas fa-thumbs-up" id="good" style="color:green;"></i>: <a href="/REVIEW/insGrdCnt?sGubun=G&revIdx=${revVo.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmSeq}&mId=${login.mId}">${revVo.goodCnt}</a> 
+             	   <i class="fas fa-thumbs-up" id="bad" style="transform: scaleY(-1); color:gray;"></i>: <a href="/REVIEW/insGrdCnt?sGubun=B&revIdx=${revVo.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmSeq}&mId=${login.mId}">${revVo.badCnt}</a> --%>
+             	   <i class="fas fa-thumbs-up" style="color:green;"></i>:${revVo.goodCnt}
+             	   <i class="fas fa-thumbs-up" style="transform: scaleY(-1); color:gray;">:${revVo.badCnt}</i>
              	   </c:when>
              	   <c:when test="${revVo.symGubun eq 'B'.charAt(0)}">
-             	   <i class="fas fa-thumbs-up" id="good" style="color:gray;"></i>: <a href="/REVIEW/insGrdCnt?sGubun=G&revIdx=${revVo.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmSeq}&mId=${login.mId}">${revVo.goodCnt}</a> 
-             	   <i class="fas fa-thumbs-up" id="bad" style="transform: scaleY(-1); color:green;"></i>: <a href="/REVIEW/insGrdCnt?sGubun=B&revIdx=${revVo.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmSeq}&mId=${login.mId}">${revVo.badCnt}</a>
+             	   <%-- <i class="fas fa-thumbs-up" id="good" style="color:gray;"></i>: <a href="/REVIEW/insGrdCnt?sGubun=G&revIdx=${revVo.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmSeq}&mId=${login.mId}">${revVo.goodCnt}</a></span> 
+             	   <i class="fas fa-thumbs-up" id="bad" style="transform: scaleY(-1); color:green;"></i>: <a href="/REVIEW/insGrdCnt?sGubun=B&revIdx=${revVo.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmSeq}&mId=${login.mId}">${revVo.badCnt}</a> --%>
+             	   <i class="fas fa-thumbs-up" style="color:green;"></i>:${revVo.goodCnt}
+             	   <i class="fas fa-thumbs-up" style="transform: scaleY(-1); color:gray;">:${revVo.badCnt}</i>             	   
              	   </c:when>
              	   <c:otherwise>
-             	   <i class="fas fa-thumbs-up" id="good" style="color:gray;"></i>: <a href="/REVIEW/insGrdCnt?sGubun=G&revIdx=${revVo.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmSeq}&mId=${login.mId}">${revVo.goodCnt}</a> 
-             	   <i class="fas fa-thumbs-up" id="bad" style="transform: scaleY(-1); color:gray;"></i>: <a href="/REVIEW/insGrdCnt?sGubun=B&revIdx=${revVo.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmSeq}&mId=${login.mId}">${revVo.badCnt}</a>
+<%--              	   <i class="fas fa-thumbs-up" id="good" style="color:gray;"></i>: <a href="/REVIEW/insGrdCnt?sGubun=G&revIdx=${revVo.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmSeq}&mId=${login.mId}">${revVo.goodCnt}</a> 
+             	   <i class="fas fa-thumbs-up" id="bad" style="transform: scaleY(-1); color:gray;"></i>: <a href="/REVIEW/insGrdCnt?sGubun=B&revIdx=${revVo.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmSeq}&mId=${login.mId}">${revVo.badCnt}</a> --%>
+             	   <span class="cGood"><i class="fas fa-thumbs-up" style="color:gray;"></i>:${revVo.goodCnt}</span> 
+             	   <span class="cBad"><i class="fas fa-thumbs-up" style="transform: scaleY(-1); color:gray;"></i>:${revVo.badCnt}</span>             	   
+             	   <input type = "hidden" id = "hidRevIdx" value = "${revVo.revIdx}"/>             	   
              	   </c:otherwise>             	                	   
              	   </c:choose>
              	   </td>   
