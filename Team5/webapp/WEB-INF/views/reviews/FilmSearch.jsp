@@ -111,9 +111,6 @@ $(function(){
 						html+=                 '</div>';
 						html+=                 '<div class="card-footer">';
 						html+=                   '<div class="text-right">';
-						html+=                     '<a href="/LIKE/List?mId=${login.mId}" class="btn btn-sm bg-teal">';
-						html+=                       '<i class="fas fa-heart"></i>';
-						html+=                     '</a>';
 						html+=                     '<a href="/filmReview?docId=' + item.DOCID + '&filmId=' + item.movieId + '&filmSeq=' + item.movieSeq + '&filmYear=' + item.prodYear +'&genre=' + item.genre + '&mId=' + mId +'" class="btn btn-sm btn-primary">';
 						html+=                       '<i class="fas fa-eye"></i> 영화 리뷰';
 						html+=                     '</a>';
@@ -134,6 +131,8 @@ $(function(){
 	});
 });
 </script>
+
+
 
 </head>
 <body class="hold-transition sidebar-mini">
