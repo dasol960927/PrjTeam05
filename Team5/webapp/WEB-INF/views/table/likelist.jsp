@@ -10,6 +10,7 @@
    <%@ include file="/WEB-INF/include/admin.jsp" %>
    <style>
 		.category{width:1200px; height:100%; clear:both; }
+		.likelist{margin-right:5px; float:left;}
    </style>
 </head>
 <body class="hold-transition sidebar-mini">
@@ -122,10 +123,10 @@
 											'&mId=' + mId + '"><img src="' + pos[0] + '"/></a>';
 										}
 																
-										html += '<div>';
+										html += '<li><div class="img">';
 										html += posterVal + '<br>';
-										html += '<p>' + tit[0] + '</p>';
-										html += '</div>';
+							            html += '<b>' + item.title + '</b>';
+							            html += '<li></div>';
 													
 										$('#'+string).html(html);
 									},
