@@ -48,21 +48,21 @@ function getBoxOffice(date, divId) {
 			dataType : "json",
 			async: false, //값을 리턴시 해당코드를 추가하여 동기로 변경
 			success : function(data) {
-				//console.log(data);
+				console.log(data);
 				var TotalCount = data.Data[0].Count;
-				v1 = '<a href="/filmReview?docId=' + item.DOCID + 
-					'&filmId=' + item.movieId + 
-					'&filmSeq=' + item.movieSeq + 
-					'&filmYear=' + item.prodYear +
-					'&genre=' + item.genre + 
-					'&mId=' + mId + '"><img src="/img/PosterReady.jpg" alt="포스터 준비중"/></a>';
+				v1 = '<a href="/filmReview?docId=' + data.Data[0].Result[i].DOCID + 
+				'&filmId=' + data.Data[0].Result[i].movieId + 
+				'&filmSeq=' + data.Data[0].Result[i].movieSeq + 
+				'&filmYear=' + data.Data[0].Result[i].prodYear + 
+				'&genre='+ data.Data[0].Result[i].genre + 
+				'&mId=' + mId + '"><img src="/img/PosterReady.jpg" alt="포스터 준비중"/></a>';
 				if(TotalCount == 0){
-					v1 = '<a href="/filmReview?docId=' + item.DOCID + 
-						'&filmId=' + item.movieId + 
-						'&filmSeq=' + item.movieSeq + 
-						'&filmYear=' + item.prodYear +
-						'&genre=' + item.genre + 
-						'&mId=' + mId + '"><img src="/img/PosterReady.jpg" alt="포스터 준비중"/></a>';
+					v1 = '<a href="/filmReview?docId=' + data.Data[0].Result[i].DOCID + 
+					'&filmId=' + data.Data[0].Result[i].movieId + 
+					'&filmSeq=' + data.Data[0].Result[i].movieSeq + 
+					'&filmYear=' + data.Data[0].Result[i].prodYear + 
+					'&genre='+ data.Data[0].Result[i].genre + 
+					'&mId=' + mId + '"><img src="/img/PosterReady.jpg" alt="포스터 준비중"/></a>';
 				}else{
 					if(TotalCount > 0){
 						for(var i=0;i<TotalCount;i++){
@@ -105,9 +105,9 @@ function getBoxOffice(date, divId) {
 			type : 'get',
 			dataType : "json",
 			  success : function(data) {
-				 //console.log(data);
+				 console.log(data);
 				  var list = data.boxOfficeResult.dailyBoxOfficeList;
-				  //console.log(list);
+				  console.log(list);
 				  var html = '';
 				  $.each(list, function(index, item) {
 					  //console.log(item.movieNm)
