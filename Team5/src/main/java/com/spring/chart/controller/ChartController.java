@@ -42,4 +42,12 @@ public class ChartController {
 		return ChartList;
 	}
 	
+	@RequestMapping("/Chart/Max")
+	@ResponseBody
+	public List<ChartVo> ChartMax(@RequestParam HashMap<String, Object> map) {
+		List<ChartVo> ChartList = chartService.getMax(map);	
+		System.out.println("누가 가장 좋아할까" + map);
+		return ChartList;
+	}
+	
 }

@@ -32,8 +32,14 @@ public class ChartDaoImpl implements ChartDao {
 
 	@Override
 	public List<ChartVo> getAge(HashMap<String, Object> map) {
-		System.out.println("연령대 맵" + map);
 		sqlSession.selectList("CHART.Age" ,map);
+		List<ChartVo> ChartList = (List<ChartVo>) map.get("result");
+		return ChartList;
+	}
+
+	@Override
+	public List<ChartVo> getMax(HashMap<String, Object> map) {
+		sqlSession.selectList("CHART.Max" ,map);
 		List<ChartVo> ChartList = (List<ChartVo>) map.get("result");
 		return ChartList;
 	}

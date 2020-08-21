@@ -9,7 +9,8 @@
   <title>FlimCritics | Likelist</title>
    <%@ include file="/WEB-INF/include/admin.jsp" %>
    <style>
-		.category{width:1200px; height:100%; clear:both; }
+      .category{width:100%; height:100%; clear:both; }
+      .likelist{margin-right:5px; float:left;}
    </style>
 </head>
 <body class="hold-transition sidebar-mini">
@@ -63,81 +64,86 @@
           </div>
         </div>
         <div class="card-body p-0">
-        	<div class="category">
-				<c:forEach var="likeVo" items="${likeList}">
-					<div id =${likeVo.docId}></div>
-					<script>
-						var str = '${likeVo.docId}';
-						film(str);
-	
-						//포스터, 스틸컷 url
-						function poster(string) {
-							var str = string.split('|');
-							return str;
-						}
-						//제목 자르기
-						function title(string) {
-							var str = string.split('^');
-							return str;
-						}
-									
-						function film(string) {
-							var FilmId = "" + string; //강제로 string 형으로 바꾸기
-							var FilmSeq = "" + string; 
-							var sFilmId = FilmId.substr(0,1); //K22321 로 받아와서 첫번째 글자만 자르기
-							var sFilmSeq = FilmSeq.substr(1,5);
-											
-							$(function(){
-								var mId = $("#mId").val();
-								var url = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70';
-								$.ajax({
-									url : url,
-									type : 'get',
-									dataType : "json",
-									async: false,
-									data : {movieId : sFilmId, movieSeq : sFilmSeq},
-									success : function(data) {
-										//console.log(data);
-													
-										var json = data.Data[0].Result[0];
-										//console.log(json);
-										var html = '';
-	
-											//제목 문자열 자르기
-										var titleName = ""+data.Data[0].Result[0].titleEtc;
-										var tit = title(titleName); 
-													
-											//포스터
-										var posterVal = '';
-										var posterImage = ""+data.Data[0].Result[0].posters;
-										var pos = poster(posterImage); //포스터 문자열 자르기
-										if(pos == ''){
-											posterVal = '<img src="/img/PosterReady.jpg" alt="포스터 준비중"/>';
-										}else{
-											posterVal = '<a href="/filmReview?docId=' + data.Data[0].Result[0].DOCID + 
-											'&filmId=' + data.Data[0].Result[0].movieId + 
-											'&filmSeq=' + data.Data[0].Result[0].movieSeq + 
-											'&filmYear=' + data.Data[0].Result[0].prodYear + 
-											'&genre='+ data.Data[0].Result[0].genre + 
-											'&mId=' + mId + '"><img src="' + pos[0] + '"/></a>';
-										}
-																
-										html += '<div>';
-										html += posterVal + '<br>';
-										html += '<p>' + tit[0] + '</p>';
-										html += '</div>';
-													
-										$('#'+string).html(html);
-									},
-										error : function(xhr) {
-										alert(xhr.status + '' + xhr.textStatus);
-									}
-								});
-							});
-						}
-					</script>
-				</c:forEach> 
-			</div> 
+           <div class="category">
+            <c:forEach var="likeVo" items="${likeList}">
+               <div id =${likeVo.docId}></div>
+               <script>
+                  var str = '${likeVo.docId}';
+                  film(str);
+   
+                  //포스터, 스틸컷 url
+                  function poster(string) {
+                     var str = string.split('|');
+                     return str;
+                  }
+                  //제목 자르기
+                  function title(string) {
+                     var str = string.split('^');
+                     return str;
+                  }
+                           
+                  function film(string) {
+                     var FilmId = "" + string; //강제로 string 형으로 바꾸기
+                     var FilmSeq = "" + string; 
+                     var sFilmId = FilmId.substr(0,1); //K22321 로 받아와서 첫번째 글자만 자르기
+                     var sFilmSeq = FilmSeq.substr(1,5);
+                                 
+                     $(function(){
+                        var mId = $("#mId").val();
+                        var url = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70';
+                        $.ajax({
+                           url : url,
+                           type : 'get',
+                           dataType : "json",
+                           async: false,
+                           data : {movieId : sFilmId, movieSeq : sFilmSeq},
+                           success : function(data) {
+                              //console.log(data);
+                                       
+                              var json = data.Data[0].Result[0];
+                              //console.log(json);
+                              var html = '';
+   
+                                 //제목 문자열 자르기
+                              var titleName = ""+data.Data[0].Result[0].titleEtc;
+                              var tit = title(titleName); 
+                                       
+                                 //포스터
+                              var posterVal = '';
+                              var posterImage = ""+data.Data[0].Result[0].posters;
+                              var pos = poster(posterImage); //포스터 문자열 자르기
+                              if(pos == ''){
+                                 posterVal = '<a href="/filmReview?docId=' + data.Data[0].Result[0].DOCID + 
+                                 '&filmId=' + data.Data[0].Result[0].movieId + 
+                                 '&filmSeq=' + data.Data[0].Result[0].movieSeq + 
+                                 '&filmYear=' + data.Data[0].Result[0].prodYear + 
+                                 '&genre='+ data.Data[0].Result[0].genre + 
+                                 '&mId=' + mId + '"><img src="/img/PosterReady.jpg" alt="포스터 준비중"/></a>';
+                              }else{
+                                 posterVal = '<a href="/filmReview?docId=' + data.Data[0].Result[0].DOCID + 
+                                 '&filmId=' + data.Data[0].Result[0].movieId + 
+                                 '&filmSeq=' + data.Data[0].Result[0].movieSeq + 
+                                 '&filmYear=' + data.Data[0].Result[0].prodYear + 
+                                 '&genre='+ data.Data[0].Result[0].genre + 
+                                 '&mId=' + mId + '"><img src="' + pos[0] + '"  /></a>';
+                              }
+                                                
+                              html += '<div class="likelist">';
+                              html += posterVal + '<br>';
+                              html += '<p>' + tit[0] + '</p>';
+                              html += '</div>';
+                                       
+                              $('#'+string).html(html);
+                           },
+                              error : function(xhr) {
+                              alert(xhr.status + '' + xhr.textStatus);
+                           }
+                        });
+                     });
+                  }
+               </script>
+            </c:forEach> 
+         </div> 
         </div>
         <!-- /.card-body -->
       </div>
@@ -160,3 +166,6 @@
 
 </body>
 </html>
+
+
+

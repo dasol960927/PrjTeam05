@@ -68,7 +68,12 @@ $(function(){
 						var posterVal = '';
 						var pos = poster(item.posters); //포스터 문자열 자르기
 						if(pos == ''){
-							posterVal = '<img src="/img/PosterReady.jpg" alt="포스터 준비중"/>';
+							posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
+								'&filmId=' + item.movieId + 
+								'&filmSeq=' + item.movieSeq + 
+								'&filmYear=' + item.prodYear +
+								'&genre=' + item.genre + 
+								'&mId=' + mId + '"><img src="/img/PosterReady.jpg" alt="포스터 준비중"/></a>';
 						}else{
 							posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
 							'&filmId=' + item.movieId + 
@@ -106,10 +111,7 @@ $(function(){
 						html+=                 '</div>';
 						html+=                 '<div class="card-footer">';
 						html+=                   '<div class="text-right">';
-						html+=                     '<a href="/LIKE/List?mId=${login.mId}" class="btn btn-sm bg-teal">';
-						html+=                       '<i class="fas fa-heart"></i>';
-						html+=                     '</a>';
-						html+=                     '<a href="/filmReview?docId=' + item.DOCID + '&filmId=' + item.movieId + '&filmSeq=' + item.movieSeq + '&filmYear=' + item.prodYear + '" class="btn btn-sm btn-primary">';
+						html+=                     '<a href="/filmReview?docId=' + item.DOCID + '&filmId=' + item.movieId + '&filmSeq=' + item.movieSeq + '&filmYear=' + item.prodYear +'&genre=' + item.genre + '&mId=' + mId +'" class="btn btn-sm btn-primary">';
 						html+=                       '<i class="fas fa-eye"></i> 영화 리뷰';
 						html+=                     '</a>';
 						html+=                   '</div>';
@@ -129,6 +131,8 @@ $(function(){
 	});
 });
 </script>
+
+
 
 </head>
 <body class="hold-transition sidebar-mini">
