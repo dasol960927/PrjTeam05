@@ -74,8 +74,6 @@ a.link2:hover{text-decoration:underline;}
 	
 	function btnToggle(index){
 		
-						
-			
 			//window.location.href='#tblToggle';
 			
 			//$("#tblToggle").toggle();

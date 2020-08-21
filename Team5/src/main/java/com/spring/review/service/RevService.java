@@ -12,6 +12,8 @@ public interface RevService {
 	List<RevVo> getRevList(HashMap<String, Object> map);
 
 	void insertGrd(HashMap<String, Object> map);
+	
+	void insertRev(HashMap<String, Object> map);	
 
 	RevVo getRevConts(HashMap<String, Object> map);
 
@@ -22,6 +24,8 @@ public interface RevService {
 	void insRevLvl2(HashMap<String, Object> map);
 
 	void insertSym(HashMap<String, Object> map);
+
+
 
 	
 
