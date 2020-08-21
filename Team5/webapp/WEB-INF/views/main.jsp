@@ -33,7 +33,6 @@ function title(string) {
 	return str;
 }
 
-
 function getBoxOffice(date, divId) {
 	function kmdbApi(movieNm,openDt) {
 		var v1 = '';
