@@ -13,4 +13,6 @@ public interface ChartDao {
 	
 	List<ChartVo> getAge(HashMap<String, Object> map);
 
+	List<ChartVo> getMax(HashMap<String, Object> map);
+
 }

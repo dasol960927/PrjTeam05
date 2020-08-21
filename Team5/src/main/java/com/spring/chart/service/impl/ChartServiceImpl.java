@@ -34,4 +34,10 @@ public class ChartServiceImpl implements ChartService {
 		return ChartList;
 	}
 
+	@Override
+	public List<ChartVo> getMax(HashMap<String, Object> map) {
+		List<ChartVo> ChartList = chartDao.getMax(map);
+		return ChartList;
+	}
+
 }

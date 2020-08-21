@@ -11,6 +11,8 @@
        <result property="cntGrdScore"  column="CNT_GRD_SCORE"  javaType="int" />   
        <result property="mGender"      column="M_GENDER"       javaType="string" />   
        <result property="ages"  	   column="AGES"           javaType="string" />   
+       <result property="str"  	       column="STR"           javaType="string" />   
+       <result property="oMsg"  	   column="O_MSG"           javaType="string" />   
      </resultMap>
    
      <select id="Grd"
@@ -44,6 +46,17 @@
          ) }     
      </select>
        
+       
+     <select id="Max"
+         statementType="CALLABLE" parameterType="hashmap" 
+         resultType="com.spring.chart.vo.ChartVo">
+         {CALL  PKG_CHART.PROC_CHART_MAX(
+         	#{docId, mode = IN, jdbcType = VARCHAR},
+            #{result, mode=OUT, jdbcType=CURSOR, 
+               javaType=ResultSet, resultMap=ChartMap },
+            #{oMsg, mode = OUT, jdbcType = VARCHAR}
+         ) }     
+     </select>
              
   </mapper>        
 

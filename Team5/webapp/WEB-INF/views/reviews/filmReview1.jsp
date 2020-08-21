@@ -35,7 +35,7 @@ th, td{
             <div class="tab-content p-3" id="nav-tabContent" >
 
 				 <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab">
-
+				 <h2 id="max"></h2>
                <table id="example1" class="table table-bordered table-striped">
                  <thead>                  
                    <tr>
@@ -77,6 +77,7 @@ th, td{
                  </tbody>
                </table>
 				 </div>
+				 
 
             </div>
           </div>
@@ -132,6 +133,34 @@ th, td{
       "responsive": true,
     });
   });
+</script>
+
+<script>
+$(function(){
+	
+	 var docIdVal = '${docId}';
+	  
+	  $.ajax({
+			url : '/Chart/Max',
+			type: 'GET',
+			data: {'docId' : docIdVal},
+			datatype: 'json',
+			success : function(data) {		
+				$.each(data, function(index, item){
+					if(item == null){
+						$('#max').html('평점이 아직 작성되지 않았습니다.');
+					}else{
+						$('#max').html('이 영화는 ' + item.str  + item.mGender + '가 좋아하는 영화입니다');
+					}
+				});
+					
+			}, 
+				error : function(xhr) {
+					alert('차트데이터'+ xhr.status + '' + xhr.textStatus);
+				}
+			});
+})
+	
 </script>
 
 <%@ include file="/WEB-INF/include/doughnutChart.jsp" %>
