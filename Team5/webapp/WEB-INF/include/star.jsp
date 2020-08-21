@@ -37,7 +37,7 @@
 </style>
 
 
-		<c:choose>
+	<c:choose>
 		<c:when test="${revVo.grdScore eq 0.5}">
 			  <div class="starRev" style="width:auto;">
 				  <span class="starR1 on">별1</span>
@@ -203,5 +203,5 @@
 				  <span style="font-weight:bold; font-size:20px;">${revVo.grdScore}</span>				  
 			</div>			
 		</c:otherwise>																
-		</c:choose>		
+	</c:choose>		
 				
