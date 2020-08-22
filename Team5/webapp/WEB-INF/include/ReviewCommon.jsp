@@ -336,10 +336,10 @@ $(function(){
                   <i class="fas fa-cart-plus fa-lg mr-2"></i> 
                     	<a href="/DPS/List?mId=${login.mId }" style="color:white;">포인트 충전</a>
                 </div>
-                <div class="btn btn-primary btn-lg btn-flat" id = "btnPur" style="float:left; margin-left:5px;">
-                  <i class="far fa-credit-card"></i> 
+                <div class="btn btn-primary btn-lg btn-flat" style="float:left; margin-left:5px;">
+                  <i class="far fa-credit-card" id = "btnPur" ></i>구매하기
 
-                    	<a href="/PUR/purFilm?mId=${login.mId }&docId=${fVo.docId}&filmPrice=${fVo.filmPrice}" style="color:white;">구매하기</a>
+                    	 <%--<a href="/PUR/purFilm?mId=${login.mId }&docId=${fVo.docId}&filmPrice=${fVo.filmPrice}" style="color:white;">구매하기</a>--%>
                 </div>
 				
 			 </div>
