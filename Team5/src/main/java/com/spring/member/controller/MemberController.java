@@ -105,11 +105,6 @@ public class MemberController {
 			link = "errorPage/500Page";
 			break;
 
-			
-		case "ImageSlideTest":
-		link = "ImageSlideTest";
-		break;
-		
 		}
 		
 		return link;
