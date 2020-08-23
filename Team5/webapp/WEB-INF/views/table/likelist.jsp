@@ -6,12 +6,13 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>FlimCritics | Likelist</title>
+  <title>FlimCritics | ImageSlider</title>
    <%@ include file="/WEB-INF/include/admin.jsp" %>
-   <style>
-      .category{width:100%; height:100%; clear:both; }
-      .likelist{margin-right:5px; float:left;}
-   </style>
+<style>
+  .category{width:100%; clear:both; }
+  .likelist{margin-right:5px; float:left;}
+  
+</style>
 </head>
 <body class="hold-transition sidebar-mini">
 <input type = "hidden" id = "mId" value = "${login.mId }"/>
@@ -66,7 +67,7 @@
         <div class="card-body p-0">
            <div class="category">
             <c:forEach var="likeVo" items="${likeList}">
-               <div id =${likeVo.docId}></div>
+               <div id =${likeVo.docId} style="border:1px solid white;"></div>
                <script>
                   var str = '${likeVo.docId}';
                   film(str);
@@ -166,6 +167,3 @@
 
 </body>
 </html>
-
-
-
