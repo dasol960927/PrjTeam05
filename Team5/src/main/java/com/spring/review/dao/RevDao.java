@@ -15,6 +15,8 @@ public interface RevDao {
 	
 	void insertRev(HashMap<String, Object> map);
 
+	RevVo getGrdConts(HashMap<String, Object> map);	
+	
 	RevVo getRevConts(HashMap<String, Object> map);
 
 	List<RevVo> getRevList2(HashMap<String, Object> map);
@@ -25,6 +27,11 @@ public interface RevDao {
 
 	void insertSym(HashMap<String, Object> map);
 
+	List<RevVo> myGrdList(HashMap<String, Object> map);
 	
+	void updateGrd(HashMap<String, Object> map);
 
+	List<RevVo> myRevList(HashMap<String, Object> map);
+
+	
 }

@@ -59,6 +59,15 @@ public class RevDaoImpl implements RevDao {
 		sqlSession.insert("REVIEW.RevInsert", map);
 		
 	}	
+	
+	@Override
+	public RevVo getGrdConts(HashMap<String, Object> map) {
+		sqlSession.selectList("REVIEW.GrdConts", map);
+		List<RevVo> revList = (List<RevVo>) map.get("result");
+		RevVo revVo = revList.get(0);
+		
+		return revVo;
+	}	
 
 	@Override
 	public RevVo getRevConts(HashMap<String, Object> map) {
@@ -88,6 +97,31 @@ public class RevDaoImpl implements RevDao {
 		
 		sqlSession.insert("REVIEW.SymInsert", map);
 		
+	}
+
+	@Override
+	public List<RevVo> myGrdList(HashMap<String, Object> map) {
+
+		sqlSession.selectList("REVIEW.MyGrdList", map);
+		List<RevVo> grdList = (List<RevVo>) map.get("result");
+		
+		return grdList;
+	}
+	
+	@Override
+	public void updateGrd(HashMap<String, Object> map) {
+		
+		sqlSession.update("REVIEW.GrdUpdate", map);
+		
+	}
+
+	@Override
+	public List<RevVo> myRevList(HashMap<String, Object> map) {
+
+		sqlSession.selectList("REVIEW.MyRevList", map);
+		List<RevVo> revList = (List<RevVo>) map.get("result");
+		
+		return revList;
 	}
 
 
