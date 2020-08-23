@@ -46,18 +46,44 @@ $(function(){
 						var stllsVal = '';
 						var stl = poster(item.stlls); //스틸컷 문자열 자르기
 						if(stl == ""){
-							stllsVal += '<li><img src="/img/ready.jpg" alt="스틸컷 준비중"/></li>';
+							stllsVal += '<img src="/img/ready.jpg" alt="스틸컷 준비중"/>';
 						}else{
 							for(var i=0; i<5; i++) {
-								stllsVal +='<li><img src="'+stl[i]+'"/></li>';
+								stllsVal +='<img src="'+stl[i]+'"/>';
 							}
 						}
 						
-						first   += '<img src="'+stl[0]+'"/>';
-						second  += '<img src="'+stl[1]+'"/>';
-						third   += '<img src="'+stl[2]+'"/>';
-						fourth  += '<img src="'+stl[3]+'"/>';
-						fifth   += '<img src="'+stl[4]+'"/>';
+						if(poster(item.stlls)==""){
+							first   += '<img src="/img/ready.jpg" alt="스틸컷 준비중"/>';
+						}else{							
+							first   += '<img src="'+stl[0]+'" alt="스틸컷1"/>';
+						}
+						
+						if(poster(item.stlls)==""){
+							second   += '<img src="/img/ready.jpg" alt="스틸컷 준비중"/>';
+						}else{							
+							second   += '<img src="'+stl[1]+'" alt="스틸컷2"/>';
+						}
+						
+						
+						if(poster(item.stlls)==""){
+							third   += '<img src="/img/ready.jpg" alt="스틸컷 준비중"/>';
+						}else{							
+							third   += '<img src="'+stl[2]+'" alt="스틸컷3"/>';
+						}
+						
+						if(poster(item.stlls)==""){
+							fourth   += '<img src="/img/ready.jpg" alt="스틸컷 준비중"/>';
+						}else{							
+							fourth   += '<img src="'+stl[3]+'" alt="스틸컷4"/>';
+						}
+						
+						if(poster(item.stlls)==""){
+							fifth   += '<img src="/img/ready.jpg" alt="스틸컷 준비중"/>';
+						}else{							
+							fifth   += '<img src="'+stl[4]+'" alt="스틸컷5"/>';
+						}
+
 						
 			            exit = true; //이중 ajax 빠져나오기
 					  });

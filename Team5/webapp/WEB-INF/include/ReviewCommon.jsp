@@ -132,9 +132,6 @@ $(function(){
 						html+=              '<div class="col-12">';
 						html+=                posterVal;
 						html+=              '</div>';
-						html+=              '<div class="col-12 product-image-thumbs">';
-						html+=                stllsVal
-						html+=              '</div>';
 
 						html2+=              '<h3 class="my-3">' + tit[0] + '</h3>';
 			            html2+= 			 '<p>배우:' + actorVal + '<br/> 감독 :' + item.directors.director[0].directorNm + '<br/> 개봉일: ' + item.repRlsDate + '</p>';
