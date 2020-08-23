@@ -28,7 +28,10 @@
             </nav>
             <div class="tab-content p-3" id="nav-tabContent" >
 
-				 <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab"><span id="here3"></span></div>
+				 <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab">
+				 <span id="here3"></span>
+				 <%@ include file="/WEB-INF/include/Stils.jsp" %>
+				 </div>
             </div>
           </div>
         </div>
