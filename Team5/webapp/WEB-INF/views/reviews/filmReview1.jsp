@@ -23,8 +23,7 @@ th, td{
 <script>
 /* a href="/REVIEW/insGrdCnt?sGubun=G&revIdx=${revVo.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmSeq}&mId=${login.mId} */
 	$(function(){
-		var hidRevIdx = $("#hidRevIdx").val();		
-		
+		var hidRevIdx = $("#hidRevIdx").val();				
 		
 		$('.cGood').on('click', function(){
 			alert("맞음");
