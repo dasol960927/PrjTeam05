@@ -68,7 +68,7 @@
                    <div class="category" >
             <c:forEach var="likeVo" items="${likeList}">
 
-               <div id =${likeVo.docId} style="border:1px solid white;"></div>
+               <div id =${likeVo.docId} style="border:0.01px solid white;"></div>
 
                <script>
                   var str = '${likeVo.docId}';
