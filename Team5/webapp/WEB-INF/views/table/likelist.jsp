@@ -68,7 +68,7 @@
                    <div class="category" >
             <c:forEach var="likeVo" items="${likeList}">
 
-               <div id =${likeVo.docId} style="float:left;"></div>
+               <div id =${likeVo.docId} style="border:1px solid white;"></div>
 
                <script>
                   var str = '${likeVo.docId}';
@@ -150,10 +150,12 @@
          </div>
         <div class="card-body p-0">
 
-		    <div>
+	<hr>
+	<div>
+	<h1>찜한 영화와 비슷한 장르 추천</h1>
     <div class="category">
     <c:forEach var="likeVo" items="${likeGenreList}">
-    ${likeVo.genre} 영화
+    <h3 style="color:green;">${likeVo.genre} 영화</h3>
     	<div class="likelist" style="clear:both;">
     	<div id = ${likeVo.genre} style=" float:left;"></div>
     	</div>
