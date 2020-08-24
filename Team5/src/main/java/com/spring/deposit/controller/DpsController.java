@@ -27,7 +27,7 @@ public class DpsController {
 	@RequestMapping("/DPS/List")	
 	public ModelAndView dpsList(@RequestParam HashMap<String, Object> map) {
 		
-		System.out.println(map);
+		//System.out.println(map);
 				
 		List<DpsVo> dpsList = dpsService.getDpsList(map);	
 		MemberVo memberVo = memberService.getMemberInfo(map);
@@ -41,9 +41,9 @@ public class DpsController {
 		
 		mv.addObject("mId", map.get("mId"));
 		
-		System.out.println("memberVo :" + memberVo);
-		System.out.println("map : "  + map);
-		System.out.println("mv : " + mv);
+		//System.out.println("memberVo :" + memberVo);
+		//System.out.println("map : "  + map);
+		//System.out.println("mv : " + mv);
 		
 		return mv;
 	}
@@ -55,8 +55,8 @@ public class DpsController {
 		List<DpsVo> dpsList = dpsService.getDpsList(map);	
 		MemberVo memberVo = memberService.getMemberInfo(map);
 		
-		System.out.println("dps1 map : " + map);
-		System.out.println("dps1 List : " + dpsList);
+		//System.out.println("dps1 map : " + map);
+		//System.out.println("dps1 List : " + dpsList);
 
 		mv.addObject("mId", map.get("mId"));
 		mv.addObject("dComId", map.get("dComId"));
@@ -91,7 +91,7 @@ public class DpsController {
 		mv.addObject("memberVo", memberVo);
 		//mv.setViewName("redirect:/login");	
 		
-		System.out.println("dps2 map : " + map);		
+		//System.out.println("dps2 map : " + map);		
 		
 		
 		String dComId = (String) map.get("dComId");

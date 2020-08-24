@@ -41,7 +41,7 @@ public class PurController {
       
       //mv.addObject("mId", map.get("mId"));
       
-      System.out.println(purList);
+     // System.out.println(purList);
       
       return mv;
    }
@@ -50,7 +50,7 @@ public class PurController {
    @RequestMapping("/PUR/purFilm")
    @ResponseBody
    public String purFilm(@RequestParam HashMap<String, Object> map) throws IOException {
-      System.out.println("구매컨트롤러" + map);
+      //System.out.println("구매컨트롤러" + map);
       purService.insertPur(map);
       
       ModelAndView mv = new ModelAndView();
@@ -61,12 +61,12 @@ public class PurController {
       mv.addObject("oErrMsg", map.get("oErrMsg"));   
       mv.addObject("oOverlapFilm", map.get("oOverlapFilm"));
             
-      System.out.println("purFilm mv : " + mv);
+      //System.out.println("purFilm mv : " + mv);
       
       ObjectMapper mapper = new ObjectMapper();
 
       String jsonStr = mapper.writeValueAsString(mv);
-      System.out.println("purcontroller에서 jsonstr" + jsonStr);
+      //System.out.println("purcontroller에서 jsonstr" + jsonStr);
 
       //mv.setViewName("reviews/filmReview");
       

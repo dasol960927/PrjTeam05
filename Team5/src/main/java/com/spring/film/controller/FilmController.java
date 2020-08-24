@@ -29,7 +29,7 @@ public class FilmController {
 
 	@RequestMapping("/filmReview")
 	public ModelAndView filmReview(@RequestParam HashMap<String, Object> map) {
-		System.out.println("필름컨트롤러의 " + map);
+		//System.out.println("필름컨트롤러의 " + map);
 		
 		filmService.setFilm(map);
 		FilmVo fVo = filmService.getPrice(map);
@@ -57,7 +57,7 @@ public class FilmController {
 
 
 		mv.addObject("fVo", fVo);
-		System.out.println("필름 컨트롤러에서 fVo" + fVo);
+		//System.out.println("필름 컨트롤러에서 fVo" + fVo);
 
 		mv.addObject("docId", vo.getDocId());
 		mv.addObject("filmId", vo.getFilmId());
@@ -67,7 +67,7 @@ public class FilmController {
 		mv.addObject("mVo", memberVo);
 		
 	
-		System.out.println(mv);
+		//System.out.println(mv);
 		mv.setViewName("reviews/filmReview");
 		return mv;
 	}
