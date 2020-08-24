@@ -15,277 +15,277 @@
 <script>
 //포스터
 function poster(string) {
-	var str = string.split('|');
-	
-	return str;
+   var str = string.split('|');
+   
+   return str;
 }
 //날짜
 function movieDate(string) {
-	var str = string.replace(/-/g,"");
-	
-	return str;
+   var str = string.replace(/-/g,"");
+   
+   return str;
 }
 
 //제목
 function title(string) {
-	var str = string.split('^');
-	
-	return str;
+   var str = string.split('^');
+   
+   return str;
 }
 
 //장르
 function genreText(string) {
-	var str = string.split(',');
-	
-	return str;
+   var str = string.split(',');
+   
+   return str;
 }
 
 function getBoxOffice(date, divId) {
-	function kmdbApi(movieNm,openDt) {
-		var v1 = '';
-		var mId = $("#mId").val();
-		var kDate = movieDate(openDt);
-		var KMDbUrl = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70'
-				+'&releaseDts=' + kDate + '&title='+ movieNm;
-		
-		$.ajax({
-			url : KMDbUrl,
-			type : 'get',
-			dataType : "json",
-			async: false, //값을 리턴시 해당코드를 추가하여 동기로 변경
-			success : function(data) {
-				//console.log(data);
-				
-				var TotalCount = data.Data[0].Count;
-				v1 = '<img src="/img/PosterReady.jpg" alt="포스터 준비중"/></a>';
-				if(TotalCount == 0){
-					for(var i=0;i<TotalCount;i++){
-						if(kDate == data.Data[0].Result[i].repRlsDate){
-							var gen = genreText(data.Data[0].Result[i].genre);
-							v1 = '<a href="/filmReview?docId=' + data.Data[0].Result[i].DOCID + 
-							'&filmId=' + data.Data[0].Result[i].movieId + 
-							'&filmSeq=' + data.Data[0].Result[i].movieSeq + 
-							'&filmYear=' + data.Data[0].Result[i].prodYear + 
-							'&genre='+ gen[0] + 
-							'&mId=' + mId + '"><img src="/img/PosterReady.jpg" alt="포스터 준비중"/></a>';
-						}
-					}
-				}else{
-					if(TotalCount > 0){
-						for(var i=0;i<TotalCount;i++){
-							if(kDate == data.Data[0].Result[i].repRlsDate){
-								var gen = genreText(data.Data[0].Result[i].genre);
-								pos = poster(data.Data[0].Result[i].posters);
-								v1 = '<a href="/filmReview?docId=' + data.Data[0].Result[i].DOCID + 
-								'&filmId=' + data.Data[0].Result[i].movieId + 
-								'&filmSeq=' + data.Data[0].Result[i].movieSeq + 
-								'&filmYear=' + data.Data[0].Result[i].prodYear + 
-								'&genre='+ gen[0] + 
-								'&mId=' + mId + '"><img src="' + pos[0] + '"/></a>';
-							}else{
-								pos = '';
-							}
-						}
-					}else{
-						pos = poster(data.Data[0].Result[0].posters);
-						var gen = genreText(data.Data[0].Result[i].genre);
-						v1 = '<a href="/filmReview?docId=' + data.Data[0].Result[i].DOCID + 
-						'&filmId=' + data.Data[0].Result[i].movieId + 
-						'&filmSeq=' + data.Data[0].Result[i].movieSeq + 
-						'&filmYear=' + data.Data[0].Result[i].prodYear + 
-						'&genre='+ gen[0] +
-						'&mId=' + mId + '"><img src="' + pos[0] + '"/></a>';
-					}
-				}
-			},
-			error    : function(xhr) {
-				alert(xhr.status + '' + xhr.textStatus);
-		  	}
-		});
-		return v1;
-	}
-	
-	$(function(){	
-		var BoxOfficeUrl = 'http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=b277ae665edf3d36d582a0b696287edc'+
-		   '&targetDt='+ date;
-		
-		$.ajax({
-			url : BoxOfficeUrl,
-			type : 'get',
-			dataType : "json",
-			  success : function(data) {
-				 console.log(data);
-				  var list = data.boxOfficeResult.dailyBoxOfficeList;
-				  console.log(list);
-				  var html = '';
-				  $.each(list, function(index, item) {
-					  //console.log(item.movieNm)
-						html += '<li><div class="img">';
-						html += kmdbApi(item.movieNm,item.openDt); + '<br>';
-			            html += '<p>' + item.movieNm + '</p>';
-			            html += '<li></div>';
-				  });
-				  $('#'+divId).html(html);
-			  },
-			  error    : function(xhr) {
-				  alert(xhr.status + '' + xhr.textStatus);
-			  }
-		  });
-	});	
+   function kmdbApi(movieNm,openDt) {
+      var v1 = '';
+      var mId = $("#mId").val();
+      var kDate = movieDate(openDt);
+      var KMDbUrl = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70'
+            +'&releaseDts=' + kDate + '&title='+ movieNm;
+      
+      $.ajax({
+         url : KMDbUrl,
+         type : 'get',
+         dataType : "json",
+         async: false, //값을 리턴시 해당코드를 추가하여 동기로 변경
+         success : function(data) {
+            //console.log(data);
+            
+            var TotalCount = data.Data[0].Count;
+            v1 = '<img src="/img/PosterReady.jpg" alt="포스터 준비중"/></a>';
+            if(TotalCount == 0){
+               for(var i=0;i<TotalCount;i++){
+                  if(kDate == data.Data[0].Result[i].repRlsDate){
+                     var gen = genreText(data.Data[0].Result[i].genre);
+                     v1 = '<a href="/filmReview?docId=' + data.Data[0].Result[i].DOCID + 
+                     '&filmId=' + data.Data[0].Result[i].movieId + 
+                     '&filmSeq=' + data.Data[0].Result[i].movieSeq + 
+                     '&filmYear=' + data.Data[0].Result[i].prodYear + 
+                     '&genre='+ gen[0] + 
+                     '&mId=' + mId + '"><img src="/img/PosterReady.jpg" alt="포스터 준비중"/></a>';
+                  }
+               }
+            }else{
+               if(TotalCount > 0){
+                  for(var i=0;i<TotalCount;i++){
+                     if(kDate == data.Data[0].Result[i].repRlsDate){
+                        var gen = genreText(data.Data[0].Result[i].genre);
+                        pos = poster(data.Data[0].Result[i].posters);
+                        v1 = '<a href="/filmReview?docId=' + data.Data[0].Result[i].DOCID + 
+                        '&filmId=' + data.Data[0].Result[i].movieId + 
+                        '&filmSeq=' + data.Data[0].Result[i].movieSeq + 
+                        '&filmYear=' + data.Data[0].Result[i].prodYear + 
+                        '&genre='+ gen[0] + 
+                        '&mId=' + mId + '"><img src="' + pos[0] + '"/></a>';
+                     }else{
+                        pos = '';
+                     }
+                  }
+               }else{
+                  pos = poster(data.Data[0].Result[0].posters);
+                  var gen = genreText(data.Data[0].Result[i].genre);
+                  v1 = '<a href="/filmReview?docId=' + data.Data[0].Result[i].DOCID + 
+                  '&filmId=' + data.Data[0].Result[i].movieId + 
+                  '&filmSeq=' + data.Data[0].Result[i].movieSeq + 
+                  '&filmYear=' + data.Data[0].Result[i].prodYear + 
+                  '&genre='+ gen[0] +
+                  '&mId=' + mId + '"><img src="' + pos[0] + '"/></a>';
+               }
+            }
+         },
+         error    : function(xhr) {
+            alert(xhr.status + '' + xhr.textStatus);
+           }
+      });
+      return v1;
+   }
+   
+   $(function(){   
+      var BoxOfficeUrl = 'http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=b277ae665edf3d36d582a0b696287edc'+
+         '&targetDt='+ date;
+      
+      $.ajax({
+         url : BoxOfficeUrl,
+         type : 'get',
+         dataType : "json",
+           success : function(data) {
+             console.log(data);
+              var list = data.boxOfficeResult.dailyBoxOfficeList;
+              console.log(list);
+              var html = '';
+              $.each(list, function(index, item) {
+                 //console.log(item.movieNm)
+                  html += '<li><div class="img">';
+                  html += kmdbApi(item.movieNm,item.openDt); + '<br>';
+                     html += '<p>' + item.movieNm + '</p>';
+                     html += '<li></div>';
+              });
+              $('#'+divId).html(html);
+           },
+           error    : function(xhr) {
+              alert(xhr.status + '' + xhr.textStatus);
+           }
+        });
+   });   
 }
 
 //배우
 function getActor(actorVal, divId) {
-	$(function(){
-		var mId = $("#mId").val();
-		
-		var url = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70&' + 
-		     	  'actor=' + actorVal + '&listCount=10&sort=prodYear,1';
-		$.ajax({
-			url : url,
-			type : 'get',
-			dataType : "json",
-			success : function(data) {
-				//console.log(data);
-				
-				var js = data.Data[0].Result;
-				var html = '';
-				//var mId = '${login.mId}';
-				$.each(js, function(index, item) {				
-					var posterVal = '';
-					var pos = poster(item.posters); //포스터 문자열 자르기
-					if(pos == ''){
-						var gen = genreText(item.genre);
-						posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
-						'&filmId=' + item.movieId + 
-						'&filmSeq=' + item.movieSeq + 
-						'&filmYear=' + item.prodYear +
-						'&genre=' + gen[0] + 
-						'&mId=' + mId + '"><img src="/img/PosterReady.jpg" alt="포스터 준비중"/></a>';
-					}else{
-						var gen = genreText(item.genre);
-						posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
-								'&filmId=' + item.movieId + 
-								'&filmSeq=' + item.movieSeq + 
-								'&filmYear=' + item.prodYear +
-								'&genre=' + gen[0] + 
-								'&mId=' + mId + '"><img src="' + pos[0] + '"/></a>';
-					}
-					
-		
-					html += '<li><div class="img">';
-					html += posterVal + '<br>';
-		            html += '<b>' + item.title + '</b>';
-		            html += '<li></div>';
-				});
-				$('#'+divId).html(html);
-			},
-			error : function(xhr) {
-				alert(xhr.status + '' + xhr.textStatus);
-		  	}
-		});
-	});
+   $(function(){
+      var mId = $("#mId").val();
+      
+      var url = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70&' + 
+                'actor=' + actorVal + '&listCount=10&sort=prodYear,1';
+      $.ajax({
+         url : url,
+         type : 'get',
+         dataType : "json",
+         success : function(data) {
+            //console.log(data);
+            
+            var js = data.Data[0].Result;
+            var html = '';
+            //var mId = '${login.mId}';
+            $.each(js, function(index, item) {            
+               var posterVal = '';
+               var pos = poster(item.posters); //포스터 문자열 자르기
+               if(pos == ''){
+                  var gen = genreText(item.genre);
+                  posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
+                  '&filmId=' + item.movieId + 
+                  '&filmSeq=' + item.movieSeq + 
+                  '&filmYear=' + item.prodYear +
+                  '&genre=' + gen[0] + 
+                  '&mId=' + mId + '"><img src="/img/PosterReady.jpg" alt="포스터 준비중"/></a>';
+               }else{
+                  var gen = genreText(item.genre);
+                  posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
+                        '&filmId=' + item.movieId + 
+                        '&filmSeq=' + item.movieSeq + 
+                        '&filmYear=' + item.prodYear +
+                        '&genre=' + gen[0] + 
+                        '&mId=' + mId + '"><img src="' + pos[0] + '"/></a>';
+               }
+               
+      
+               html += '<li><div class="img">';
+               html += posterVal + '<br>';
+                  html += '<b>' + item.title + '</b>';
+                  html += '<li></div>';
+            });
+            $('#'+divId).html(html);
+         },
+         error : function(xhr) {
+            alert(xhr.status + '' + xhr.textStatus);
+           }
+      });
+   });
 }
 
 //감독
 function getDirector(directorVal, divId) {
-	$(function(){
-		var mId = $("#mId").val();
-		var url = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70&' + 
-		     	  'director=' + directorVal + '&listCount=10&sort=prodYear,1';
-		$.ajax({
-			url : url,
-			type : 'get',
-			dataType : "json",
-			success : function(data) {
-				//console.log(data);
-				
-				var js = data.Data[0].Result;
+   $(function(){
+      var mId = $("#mId").val();
+      var url = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70&' + 
+                'director=' + directorVal + '&listCount=10&sort=prodYear,1';
+      $.ajax({
+         url : url,
+         type : 'get',
+         dataType : "json",
+         success : function(data) {
+            //console.log(data);
+            
+            var js = data.Data[0].Result;
 
-				var html = '';
-				$.each(js, function(index, item) {				
-					var posterVal = '';
-					var pos = poster(item.posters); //포스터 문자열 자르기
-					if(pos == ''){
-						var gen = genreText(item.genre);
-						posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
-							'&filmId=' + item.movieId + 
-							'&filmSeq=' + item.movieSeq + 
-							'&filmYear=' + item.prodYear +
-							'&genre=' + gen[0] + 
-							'&mId=' + mId + '"><img src="/img/PosterReady.jpg" alt="포스터 준비중"/></a>';
-					}else{
-						var gen = genreText(item.genre);
-						posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
-						'&filmId=' + item.movieId + 
-						'&filmSeq=' + item.movieSeq + 
-						'&filmYear=' + item.prodYear + 
-						'&genre=' + gen[0] + 
-						'&mId=' + mId + '"><img src="' + pos[0] + '"/></a>';
-					}
-					
-					html += '<li><div class="img">';
-					html += posterVal + '<br>';
-		            html += '<b>' + item.title + '</b>';
-		            html += '<li></div>';
-				});
-				$('#'+divId).html(html);
-			},
-			error : function(xhr) {
-				alert(xhr.status + '' + xhr.textStatus);
-		  	}
-		});
-	});
+            var html = '';
+            $.each(js, function(index, item) {            
+               var posterVal = '';
+               var pos = poster(item.posters); //포스터 문자열 자르기
+               if(pos == ''){
+                  var gen = genreText(item.genre);
+                  posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
+                     '&filmId=' + item.movieId + 
+                     '&filmSeq=' + item.movieSeq + 
+                     '&filmYear=' + item.prodYear +
+                     '&genre=' + gen[0] + 
+                     '&mId=' + mId + '"><img src="/img/PosterReady.jpg" alt="포스터 준비중"/></a>';
+               }else{
+                  var gen = genreText(item.genre);
+                  posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
+                  '&filmId=' + item.movieId + 
+                  '&filmSeq=' + item.movieSeq + 
+                  '&filmYear=' + item.prodYear + 
+                  '&genre=' + gen[0] + 
+                  '&mId=' + mId + '"><img src="' + pos[0] + '"/></a>';
+               }
+               
+               html += '<li><div class="img">';
+               html += posterVal + '<br>';
+                  html += '<b>' + item.title + '</b>';
+                  html += '<li></div>';
+            });
+            $('#'+divId).html(html);
+         },
+         error : function(xhr) {
+            alert(xhr.status + '' + xhr.textStatus);
+           }
+      });
+   });
 }
 
 //장르
 function getGenre(genreVal, divId) {
-	$(function(){
-		var mId = $("#mId").val();
-		var url = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70&' + 
-		     	  'genre=' + genreVal + '&listCount=10&sort=prodYear,1&createDts=2019';
-		$.ajax({
-			url : url,
-			type : 'get',
-			dataType : "json",
-			success : function(data) {
-				//console.log(data);
-				
-				var js = data.Data[0].Result;
+   $(function(){
+      var mId = $("#mId").val();
+      var url = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70&' + 
+                'genre=' + genreVal + '&listCount=10&sort=prodYear,1&createDts=2019';
+      $.ajax({
+         url : url,
+         type : 'get',
+         dataType : "json",
+         success : function(data) {
+            //console.log(data);
+            
+            var js = data.Data[0].Result;
 
-				var html = '';
-				$.each(js, function(index, item) {				
-					var posterVal = '';
-					var pos = poster(item.posters); //포스터 문자열 자르기
-					if(pos == ''){
-						var gen = genreText(item.genre);
-						posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
-							'&filmId=' + item.movieId + 
-							'&filmSeq=' + item.movieSeq + 
-							'&filmYear=' + item.prodYear +
-							'&genre=' + gen[0] + 
-							'&mId=' + mId + '"><img src="/img/PosterReady.jpg" alt="포스터 준비중"/></a>';
-					}else{
-						var gen = genreText(item.genre);
-						posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
-						'&filmId=' + item.movieId + 
-						'&filmSeq=' + item.movieSeq + 
-						'&filmYear=' + item.prodYear + 
-						'&genre=' + gen[0] + 
-						'&mId=' + mId + '"><img src="' + pos[0] + '"/></a>';
-					}
-					html += '<li><div class="img">';
-					html += posterVal + '<br>';
-		            html += '<b>' + item.title + '</b>';
-		            html += '<li></div>';
-				});
-				$('#'+divId).html(html);
-			},
-			error : function(xhr) {
-				alert(xhr.status + '' + xhr.textStatus);
-		  	}
-		});
-	});
+            var html = '';
+            $.each(js, function(index, item) {            
+               var posterVal = '';
+               var pos = poster(item.posters); //포스터 문자열 자르기
+               if(pos == ''){
+                  var gen = genreText(item.genre);
+                  posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
+                     '&filmId=' + item.movieId + 
+                     '&filmSeq=' + item.movieSeq + 
+                     '&filmYear=' + item.prodYear +
+                     '&genre=' + gen[0] + 
+                     '&mId=' + mId + '"><img src="/img/PosterReady.jpg" alt="포스터 준비중"/></a>';
+               }else{
+                  var gen = genreText(item.genre);
+                  posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
+                  '&filmId=' + item.movieId + 
+                  '&filmSeq=' + item.movieSeq + 
+                  '&filmYear=' + item.prodYear + 
+                  '&genre=' + gen[0] + 
+                  '&mId=' + mId + '"><img src="' + pos[0] + '"/></a>';
+               }
+               html += '<li><div class="img">';
+               html += posterVal + '<br>';
+                  html += '<b>' + item.title + '</b>';
+                  html += '<li></div>';
+            });
+            $('#'+divId).html(html);
+         },
+         error : function(xhr) {
+            alert(xhr.status + '' + xhr.textStatus);
+           }
+      });
+   });
 }
 
 // 어제 날짜 구하기
@@ -318,7 +318,7 @@ getGenre('미스터리','ul6');
 <style>
 .category{width:100%; }
 h3{font-family: 'Black Han Sans', sans-serif;
-		font-family: 'Nanum Gothic', sans-serif;}
+      font-family: 'Nanum Gothic', sans-serif;}
 
 li{list-style:none;}
 .clearfix { overflow: auto; }
@@ -382,7 +382,7 @@ li{list-style:none;}
             <div class="card card-primary">
               <div class="card-header">
                 <div class="card-title">
-                  	 이 영화에 대한 평가가 궁금하신가요?
+                      이 영화에 대한 평가가 궁금하신가요?
                 </div>
               </div>
               <div class="card-body">
@@ -391,139 +391,139 @@ li{list-style:none;}
                   
                   
             <div class="category">      
-			<div class="col-sm-2">
-			<h3>현재 상영하는 영화</h3>
-					<div class="gallery">
-				       <ul class="clearfix" id="ul0">
-				       
-				       </ul>
-	   				   </div>
-				    <div class="g_item">
-				       <ul>
-				          <li class="on"></li>
-				          <li></li>
-				          <li></li>
-				          <li></li>
-				       </ul>
-		   		  </div>
-	   		  </div>
-			</div>
-			
-			<div class="category">    
-			<div class="col-sm-2">
-			<h3>믿고 보는<b>박정민</b>배우</h3>
-					<div class="gallery">
-				       <ul class="clearfix" id="ul1">
-				       
-				       </ul>
-	   				   </div>
-				    <div class="g_item">
-				       <ul>
-				          <li class="on"></li>
-				          <li></li>
-				          <li></li>
-				          <li></li>
-				       </ul>
-		   		  </div>
-	   		  </div>
-			</div>
-			
-			<div class="category">    
-			<div class="col-sm-2">
-			<h3>믿고 보는<b>손예진</b>배우</h3>
-					<div class="gallery">
-				       <ul class="clearfix" id="ul2">
-				       
-				       </ul>
-	   				   </div>
-				    <div class="g_item">
-				       <ul>
-				          <li class="on"></li>
-				          <li></li>
-				          <li></li>
-				          <li></li>
-				       </ul>
-		   		  </div>
-	   		  </div>	
-	   		  </div>			
-			
-			 <div class="category">    
-			<div class="col-sm-2">
-			<h3>Made by<b>봉준호</b>감독</h3>
-					<div class="gallery">
-				       <ul class="clearfix" id="ul3">
-				       
-				       </ul>
-	   				   </div>
-				    <div class="g_item">
-				       <ul>
-				          <li class="on"></li>
-				          <li></li>
-				          <li></li>
-				          <li></li>
-				       </ul>
-		   		  </div>
-	   		  </div>
-	   		  </div>
-	   		  
-	   		  
-	   		   <div class="category">    
-	   		 <div class="col-sm-2">
-			<h3>Made by<b>박찬욱</b>감독</h3>
-					<div class="gallery">
-				       <ul class="clearfix" id="ul4">
-				       
-				       </ul>
-	   				   </div>
-				    <div class="g_item">
-				       <ul>
-				          <li class="on"></li>
-				          <li></li>
-				          <li></li>
-				          <li></li>
-				       </ul>
-		   		  </div>
-	   		  </div>
-			</div>
-			
-			 <div class="category">    
-		    <div class="col-sm-2">
-			<h3>속이 뻥 뚫리는 <b>액션</b>영화</h3>
-					<div class="gallery">
-				       <ul class="clearfix" id="ul5">
-				       
-				       </ul>
-	   				   </div>
-				    <div class="g_item">
-				       <ul>
-				          <li class="on"></li>
-				          <li></li>
-				          <li></li>
-				          <li></li>
-				       </ul>
-		   		  </div>
-	   		  </div>
-	   		  </div>
+         <div class="col-sm-2">
+         <h3>현재 상영하는 영화</h3>
+               <div class="gallery">
+                   <ul class="clearfix" id="ul0">
+                   
+                   </ul>
+                     </div>
+                <div class="g_item">
+                   <ul>
+                      <li class="on"></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                   </ul>
+                 </div>
+              </div>
+         </div>
+         
+         <div class="category">    
+         <div class="col-sm-2">
+         <h3>믿고 보는<b>박정민</b>배우</h3>
+               <div class="gallery">
+                   <ul class="clearfix" id="ul1">
+                   
+                   </ul>
+                     </div>
+                <div class="g_item">
+                   <ul>
+                      <li class="on"></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                   </ul>
+                 </div>
+              </div>
+         </div>
+         
+         <div class="category">    
+         <div class="col-sm-2">
+         <h3>믿고 보는<b>손예진</b>배우</h3>
+               <div class="gallery">
+                   <ul class="clearfix" id="ul2">
+                   
+                   </ul>
+                     </div>
+                <div class="g_item">
+                   <ul>
+                      <li class="on"></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                   </ul>
+                 </div>
+              </div>   
+              </div>         
+         
+          <div class="category">    
+         <div class="col-sm-2">
+         <h3>Made by<b>봉준호</b>감독</h3>
+               <div class="gallery">
+                   <ul class="clearfix" id="ul3">
+                   
+                   </ul>
+                     </div>
+                <div class="g_item">
+                   <ul>
+                      <li class="on"></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                   </ul>
+                 </div>
+              </div>
+              </div>
+              
+              
+               <div class="category">    
+             <div class="col-sm-2">
+         <h3>Made by<b>박찬욱</b>감독</h3>
+               <div class="gallery">
+                   <ul class="clearfix" id="ul4">
+                   
+                   </ul>
+                     </div>
+                <div class="g_item">
+                   <ul>
+                      <li class="on"></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                   </ul>
+                 </div>
+              </div>
+         </div>
+         
+          <div class="category">    
+          <div class="col-sm-2">
+         <h3>속이 뻥 뚫리는 <b>액션</b>영화</h3>
+               <div class="gallery">
+                   <ul class="clearfix" id="ul5">
+                   
+                   </ul>
+                     </div>
+                <div class="g_item">
+                   <ul>
+                      <li class="on"></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                   </ul>
+                 </div>
+              </div>
+              </div>
 
-			 <div class="category">    
-		    <div class="col-sm-2">
-			<h3>올 여름을 시원하게 <b>미스터리</b></h3>
-					<div class="gallery">
-				       <ul class="clearfix" id="ul6">
-				       
-				       </ul>
-	   				   </div>
-				    <div class="g_item">
-				       <ul>
-				          <li class="on"></li>
-				          <li></li>
-				          <li></li>
-				          <li></li>
-				       </ul>
-		   		  </div>
-	   		  </div>
-			  </div>
-				
+          <div class="category">    
+          <div class="col-sm-2">
+         <h3>올 여름을 시원하게 <b>미스터리</b></h3>
+               <div class="gallery">
+                   <ul class="clearfix" id="ul6">
+                   
+                   </ul>
+                     </div>
+                <div class="g_item">
+                   <ul>
+                      <li class="on"></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                   </ul>
+                 </div>
+              </div>
+           </div>
+            
                   </div>
                 </div>
               </div>
