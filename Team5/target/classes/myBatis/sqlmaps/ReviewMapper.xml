@@ -180,6 +180,16 @@
             #{result, mode=OUT, jdbcType=CURSOR, 
                javaType=ResultSet, resultMap=RevListMap }
          ) }     
-     </select>     
+     </select>
+     
+     <update id="RevUpdate" statementType="CALLABLE" 
+        parameterType="hashmap" >
+         {CALL  PKG_REV.PROC_REV_UPDATE(         	
+         	#{mId, mode=IN, jdbcType=VARCHAR},         	
+            #{revIdx, mode=IN, jdbcType=VARCHAR},
+            #{revTitle, mode=IN, jdbcType=VARCHAR},
+            #{revConts, mode=IN, jdbcType=VARCHAR}
+         ) }		     
+     </update>           
              
   </mapper>        

@@ -132,5 +132,10 @@ public class RevDaoImpl implements RevDao {
 		return revList;
 	}
 
+	@Override
+	public void updateRev(HashMap<String, Object> map) {
+		sqlSession.update("REVIEW.RevUpdate", map);		
+	}
+
 	
 }

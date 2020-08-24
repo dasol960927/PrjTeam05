@@ -106,7 +106,7 @@ table { width:800px; margin:0 auto; }
 							<td>${ revVo.revDate }</td>
 							<td>
 							  <input type="button" value="수정하기" class="btn btn-blcok btn-info btn-lg" 
-							onclick="window.open('/REVIEW/updateRevForm?mId=${login.mId}&revIdx=${revVo.revIdx}', '팝업창이름', 'width=500, height=500','location=no', 'resizable=no')">							
+							onclick="window.open('/REVIEW/updateRevForm?mId=${login.mId}&revIdx=${revVo.revIdx}', '팝업창이름', 'width=1000, height=1000','location=no', 'resizable=no')">							
 							  <input type="button" value="삭제하기" class="btn btn-blcok btn-info btn-lg" 
 							onclick="location.href='/REVIEW/deleteRev?mId=${login.mId}&revIdx=${revVo.revIdx}'">							
 							</td>				

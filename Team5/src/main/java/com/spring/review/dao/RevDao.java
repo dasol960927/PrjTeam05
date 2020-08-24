@@ -34,5 +34,7 @@ public interface RevDao {
 	void deleteGrd(HashMap<String, Object> map);
 
 	List<RevVo> myRevList(HashMap<String, Object> map);
+
+	void updateRev(HashMap<String, Object> map);
 	
 }

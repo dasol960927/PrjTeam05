@@ -121,5 +121,10 @@ public class RevServiceImpl implements RevService {
 		
 		return revList;
 	}
+
+	@Override
+	public void updateRev(HashMap<String, Object> map) {
+		revDao.updateRev(map);		
+	}
 	
 }

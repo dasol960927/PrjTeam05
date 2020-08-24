@@ -35,6 +35,8 @@ public interface RevService {
 
 	List<RevVo> myRevList(HashMap<String, Object> map);
 
+	void updateRev(HashMap<String, Object> map);
+
 
 
 	

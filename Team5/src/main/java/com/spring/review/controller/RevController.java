@@ -364,10 +364,7 @@ public class RevController {
 
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("mId", map.get("mId"));
-		mv.setViewName("redirect:/REVIEW/MyGrdList");
-				
-		
-
+		mv.setViewName("redirect:/REVIEW/MyGrdList");			
 		return mv;
 	}		
 	
@@ -395,13 +392,13 @@ public class RevController {
 	@RequestMapping("/REVIEW/updateRevForm")
 	public ModelAndView updateRevForm(@RequestParam HashMap<String, Object> map) {
 		
-		System.out.println("업데이트폼 맵(idx가지고 와야됨) : " + map);
+		System.out.println("업데이트리뷰폼 맵(idx가지고 와야됨) : " + map);
 		// getGrdConts 만들어서 가져올거임 ㄱㄷ
-		RevVo revVo = revService.getGrdConts(map);
+		RevVo revVo = revService.getRevConts(map);
 		
 		
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("reviews/updateGrdForm");
+		mv.setViewName("reviews/updateRevForm");
 		mv.addObject("revVo", revVo);
 		
 		System.out.println(revVo);
@@ -412,14 +409,26 @@ public class RevController {
 	@RequestMapping("/REVIEW/updateRev")
 	public ModelAndView updateRev(@RequestParam HashMap<String, Object> map) {
 
-		System.out.println("업데이트평점 맵" + map);
-		revService.updateGrd(map);
+		System.out.println("업데이트리뷰 맵" + map);
+		revService.updateRev(map);
 
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("mId", map.get("mId"));
-		mv.setViewName("redirect:/REVIEW/MyGrdList");
+		mv.setViewName("redirect:/REVIEW/MyRevList");
 		
 		return mv;
 	}	
+	
+	@RequestMapping("/REVIEW/deleteRev")
+	public ModelAndView deleteRev(@RequestParam HashMap<String, Object> map) {
+		
+		System.out.println("딜리트리뷰 맵" + map);
+		revService.deleteGrd(map);
+
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("mId", map.get("mId"));
+		mv.setViewName("redirect:/REVIEW/MyRevList");			
+		return mv;
+	}		
 
 }
