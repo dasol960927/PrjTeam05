@@ -152,10 +152,10 @@
 
 	<hr>
 	<div>
-	<h1>찜한 영화와 비슷한 장르 추천</h1>
+	<h2>${login.mName}님이 좋아하실만한 영화를 추천해드립니다.</h2>
     <div class="category">
     <c:forEach var="likeVo" items="${likeGenreList}">
-    <h3 style="color:green;">${likeVo.genre} 영화</h3>
+    <h4 style="color:green;">${likeVo.genre} 영화</h4>
     	<div class="likelist" style="clear:both;">
     	<div id = ${likeVo.genre} style=" float:left;"></div>
     	</div>
