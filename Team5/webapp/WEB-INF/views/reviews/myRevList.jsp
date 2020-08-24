@@ -34,7 +34,7 @@ table { width:800px; margin:0 auto; }
  
   <%@ include file="/WEB-INF/include/ProfileCommon.jsp" %>
       	<div>		
-              <div class="card-body">
+              <div class="card-body" style="width:900px;">
               	<h1>${login.mName }님의 리뷰내역</h1>
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
