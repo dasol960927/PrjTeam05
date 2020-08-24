@@ -30,8 +30,9 @@ public interface RevDao {
 	List<RevVo> myGrdList(HashMap<String, Object> map);
 	
 	void updateGrd(HashMap<String, Object> map);
+	
+	void deleteGrd(HashMap<String, Object> map);
 
 	List<RevVo> myRevList(HashMap<String, Object> map);
-
 	
 }

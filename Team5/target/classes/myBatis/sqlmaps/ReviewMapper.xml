@@ -163,7 +163,14 @@
             #{grdScore, mode=IN, jdbcType=NUMERIC},
             #{grdConts, mode=IN, jdbcType=VARCHAR}
          ) }		     
-     </update>     
+     </update> 
+     
+     <delete id="GrdDelete" statementType="CALLABLE" 
+        parameterType="hashmap" >
+         {CALL  PKG_REV.PROC_GRD_DELETE(
+            #{revIdx, mode=IN, jdbcType=VARCHAR}                       
+         ) }		     
+     </delete>          
      
      <select id="MyRevList"
          statementType="CALLABLE" parameterType="hashmap" 

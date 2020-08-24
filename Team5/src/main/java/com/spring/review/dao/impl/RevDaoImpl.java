@@ -114,6 +114,14 @@ public class RevDaoImpl implements RevDao {
 		sqlSession.update("REVIEW.GrdUpdate", map);
 		
 	}
+	
+	@Override
+	public void deleteGrd(HashMap<String, Object> map) {
+		
+		sqlSession.delete("REVIEW.GrdDelete", map);
+		
+	}		
+	
 
 	@Override
 	public List<RevVo> myRevList(HashMap<String, Object> map) {
@@ -123,7 +131,6 @@ public class RevDaoImpl implements RevDao {
 		
 		return revList;
 	}
-
 
 	
 }

@@ -16,6 +16,16 @@ table, th, td {
 
 table { width:800px; margin:0 auto; }
 
+#contsTd {
+	overflow:hidden; 
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
+
+#example2 {
+	table-layout:fixed;
+}
+
 </style>  
  
 </head>
@@ -25,19 +35,19 @@ table { width:800px; margin:0 auto; }
   <%@ include file="/WEB-INF/include/ProfileCommon.jsp" %>
       	<div>		
               <div class="card-body">
-              	<h1>${login.mName }님의 한줄평내역</h1>
+              	<h1>${login.mName }님의 리뷰내역</h1>
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                   <tr>
                     <th>영화제목</th>
-                    <th>평점</th>
-                    <th>한줄평</th>
+                    <th>리뷰제목</th>
+                    <th>리뷰내용</th>
                     <th>작성일</th>
                     <th></th>
                   </tr>
                   </thead>
                   <tbody>
-					<c:forEach var="revVo" items="${grdList}">
+					<c:forEach var="revVo" items="${revList}">
 						<tr>
 							<td>
 							<div id ="${revVo.docId}"></div>
@@ -91,14 +101,14 @@ table { width:800px; margin:0 auto; }
 								}
 								</script>
 							</td>
-							<td><%@ include file="/WEB-INF/include/star.jsp" %></td>
-							<td>${ revVo.grdConts }</td>
+							<td>${ revVo.revTitle }</td>
+							<td id="contsTd">${ revVo.revConts }</td>
 							<td>${ revVo.revDate }</td>
 							<td>
 							  <input type="button" value="수정하기" class="btn btn-blcok btn-info btn-lg" 
-							onclick="window.open('/REVIEW/updateGrdForm?mId=${login.mId}&revIdx=${revVo.revIdx}', '팝업창이름', 'width=500, height=500','location=no', 'resizable=no')">							
+							onclick="window.open('/REVIEW/updateRevForm?mId=${login.mId}&revIdx=${revVo.revIdx}', '팝업창이름', 'width=500, height=500','location=no', 'resizable=no')">							
 							  <input type="button" value="삭제하기" class="btn btn-blcok btn-info btn-lg" 
-							onclick="location.href='/REVIEW/deleteGrd?mId=${login.mId}&revIdx=${revVo.revIdx}'">							
+							onclick="location.href='/REVIEW/deleteRev?mId=${login.mId}&revIdx=${revVo.revIdx}'">							
 							</td>				
 						</tr>
 					</c:forEach>

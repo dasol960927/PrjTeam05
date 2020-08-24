@@ -31,7 +31,11 @@ public interface RevService {
 
 	void updateGrd(HashMap<String, Object> map);
 	
+	void deleteGrd(HashMap<String, Object> map);	
+
 	List<RevVo> myRevList(HashMap<String, Object> map);
+
+
 
 	
 

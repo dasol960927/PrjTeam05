@@ -105,6 +105,14 @@ public class RevServiceImpl implements RevService {
 		revDao.updateGrd(map);
 		
 	}
+	
+	@Override
+	public void deleteGrd(HashMap<String, Object> map) {
+		
+		revDao.deleteGrd(map);
+		
+	}
+	
 
 	@Override
 	public List<RevVo> myRevList(HashMap<String, Object> map) {
@@ -113,7 +121,5 @@ public class RevServiceImpl implements RevService {
 		
 		return revList;
 	}
-
-
 	
 }
