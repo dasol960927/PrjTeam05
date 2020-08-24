@@ -175,6 +175,12 @@ $(function(){
 		})
 	});
 	
+
+	
+});
+</script>
+<script>
+$(function(){
     $('#btnPur').on('click', function(){
         if(confirm("구매하시겠습니까 ?") == true){
            var vmId = '${login.mId}';
@@ -212,7 +218,6 @@ $(function(){
              return ;
          }
      });
-	
 });
 </script>
 
