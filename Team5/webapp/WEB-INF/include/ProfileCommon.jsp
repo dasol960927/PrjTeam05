@@ -1,5 +1,76 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<style>    
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  vertical-align:middle;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+p {
+	margin:0px;
+	display:inline-block;
+	font-size:15px;
+	font-weight:bold;
+}
+</style>
+
+
+      
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
@@ -50,7 +121,25 @@
                   	<br/>
                     <b>내 리뷰</b> 
                     <a class="float-right" href="/REVIEW/MyRevList?mId=${memberVo.mId}">보러가기</a>                      
-                  </li>                                                      
+                  </li>
+                 <li class="list-group-item">
+                 
+                  	<br/>
+                    <b>내 한줄평/리뷰 공개</b>                     
+					<label class="switch">
+					  <input type="checkbox">
+					  <span class="slider round"></span>
+					</label>
+					<p class="onoff" id="off">비공개</p>
+					<p class="onoff" id="on" style="display:none;">공개</p>
+					<script>
+						var check = $("input[type='checkbox']");
+						check.click(function(){
+							$(".onoff").toggle();
+						});
+					</script>
+										                  
+                  </li>                                                                        
                 </ul>
 				<br/>
                 <a href="/updateForm?mId=${ memberVo.mId }" class="btn btn-primary btn-block"><b>회원정보 수정</b></a>

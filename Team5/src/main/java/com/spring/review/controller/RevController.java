@@ -37,7 +37,7 @@ public class RevController {
 	@RequestMapping("/REVIEW/grdList")
 	public ModelAndView grdList(@RequestParam HashMap<String, Object> map) {
 
-		//System.out.println("리뷰 맵" + map);
+		System.out.println("리뷰 맵" + map);
 		// map : filmId 하나, 무조건 들어와야됨
 		List<RevVo> grdList = revService.getGrdList(map);
 
@@ -429,6 +429,29 @@ public class RevController {
 		mv.addObject("mId", map.get("mId"));
 		mv.setViewName("redirect:/REVIEW/MyRevList");			
 		return mv;
-	}		
+	}
+	
+	@RequestMapping("/REVIEW/userWriteList")
+	public ModelAndView userWriteList(@RequestParam HashMap<String, Object> map) {
+
+		System.out.println("남 리뷰목록 map : " + map);
+
+		List<RevVo> revList = revService.myRevList(map);
+		List<RevVo> grdList = revService.myGrdList(map);		
+		ModelAndView mv = new ModelAndView();
+
+		mv.setViewName("reviews/writeListPopup");
+
+		mv.addObject("revList", revList);
+		mv.addObject("grdList", grdList);		
+		
+		mv.addObject("mId", map.get("mId"));
+		
+		System.out.println("revList  : " + revList);
+		System.out.println("grdList  : " + grdList);
+
+		return mv;
+	}	
 
 }
+

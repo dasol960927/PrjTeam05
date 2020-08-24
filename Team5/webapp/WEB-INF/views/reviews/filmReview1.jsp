@@ -21,9 +21,60 @@ th, td{
 }
 </style>
 <script>
-/* a href="/REVIEW/insGrdCnt?sGubun=G&revIdx=${revVo.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmSeq}&mId=${login.mId} */
+
 	$(function(){
-		var hidRevIdx = $("#hidRevIdx").val();				
+		
+		   var hidRevIdx = $("#hidRevIdx").val();
+				
+		   $('#order1').on('click', function(){
+			  			  
+		         var order1  = $('#order1').text();
+		        	         
+		         var docId = $('#docId').val();
+		         var filmId = $('#filmId').val();
+		         var filmSeq = $('#filmSeq').val();
+		         var mId = $('#mId').val();
+		         var filmPrice = $('#filmPrice').val();
+		         
+		         alert(docId);
+		         
+		         var datas = new Object();      
+				
+		         datas.gubun='A'; datas.docId=docId; datas.filmId=filmId; datas.filmSeq=filmSeq; datas.mId=mId; datas.filmPrice=filmPrice;
+		         
+		         var jsonDatas = JSON.stringify(datas);
+		         var data = JSON.parse(jsonDatas);
+		         alert(jsonDatas);
+		         alert(data);	
+
+					$.ajax({
+						url : '/REVIEW/grdList',
+						data : data,
+						dataType : 'json',
+						type : 'get',
+						success : function(data){
+							
+							alert('성공이다');
+						},
+						error : function(xhr){
+							alert("error: " + xhr.status + "," + xhr.textStatus);
+						} 
+						
+					});		         
+		         	
+/* 		         if(order1 == '공감순'){
+			            datas.gubun='A'; datas.docId=docId; datas.filmId=filmId; datas.filmSeq=filmSeq; datas.mId=mId; datas.filmPrice=filmPrice;
+			         }else if(order2 == '최신순'){
+			        	 datas.gubun='B'; datas.docId=docId; datas.filmId=filmId; datas.filmSeq=filmSeq; datas.mId=mId; datas.filmPrice=filmPrice;
+			         }else if(order3 == '평점높은순'){
+			        	 datas.gubun='C'; datas.docId=docId; datas.filmId=filmId; datas.filmSeq=filmSeq; datas.mId=mId; datas.filmPrice=filmPrice;
+			         }else if(order3 == '평점낮은'){
+			        	 datas.gubun='D'; datas.docId=docId; datas.filmId=filmId; datas.filmSeq=filmSeq; datas.mId=mId; datas.filmPrice=filmPrice;
+			         } */
+    
+		         
+		         
+		      });	
 		
 		$('.cGood').on('click', function(){
 			alert("맞음");
@@ -49,7 +100,8 @@ th, td{
 		});
 		
 		
-	});
+	});	
+	
 
 </script>
 </head>
@@ -78,6 +130,15 @@ th, td{
                    <tr>
                      <th style="width: 100px">한줄평</th>
                      <th>총  ${oCnt} 건&nbsp;&nbsp;&nbsp; 
+                     <span id="order1">공감순</span>
+                     <span id="order2">최신순</span>
+                     <span id="order3">평점높은순</span>
+                     <span id="order4">평점낮은순</span>
+                     <input type="hidden" id="docId" value="${docId}" />
+                     <input type="hidden" id="filmId" value="${filmId}" />
+                     <input type="hidden" id="filmSeq" value="${filmSeq}" />
+                     <input type="hidden" id="mId" value="${login.mId}" />
+                     <input type="hidden" id="filmPrice" value="${fVo.filmPrice}" />
 				  
 				  <input type="button" value="내 한줄평 작성하기" class="btn btn-blcok btn-info btn-lg" 
 				onclick="window.open('/REVIEW/insertGrdForm?mId=${login.mId}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}', '팝업창이름', 'width=500, height=500','location=no', 'resizable=no')">
@@ -93,7 +154,8 @@ th, td{
              	   </td>
              	   <td width="700px">
              	   ${revVo.grdConts}<br/>
-             	   ${revVo.mId}&nbsp;${revVo.revDate}<br/>             	   
+             	   <a href="#" onclick="window.open('/REVIEW/userWriteList?mId=${revVo.mId}', '팝업창이름', 'width=700, height=700','location=no', 'resizable=no'); return false;">${revVo.mId}</a>
+             	   &nbsp;${revVo.revDate}<br/>             	   
              	   <c:choose>
              	   <c:when test="${revVo.symGubun eq 'G'.charAt(0)}">
              	   <%-- <i class="fas fa-thumbs-up" id="good" style="color:green;"></i>: <a href="/REVIEW/insGrdCnt?sGubun=G&revIdx=${revVo.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmSeq}&mId=${login.mId}">${revVo.goodCnt}</a> 
