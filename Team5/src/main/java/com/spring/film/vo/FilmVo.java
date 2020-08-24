@@ -6,6 +6,7 @@ public class FilmVo {
 	private String filmSeq;
 	private String filmYear;
 	private int filmPrice;
+	private String genre;
 	
 	public String getDocId() {
 		return docId;
@@ -37,15 +38,19 @@ public class FilmVo {
 	public void setFilmPrice(int filmPrice) {
 		this.filmPrice = filmPrice;
 	}
+	public String getGenre() {
+		return genre;
+	}
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
 	
 	@Override
 	public String toString() {
 		return "FilmVo [docId=" + docId + ", filmId=" + filmId + ", filmSeq=" + filmSeq + ", filmYear=" + filmYear
-				+ ", filmPrice=" + filmPrice + "]";
+				+ ", filmPrice=" + filmPrice + ", genre=" + genre + "]";
 	}
-	
 
-	
 	
 	
 }

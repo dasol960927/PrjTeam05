@@ -155,12 +155,14 @@ $(function(){
 	$("#divBtnLike").on("click", function(){
 		var loginMid = '${login.mId}';
 		var docId = '${fVo.docId}';
+		var genre = '${genre}';
 		$.ajax({
 			url : '/Like',
-			data : {mId : loginMid, docId : docId },
+			data : {mId : loginMid, docId : docId, genre : genre },
 			dataType : 'json',
 			type : 'get',
 			success : function(data){
+				console.log(data);
 				if(data.likeChk == 'N'){
 					$("#btnLike").css("color","black");
 					alert("찜 취소되었습니다");

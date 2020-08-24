@@ -11,6 +11,7 @@
        <result property="filmSeq"  	column="FILM_SEQ" javaType="string" />   
        <result property="filmYear"   column="FILM_YEAR" javaType="string" />     
        <result property="filmPrice"   column="FILM_PRICE" />     
+       <result property="genre"   column="FILM_GENRE" javaType="string" />     
      </resultMap>
  
      <insert id="FilmInsert"
@@ -19,7 +20,8 @@
          	#{docId, mode = IN, jdbcType = VARCHAR},
          	#{filmId, mode = IN, jdbcType = VARCHAR},
          	#{filmSeq, mode = IN, jdbcType = VARCHAR},
-         	#{filmYear, mode = IN, jdbcType = VARCHAR}
+         	#{filmYear, mode = IN, jdbcType = VARCHAR},
+         	#{genre, mode = IN, jdbcType = VARCHAR}
 
          ) }     
      </insert>
@@ -34,12 +36,6 @@
          )}
      
      </select>
-     
-     
-     
-     
-      
-       
-             
+        
   </mapper>        
 

@@ -10,8 +10,6 @@ import org.springframework.stereotype.Repository;
 import com.spring.likelist.dao.LikeDao;
 import com.spring.likelist.vo.LikeVo;
 
-
-
 @Repository("likeDao")
 public class LikeDaoImpl implements LikeDao {
 	
@@ -26,17 +24,22 @@ public class LikeDaoImpl implements LikeDao {
 			
 		return likeList;
 	}
+	
+	@Override
+	public List<LikeVo> getGenreList(HashMap<String, Object> map) {
+		sqlSession.selectList("LIKE.LikeGenreList", map);
+		List<LikeVo> likeGenreList = (List<LikeVo>) map.get("result");
+			
+		return likeGenreList;
+	}
 
 	@Override
-
 	public void setLike(HashMap<String, Object> map) {
 		sqlSession.insert("LIKE.LikeInsert", map);
 
 	}
 	public void setDelete(HashMap<String, Object> map) {
-		
 		sqlSession.delete("LIKE.Delete", map);
-
 		
 	}
 
@@ -47,6 +50,4 @@ public class LikeDaoImpl implements LikeDao {
 		System.out.println("라이크다오임플에서 getLikeChk " + LVo);
 		return LVo;
 	}
-
-	
 }

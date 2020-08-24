@@ -43,6 +43,7 @@ public class FilmController {
 		String filmId = (String) map.get("filmId");
 		String filmSeq = (String) map.get("filmSeq");
 		String filmYear = (String) map.get("filmYear");
+		String genre = (String) map.get("genre");
 		
 		ModelAndView mv = new ModelAndView();
 
@@ -54,7 +55,7 @@ public class FilmController {
 		vo.setFilmId(filmId);
 		vo.setFilmSeq(filmSeq);
 		vo.setFilmYear(filmYear);
-
+		vo.setGenre(genre);
 
 		mv.addObject("fVo", fVo);
 		//System.out.println("필름 컨트롤러에서 fVo" + fVo);
@@ -63,11 +64,16 @@ public class FilmController {
 		mv.addObject("filmId", vo.getFilmId());
 		mv.addObject("filmSeq", vo.getFilmSeq());
 		mv.addObject("filmYear", vo.getFilmYear());
+		mv.addObject("genre", vo.getGenre());
 		mv.addObject("likeChk", LVo.getLikeChk());
 		mv.addObject("mVo", memberVo);
 		
+
+		System.out.println(mv);
+
 	
 		//System.out.println(mv);
+
 		mv.setViewName("reviews/filmReview");
 		return mv;
 	}
