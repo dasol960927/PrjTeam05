@@ -354,10 +354,6 @@ $(function(){
     				}
     			});
 
-    		
-
-            
-	  
 			}, 
 			error : function(xhr) {
 				alert('막대그래프데이터'+ xhr.status + '' + xhr.textStatus);
