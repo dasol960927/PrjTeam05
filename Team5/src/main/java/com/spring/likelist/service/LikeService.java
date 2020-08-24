@@ -5,8 +5,6 @@ import java.util.List;
 
 import com.spring.likelist.vo.LikeVo;
 
-
-
 public interface LikeService {
 
 	List<LikeVo> getList(HashMap<String, Object> map);
@@ -17,7 +15,5 @@ public interface LikeService {
 
 	LikeVo getLikeChk(HashMap<String, Object> map);
 
-
-	
-
+	List<LikeVo> getGenreList(HashMap<String, Object> map);
 }

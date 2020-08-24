@@ -24,28 +24,31 @@ public class LikeController {
 	private LikeService likeService;
 	
 	@Autowired
-	private MemberService memberService;
+	private LikeService likeGenreService;
 	
+	@Autowired
+	private MemberService memberService;
 	
 	@RequestMapping("LIKE/List")
 	public ModelAndView likeList(@RequestParam HashMap<String, Object> map) {
 				
 		List<LikeVo> likeList = likeService.getList(map);
+		List<LikeVo> likeGenreList = likeGenreService.getGenreList(map);
 		MemberVo memberVo = memberService.getMemberInfo(map);				
 
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("table/likelist");
 		mv.addObject("likeList", likeList);
+		mv.addObject("likeGenreList", likeGenreList);
 		mv.addObject("memberVo", memberVo);		
 				
 		System.out.println("LIKE/List map : " + map);
 		System.out.println("likeList : " + likeList);
+		System.out.println("likeGenreList : " + likeGenreList);
 		
 		return mv;
-		
 	}
 	
-
 	@RequestMapping("/Like")
 	@ResponseBody
 	public LikeVo like(@RequestParam HashMap<String, Object> map) {
@@ -70,10 +73,6 @@ public class LikeController {
 		mv.setViewName("redirect:/LIKE/List?mId=" + map.get("mId"));		
 		mv.addObject("memberVo", memberVo);
 		
-		
 		return mv;
-		
-
 	}
-	
 }

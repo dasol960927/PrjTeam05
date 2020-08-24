@@ -8,7 +8,8 @@
      <resultMap id="LikeListMap" type="com.spring.likelist.vo.LikeVo"> 
        <result property="mId"            column="M_ID" javaType="string" />   
        <result property="docId"          column="DOC_ID" javaType="string" />   
-       <result property="filmPrice"      column="FILM_PRICE" javaType="int" />                
+       <result property="filmPrice"      column="FILM_PRICE" javaType="int" />   
+       <result property="genre"          column="GENRE" javaType="string" />              
      </resultMap>
    
      <select id="LikeList"
@@ -21,11 +22,21 @@
          ) }     
      </select>
      
-
+     <select id="LikeGenreList"
+         statementType="CALLABLE" parameterType="hashmap" 
+         resultType="com.spring.likelist.vo.LikeVo">
+         {CALL  PKG_LIKE.PROC_LIKE_GENRELIST(
+         	#{mId, mode=IN, jdbcType=VARCHAR},
+            #{result, mode=OUT, jdbcType=CURSOR, 
+               javaType=ResultSet, resultMap=LikeListMap }
+         ) }     
+     </select>
+     
      <insert id = "LikeInsert" parameterType="hashmap">
  		{CALL PKG_LIKE.PROC_LIKE_INSERT(
  			#{mId, mode=IN, jdbcType = VARCHAR},
- 			#{docId, mode = IN, jdbcType = VARCHAR}
+ 			#{docId, mode = IN, jdbcType = VARCHAR},
+ 			#{genre, mode = IN, jdbcType = VARCHAR}
  		
  		)}
  		    
@@ -48,9 +59,5 @@
 		WHERE M_ID = #{mId}
 		AND DOC_ID = #{docId}
 
-     
      </select>
-  
- 
-             
   </mapper>        

@@ -9,9 +9,11 @@
   <title>FlimCritics | Likelist</title>
    <%@ include file="/WEB-INF/include/admin.jsp" %>
    <style>
-      .category{width:100%; height:100%; clear:both; }
-      .likelist{margin-right:5px; float:left;}
+      .category{width:100%; height:100%; clear:both;}
+      .likelist{float:left;}
+      .ha{float:left;}
    </style>
+   
 </head>
 <body class="hold-transition sidebar-mini">
 <input type = "hidden" id = "mId" value = "${login.mId }"/>
@@ -63,10 +65,10 @@
               <i class="fas fa-minus"></i></button>
           </div>
         </div>
-        <div class="card-body p-0">
-           <div class="category">
+        <div>
+                   <div class="category" >
             <c:forEach var="likeVo" items="${likeList}">
-               <div id =${likeVo.docId}></div>
+               <div id =${likeVo.docId} style="float:left;"></div>
                <script>
                   var str = '${likeVo.docId}';
                   film(str);
@@ -144,6 +146,73 @@
                </script>
             </c:forEach> 
          </div> 
+         </div>
+        <div class="card-body p-0">
+
+		    <div>
+    <div class="category">
+    <c:forEach var="likeVo" items="${likeGenreList}">
+    ${likeVo.genre} 영화
+    	<div class="likelist" style="clear:both;">
+    	<div id = ${likeVo.genre} style=" float:left;"></div>
+    	</div>
+   
+    	<script>
+    	var genreVal = '${likeVo.genre}';
+    	getGenre(genreVal);
+    	
+    	function getGenre(genreVal) {
+		$(function(){
+			var mId = $("#mId").val();
+			var url = 'http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=14RGX39B77HG1YYJ5L70&' + 
+			     	  'genre=' + genreVal + '&listCount=5&sort=prodYear,1&createDts=2019';
+			$.ajax({
+				url : url,
+				type : 'get',
+				dataType : "json",
+				success : function(data) {
+					//console.log(data);
+					
+					var js = data.Data[0].Result;
+	
+					var html = '';
+					$.each(js, function(index, item) {				
+						var posterVal = '';
+						var pos = poster(item.posters); //포스터 문자열 자르기
+						if(pos == ''){
+							posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
+								'&filmId=' + item.movieId + 
+								'&filmSeq=' + item.movieSeq + 
+								'&filmYear=' + item.prodYear +
+								'&genre=' +  + genreVal + 
+								'&mId=' + mId + '"><img src="/img/PosterReady.jpg" alt="포스터 준비중"/></a>';
+						}else{
+							posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
+							'&filmId=' + item.movieId + 
+							'&filmSeq=' + item.movieSeq + 
+							'&filmYear=' + item.prodYear + 
+							'&genre=' + genreVal + 
+							'&mId=' + mId + '"><img src="' + pos[0] + '"/></a>';
+						}
+						html += '<div class="ha">'
+						html += posterVal + '<br>';
+			            html += '<b>' + item.title + '</b>';
+			  			html += '</div>'
+					});
+					$('#'+genreVal).html(html);
+				},
+				error : function(xhr) {
+					alert(xhr.status + '' + xhr.textStatus);
+			  	}
+			});
+		});
+    }
+</script>
+    </c:forEach>
+     </div>	
+    </div>
+
+
         </div>
         <!-- /.card-body -->
       </div>
@@ -151,11 +220,16 @@
 
     </section>
     <!-- /.content -->
-  </div>
+
+
+
+	</div>
   <!-- /.content-wrapper -->
+  
+
+
 
    <%@ include file="/WEB-INF/include/footer.jsp" %>
-
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->

@@ -33,6 +33,13 @@ function title(string) {
 	return str;
 }
 
+//장르
+function genreText(string) {
+	var str = string.split(',');
+	
+	return str;
+}
+
 function getBoxOffice(date, divId) {
 	function kmdbApi(movieNm,openDt) {
 		var v1 = '';
@@ -47,17 +54,19 @@ function getBoxOffice(date, divId) {
 			dataType : "json",
 			async: false, //값을 리턴시 해당코드를 추가하여 동기로 변경
 			success : function(data) {
-				console.log(data);
+				//console.log(data);
+				
 				var TotalCount = data.Data[0].Count;
 				v1 = '<img src="/img/PosterReady.jpg" alt="포스터 준비중"/></a>';
 				if(TotalCount == 0){
 					for(var i=0;i<TotalCount;i++){
 						if(kDate == data.Data[0].Result[i].repRlsDate){
+							var gen = genreText(data.Data[0].Result[i].genre);
 							v1 = '<a href="/filmReview?docId=' + data.Data[0].Result[i].DOCID + 
 							'&filmId=' + data.Data[0].Result[i].movieId + 
 							'&filmSeq=' + data.Data[0].Result[i].movieSeq + 
 							'&filmYear=' + data.Data[0].Result[i].prodYear + 
-							'&genre='+ data.Data[0].Result[i].genre + 
+							'&genre='+ gen[0] + 
 							'&mId=' + mId + '"><img src="/img/PosterReady.jpg" alt="포스터 준비중"/></a>';
 						}
 					}
@@ -65,12 +74,13 @@ function getBoxOffice(date, divId) {
 					if(TotalCount > 0){
 						for(var i=0;i<TotalCount;i++){
 							if(kDate == data.Data[0].Result[i].repRlsDate){
+								var gen = genreText(data.Data[0].Result[i].genre);
 								pos = poster(data.Data[0].Result[i].posters);
 								v1 = '<a href="/filmReview?docId=' + data.Data[0].Result[i].DOCID + 
 								'&filmId=' + data.Data[0].Result[i].movieId + 
 								'&filmSeq=' + data.Data[0].Result[i].movieSeq + 
 								'&filmYear=' + data.Data[0].Result[i].prodYear + 
-								'&genre='+ data.Data[0].Result[i].genre + 
+								'&genre='+ gen[0] + 
 								'&mId=' + mId + '"><img src="' + pos[0] + '"/></a>';
 							}else{
 								pos = '';
@@ -78,11 +88,12 @@ function getBoxOffice(date, divId) {
 						}
 					}else{
 						pos = poster(data.Data[0].Result[0].posters);
+						var gen = genreText(data.Data[0].Result[i].genre);
 						v1 = '<a href="/filmReview?docId=' + data.Data[0].Result[i].DOCID + 
 						'&filmId=' + data.Data[0].Result[i].movieId + 
 						'&filmSeq=' + data.Data[0].Result[i].movieSeq + 
 						'&filmYear=' + data.Data[0].Result[i].prodYear + 
-						'&genre='+ data.Data[0].Result[i].genre +
+						'&genre='+ gen[0] +
 						'&mId=' + mId + '"><img src="' + pos[0] + '"/></a>';
 					}
 				}
@@ -144,18 +155,20 @@ function getActor(actorVal, divId) {
 					var posterVal = '';
 					var pos = poster(item.posters); //포스터 문자열 자르기
 					if(pos == ''){
+						var gen = genreText(item.genre);
 						posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
 						'&filmId=' + item.movieId + 
 						'&filmSeq=' + item.movieSeq + 
 						'&filmYear=' + item.prodYear +
-						'&genre=' + item.genre + 
+						'&genre=' + gen[0] + 
 						'&mId=' + mId + '"><img src="/img/PosterReady.jpg" alt="포스터 준비중"/></a>';
 					}else{
+						var gen = genreText(item.genre);
 						posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
 								'&filmId=' + item.movieId + 
 								'&filmSeq=' + item.movieSeq + 
 								'&filmYear=' + item.prodYear +
-								'&genre=' + item.genre + 
+								'&genre=' + gen[0] + 
 								'&mId=' + mId + '"><img src="' + pos[0] + '"/></a>';
 					}
 					
@@ -194,18 +207,20 @@ function getDirector(directorVal, divId) {
 					var posterVal = '';
 					var pos = poster(item.posters); //포스터 문자열 자르기
 					if(pos == ''){
+						var gen = genreText(item.genre);
 						posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
 							'&filmId=' + item.movieId + 
 							'&filmSeq=' + item.movieSeq + 
 							'&filmYear=' + item.prodYear +
-							'&genre=' + item.genre + 
+							'&genre=' + gen[0] + 
 							'&mId=' + mId + '"><img src="/img/PosterReady.jpg" alt="포스터 준비중"/></a>';
 					}else{
+						var gen = genreText(item.genre);
 						posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
 						'&filmId=' + item.movieId + 
 						'&filmSeq=' + item.movieSeq + 
 						'&filmYear=' + item.prodYear + 
-						'&genre=' + item.genre + 
+						'&genre=' + gen[0] + 
 						'&mId=' + mId + '"><img src="' + pos[0] + '"/></a>';
 					}
 					
@@ -243,18 +258,20 @@ function getGenre(genreVal, divId) {
 					var posterVal = '';
 					var pos = poster(item.posters); //포스터 문자열 자르기
 					if(pos == ''){
+						var gen = genreText(item.genre);
 						posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
 							'&filmId=' + item.movieId + 
 							'&filmSeq=' + item.movieSeq + 
 							'&filmYear=' + item.prodYear +
-							'&genre=' + item.genre + 
+							'&genre=' + gen[0] + 
 							'&mId=' + mId + '"><img src="/img/PosterReady.jpg" alt="포스터 준비중"/></a>';
 					}else{
+						var gen = genreText(item.genre);
 						posterVal = '<a href="/filmReview?docId=' + item.DOCID + 
 						'&filmId=' + item.movieId + 
 						'&filmSeq=' + item.movieSeq + 
 						'&filmYear=' + item.prodYear + 
-						'&genre=' + item.genre + 
+						'&genre=' + gen[0] + 
 						'&mId=' + mId + '"><img src="' + pos[0] + '"/></a>';
 					}
 					html += '<li><div class="img">';

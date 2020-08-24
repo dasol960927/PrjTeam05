@@ -5,9 +5,9 @@ public class LikeVo {
 	private String likeId;
 	private String mId;
 	private String docId;
+	private String genre;
 	private String likeChk;
 	private int filmPrice;
-	
 	
 	public String getLikeId() {
 		return likeId;
@@ -39,17 +39,16 @@ public class LikeVo {
 	public void setFilmPrice(int filmPrice) {
 		this.filmPrice = filmPrice;
 	}
-	
+	public String getGenre() {
+		return genre;
+	}
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
 	
 	@Override
 	public String toString() {
-		return "LikeVo [likeId=" + likeId + ", mId=" + mId + ", docId=" + docId + ", likeChk=" + likeChk
-				+ ", filmPrice=" + filmPrice + "]";
+		return "LikeVo [likeId=" + likeId + ", mId=" + mId + ", docId=" + docId + ", genre=" + genre + ", likeChk="
+				+ likeChk + ", filmPrice=" + filmPrice + "]";
 	}
-	
-	
-	
-	
-
-	
 }
