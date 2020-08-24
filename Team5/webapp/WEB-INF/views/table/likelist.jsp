@@ -6,14 +6,13 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>FlimCritics | Likelist</title>
+  <title>FlimCritics | ImageSlider</title>
    <%@ include file="/WEB-INF/include/admin.jsp" %>
    <style>
       .category{width:100%; height:100%; clear:both;}
       .likelist{float:left;}
       .ha{float:left;}
    </style>
-   
 </head>
 <body class="hold-transition sidebar-mini">
 <input type = "hidden" id = "mId" value = "${login.mId }"/>
@@ -68,7 +67,9 @@
         <div>
                    <div class="category" >
             <c:forEach var="likeVo" items="${likeList}">
+
                <div id =${likeVo.docId} style="float:left;"></div>
+
                <script>
                   var str = '${likeVo.docId}';
                   film(str);
@@ -240,6 +241,3 @@
 
 </body>
 </html>
-
-
-

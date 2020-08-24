@@ -98,10 +98,10 @@ $(function(){
 						var stllsVal = '';
 						var stl = poster(item.stlls); //스틸컷 문자열 자르기
 						if(stl == ""){
-							stllsVal += '<img src="/img/ready.jpg" alt="스틸컷 준비중"/>';
+							stllsVal += '<div class="product-image-thumb"><img src="/img/ready.jpg" alt="스틸컷 준비중"/></div>';
 						}else{
-							for(var i=0; i<3; i++) {
-								stllsVal +='<img src="'+stl[i]+'"/>';
+							for(var i=0; i<5; i++) {
+								stllsVal +='<div class="product-image-thumb"><img src="'+stl[i]+'"/></div>';
 							}
 						}
 
@@ -131,13 +131,6 @@ $(function(){
 						html+=              '<h3 class="d-inline-block d-sm-none">Films Review</h3>'
 						html+=              '<div class="col-12">';
 						html+=                posterVal;
-						html+=              '</div>';
-						html+=              '<div class="col-12 product-image-thumbs">';
-						html+=                '<div class="product-image-thumb">'+ '<img src="'+stl[0]+'"/>' + '</div>';
-						html+=                '<div class="product-image-thumb">'+ '<img src="'+stl[1]+'"/>' + '</div>';
-						html+=                '<div class="product-image-thumb">'+ '<img src="'+stl[2]+'"/>' + '</div>';
-						html+=                '<div class="product-image-thumb">'+ '<img src="'+stl[3]+'"/>' + '</div>';
-						html+=                '<div class="product-image-thumb">'+ '<img src="'+stl[4]+'"/>' + '</div>';
 						html+=              '</div>';
 
 						html2+=              '<h3 class="my-3">' + tit[0] + '</h3>';
@@ -183,56 +176,47 @@ $(function(){
 			}
 		})
 	});
+	
+    $('#btnPur').on('click', function(){
+        if(confirm("구매하시겠습니까 ?") == true){
+           var vmId = '${login.mId}';
+           var vdocId = '${fVo.docId}';
+           var vfilmPrice = '${fVo.filmPrice}';
+           
+           $.ajax({
+              url : '/PUR/purFilm',
+              data : {mId : vmId, docId : vdocId, filmPrice : vfilmPrice},
+              dataType : 'json',
+              type : 'get',
+              success : function(data){
+                 var oErrMsg = data.model.oErrMsg;
+                 var oOverlapFilm = data.model.oOverlapFilm;
+                 
+                 if(oErrMsg == null){
+                    if(oOverlapFilm == null){
+                       alert('구매 되었습니다.');
+                    }else
+                       alert(oOverlapFilm);
+                 }else
+                    alert(oErrMsg);
+              },
+              error : function(xhr){
+                 alert("error: " + xhr.status + "," + xhr.textStatus);
+              }
+              
+           })
+           /* 
+           $(location).attr("href", "/PUR/purFilm?mId=${login.mId }&docId=${fVo.docId}&filmPrice=${fVo.filmPrice}");
+             alert("구매되었습니다");
+              */
+         }
+         else{
+             return ;
+         }
+     });
+	
 });
 </script>
-
-
-
-<!-- 구매버튼 -->
-<script>
-   $(function(){
-      $('#btnPur').on('click', function(){
-         if(confirm("구매하시겠습니까 ?") == true){
-            var vmId = '${login.mId}';
-            var vdocId = '${fVo.docId}';
-            var vfilmPrice = '${fVo.filmPrice}';
-            
-            $.ajax({
-               url : '/PUR/purFilm',
-               data : {mId : vmId, docId : vdocId, filmPrice : vfilmPrice},
-               dataType : 'json',
-               type : 'get',
-               success : function(data){
-                  var oErrMsg = data.model.oErrMsg;
-                  var oOverlapFilm = data.model.oOverlapFilm;
-                  
-                  if(oErrMsg == null){
-                     if(oOverlapFilm == null){
-                        alert('구매 되었습니다.');
-                     }else
-                        alert(oOverlapFilm);
-                  }else
-                     alert(oErrMsg);
-               },
-               error : function(xhr){
-                  alert("error: " + xhr.status + "," + xhr.textStatus);
-               }
-               
-            })
-            /* 
-            $(location).attr("href", "/PUR/purFilm?mId=${login.mId }&docId=${fVo.docId}&filmPrice=${fVo.filmPrice}");
-              alert("구매되었습니다");
-               */
-          }
-          else{
-              return ;
-          }
-      })
-   })
-   
-   
-</script>
-
 
 
 <input type = "hidden" id = "mId" value = "${login.mId }"/>
@@ -338,9 +322,8 @@ $(function(){
                   <i class="fas fa-cart-plus fa-lg mr-2"></i> 
                     	<a href="/DPS/List?mId=${login.mId }" style="color:white;">포인트 충전</a>
                 </div>
-                <div class="btn btn-primary btn-lg btn-flat" style="float:left; margin-left:5px;">
-                  <i class="far fa-credit-card" id = "btnPur" ></i>구매하기
-
+                <div class="btn btn-primary btn-lg btn-flat" id = "btnPur" style="float:left; margin-left:5px;">
+                  <i class="far fa-credit-card"></i>구매하기
                     	 <%--<a href="/PUR/purFilm?mId=${login.mId }&docId=${fVo.docId}&filmPrice=${fVo.filmPrice}" style="color:white;">구매하기</a>--%>
                 </div>
 				

@@ -105,7 +105,15 @@
          ) }		     
      </insert>         
      
-               
+     <select id="GrdConts"
+         statementType="CALLABLE" parameterType="hashmap" 
+         resultType="com.spring.review.vo.RevVo">
+         {CALL  PKG_REV.PROC_GRD_CONTS(
+         	#{revIdx, mode=IN, jdbcType=NUMERIC},
+            #{result, mode=OUT, jdbcType=CURSOR, 
+               javaType=ResultSet, resultMap=RevListMap }
+         ) }     
+     </select>              
      
     <select id="RevConts"
          statementType="CALLABLE" parameterType="hashmap" 
@@ -136,5 +144,52 @@
                javaType=ResultSet, resultMap=RevListMap }
          ) }     
      </select>
+     
+     <select id="MyGrdList"
+         statementType="CALLABLE" parameterType="hashmap" 
+         resultType="com.spring.review.vo.RevVo">
+         {CALL  PKG_REV.PROC_MYGRD_LIST(         	
+         	#{mId, mode=IN, jdbcType=VARCHAR},
+            #{result, mode=OUT, jdbcType=CURSOR, 
+               javaType=ResultSet, resultMap=RevListMap }			              
+         ) }     
+     </select>
+     
+     <update id="GrdUpdate" statementType="CALLABLE" 
+        parameterType="hashmap" >
+         {CALL  PKG_REV.PROC_GRD_UPDATE(         	
+         	#{mId, mode=IN, jdbcType=VARCHAR},         	
+            #{revIdx, mode=IN, jdbcType=VARCHAR},
+            #{grdScore, mode=IN, jdbcType=NUMERIC},
+            #{grdConts, mode=IN, jdbcType=VARCHAR}
+         ) }		     
+     </update> 
+     
+     <delete id="GrdDelete" statementType="CALLABLE" 
+        parameterType="hashmap" >
+         {CALL  PKG_REV.PROC_GRD_DELETE(
+            #{revIdx, mode=IN, jdbcType=VARCHAR}                       
+         ) }		     
+     </delete>          
+     
+     <select id="MyRevList"
+         statementType="CALLABLE" parameterType="hashmap" 
+         resultType="com.spring.review.vo.RevVo">
+         {CALL  PKG_REV.PROC_MYREV_LIST(
+         	#{mId, mode=IN, jdbcType=VARCHAR},
+            #{result, mode=OUT, jdbcType=CURSOR, 
+               javaType=ResultSet, resultMap=RevListMap }
+         ) }     
+     </select>
+     
+     <update id="RevUpdate" statementType="CALLABLE" 
+        parameterType="hashmap" >
+         {CALL  PKG_REV.PROC_REV_UPDATE(         	
+         	#{mId, mode=IN, jdbcType=VARCHAR},         	
+            #{revIdx, mode=IN, jdbcType=VARCHAR},
+            #{revTitle, mode=IN, jdbcType=VARCHAR},
+            #{revConts, mode=IN, jdbcType=VARCHAR}
+         ) }		     
+     </update>           
              
   </mapper>        

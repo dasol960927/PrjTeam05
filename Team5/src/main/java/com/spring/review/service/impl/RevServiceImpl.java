@@ -56,6 +56,13 @@ public class RevServiceImpl implements RevService {
 		
 	}	
 
+	
+	@Override
+	public RevVo getGrdConts(HashMap<String, Object> map) {
+		RevVo revVo = revDao.getGrdConts(map);
+		return revVo;
+	}
+	
 	@Override
 	public RevVo getRevConts(HashMap<String, Object> map) {
 		
@@ -82,6 +89,42 @@ public class RevServiceImpl implements RevService {
 		
 		revDao.insertSym(map);
 		
+	}
+
+	@Override
+	public List<RevVo> myGrdList(HashMap<String, Object> map) {
+		
+		List<RevVo> grdList = revDao.myGrdList(map);
+		
+		return grdList;
+	}
+	
+	@Override
+	public void updateGrd(HashMap<String, Object> map) {
+		
+		revDao.updateGrd(map);
+		
+	}
+	
+	@Override
+	public void deleteGrd(HashMap<String, Object> map) {
+		
+		revDao.deleteGrd(map);
+		
+	}
+	
+
+	@Override
+	public List<RevVo> myRevList(HashMap<String, Object> map) {
+		
+		List<RevVo> revList = revDao.myRevList(map);
+		
+		return revList;
+	}
+
+	@Override
+	public void updateRev(HashMap<String, Object> map) {
+		revDao.updateRev(map);		
 	}
 	
 }

@@ -42,9 +42,14 @@ public class LikeController {
 		mv.addObject("likeGenreList", likeGenreList);
 		mv.addObject("memberVo", memberVo);		
 				
+
 		System.out.println("LIKE/List map : " + map);
 		System.out.println("likeList : " + likeList);
 		System.out.println("likeGenreList : " + likeGenreList);
+
+		//System.out.println("LIKE/List map : " + map);
+		//System.out.println("likeList : " + likeList);
+
 		
 		return mv;
 	}
@@ -52,12 +57,12 @@ public class LikeController {
 	@RequestMapping("/Like")
 	@ResponseBody
 	public LikeVo like(@RequestParam HashMap<String, Object> map) {
-		System.out.println("찜" + map);
+		//System.out.println("찜" + map);
 	
 		likeService.setLike(map);
 		
 		LikeVo LVo = likeService.getLikeChk(map);
-		System.out.println(LVo);
+		//System.out.println(LVo);
 		
 		return LVo;
 	}

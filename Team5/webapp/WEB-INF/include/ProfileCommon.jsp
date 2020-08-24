@@ -41,6 +41,16 @@
                     <p class="float-right">&nbsp;건&nbsp;&nbsp;</p> 
                     <a class="float-right" href="/DPS/List?mId=${memberVo.mId}">${memberVo.cntd}</a>  
                   </li>
+                 <li class="list-group-item">
+                  	<br/>
+                    <b>내 한줄평</b> 
+                    <a class="float-right" href="/REVIEW/MyGrdList?mId=${memberVo.mId}">보러가기</a>                      
+                  </li>
+                 <li class="list-group-item">
+                  	<br/>
+                    <b>내 리뷰</b> 
+                    <a class="float-right" href="/REVIEW/MyRevList?mId=${memberVo.mId}">보러가기</a>                      
+                  </li>                                                      
                 </ul>
 				<br/>
                 <a href="/updateForm?mId=${ memberVo.mId }" class="btn btn-primary btn-block"><b>회원정보 수정</b></a>

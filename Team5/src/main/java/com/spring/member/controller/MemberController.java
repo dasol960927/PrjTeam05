@@ -105,11 +105,6 @@ public class MemberController {
 			link = "errorPage/500Page";
 			break;
 
-			
-		case "ImageSlideTest":
-		link = "ImageSlideTest";
-		break;
-		
 		}
 		
 		return link;
@@ -121,7 +116,7 @@ public class MemberController {
 		
 		memberService.register(map);
 		ModelAndView mv = new ModelAndView();
-		System.out.println("회원가입" + map);
+
 		String errCode = (String) map.get("outErrCode");
 		if(errCode.equals("8282")) {
 			mv.setViewName("redirect:/registerForm");
@@ -196,7 +191,7 @@ public class MemberController {
 	@RequestMapping("/update")
 	public String update(@RequestParam HashMap<String, Object> map) {
 		memberService.memberUpdate(map);
-		System.out.println("제발되라" + map);
+
 		return "redirect:/test?mId=" + (String)map.get("mId");
 		
 	}
@@ -222,9 +217,9 @@ public class MemberController {
 	//회원탈퇴
 	@RequestMapping("/delete")
 	public String delete(String mId) {
-		System.out.println(mId);
+
 		memberService.MemberDelete(mId);
-		System.out.println("hi");
+
 		return "table/depositTable";
 	}
 
@@ -235,7 +230,7 @@ public class MemberController {
 		ModelAndView mv = new ModelAndView();
 		
 		MemberVo memberVo = memberService.find_id(map);
-		System.out.println("memberVo=" + memberVo);
+
 		String returnURL = "";
 		mv.setViewName("members/find_id_result");
 		mv.addObject("memberVo", memberVo);
@@ -248,9 +243,7 @@ public class MemberController {
 	@RequestMapping("/find_pass")
 	public ModelAndView find_pass(@RequestParam HashMap<String, Object> map) {
 		MemberVo memberVo = memberService.find_pass(map);
-		
-		System.out.println("비번찾기 맵이다" + map);
-		
+
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("memberVo", memberVo);
 		mv.setViewName("members/find_pass");

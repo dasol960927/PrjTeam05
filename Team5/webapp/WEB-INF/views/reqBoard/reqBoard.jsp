@@ -46,7 +46,7 @@
 										</div>
 									</div>
 									<input type="email" class="form-control" id="mid"
-										name="mId" value="${login.mId}">
+										name="mId" value="${login.mId}" readonly>
 								</div>
 							</div>
 							<div class="form-group">
