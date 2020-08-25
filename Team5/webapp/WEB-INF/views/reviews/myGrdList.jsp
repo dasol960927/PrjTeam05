@@ -81,7 +81,7 @@ table { width:800px; margin:0 auto; }
 												html += '<p>' + tit[0] + '</p>';
 												html += '</span>';
 												
-												$('#'+string).html(html);
+												$('.'+string).html(html);
 											},
 											error : function(xhr) {
 												alert(xhr.status + '' + xhr.textStatus);
