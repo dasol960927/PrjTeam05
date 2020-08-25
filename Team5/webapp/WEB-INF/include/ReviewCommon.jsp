@@ -288,7 +288,7 @@ $(function(){
 			  <div class="starRev">
 				  <span class="starR1 on">별1</span>
 				  <span class="starR2 on">별2</span>
-				  <small style="font-weight:bold; font-size:25px;">: ${oAvg}</small> <small>참여 : </small> <small>${oCnt}</small><small>명</small>				  				  
+				  <small style="font-weight:bold; font-size:25px;">: ${oAvg}</small> <small>${oCnt}</small><small>명</small>				  				  
    			  </div>				
 				<br>
 				<br>

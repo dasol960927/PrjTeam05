@@ -21,7 +21,7 @@
        <result property="parentIdx"    column="PARENT_IDX" javaType="int" />  
        <result property="revNref"      column="REV_NREF" javaType="int" />
               
-	   <result property="symId"      column="SYM_ID" javaType="string" />              
+      <result property="symId"      column="SYM_ID" javaType="string" />              
        <result property="symGubun"      column="SYM_GUBUN" />               
      </resultMap>
    
@@ -29,12 +29,12 @@
          statementType="CALLABLE" parameterType="hashmap" 
          resultType="com.spring.review.vo.RevVo">
          {CALL  PKG_REV.PROC_GRD_LIST(
-         	#{docId, mode=IN, jdbcType=VARCHAR},
-         	#{mId, mode=IN, jdbcType=VARCHAR},
+            #{docId, mode=IN, jdbcType=VARCHAR},
+            #{mId, mode=IN, jdbcType=VARCHAR},
             #{result, mode=OUT, jdbcType=CURSOR, 
                javaType=ResultSet, resultMap=RevListMap },
-			#{oCnt, mode=OUT, jdbcType=VARCHAR},
-			#{oAvg, mode=OUT, jdbcType=NUMERIC}               
+         #{oCnt, mode=OUT, jdbcType=VARCHAR},
+         #{oAvg, mode=OUT, jdbcType=NUMERIC}               
          ) }     
      </select>
      
@@ -42,24 +42,24 @@
          statementType="CALLABLE" parameterType="hashmap" 
          resultType="com.spring.review.vo.RevVo">
          {CALL  PKG_REV.PROC_REV_LIST1(
-         	#{docId, mode=IN, jdbcType=VARCHAR},
-         	#{revIdx, mode=IN, jdbcType=NUMERIC},
-         	#{revLvl, mode=IN, jdbcType=NUMERIC},
-         	#{mId, mode=IN, jdbcType=VARCHAR},         	        	
-         	
+            #{docId, mode=IN, jdbcType=VARCHAR},
+            #{revIdx, mode=IN, jdbcType=NUMERIC},
+            #{revLvl, mode=IN, jdbcType=NUMERIC},
+            #{mId, mode=IN, jdbcType=VARCHAR},                       
+            
             #{result, mode=OUT, jdbcType=CURSOR, 
                javaType=ResultSet, resultMap=RevListMap },
-			#{oCnt, mode=OUT, jdbcType=VARCHAR}               
+         #{oCnt, mode=OUT, jdbcType=VARCHAR}               
          ) }     
      </select>
      
      <select id="RevList2"
          statementType="CALLABLE" parameterType="hashmap" 
          resultType="com.spring.review.vo.RevVo">
-         {CALL  PKG_REV.PROC_REV_LIST2(         	
-         	#{revIdx, mode=IN, jdbcType=NUMERIC},
-         	#{revLvl, mode=IN, jdbcType=NUMERIC},
-         	#{mId, mode=IN, jdbcType=VARCHAR},
+         {CALL  PKG_REV.PROC_REV_LIST2(            
+            #{revIdx, mode=IN, jdbcType=NUMERIC},
+            #{revLvl, mode=IN, jdbcType=NUMERIC},
+            #{mId, mode=IN, jdbcType=VARCHAR},
             #{result, mode=OUT, jdbcType=CURSOR, 
                javaType=ResultSet, resultMap=RevListMap }
          ) }     
@@ -67,49 +67,49 @@
      
      <insert id="GrdInsert" statementType="CALLABLE" 
         parameterType="hashmap" >
-         {CALL  PKG_REV.PROC_GRD_INSERT(         	
-         	#{mId, mode=IN, jdbcType=VARCHAR},         	
+         {CALL  PKG_REV.PROC_GRD_INSERT(            
+            #{mId, mode=IN, jdbcType=VARCHAR},            
             #{docId, mode=IN, jdbcType=VARCHAR},
             #{grdScore, mode=IN, jdbcType=NUMERIC},
             #{grdConts, mode=IN, jdbcType=VARCHAR}
-         ) }		     
+         ) }           
      </insert>
 
      <insert id="RevInsert" statementType="CALLABLE" 
         parameterType="hashmap" >
-         {CALL  PKG_REV.PROC_REV_INSERT(         	
-         	#{mId, mode=IN, jdbcType=VARCHAR},         	
+         {CALL  PKG_REV.PROC_REV_INSERT(            
+            #{mId, mode=IN, jdbcType=VARCHAR},            
             #{docId, mode=IN, jdbcType=VARCHAR},
             #{revTitle, mode=IN, jdbcType=VARCHAR},
             #{revConts, mode=IN, jdbcType=VARCHAR}
-         ) }		     
+         ) }           
      </insert>
      
      <insert id="RevInsLvl1" statementType="CALLABLE" 
         parameterType="hashmap" >
-         {CALL  PKG_REV.PROC_INS_REVLVL1(         	
-         	#{mId, mode=IN, jdbcType=VARCHAR},         	
+         {CALL  PKG_REV.PROC_INS_REVLVL1(            
+            #{mId, mode=IN, jdbcType=VARCHAR},            
             #{docId, mode=IN, jdbcType=VARCHAR},
             #{revIdx, mode=IN, jdbcType=NUMERIC},
             #{revConts, mode=IN, jdbcType=VARCHAR}
-         ) }		     
+         ) }           
      </insert>
 
      <insert id="RevInsLvl2" statementType="CALLABLE" 
         parameterType="hashmap" >
-         {CALL  PKG_REV.PROC_INS_REVLVL2(         	
-         	#{mId, mode=IN, jdbcType=VARCHAR},         	
+         {CALL  PKG_REV.PROC_INS_REVLVL2(            
+            #{mId, mode=IN, jdbcType=VARCHAR},            
             #{docId, mode=IN, jdbcType=VARCHAR},
             #{revIdx, mode=IN, jdbcType=NUMERIC},
             #{revConts, mode=IN, jdbcType=VARCHAR}
-         ) }		     
+         ) }           
      </insert>         
      
      <select id="GrdConts"
          statementType="CALLABLE" parameterType="hashmap" 
          resultType="com.spring.review.vo.RevVo">
          {CALL  PKG_REV.PROC_GRD_CONTS(
-         	#{revIdx, mode=IN, jdbcType=NUMERIC},
+            #{revIdx, mode=IN, jdbcType=NUMERIC},
             #{result, mode=OUT, jdbcType=CURSOR, 
                javaType=ResultSet, resultMap=RevListMap }
          ) }     
@@ -119,7 +119,7 @@
          statementType="CALLABLE" parameterType="hashmap" 
          resultType="com.spring.review.vo.RevVo">
          {CALL  PKG_REV.PROC_REV_CONTS(
-         	#{revIdx, mode=IN, jdbcType=NUMERIC},
+            #{revIdx, mode=IN, jdbcType=NUMERIC},
             #{result, mode=OUT, jdbcType=CURSOR, 
                javaType=ResultSet, resultMap=RevListMap }
          ) }     
@@ -127,11 +127,11 @@
  
       <insert id="SymInsert" statementType="CALLABLE" 
         parameterType="hashmap" >
-         {CALL  PKG_REV.PROC_SYM_INSERT(         	
-         	#{revIdx, mode=IN, jdbcType=NUMERIC},         	
+         {CALL  PKG_REV.PROC_SYM_INSERT(            
+            #{revIdx, mode=IN, jdbcType=NUMERIC},            
             #{mId, mode=IN, jdbcType=VARCHAR},
             #{sGubun, mode=IN}            
-         ) }		     
+         ) }           
      </insert>
  
  
@@ -139,7 +139,7 @@
          statementType="CALLABLE" parameterType="hashmap" 
          resultType="com.spring.review.vo.RevVo">
          {CALL  PKG_CHART.PROC_CHART_AGE(
-         	#{docId,  mode=IN, jdbcType=VARCHAR},
+            #{docId,  mode=IN, jdbcType=VARCHAR},
             #{result, mode=OUT, jdbcType=CURSOR, 
                javaType=ResultSet, resultMap=RevListMap }
          ) }     
@@ -148,35 +148,35 @@
      <select id="MyGrdList"
          statementType="CALLABLE" parameterType="hashmap" 
          resultType="com.spring.review.vo.RevVo">
-         {CALL  PKG_REV.PROC_MYGRD_LIST(         	
-         	#{mId, mode=IN, jdbcType=VARCHAR},
+         {CALL  PKG_REV.PROC_MYGRD_LIST(            
+            #{mId, mode=IN, jdbcType=VARCHAR},
             #{result, mode=OUT, jdbcType=CURSOR, 
-               javaType=ResultSet, resultMap=RevListMap }			              
+               javaType=ResultSet, resultMap=RevListMap }                       
          ) }     
      </select>
      
      <update id="GrdUpdate" statementType="CALLABLE" 
         parameterType="hashmap" >
-         {CALL  PKG_REV.PROC_GRD_UPDATE(         	
-         	#{mId, mode=IN, jdbcType=VARCHAR},         	
+         {CALL  PKG_REV.PROC_GRD_UPDATE(            
+            #{mId, mode=IN, jdbcType=VARCHAR},            
             #{revIdx, mode=IN, jdbcType=VARCHAR},
             #{grdScore, mode=IN, jdbcType=NUMERIC},
             #{grdConts, mode=IN, jdbcType=VARCHAR}
-         ) }		     
+         ) }           
      </update> 
      
      <delete id="GrdDelete" statementType="CALLABLE" 
         parameterType="hashmap" >
          {CALL  PKG_REV.PROC_GRD_DELETE(
             #{revIdx, mode=IN, jdbcType=VARCHAR}                       
-         ) }		     
+         ) }           
      </delete>          
      
      <select id="MyRevList"
          statementType="CALLABLE" parameterType="hashmap" 
          resultType="com.spring.review.vo.RevVo">
          {CALL  PKG_REV.PROC_MYREV_LIST(
-         	#{mId, mode=IN, jdbcType=VARCHAR},
+            #{mId, mode=IN, jdbcType=VARCHAR},
             #{result, mode=OUT, jdbcType=CURSOR, 
                javaType=ResultSet, resultMap=RevListMap }
          ) }     
@@ -184,12 +184,12 @@
      
      <update id="RevUpdate" statementType="CALLABLE" 
         parameterType="hashmap" >
-         {CALL  PKG_REV.PROC_REV_UPDATE(         	
-         	#{mId, mode=IN, jdbcType=VARCHAR},         	
+         {CALL  PKG_REV.PROC_REV_UPDATE(            
+            #{mId, mode=IN, jdbcType=VARCHAR},            
             #{revIdx, mode=IN, jdbcType=VARCHAR},
             #{revTitle, mode=IN, jdbcType=VARCHAR},
             #{revConts, mode=IN, jdbcType=VARCHAR}
-         ) }		     
+         ) }           
      </update>           
              
   </mapper>        

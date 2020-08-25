@@ -75,6 +75,7 @@ public class RevController {
 		FilmVo fVo = filmService.getPrice(map);
 		LikeVo LVo = likeService.getLikeChk(map);
 		MemberVo mVo = memberService.getMemberInfo(map);
+			
 
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("reviews/filmReview2");

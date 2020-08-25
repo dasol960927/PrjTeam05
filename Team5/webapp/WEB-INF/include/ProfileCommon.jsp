@@ -69,8 +69,7 @@ p {
 }
 </style>
 
-
-      
+   
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
@@ -127,7 +126,7 @@ p {
                   	<br/>
                     <b>내 한줄평/리뷰 공개</b>                     
 					<label class="switch">
-					  <input type="checkbox">
+					  <input type="checkbox" id="openChk">
 					  <span class="slider round"></span>
 					</label>
 					<p class="onoff" id="off">비공개</p>
@@ -137,8 +136,10 @@ p {
 						check.click(function(){
 							$(".onoff").toggle();
 						});
-					</script>
-										                  
+					</script> 
+					  
+
+					 				                  
                   </li>                                                                        
                 </ul>
 				<br/>

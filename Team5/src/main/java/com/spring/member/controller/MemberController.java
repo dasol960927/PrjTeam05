@@ -30,6 +30,7 @@ import com.spring.member.vo.MemberVo;
 import com.spring.reqboard.service.ReqBoardService;
 import com.spring.reqboard.vo.ReqBoardVo;
 
+
 @Controller
 public class MemberController {
 	
@@ -199,16 +200,15 @@ public class MemberController {
 	 // 테스트(개인정보 조회)
 	 @RequestMapping("/test") 
 	 public ModelAndView Test(@RequestParam  HashMap<String, Object> map) { 
-	 
+	 	 
 		 MemberVo memberVo = memberService.getMemberInfo(map);
-
+ 	 	 
 		 ModelAndView mv = new ModelAndView();
 	 
 		 mv.setViewName("table/depositTable"); 
 		 mv.addObject("memberVo", memberVo);
-	 
-	 	 return mv;
-	 
+	  	 
+		 return mv;	 
 	 }
 	
 	
