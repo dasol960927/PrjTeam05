@@ -251,8 +251,7 @@ th, td{
 <script src="/js/utils.js"></script>
 <script>
 $(function(){
-
-   
+	   
     var docIdVal = '${docId}';
      
      $.ajax({
@@ -265,7 +264,7 @@ $(function(){
                if(item == null){
                   $('#max').html('평점이 아직 작성되지 않았습니다.');
                }else{
-                  $('#max').html('이 영화는 ' + item.str  + item.mGender + '가 선호하는 영화입니다');
+                  $('#max').html('이 영화는 ' + item.str  + item.mGender + '가 좋아하는 영화입니다');
                }
             });
                
@@ -304,60 +303,6 @@ $(function(){
          datatype: 'json',
          success : function(datas) {
             console.log(datas);
-
-	
-	 var docIdVal = '${docId}';
-	  
-	  $.ajax({
-			url : '/Chart/Max',
-			type: 'GET',
-			data: {'docId' : docIdVal},
-			datatype: 'json',
-			success : function(data) {		
-				$.each(data, function(index, item){
-					if(item == null){
-						$('#max').html('평점이 아직 작성되지 않았습니다.');
-					}else{
-						$('#max').html('이 영화는 ' + item.str  + item.mGender + '가 선호하는 영화입니다');
-					}
-				});
-					
-			}, 
-				error : function(xhr) {
-					alert('가장좋아하는 데이터'+ xhr.status + '' + xhr.textStatus);
-				}
-			});
-	  
-	  
-	  $.ajax({
-			url : '/Chart/Gender',
-			type: 'GET',
-			data: {'docId' : docIdVal},
-			datatype: 'json',
-			success : function(data) {		
-				$.each(data, function(index, item){
-					if(item.mGender=='남자'){						
-						$('#man').html('남자   ★' + item.avgGrdScore);
-					}else{						
-						$('#woman').html('여자 ★' + item.avgGrdScore);
-					}
-				});
-					
-			}, 
-				error : function(xhr) {
-					alert('남녀데이터'+ xhr.status + '' + xhr.textStatus);
-				}
-			});
-	  
-	  
-	  $.ajax({
-		  url : '/Chart/Grd',
-			type: 'GET',
-			data: {'docId' : docIdVal},
-			datatype: 'json',
-			success : function(datas) {
-				console.log(datas);
-
                 var labelList     = [];
                 var dataList      = [];
 
@@ -413,6 +358,10 @@ $(function(){
                 }
              });
 
+          
+
+            
+     
          }, 
          error : function(xhr) {
             alert('막대그래프데이터'+ xhr.status + '' + xhr.textStatus);
