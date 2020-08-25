@@ -260,7 +260,7 @@ $(function(){
 					if(item == null){
 						$('#max').html('평점이 아직 작성되지 않았습니다.');
 					}else{
-						$('#max').html('이 영화는 ' + item.str  + item.mGender + '가 좋아하는 영화입니다');
+						$('#max').html('이 영화는 ' + item.str  + item.mGender + '가 선호하는 영화입니다');
 					}
 				});
 					
