@@ -137,9 +137,7 @@ p {
 							$(".onoff").toggle();
 						});
 					</script> 
-					  
-
-					 				                  
+					  			                  
                   </li>                                                                        
                 </ul>
 				<br/>
