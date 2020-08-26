@@ -284,7 +284,12 @@ $(function(){
 	            </div>
 	            <!-- /.card -->
 
-
+              <h4 class="mt-3">평점</h4>
+			  <div class="starRev">
+				  <span class="starR1 on">별1</span>
+				  <span class="starR2 on">별2</span>
+				  <small style="font-weight:bold; font-size:25px;">: ${oAvg}</small> 				  				  
+   			  </div>				
 				<br>
 				<br>
 

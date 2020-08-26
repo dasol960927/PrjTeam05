@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>FilmCritics | FilmReview</title>
 <%@ include file="/WEB-INF/include/admin.jsp" %>
-<%@ include file="/WEB-INF/include/ReviewCommon.jsp" %>
+<%@ include file="/WEB-INF/include/ReviewCommonGrd.jsp" %>
 <style>
 table{
     border: 1px solid #444444;
