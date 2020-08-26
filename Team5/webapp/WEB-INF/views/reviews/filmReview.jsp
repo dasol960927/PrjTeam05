@@ -109,8 +109,7 @@ var idx = 2;
      inter=true;
    }
    
- });
- 
+ }); 
 
  $(".g_item ul li").on('click',function(){
    $(this).addClass("on").siblings().removeClass("on");
