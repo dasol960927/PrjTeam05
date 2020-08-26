@@ -40,7 +40,7 @@ table { width:800px; margin:0 auto; }
 					<c:forEach var="revVo" items="${grdList}">
 						<tr>
 							<td>
-							<div id ="${revVo.docId}"></div>
+							<div class ="${revVo.docId}"></div>
                               <script>
 								var str = '${revVo.docId}';
 								//console.log('str' + str);
