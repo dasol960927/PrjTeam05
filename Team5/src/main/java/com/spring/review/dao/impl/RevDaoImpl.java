@@ -137,5 +137,21 @@ public class RevDaoImpl implements RevDao {
 		sqlSession.update("REVIEW.RevUpdate", map);		
 	}
 
+	@Override
+	public List<RevVo> namRevList(HashMap<String, Object> map) {
+		sqlSession.selectList("REVIEW.NamRevList", map);
+		List<RevVo> revList = (List<RevVo>) map.get("result");
+		
+		return revList;
+	}
+
+	@Override
+	public List<RevVo> namGrdList(HashMap<String, Object> map) {
+		sqlSession.selectList("REVIEW.NamGrdList", map);
+		List<RevVo> grdList = (List<RevVo>) map.get("result");
+		
+		return grdList;
+	}
+
 	
 }

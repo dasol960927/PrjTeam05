@@ -37,6 +37,10 @@ public interface RevService {
 
 	void updateRev(HashMap<String, Object> map);
 
+	List<RevVo> namRevList(HashMap<String, Object> map);
+
+	List<RevVo> namGrdList(HashMap<String, Object> map);
+
 
 
 	

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>        
 
 <style>    
 .switch {
@@ -21,7 +22,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: #ccc;	
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -49,12 +50,12 @@ input:focus + .slider {
 input:checked + .slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
-  transform: translateX(26px);
+  transform: translateX(26px);  
 }
 
 /* Rounded sliders */
 .slider.round {
-  border-radius: 34px;
+  border-radius: 34px;  
 }
 
 .slider.round:before {
@@ -124,19 +125,56 @@ p {
                  <li class="list-group-item">
                  
                   	<br/>
-                    <b>내 한줄평/리뷰 공개</b>                     
+                    <b>내 한줄평/리뷰 공개</b> 
+                <c:choose> 
+                	<c:when test="${memberVo.openChk eq 'O'.charAt(0)}">                        
 					<label class="switch">
-					  <input type="checkbox" id="openChk">
+					  <input type="checkbox" id="openChk" checked="checked">
 					  <span class="slider round"></span>
 					</label>
-					<p class="onoff" id="off">비공개</p>
+					<p class="onoff" id="off" style="display:none;">비공개</p>
+					<p class="onoff" id="on" >공개</p>
+					<input type="hidden" id="mId" value="${memberVo.mId}" />
+					</c:when>
+                	<c:otherwise>                        
+					<label class="switch">
+					  <input type="checkbox" id="openChk" >
+					  <span class="slider round"></span>
+					</label>
+					<p class="onoff" id="off" >비공개</p>
 					<p class="onoff" id="on" style="display:none;">공개</p>
+					<input type="hidden" id="mId" value="${memberVo.mId}" />
+					</c:otherwise>				
+				</c:choose>					
 					<script>
+						
 						var check = $("input[type='checkbox']");
+						
+						var mId = $('#mId').val();
+						
 						check.click(function(){
 							$(".onoff").toggle();
+							
+							//alert(mId);
+							
+					         $.ajax({
+					             url : '/openChkUpdate',
+					             data : {
+					                mId : mId
+					             },
+					             dataType : 'json',
+					             type : 'get',
+					             success : function(data){
+					                alert("변경했습니다");					            	
+					             },
+					             error : function(xhr){
+					                alert("error: " + xhr.status + "," + xhr.textStatus);
+					             } 
+					             
+					          });							
+							
 						});
-					</script> 
+					</script>
 					  			                  
                   </li>                                                                        
                 </ul>

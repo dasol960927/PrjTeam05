@@ -90,6 +90,12 @@ public class MemberDaoImpl implements MemberDao {
 		
 	}
 
+	@Override
+	public void openChkUpdate(HashMap<String, Object> map) {
+		sqlSession.update("Member.openChkUpdate", map);
+		
+	}
+
 
 
 }

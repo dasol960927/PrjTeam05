@@ -28,6 +28,8 @@ public interface MemberDao {
 
 		public void newPassword(MemberVo memberVO);
 
+		public void openChkUpdate(HashMap<String, Object> map);
+
 
 
 }

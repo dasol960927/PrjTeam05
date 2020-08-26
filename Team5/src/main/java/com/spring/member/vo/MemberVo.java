@@ -13,14 +13,13 @@ public class MemberVo {
 	private int	   mCash;
 	private String outErrCode;
 	
+	private char openChk;	
 	
 	// Fields2 : 추가개인정보( 찜갯수, 구매기록, 충전기록 )
 	private int cntl;	// 찜
 	private int cntp;	// 구매
 	private int cntd;	// 충전	
-	
-	
-	
+		
 	
 	public String getmId() {
 		return mId;
@@ -94,13 +93,17 @@ public class MemberVo {
 	public void setCntd(int cntd) {
 		this.cntd = cntd;	
 	}
+	public char getOpenChk() {
+		return openChk;
+	}
+	public void setOpenChk(char openChk) {
+		this.openChk = openChk;
+	}
 	
-
-
 	
 	public MemberVo() {}
 	public MemberVo(String mId, String mName, String mPass, String mNickName, String mGender, String mBdate,
-			String mPhone, int mCash, String outErrCode, int cntl, int cntp, int cntd) {
+			String mPhone, int mCash, String outErrCode, int cntl, int cntp, int cntd, char openChk) {
 		super();
 		this.mId = mId;
 		this.mName = mName;
@@ -114,20 +117,15 @@ public class MemberVo {
 		this.cntl = cntl;
 		this.cntp = cntp;
 		this.cntd = cntd;
+		this.openChk = openChk;
 	}
+	
 	
 	@Override
 	public String toString() {
 		return "MemberVo [mId=" + mId + ", mName=" + mName + ", mPass=" + mPass + ", mNickName=" + mNickName
 				+ ", mGender=" + mGender + ", mBdate=" + mBdate + ", mPhone=" + mPhone + ", mCash=" + mCash
-				+ ", outErrCode=" + outErrCode + ", cntl=" + cntl + ", cntp=" + cntp + ", cntd=" + cntd + "]";
+				+ ", outErrCode=" + outErrCode + ", openChk=" + openChk + ", cntl=" + cntl + ", cntp=" + cntp
+				+ ", cntd=" + cntd + "]";
 	}
-
-	
-	
-
-	
-	
-	
-
 }

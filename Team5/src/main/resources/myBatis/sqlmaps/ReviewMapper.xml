@@ -21,8 +21,10 @@
        <result property="parentIdx"    column="PARENT_IDX" javaType="int" />  
        <result property="revNref"      column="REV_NREF" javaType="int" />
               
-      <result property="symId"      column="SYM_ID" javaType="string" />              
-       <result property="symGubun"      column="SYM_GUBUN" />               
+       <result property="symId"      column="SYM_ID" javaType="string" />              
+       <result property="symGubun"      column="SYM_GUBUN" />   
+       
+       <result property="mNickName"          column="M_NICKNAME" javaType="string" />                  
      </resultMap>
    
      <select id="GrdList"
@@ -190,6 +192,26 @@
             #{revTitle, mode=IN, jdbcType=VARCHAR},
             #{revConts, mode=IN, jdbcType=VARCHAR}
          ) }           
-     </update>           
+     </update>
+     
+     <select id="NamGrdList"
+         statementType="CALLABLE" parameterType="hashmap" 
+         resultType="com.spring.review.vo.RevVo">
+         {CALL  PKG_REV.PROC_NAMGRD_LIST(            
+            #{mNickName, mode=IN, jdbcType=VARCHAR},
+            #{result, mode=OUT, jdbcType=CURSOR, 
+               javaType=ResultSet, resultMap=RevListMap }                       
+         ) }     
+     </select>     
+     
+     <select id="NamRevList"
+         statementType="CALLABLE" parameterType="hashmap" 
+         resultType="com.spring.review.vo.RevVo">
+         {CALL  PKG_REV.PROC_NAMREV_LIST(
+            #{mNickName, mode=IN, jdbcType=VARCHAR},
+            #{result, mode=OUT, jdbcType=CURSOR, 
+               javaType=ResultSet, resultMap=RevListMap }
+         ) }     
+     </select>                
              
   </mapper>        

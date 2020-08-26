@@ -55,13 +55,14 @@ public class RevController {
 		mv.addObject("oCnt", map.get("oCnt"));
 		mv.addObject("oAvg", map.get("oAvg"));
 		mv.addObject("mId", map.get("mId"));
-		mv.addObject("grdList", grdList);
-
+		mv.addObject("grdList", grdList);		
+		
 		mv.addObject("fVo", fVo);
 		mv.addObject("mVo", mVo);
+		
+		// ㅇㅋ
+		System.out.println("리뷰컨트롤러의grdList(닉네임 넘겨라)" + grdList);
 
-		//System.out.println("리뷰컨트롤러의" + map);
-		//System.out.println(grdList);
 
 		return mv;
 	}
@@ -433,21 +434,26 @@ public class RevController {
 	}
 	
 	@RequestMapping("/REVIEW/userWriteList")
-	public ModelAndView userWriteList(@RequestParam HashMap<String, Object> map) {
+	public ModelAndView userWriteList(@RequestParam HashMap<String, Object> map){
 
 		System.out.println("남 리뷰목록 map : " + map);
-
-		List<RevVo> revList = revService.myRevList(map);
-		List<RevVo> grdList = revService.myGrdList(map);		
-		ModelAndView mv = new ModelAndView();
-
+		
+		MemberVo memberVo = memberService.getMemberInfo(map);
+		ModelAndView mv = new ModelAndView();				
+		map.put("openChk", memberVo.getOpenChk());
+		mv.addObject("openChk", map.get("openChk"));
+		
+		List<RevVo> revList = revService.namRevList(map);
+		List<RevVo> grdList = revService.namGrdList(map);
 		mv.setViewName("reviews/writeListPopup");
-
 		mv.addObject("revList", revList);
-		mv.addObject("grdList", grdList);		
+		mv.addObject("grdList", grdList);
 		
-		mv.addObject("mId", map.get("mId"));
 		
+		//mv.addObject("mId", map.get("mId"));
+		mv.addObject("mNickName", map.get("mNickName"));			
+		
+		System.out.println("맵(아이디 openChk 받아오냐) :" + map);
 		System.out.println("revList  : " + revList);
 		System.out.println("grdList  : " + grdList);
 

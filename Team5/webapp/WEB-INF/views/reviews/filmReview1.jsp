@@ -158,7 +158,7 @@ th, td{
                    </td>
                    <td width="700px">
                    ${revVo.grdConts}<br/>
-                   <a href="#" onclick="window.open('/REVIEW/userWriteList?mId=${revVo.mId}', '팝업창이름', 'width=700, height=700','location=no', 'resizable=no'); return false;">${revVo.mId}</a>
+                   <a href="#" onclick="window.open('/REVIEW/userWriteList?mNickName=${revVo.mNickName}', '팝업창이름', 'width=700, height=700','location=no', 'resizable=no'); return false;">${revVo.mId}</a>
                    &nbsp;${revVo.revDate}<br/>                   
                    <c:choose>
                    <c:when test="${revVo.symGubun eq 'G'.charAt(0)}">

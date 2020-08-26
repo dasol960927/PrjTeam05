@@ -85,6 +85,13 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 
+	@Override
+	public void openChkUpdate(HashMap<String, Object> map) {
+		memberDao.openChkUpdate(map);
+		
+	}
+
+
 
 
 

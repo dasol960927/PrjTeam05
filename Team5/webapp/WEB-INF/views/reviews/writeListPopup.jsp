@@ -29,7 +29,18 @@ table { width:800px; margin:0 auto; }
 
 
 <script>
-
+	
+	window.onload = function(){
+		
+		var openChk = $('.openChk').val();
+		
+		if(openChk == 1){
+			
+			alert("한줄평/리뷰를 비공개한 회원입니다");
+			opener.document.location.reload();
+			window.close();
+		}
+	}
 	
 	function okClick(){
 		//opener.document.location.href='/filmReview1';
@@ -44,9 +55,11 @@ table { width:800px; margin:0 auto; }
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
   
+    
       	<div>		
               <div class="card-body">
-              	<h1>${mId}님의 한줄평/리뷰 내역</h1>
+              	<h1>${mNickName}님의 한줄평/리뷰 내역</h1>
+              	<!-- <input type="hidden" id="openChk" value="${openChk}" /> -->              	
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                   <tr>
@@ -58,8 +71,8 @@ table { width:800px; margin:0 auto; }
                   </thead>
                   <tbody>                   
 					<c:forEach var="revVo" items="${grdList}">
-                  <c:choose>
-                  <c:when test="${ revVo.revGubun eq 'S'.charAt(0)}">					
+                  <c:choose>                  
+                  <c:when test="${ revVo.revGubun eq 'S'.charAt(0) && revVo.revNref eq 0}">					
 						<tr>
 							<td>
 							<div class ="${revVo.docId}"></div>
@@ -117,14 +130,18 @@ table { width:800px; margin:0 auto; }
 							<td>${ revVo.grdConts }</td>
 							<td>${ revVo.revDate }</td>			
 						</tr>
+						<input type="hidden" class="openChk" value="${revVo.revNref}" />
 						</c:when>
+						<c:otherwise>
+						<input type="hidden" class="openChk" value="${revVo.revNref}" />
+						</c:otherwise>
 						</c:choose>
 					</c:forEach>
 					
 					
 					<c:forEach var="revVo" items="${revList}">
                   <c:choose>
-                  <c:when test="${ revVo.revGubun eq 'L'.charAt(0)}">					
+                  <c:when test="${ revVo.revGubun eq 'L'.charAt(0) && revVo.revNref eq 0 }">					
 						<tr>
 							<td>
 							<div class ="${revVo.docId}"></div>
@@ -182,7 +199,11 @@ table { width:800px; margin:0 auto; }
 							<td id="contsTd">${ revVo.revConts }</td>
 							<td>${ revVo.revDate }</td>							
 						</tr>
-						</c:when>
+						<input type="hidden" class="openChk" value="${revVo.revNref}" />
+						</c:when>	
+						<c:otherwise>
+						<input type="hidden" class="openChk" value="${revVo.revNref}" />
+						</c:otherwise>				
 						</c:choose>
 					</c:forEach>					
 					

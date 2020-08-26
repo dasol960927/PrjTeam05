@@ -36,5 +36,11 @@ public interface RevDao {
 	List<RevVo> myRevList(HashMap<String, Object> map);
 
 	void updateRev(HashMap<String, Object> map);
+
+	List<RevVo> namRevList(HashMap<String, Object> map);
+
+	List<RevVo> namGrdList(HashMap<String, Object> map);
+
+	
 	
 }

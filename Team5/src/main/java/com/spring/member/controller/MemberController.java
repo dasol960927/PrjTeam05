@@ -207,6 +207,8 @@ public class MemberController {
 	 
 		 mv.setViewName("table/depositTable"); 
 		 mv.addObject("memberVo", memberVo);
+		 
+		 System.out.println(memberVo);
 	  	 
 		 return mv;	 
 	 }
@@ -302,4 +304,18 @@ public class MemberController {
 		reqBoardService.addReqBoard(map);
 		return "reqBoard/reqBoardCheck";
 	}
+	
+	
+	@RequestMapping("/openChkUpdate")
+	@ResponseBody
+	public HashMap<String, Object> openChkUpdate(@RequestParam HashMap<String, Object> map) {
+
+		memberService.openChkUpdate(map);
+		
+		HashMap<String, Object> newMap = new HashMap<String, Object>();
+		MemberVo memberVo = memberService.getMemberInfo(map);
+		newMap.put("memberVo", memberVo);
+		return newMap;
+	}	
+	
 }

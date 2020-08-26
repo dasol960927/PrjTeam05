@@ -32,6 +32,8 @@ public interface MemberService {
 
 	public void newPassword(MemberVo memberVO);
 
+	public void openChkUpdate(HashMap<String, Object> map);
+
 
 
 }

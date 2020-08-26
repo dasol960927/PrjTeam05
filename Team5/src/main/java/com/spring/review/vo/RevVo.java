@@ -30,6 +30,7 @@ public class RevVo {
    private String filmSeq;
    private String filmYear;
    
+   private String mNickName;
    
    // 게터 / 세터
    public int getRevIdx() {
@@ -173,10 +174,18 @@ public class RevVo {
    }
    
    
-   public RevVo() {}   
+   public String getmNickName() {
+	   return mNickName;
+   }
+   public void setmNickName(String mNickName) {
+	   this.mNickName = mNickName;
+   }
+   
+   
+public RevVo() {}   
    public RevVo(int revIdx, String mId, String docId, String revTitle, String revConts, double grdScore,
          String grdConts, int goodCnt, int badCnt, String revDate, char revGubun, int revLvl, int parentIdx,
-         int revNref, String oCnt, int oAvg, int lvl0Idx, String symId, char symGubun, String filmId, String filmSeq, String filmYear) {      
+         int revNref, String oCnt, int oAvg, int lvl0Idx, String symId, char symGubun, String filmId, String filmSeq, String filmYear, String mNickName) {      
       this.revIdx = revIdx;
       this.mId = mId;
       this.docId = docId;
@@ -199,20 +208,20 @@ public class RevVo {
       this.filmId = filmId;
       this.filmSeq = filmSeq;
       this.filmYear = filmYear;
+      this.mNickName = mNickName;
    }
    
    
-   @Override
-   public String toString() {
-      return "RevVo [revIdx=" + revIdx + ", mId=" + mId + ", docId=" + docId + ", revTitle=" + revTitle
-            + ", revConts=" + revConts + ", grdScore=" + grdScore + ", grdConts=" + grdConts + ", goodCnt="
-            + goodCnt + ", badCnt=" + badCnt + ", revDate=" + revDate + ", revGubun=" + revGubun + ", revLvl="
-            + revLvl + ", parentIdx=" + parentIdx + ", revNref=" + revNref + ", oCnt=" + oCnt + ", oAvg=" + oAvg
-            + ", lvl0Idx=" + lvl0Idx + ", symId=" + symId + ", symGubun=" + symGubun + ", filmId=" + filmId
-            + ", filmSeq=" + filmSeq + ", filmYear=" + filmYear + "]";
-   }
    
-   
-
+	@Override
+	public String toString() {
+		return "RevVo [revIdx=" + revIdx + ", mId=" + mId + ", docId=" + docId + ", revTitle=" + revTitle + ", revConts="
+				+ revConts + ", grdScore=" + grdScore + ", grdConts=" + grdConts + ", goodCnt=" + goodCnt + ", badCnt="
+				+ badCnt + ", revDate=" + revDate + ", revGubun=" + revGubun + ", revLvl=" + revLvl + ", parentIdx="
+				+ parentIdx + ", revNref=" + revNref + ", oCnt=" + oCnt + ", oAvg=" + oAvg + ", lvl0Idx=" + lvl0Idx
+				+ ", symId=" + symId + ", symGubun=" + symGubun + ", filmId=" + filmId + ", filmSeq=" + filmSeq
+				+ ", filmYear=" + filmYear + ", mNickName=" + mNickName + "]";
+	}
+	   
    
 }

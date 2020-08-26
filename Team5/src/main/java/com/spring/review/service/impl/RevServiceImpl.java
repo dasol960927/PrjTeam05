@@ -126,5 +126,21 @@ public class RevServiceImpl implements RevService {
 	public void updateRev(HashMap<String, Object> map) {
 		revDao.updateRev(map);		
 	}
+
+	@Override
+	public List<RevVo> namRevList(HashMap<String, Object> map) {
+
+		List<RevVo> revList = revDao.namRevList(map);
+		
+		return revList;
+	}
+
+	@Override
+	public List<RevVo> namGrdList(HashMap<String, Object> map) {
+		
+		List<RevVo> grdList = revDao.namGrdList(map);
+		
+		return grdList;
+	}
 	
 }
