@@ -368,7 +368,6 @@ li{list-style:none;}
               <li class="breadcrumb-item"><a href="/">Home</a></li>
               <li class="breadcrumb-item"><a href="/test?mId=${login.mId }">${login.mName }님</a></li>
               <li class="breadcrumb-item active"><a href="/logout">LogOut</a></li>
-              <li class="breadcrumb-item active"><a href="/Board?gubun=N">고객센터</a></li>
               <li class="breadcrumb-item active"><a href="/reqBoardWriter?mId=${login.mId }">1:1 문의</a></li>
             </ol>
           </div>
