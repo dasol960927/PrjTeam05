@@ -20,32 +20,43 @@
   			var ID = mId.indexOf("@");
   			
   			if(mId == ""){
-  				alert("아이디를 입력하세요.");
+  				
+  				$("#loginCheck").text('입력해주세요.');
+ 				$("#loginCheck").css('color', 'red'); 	
+ 				$("#loginCheck").css('font-weight', 'bold'); 	
   				$("#mId").focus();
-  				return;
+  				return false;
   			}
   			
   			if(ID < 7){
- 				 alert("아이디는 7자 이상으로 입력 가능 합니다");
+ 				$("#loginCheck").text('아이디는 7자 이상으로 입력 가능 합니다.');
+ 				$("#loginCheck").css('color', 'red'); 	
+ 				$("#loginCheck").css('font-weight', 'bold'); 
  				$("#mId").focus();
  				return false;
  			}
   			
   			if(exptext.test(mId)==false){
   				//이메일 형식이 알파벳+숫자@알파벳+숫자.알파벳+숫자 형식이 아닐경우			
-  				alert("이메일형식이 올바르지 않습니다.");
+  				$("#loginCheck").text('이메일형식이 올바르지 않습니다.');
+ 				$("#loginCheck").css('color', 'red'); 	
+ 				$("#loginCheck").css('font-weight', 'bold'); 
   				$("#mId").focus();
   				return false;
   			}
  				
   			if(mPass == ""){
-  				alert("비밀번호를 입력하세요.");
+  				$("#loginCheck").text('비밀번호를 입력하세요.');
+ 				$("#loginCheck").css('color', 'red'); 	
+ 				$("#loginCheck").css('font-weight', 'bold'); 
   				$("#mPass").focus();
   				return;
   			}
   			
   		    if(mPass.length < 4 || mPass.length > 12){
-               alert("비밀번호는 4~12자 이내로 입력 가능 합니다");
+           		$("#loginCheck").text('비밀번호는 4~12자 이내로 입력 가능 합니다');
+				$("#loginCheck").css('color', 'red'); 	
+				$("#loginCheck").css('font-weight', 'bold'); 
                $("#mPass").focus();
                return false;
             }
@@ -84,7 +95,7 @@
         </div>
         <div class="row">
           <div class="col-8">
-            <div class="icheck-primary">
+            <div id="loginCheck" class="icheck-primary">
               <c:if test="${msg == false}">
 		        <p style="color:#f00">로그인 실패</p>
 		      </c:if>
