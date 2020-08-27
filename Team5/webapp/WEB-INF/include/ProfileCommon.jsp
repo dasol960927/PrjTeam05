@@ -83,7 +83,7 @@ p {
               <a href="/">Home</a>
                 <div class="text-center">
                   <img class="profile-user-img img-fluid img-circle"
-                       src="/img/User.jpg"
+                       src="/img/panda.jpg"
                        alt="User profile picture">    
                 </div>
 				
@@ -128,21 +128,21 @@ p {
                     <b>내 한줄평/리뷰 공개</b> 
                 <c:choose> 
                 	<c:when test="${memberVo.openChk eq 'O'.charAt(0)}">                        
-					<label class="switch">
-					  <input type="checkbox" id="openChk" checked="checked">
-					  <span class="slider round"></span>
+					<label class="switch float-right">
+					  <input type="checkbox" id="openChk" checked="checked" class="float-right">
+					  <span class="slider round float-right"></span>
 					</label>
-					<p class="onoff" id="off" style="display:none;">비공개</p>
-					<p class="onoff" id="on" >공개</p>
+					<p class="onoff float-right" id="off" style="display:none;">&nbsp;&nbsp;&nbsp;비공개</p>
+					<p class="onoff float-right" id="on" >&nbsp;&nbsp;&nbsp;공개</p>
 					<input type="hidden" id="mId" value="${memberVo.mId}" />
 					</c:when>
-                	<c:otherwise>                        
-					<label class="switch">
-					  <input type="checkbox" id="openChk" >
-					  <span class="slider round"></span>
+                	<c:otherwise>
+                	<p class="onoff float-right" id="off" >&nbsp;&nbsp;&nbsp;비공개</p>
+					<p class="onoff float-right" id="on" style="display:none;">&nbsp;&nbsp;&nbsp;공개</p>                        
+					<label class="switch float-right">
+					  <input type="checkbox" id="openChk" class="float-right">
+					  <span class="slider round float-right"></span>
 					</label>
-					<p class="onoff" id="off" >비공개</p>
-					<p class="onoff" id="on" style="display:none;">공개</p>
 					<input type="hidden" id="mId" value="${memberVo.mId}" />
 					</c:otherwise>				
 				</c:choose>					

@@ -69,14 +69,15 @@ a.link2:hover{text-decoration:underline;}
             <div class="tab-content p-3" id="nav-tabContent" >
 
 				 <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab">
+				 <input type="button" value="내 리뷰 작성하기" class="btn btn-primary btn-lg btn-flat"
+				onclick="window.open('/REVIEW/insertRevForm?mId=${login.mId}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}', '팝업창이름', 'width=1000, height=1000','location=no', 'resizable=no')">
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                   <tr>
                     <th  width="100px">리뷰&nbsp;&nbsp;&nbsp;</th>
                     <th width="900px">총 ${oCnt} 개 
                     
-				  <input type="button" value="내 리뷰 작성하기" class="btn btn-blcok btn-info btn-lg" 
-				onclick="window.open('/REVIEW/insertRevForm?mId=${login.mId}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}', '팝업창이름', 'width=1000, height=1000','location=no', 'resizable=no')">
+				  
 				    </th>                    
                   </tr>
                   </thead>
@@ -87,7 +88,7 @@ a.link2:hover{text-decoration:underline;}
               	   <a class="link1" href="/REVIEW/reviewRead?revIdx=${revVo.revIdx}&revLvl=${revVo.revLvl}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}&mId=${login.mId}">${revVo.revTitle}</a>
               	   &nbsp;&nbsp;
               	   <a href="#" onclick="window.open('/REVIEW/userWriteList?mNickName=${revVo.mNickName}', '팝업창이름', 'width=700, height=700','location=no', 'resizable=no'); return false;">${revVo.mId}</a>
-              	   &nbsp;&nbsp;${revVo.revDate}&nbsp;&nbsp;추천:${revVo.goodCnt}
+              	   &nbsp;&nbsp;${revVo.revDate}&nbsp;&nbsp;
               	   
               	   <a class="link2" href="/REVIEW/reviewRead?revIdx=${revVo.revIdx}&revLvl=${revVo.revLvl}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}&mId=${login.mId}"><p id="pContents">${revVo.revConts}</p></a>
               	   <br/>              	   

@@ -54,7 +54,8 @@ function getBoxOffice(date, divId) {
          dataType : "json",
          async: false, //값을 리턴시 해당코드를 추가하여 동기로 변경
          success : function(data) {
-            //console.log(data);
+        	console.log('kmdb'); 
+            console.log(data);
             
             var TotalCount = data.Data[0].Count;
             v1 = '<img src="/img/PosterReady.jpg" alt="포스터 준비중"/></a>';
@@ -114,9 +115,10 @@ function getBoxOffice(date, divId) {
          type : 'get',
          dataType : "json",
            success : function(data) {
-             console.log(data);
+        	   console.log('kobis');
+        	   console.log(data);
               var list = data.boxOfficeResult.dailyBoxOfficeList;
-              console.log(list);
+              //console.log(list);
               var html = '';
               $.each(list, function(index, item) {
                  //console.log(item.movieNm)
@@ -366,7 +368,6 @@ li{list-style:none;}
               <li class="breadcrumb-item"><a href="/">Home</a></li>
               <li class="breadcrumb-item"><a href="/test?mId=${login.mId }">${login.mName }님</a></li>
               <li class="breadcrumb-item active"><a href="/logout">LogOut</a></li>
-              <li class="breadcrumb-item active"><a href="/Board?gubun=N">고객센터</a></li>
               <li class="breadcrumb-item active"><a href="/reqBoardWriter?mId=${login.mId }">1:1 문의</a></li>
             </ol>
           </div>

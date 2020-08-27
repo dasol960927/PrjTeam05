@@ -78,9 +78,6 @@
         <div class="col-md-12">
           <div class="card card-outline card-info">
             <div class="card-header">
-              <h3 class="card-title">
-                	리뷰를 작성해주세요
-              </h3>
               <!-- tools box -->
               <div class="card-tools">
                 <button type="button" class="btn btn-tool btn-sm" data-card-widget="collapse" data-toggle="tooltip"

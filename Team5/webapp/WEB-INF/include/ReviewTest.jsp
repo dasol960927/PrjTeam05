@@ -116,7 +116,7 @@ $(function(){
 		type : 'get',
 		dataType : "json",
 		success : function(data) {
-			//console.log(data);
+			console.log(data);
 			var json = data.Data[0].Result;
 			//console.log(data);
 			var html  = '';

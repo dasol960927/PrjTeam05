@@ -49,7 +49,7 @@
 				  <span class="starR2">별8</span>
 				  <span class="starR1">별9</span>
 				  <span class="starR2">별10</span>
-				  <span id="val" style="font-weight:bold; font-size:20px;">${revVo.grdScore}</span>				  
+				  <span id="val" style="font-weight:bold; font-size:20px;" value="${revVo.grdScore}">${revVo.grdScore}</span>				  
 			</div>			
 		</c:when>
 		<c:when test="${revVo.grdScore eq 1.0}">
@@ -64,7 +64,7 @@
 				  <span class="starR2">별8</span>
 				  <span class="starR1">별9</span>
 				  <span class="starR2">별10</span>
-				  <span id="val" style="font-weight:bold; font-size:20px;">${revVo.grdScore}</span>				  
+				  <span id="val" style="font-weight:bold; font-size:20px;" value="${revVo.grdScore}">${revVo.grdScore}</span>				  
 			</div>			
 		</c:when>
 		<c:when test="${revVo.grdScore eq 1.5}">
@@ -79,7 +79,11 @@
 				  <span class="starR2">별8</span>
 				  <span class="starR1">별9</span>
 				  <span class="starR2">별10</span>
+<<<<<<< HEAD
 				  <span id="val" style="font-weight:bold; font-size:20px; "value="${revVo.grdScore}" >${revVo.grdScore}</span>				  
+=======
+				  <span id="val" style="font-weight:bold; font-size:20px;" value="${revVo.grdScore}">${revVo.grdScore}</span>				  
+>>>>>>> branch 'master' of https://github.com/dasol960927/PrjTeam05
 			</div>			
 		</c:when>
 		<c:when test="${revVo.grdScore eq 2.0}">
@@ -94,7 +98,7 @@
 				  <span class="starR2">별8</span>
 				  <span class="starR1">별9</span>
 				  <span class="starR2">별10</span>
-				  <span id="val" style="font-weight:bold; font-size:20px;">${revVo.grdScore}</span>				  
+				  <span id="val" style="font-weight:bold; font-size:20px;" value="${revVo.grdScore}">${revVo.grdScore}</span>				  
 			</div>			
 		</c:when>
 		<c:when test="${revVo.grdScore eq 2.5}">
@@ -109,7 +113,7 @@
 				  <span class="starR2">별8</span>
 				  <span class="starR1">별9</span>
 				  <span class="starR2">별10</span>
-				  <span id="val" style="font-weight:bold; font-size:20px;">${revVo.grdScore}</span>				  
+				  <span id="val" style="font-weight:bold; font-size:20px;" value="${revVo.grdScore}">${revVo.grdScore}</span>				  
 			</div>			
 		</c:when>
 		<c:when test="${revVo.grdScore eq 3.0}">
@@ -124,7 +128,7 @@
 				  <span class="starR2">별8</span>
 				  <span class="starR1">별9</span>
 				  <span class="starR2">별10</span>
-				  <span id="val" style="font-weight:bold; font-size:20px;">${revVo.grdScore}</span>				  
+				  <span id="val" style="font-weight:bold; font-size:20px;" value="${revVo.grdScore}">${revVo.grdScore}</span>				  
 			</div>			
 		</c:when>
 		<c:when test="${revVo.grdScore eq 3.5}">
@@ -139,7 +143,7 @@
 				  <span class="starR2">별8</span>
 				  <span class="starR1">별9</span>
 				  <span class="starR2">별10</span>
-				  <span id="val" style="font-weight:bold; font-size:20px;">${revVo.grdScore}</span>				  
+				  <span id="val" style="font-weight:bold; font-size:20px;" value="${revVo.grdScore}">${revVo.grdScore}</span>				  
 			</div>			
 		</c:when>
 		<c:when test="${revVo.grdScore eq 4.0}">
@@ -154,7 +158,7 @@
 				  <span class="starR2 on">별8</span>
 				  <span class="starR1">별9</span>
 				  <span class="starR2">별10</span>
-				  <span id="val" style="font-weight:bold; font-size:20px;">${revVo.grdScore}</span>				  
+				  <span id="val" style="font-weight:bold; font-size:20px;" value="${revVo.grdScore}">${revVo.grdScore}</span>				  
 			</div>			
 		</c:when>
 		<c:when test="${revVo.grdScore eq 4.5}">
@@ -169,7 +173,7 @@
 				  <span class="starR2 on">별8</span>
 				  <span class="starR1 on">별9</span>
 				  <span class="starR2">별10</span>
-				  <span id="val" style="font-weight:bold; font-size:20px;">${revVo.grdScore}</span>				  
+				  <span id="val" style="font-weight:bold; font-size:20px;" value="${revVo.grdScore}">${revVo.grdScore}</span>				  
 			</div>			
 		</c:when>
 		<c:when test="${revVo.grdScore eq 5.0}">
@@ -184,7 +188,7 @@
 				  <span class="starR2 on">별8</span>
 				  <span class="starR1 on">별9</span>
 				  <span class="starR2 on">별10</span>
-				  <span id="val" style="font-weight:bold; font-size:20px;">${revVo.grdScore}</span>				  
+				  <span id="val" style="font-weight:bold; font-size:20px;" value="${revVo.grdScore}">${revVo.grdScore}</span>				  
 			</div>			
 		</c:when>
 		<c:otherwise>
@@ -199,7 +203,7 @@
 				  <span class="starR2">별8</span>
 				  <span class="starR1">별9</span>
 				  <span class="starR2">별10</span>
-				  <span id="val" style="font-weight:bold; font-size:20px;">${revVo.grdScore}</span>				  
+				  <span id="val" style="font-weight:bold; font-size:20px;" value="${revVo.grdScore}">${revVo.grdScore}</span>				  
 			</div>			
 		</c:otherwise>																
 	</c:choose>		

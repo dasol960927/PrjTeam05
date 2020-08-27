@@ -49,7 +49,7 @@ $(function(){
 		async: false,
 		data : {title : keywordGet},
 		success : function(data) {
-			//console.log(data);
+			console.log(data);
 			var json = data.Data[0];
 			//console.log(json);
 

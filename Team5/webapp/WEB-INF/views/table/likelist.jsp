@@ -101,7 +101,8 @@
                            async: false,
                            data : {movieId : sFilmId, movieSeq : sFilmSeq},
                            success : function(data) {
-                              //console.log(data);
+           						console.log('찜');
+                              console.log(data);
                                        
                               var json = data.Data[0].Result[0];
                               //console.log(json);
@@ -174,7 +175,8 @@
 				type : 'get',
 				dataType : "json",
 				success : function(data) {
-					//console.log(data);
+					console.log('추천');
+					console.log(data);
 					
 					var js = data.Data[0].Result;
 	

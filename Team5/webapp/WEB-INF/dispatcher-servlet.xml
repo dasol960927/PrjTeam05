@@ -24,6 +24,8 @@
 		mapping="/plugins/**" />
 	<mvc:resources location="/WEB-INF/resources/dist/"
 		mapping="/dist/**" />
+	<mvc:resources location="/WEB-INF/resources/slick/"
+		mapping="/slick/**" />
 
 
 	<bean id="viewResolver"

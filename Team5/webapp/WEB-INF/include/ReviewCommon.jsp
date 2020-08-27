@@ -195,6 +195,7 @@ $(function(){
                  if(oErrMsg == null){
                     if(oOverlapFilm == null){
                        alert('구매 되었습니다.');
+                       location.reload();
                     }else
                        alert(oOverlapFilm);
                  }else
