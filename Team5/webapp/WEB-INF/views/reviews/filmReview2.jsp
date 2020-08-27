@@ -88,7 +88,7 @@ a.link2:hover{text-decoration:underline;}
               	   <a class="link1" href="/REVIEW/reviewRead?revIdx=${revVo.revIdx}&revLvl=${revVo.revLvl}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}&mId=${login.mId}">${revVo.revTitle}</a>
               	   &nbsp;&nbsp;
               	   <a href="#" onclick="window.open('/REVIEW/userWriteList?mNickName=${revVo.mNickName}', '팝업창이름', 'width=700, height=700','location=no', 'resizable=no'); return false;">${revVo.mId}</a>
-              	   &nbsp;&nbsp;${revVo.revDate}&nbsp;&nbsp;추천:${revVo.goodCnt}
+              	   &nbsp;&nbsp;${revVo.revDate}&nbsp;&nbsp;
               	   
               	   <a class="link2" href="/REVIEW/reviewRead?revIdx=${revVo.revIdx}&revLvl=${revVo.revLvl}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}&mId=${login.mId}"><p id="pContents">${revVo.revConts}</p></a>
               	   <br/>              	   

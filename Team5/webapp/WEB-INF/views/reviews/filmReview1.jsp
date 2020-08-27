@@ -45,7 +45,7 @@ th, td {
                var goodCnt = $('#goodTextG').text();
                //green : rgb(0, 128, 0);
                //alert($('#thumbGood').css('color'))
-               if($('#thumbGoodG').css('color') != 'rgb(0, 128, 0)' && $('#thumbBadG').css('color') != 'rgb(0, 0, 0)'){
+               if($('#thumbGoodG').css('color') != 'rgb(0, 128, 0)' && $('#thumbBadG').css('color') != 'rgb(255, 0, 0)'){
                   var cnt = Number(goodCnt) + 1;
                   $('#thumbGoodG').css('color', 'green');
                   $('#goodTextG').text(cnt);
@@ -54,7 +54,7 @@ th, td {
                }else if($('#thumbGoodG').css('color') == 'rgb(0, 128, 0)'){
                   alert('이미 공감하셨습니다');
                   //return false;                  
-               }else if($('#thumbBadG').css('color') == 'rgb(0, 0, 0)'){
+               }else if($('#thumbBadG').css('color') == 'rgb(255, 0, 0)'){
                   alert('이미 비공감하셨습니다');
                   //return false;
                }
@@ -78,20 +78,20 @@ th, td {
             dataType : 'json',
             type : 'get',
             success : function(data){
-               //black : rgb(0, 0, 0);
+               //red : rgb(255, 0, 0);
                //alert($('#thumbBad').css('color'))
                var badCnt = $('#badTextG').text();
                
-               if($('#thumbGoodG').css('color') != 'rgb(0, 128, 0)' && $('#thumbBadG').css('color') != 'rgb(0, 0, 0)'){
+               if($('#thumbGoodG').css('color') != 'rgb(0, 128, 0)' && $('#thumbBadG').css('color') != 'rgb(255, 0, 0)'){
                   var cnt = Number(badCnt) + 1;
-                  $('#thumbBadG').css('color', 'black');
+                  $('#thumbBadG').css('color', 'red');
                   $('#badTextG').text(cnt);
                   //return false;
                   
                }else if($('#thumbGoodG').css('color') == 'rgb(0, 128, 0)'){
                   alert('이미 공감하셨습니다');
                   //return false;                  
-               }else if($('#thumbBadG').css('color') == 'rgb(0, 0, 0)'){
+               }else if($('#thumbBadG').css('color') == 'rgb(255, 0, 0)'){
                   alert('이미 비공감하셨습니다');
                   //return false;
                }
@@ -117,7 +117,7 @@ th, td {
                var goodCnt = $('#goodTextB').text();
                //green : rgb(0, 128, 0);
                //alert($('#thumbGood').css('color'))
-               if($('#thumbGoodB').css('color') != 'rgb(0, 128, 0)' && $('#thumbBadB').css('color') != 'rgb(0, 0, 0)'){
+               if($('#thumbGoodB').css('color') != 'rgb(0, 128, 0)' && $('#thumbBadB').css('color') != 'rgb(255, 0, 0)'){
                   var cnt = Number(goodCnt) + 1;
                   $('#thumbGoodB').css('color', 'green');
                   $('#goodTextB').text(cnt);
@@ -126,7 +126,7 @@ th, td {
                }else if($('#thumbGoodB').css('color') == 'rgb(0, 128, 0)'){
                   alert('이미 공감하셨습니다');
                   //return false;                  
-               }else if($('#thumbBadB').css('color') == 'rgb(0, 0, 0)'){
+               }else if($('#thumbBadB').css('color') == 'rgb(255, 0, 0)'){
                   alert('이미 비공감하셨습니다');
                   //return false;
                }
@@ -150,20 +150,20 @@ th, td {
             dataType : 'json',
             type : 'get',
             success : function(data){
-               //black : rgb(0, 0, 0);
+               //red : rgb(255, 0, 0);
                //alert($('#thumbBad').css('color'))
                var badCnt = $('#badTextB').text();
                
-               if($('#thumbGoodB').css('color') != 'rgb(0, 128, 0)' && $('#thumbBadB').css('color') != 'rgb(0, 0, 0)'){
+               if($('#thumbGoodB').css('color') != 'rgb(0, 128, 0)' && $('#thumbBadB').css('color') != 'rgb(255, 0, 0)'){
                   var cnt = Number(badCnt) + 1;
-                  $('#thumbBadB').css('color', 'black');
+                  $('#thumbBadB').css('color', 'red');
                   $('#badTextB').text(cnt);
                   //return false;
                   
                }else if($('#thumbGoodB').css('color') == 'rgb(0, 128, 0)'){
                   alert('이미 공감하셨습니다');
                   //return false;                  
-               }else if($('#thumbBadB').css('color') == 'rgb(0, 0, 0)'){
+               }else if($('#thumbBadB').css('color') == 'rgb(255, 0, 0)'){
                   alert('이미 비공감하셨습니다');
                   //return false;
                }
@@ -212,7 +212,7 @@ th, td {
             var goodCnt = $('#goodTextN' + idx).text();
             //green : rgb(0, 128, 0);
             //alert($('#thumbGood').css('color'))
-            if($('#thumbGoodN' + idx).css('color') != 'rgb(0, 128, 0)' && $('#thumbBadN'  + idx).css('color') != 'rgb(0, 0, 0)'){
+            if($('#thumbGoodN' + idx).css('color') != 'rgb(0, 128, 0)' && $('#thumbBadN'  + idx).css('color') != 'rgb(255, 0, 0)'){
                var cnt = Number(goodCnt) + 1;
                $('#thumbGoodN' + idx).css('color', 'green');
                $('#goodTextN' + idx).text(cnt);
@@ -221,7 +221,7 @@ th, td {
             }else if($('#thumbGoodN' + idx).css('color') == 'rgb(0, 128, 0)'){
                alert('이미 공감하셨습니다');
                //return false;                  
-            }else if($('#thumbBadN' + idx).css('color') == 'rgb(0, 0, 0)'){
+            }else if($('#thumbBadN' + idx).css('color') == 'rgb(255, 0, 0)'){
                alert('이미 비공감하셨습니다');
                //return false;
             }
@@ -250,16 +250,16 @@ th, td {
             var goodCnt = $('#badTextN' + idx).text();
             //green : rgb(0, 128, 0);
             //alert($('#thumbGood').css('color'))
-            if($('#thumbGoodN' + idx).css('color') != 'rgb(0, 128, 0)' && $('#thumbBadN'  + idx).css('color') != 'rgb(0, 0, 0)'){
+            if($('#thumbGoodN' + idx).css('color') != 'rgb(0, 128, 0)' && $('#thumbBadN'  + idx).css('color') != 'rgb(255, 0, 0)'){
                var cnt = Number(goodCnt) + 1;
-               $('#thumbBadN' + idx).css('color', 'black');
+               $('#thumbBadN' + idx).css('color', 'red');
                $('#badTextN' + idx).text(cnt);
                //return false;;
                
             }else if($('#thumbGoodN' + idx).css('color') == 'rgb(0, 128, 0)'){
                alert('이미 공감하셨습니다');
                //return false;                  
-            }else if($('#thumbBadN' + idx).css('color') == 'rgb(0, 0, 0)'){
+            }else if($('#thumbBadN' + idx).css('color') == 'rgb(255, 0, 0)'){
                alert('이미 비공감하셨습니다');
                //return false;
             }
@@ -280,12 +280,12 @@ th, td {
     <nav class="w-100">
       <div class="nav nav-tabs" id="product-tab" role="tablist">
          <a class="nav-item nav-link" id="product-desc-tab"
-            href="/filmReview?docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmSeq}&mId=${login.mId}">영화설명</a>
+            href="/filmReview?docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmSeq}&mId=${login.mId}&genre=<%= (String)request.getParameter("genre")%>">영화설명</a>
          <a class="nav-item nav-link" id="product-comments-tab"
-            <%-- href="/REVIEW/grdList?docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}&mId=${login.mId}&filmPrice=${fVo.filmPrice}" --%>
+            href="/REVIEW/grdList?docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}&mId=${login.mId}&filmPrice=${fVo.filmPrice}&genre=<%= (String)request.getParameter("genre")%>"
             style="background-color: #878787; color: #ECFFFF">평점</a> 
          <a class="nav-item nav-link" id="product-rating-tab"
-            href="/REVIEW/revList?docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}&mId=${login.mId}">리뷰</a>
+            href="/REVIEW/revList?docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}&mId=${login.mId}&genre=<%= (String)request.getParameter("genre")%>">리뷰</a>
       </div>
     </nav>
     <div class="tab-content p-3" id="nav-tabContent" >
@@ -329,7 +329,7 @@ th, td {
                <tr>
                   <td width="300px"><%@ include file="/WEB-INF/include/star.jsp"%></td>
                   <td width="700px">${revVo.grdConts}<br />
-                     ${revVo.mId}&nbsp;${revVo.revDate}<br /> 
+                     <a href="#" onclick="window.open('/REVIEW/userWriteList?mNickName=${revVo.mNickName}', '팝업창이름', 'width=700, height=700','location=no', 'resizable=no'); return false;">${revVo.mId}</a>&nbsp;${revVo.revDate}<br /> 
                      <c:choose>
                         <c:when test="${revVo.symGubun eq 'G'.charAt(0)}">
                            <%-- <i class="fas fa-thumbs-up" id="good" style="color:green;"></i>: <a href="/REVIEW/insGrdCnt?sGubun=G&revIdx=${revVo.revIdx}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmSeq}&mId=${login.mId}">${revVo.goodCnt}</a> 
@@ -347,7 +347,7 @@ th, td {
                            <span class="cGoodB"><i class="fas fa-thumbs-up" id="thumbGoodB" style="color: gray; cursor: pointer"></i></span>&nbsp;&nbsp;
                            <span id="goodTextB">${revVo.goodCnt}</span>&emsp;
                               
-                           <span class="cBadB"><i class="fas fa-thumbs-up"   id="thumbBadB" style="transform: scaleY(-1); color: black; cursor: pointer"></i></span>&nbsp;&nbsp;
+                           <span class="cBadB"><i class="fas fa-thumbs-up"   id="thumbBadB" style="transform: scaleY(-1); color: red; cursor: pointer"></i></span>&nbsp;&nbsp;
                            <span id="badTextB">${revVo.badCnt}</span>
                            <input type="hidden" id="hidRevIdxB" value="${revVo.revIdx}" />
                         </c:when>

@@ -50,6 +50,7 @@ public class RevController {
 		FilmVo fVo = filmService.getPrice(map);
 		LikeVo LVo = likeService.getLikeChk(map);
 		MemberVo mVo = memberService.getMemberInfo(map);
+		
 
 		mv.setViewName("reviews/filmReview1");
 
@@ -61,6 +62,8 @@ public class RevController {
 		mv.addObject("oAvg", map.get("oAvg"));
 		mv.addObject("mId", map.get("mId"));
 		mv.addObject("grdList", grdList);
+		mv.addObject("genre", map.get("genre"));
+		mv.addObject("likeChk", LVo.getLikeChk());
 
 		mv.addObject("fVo", fVo);
 		mv.addObject("mVo", mVo);
@@ -165,7 +168,10 @@ public class RevController {
 		mv.addObject("filmYear", map.get("filmYear"));
 		mv.addObject("oCnt", map.get("oCnt"));
 		mv.addObject("revList", revList);
-
+		mv.addObject("genre", map.get("genre"));
+		mv.addObject("likeChk", LVo.getLikeChk());
+		
+		
 		mv.addObject("fVo", fVo);
 		mv.addObject("mVo", mVo);
 
@@ -193,6 +199,7 @@ public class RevController {
 
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("reviews/filmReviewConts");
+		mv.addObject("genre", map.get("genre"));
 
 		mv.addObject("revIdx", map.get("revIdx"));
 		mv.addObject("revLvl", map.get("revLvl"));
@@ -204,7 +211,8 @@ public class RevController {
 		mv.addObject("revVo", revVo);
 		mv.addObject("revList1", revList1);
 		mv.addObject("revList2", revList2);
-
+		mv.addObject("likeChk", LVo.getLikeChk());
+		
 		mv.addObject("fVo", fVo);
 		mv.addObject("mVo", mVo);
 
@@ -228,7 +236,6 @@ public class RevController {
 	}
 
 	@RequestMapping("/REVIEW/insertGrd")
-
 	@ResponseBody
 	public ModelAndView insertGrd(@RequestParam HashMap<String, Object> map) {
 
@@ -243,6 +250,8 @@ public class RevController {
 		mv.addObject("filmSeq", map.get("filmSeq"));
 		mv.addObject("filmYear", map.get("filmYear"));
 		mv.addObject("mId", map.get("mId"));
+		mv.addObject("genre", map.get("genre"));
+
 
 		return mv;
 	}
@@ -271,6 +280,8 @@ public class RevController {
 		mv.addObject("filmSeq", map.get("filmSeq"));
 		mv.addObject("filmYear", map.get("filmYear"));
 		mv.addObject("mId", map.get("mId"));
+		mv.addObject("genre", map.get("genre"));
+		
 
 		return mv;
 	}
@@ -291,7 +302,7 @@ public class RevController {
 		mv.addObject("filmId", map.get("filmId"));
 		mv.addObject("filmSeq", map.get("filmSeq"));
 		mv.addObject("filmYear", map.get("filmYear"));
-
+		mv.addObject("genre", map.get("genre"));
 		mv.addObject("mId", map.get("mId"));
 
 		return mv;
@@ -313,7 +324,7 @@ public class RevController {
 		mv.addObject("filmId", map.get("filmId"));
 		mv.addObject("filmSeq", map.get("filmSeq"));
 		mv.addObject("filmYear", map.get("filmYear"));
-
+		mv.addObject("genre", map.get("genre"));
 		mv.addObject("mId", map.get("mId"));
 
 		return mv;
@@ -336,7 +347,7 @@ public class RevController {
 		mv.addObject("filmId", map.get("filmId"));
 		mv.addObject("filmSeq", map.get("filmSeq"));
 		mv.addObject("filmYear", map.get("filmYear"));
-		//
+		mv.addObject("genre", map.get("genre"));
 		mv.addObject("mId", map.get("mId"));
 
 		return mv;
@@ -375,7 +386,7 @@ public class RevController {
 
 		mv.addObject("grdList", grdList);
 		mv.addObject("memberVo", memberVo);
-
+		mv.addObject("genre", map.get("genre"));
 		mv.addObject("mId", map.get("mId"));
 
 		return mv;
