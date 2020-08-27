@@ -22,7 +22,7 @@ public class DpsServiceImpl implements DpsService {
 		
 		List<DpsVo> dpsList = dpsDao.getDpsList(map);
 		
-		System.out.println(dpsList);
+		//System.out.println(dpsList);
 		
 		return dpsList;
 		
