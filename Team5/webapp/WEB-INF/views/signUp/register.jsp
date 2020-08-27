@@ -15,6 +15,7 @@ $(function(){
 	//아이디 유효성 검사(1 = 중복 / 0 != 중복)
 	$('#mIdChk').on('click', function(){
 		var mIdVal = $('#mId').val();
+		var exptext = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
 		$.ajax({
 			url : '/mIdCheck',
 			type: 'get',
@@ -27,10 +28,15 @@ $(function(){
 						$('#mIdResult').css('font-weight', 'bold');
 					} 
 					 else if(mIdVal == ''){
-							$('#mIdResult').text('아이디를 입력해주세요');
-							$('#mIdResult').css('color', 'green');
-							$('#mIdResult').css('font-weight', 'bold');
+						$('#mIdResult').text('아이디를 입력해주세요');
+						$('#mIdResult').css('color', 'green');
+						$('#mIdResult').css('font-weight', 'bold');
 						
+					}else if(exptext.test(mIdVal)==false){
+						$('#mIdResult').text('이메일형식이 올바르지 않습니다.');
+						$('#mIdResult').css('color', 'red');
+						$('#mIdResult').css('font-weight', 'bold');
+					
 					} else {
 						$('#mIdResult').text('사용가능한 아이디입니다');
 						$('#mIdResult').css('color', 'blue');
