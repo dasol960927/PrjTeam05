@@ -70,7 +70,7 @@ a.link2:hover{text-decoration:underline;}
 
 				 <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab">
 				 <input type="button" value="내 리뷰 작성하기" class="btn btn-primary btn-lg btn-flat"
-				onclick="window.open('/REVIEW/insertRevForm?mId=${login.mId}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}', '팝업창이름', 'width=1000, height=1000','location=no', 'resizable=no')">
+				onclick="window.open('/REVIEW/insertRevForm?mId=${login.mId}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}&genre=<%= (String)request.getParameter("genre")%>', '팝업창이름', 'width=1000, height=1000','location=no', 'resizable=no')">
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                   <tr>
