@@ -21,7 +21,7 @@
   			
   			if(mId == ""){
   				
-  				$("#loginCheck").text('입력해주세요.');
+  				$("#loginCheck").text('아이디를 입력하세요.');
  				$("#loginCheck").css('color', 'red'); 	
  				$("#loginCheck").css('font-weight', 'bold'); 	
   				$("#mId").focus();
