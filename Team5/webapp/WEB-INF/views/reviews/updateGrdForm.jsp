@@ -40,6 +40,10 @@
 
 <script>
 
+	window.onload = function(){
+				
+				
+	}
 	
 	function submitClick(){
 		var mId = $("#mId").val();
@@ -102,6 +106,7 @@
 		  		   
 				  
 				});
+			
 			</script>
 			
 			<!-- 
