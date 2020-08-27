@@ -16,6 +16,7 @@ $(function(){
 	$('#mIdChk').on('click', function(){
 		var mIdVal = $('#mId').val();
 		var exptext = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
+		var ID = mIdVal.indexOf("@");
 		$.ajax({
 			url : '/mIdCheck',
 			type: 'get',
@@ -29,11 +30,16 @@ $(function(){
 					} 
 					 else if(mIdVal == ''){
 						$('#mIdResult').text('아이디를 입력해주세요');
-						$('#mIdResult').css('color', 'green');
+						$('#mIdResult').css('color', 'red');
 						$('#mIdResult').css('font-weight', 'bold');
 						
 					}else if(exptext.test(mIdVal)==false){
 						$('#mIdResult').text('이메일형식이 올바르지 않습니다.');
+						$('#mIdResult').css('color', 'red');
+						$('#mIdResult').css('font-weight', 'bold');
+					
+					}else if(ID < 7){
+						$('#mIdResult').text("아이디는 7자 이상으로 입력 가능 합니다");
 						$('#mIdResult').css('color', 'red');
 						$('#mIdResult').css('font-weight', 'bold');
 					
@@ -53,19 +59,6 @@ $(function(){
 	  		 var mPass = $("#mPass").val();
 	  		 var exptext = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
 	  		 var ID = mId.indexOf("@");
-	  		 
-	  		 if(ID < 7){
-				alert("아이디는 7자 이상으로 입력 가능 합니다");
-				$("#mId").focus();
-				return false;
-			 }
-	  		
-	  		 if(exptext.test(mId)==false){
-  				//이메일 형식이 알파벳+숫자@알파벳+숫자.알파벳+숫자 형식이 아닐경우			
-  				alert("이메일형식이 올바르지 않습니다.");
-  				$("#mId").focus();
-  				return false;
-  			 }
 	  		 
 			 if(mPass.length < 4 || mPass.length > 12){
 		         alert("비밀번호는 4~12자 이내로 입력 가능 합니다");
