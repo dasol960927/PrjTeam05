@@ -6,29 +6,29 @@
 
      <!-- 결과처리를 위한 map 설정  -->
      <resultMap id="RevListMap" type="com.spring.review.vo.RevVo">
-       <result property="revIdx"       column="REV_IDX" javaType="int" /> 
-       <result property="mId"          column="M_ID" javaType="string" />   
-       <result property="docId"        column="DOC_ID" javaType="string" />   
-       <result property="revTitle"     column="REV_TITLE" javaType="string" />   
-       <result property="revConts"     column="REV_CONTS" javaType="string" />   
-       <result property="grdScore"     column="GRD_SCORE" javaType="java.lang.Double" />   
-       <result property="grdConts"     column="GRD_CONTS" javaType="string" />
-       <result property="goodCnt"      column="GOOD_CNT" javaType="int" />
-       <result property="badCnt"       column="BAD_CNT" javaType="int" />
-       <result property="revDate"      column="REV_DATE" javaType="string" />
-       <result property="revGubun"     column="REV_GUBUN"  />
-       <result property="revLvl"       column="REV_LVL" javaType="int" />
-       <result property="parentIdx"    column="PARENT_IDX" javaType="int" />  
-       <result property="revNref"      column="REV_NREF" javaType="int" />
+       <result property="revIdx"		column="REV_IDX" javaType="int" /> 
+       <result property="mId"          	column="M_ID" javaType="string" />   
+       <result property="docId"        	column="DOC_ID" javaType="string" />   
+       <result property="revTitle"     	column="REV_TITLE" javaType="string" />   
+       <result property="revConts"     	column="REV_CONTS" javaType="string" />   
+       <result property="grdScore"     	column="GRD_SCORE" javaType="java.lang.Double" />   
+       <result property="grdConts"     	column="GRD_CONTS" javaType="string" />
+       <result property="goodCnt"      	column="GOOD_CNT" javaType="int" />
+       <result property="badCnt"       	column="BAD_CNT" javaType="int" />
+       <result property="revDate"      	column="REV_DATE" javaType="string" />
+       <result property="revGubun"     	column="REV_GUBUN"  />
+       <result property="revLvl"       	column="REV_LVL" javaType="int" />
+       <result property="parentIdx"    	column="PARENT_IDX" javaType="int" />  
+       <result property="revNref"      	column="REV_NREF" javaType="int" />
               
-       <result property="symId"      column="SYM_ID" javaType="string" />              
-       <result property="symGubun"      column="SYM_GUBUN" />   
+       <result property="symId" 		column="SYM_ID" javaType="string" />              
+       <result property="symGubun"		column="SYM_GUBUN" />   
        
-       <result property="mNickName"          column="M_NICKNAME" javaType="string" />    
+       <result property="mNickName"		column="M_NICKNAME" javaType="string" />    
        
-       <result property="oTotGrd"      column="O_TOTGRD" javaType="int" />
-       <result property="oTotRev"      column="O_TOTREV" javaType="int" />
-       <result property="oTot"      column="O_TOT" javaType="int" />              
+       <result property="oTotGrd"      	column="O_TOTGRD" javaType="int" />
+       <result property="oTotRev"      	column="O_TOTREV" javaType="int" />
+       <result property="oTot"      	column="O_TOT" javaType="int" />              
      </resultMap>
    
      <select id="GrdList"
@@ -130,15 +130,26 @@
                javaType=ResultSet, resultMap=RevListMap }
          ) }     
      </select>
+     
+	<select id="ReviewCheck"
+	     statementType="CALLABLE" parameterType="hashmap">
+	     {CALL  PKG_REV.PROC_REV_CHECK(
+	        #{mId, mode=IN, jdbcType=VARCHAR},
+	        #{docId, mode=IN, jdbcType=VARCHAR},
+	        #{revGubun, mode=IN, jdbcType=VARCHAR},
+	        #{msg, mode=OUT, jdbcType=VARCHAR}               
+	     )}     
+	</select>     
+
  
-      <insert id="SymInsert" statementType="CALLABLE" 
-        parameterType="hashmap" >
-         {CALL  PKG_REV.PROC_SYM_INSERT(            
-            #{revIdx, mode=IN, jdbcType=NUMERIC},            
-            #{mId, mode=IN, jdbcType=VARCHAR},
-            #{sGubun, mode=IN}            
-         ) }           
-     </insert>
+	<insert id="SymInsert" statementType="CALLABLE" 
+	   parameterType="hashmap" >
+	    {CALL  PKG_REV.PROC_SYM_INSERT(            
+	       #{revIdx, mode=IN, jdbcType=NUMERIC},            
+	       #{mId, mode=IN, jdbcType=VARCHAR},
+	       #{sGubun, mode=IN}            
+	    ) }           
+	</insert>
  
  
      <select id="Chart"

@@ -43,6 +43,8 @@ public interface RevDao {
 
 	RevVo getTotCnt(HashMap<String, Object> map);
 
+	String getReviewCheck(HashMap<String, Object> map);
+
 	
 	
 }

@@ -150,5 +150,11 @@ public class RevServiceImpl implements RevService {
 		
 		return revVo;
 	}
+
+	@Override
+	public String getReviewCheck(HashMap<String, Object> map) {
+		String msg = revDao.getReviewCheck(map);
+		return msg;
+	}
 	
 }

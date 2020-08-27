@@ -174,5 +174,13 @@ public class RevDaoImpl implements RevDao {
 		return revVo;
 	}
 
+	@Override
+	public String getReviewCheck(HashMap<String, Object> map) {
+		sqlSession.selectOne("REVIEW.ReviewCheck", map);
+		String msg = (String) map.get("msg");
+		return msg;
+		
+	}
+
 	
 }
