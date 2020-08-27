@@ -41,6 +41,8 @@ public interface RevService {
 
 	List<RevVo> namGrdList(HashMap<String, Object> map);
 
+	RevVo getTotCnt(HashMap<String, Object> map);
+
 
 
 	

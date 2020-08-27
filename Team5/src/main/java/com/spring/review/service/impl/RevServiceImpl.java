@@ -142,5 +142,13 @@ public class RevServiceImpl implements RevService {
 		
 		return grdList;
 	}
+
+	@Override
+	public RevVo getTotCnt(HashMap<String, Object> map) {
+		
+		RevVo revVo = revDao.getTotCnt(map);
+		
+		return revVo;
+	}
 	
 }

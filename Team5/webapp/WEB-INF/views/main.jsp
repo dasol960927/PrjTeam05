@@ -381,8 +381,10 @@ li{list-style:none;}
           <div class="col-12">
             <div class="card card-primary">
               <div class="card-header">
-                <div class="card-title">
-                      이 영화에 대한 평가가 궁금하신가요?
+                <div>
+                	<p style="font-size:20px; font-weight:bold; color:#659D35;">
+                      <MARQUEE bgColor="99ffcc">지금까지 <p style="color:#ff3300; display:inline;">★${revVo.oTot}개의 평가가</p> 쌓였습니다(한줄평 : ${revVo.oTotGrd}개 리뷰 : ${revVo.oTotRev}개) </MARQUEE>
+                   </p>  
                 </div>
               </div>
               <div class="card-body">

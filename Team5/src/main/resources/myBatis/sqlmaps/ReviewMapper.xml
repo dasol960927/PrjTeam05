@@ -24,7 +24,11 @@
        <result property="symId"      column="SYM_ID" javaType="string" />              
        <result property="symGubun"      column="SYM_GUBUN" />   
        
-       <result property="mNickName"          column="M_NICKNAME" javaType="string" />                  
+       <result property="mNickName"          column="M_NICKNAME" javaType="string" />    
+       
+       <result property="oTotGrd"      column="O_TOTGRD" javaType="int" />
+       <result property="oTotRev"      column="O_TOTREV" javaType="int" />
+       <result property="oTot"      column="O_TOT" javaType="int" />              
      </resultMap>
    
      <select id="GrdList"
@@ -212,6 +216,19 @@
             #{result, mode=OUT, jdbcType=CURSOR, 
                javaType=ResultSet, resultMap=RevListMap }
          ) }     
-     </select>                
-             
+     </select>  
+     
+     <select id="GetTotCnt"
+         statementType="CALLABLE" parameterType="hashmap" 
+         resultType="com.spring.review.vo.RevVo">
+         {CALL  PKG_REV.PROC_GET_TOTAL(
+            #{oTotGrd, mode=OUT, jdbcType=NUMERIC},
+            #{oTotRev, mode=OUT, jdbcType=NUMERIC},
+            #{result, mode=OUT, jdbcType=CURSOR,
+            javaType=ResultSet, resultMap=RevListMap}                        
+
+         ) }     
+     </select>                    
+
+                  
   </mapper>        

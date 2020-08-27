@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.spring.film.vo.FilmVo;
 import com.spring.review.dao.RevDao;
 import com.spring.review.vo.RevVo;
 
@@ -151,6 +152,26 @@ public class RevDaoImpl implements RevDao {
 		List<RevVo> grdList = (List<RevVo>) map.get("result");
 		
 		return grdList;
+	}
+
+	@Override
+	public RevVo getTotCnt(HashMap<String, Object> map) {
+		
+		sqlSession.selectList("REVIEW.GetTotCnt", map);
+		List<RevVo> revList = (List<RevVo>) map.get("result");				
+		RevVo revVo = revList.get(0);
+		
+		System.out.println(map);
+		System.out.println(revVo);
+		/*
+		 * sqlSession.selectOne("FILM.FilmPrice", map); List<FilmVo> fVoList =
+		 * (List<FilmVo>) map.get("result"); FilmVo fVo = fVoList.get(0);
+		 * 
+		 * return fVo;
+		 */
+		
+		
+		return revVo;
 	}
 
 	

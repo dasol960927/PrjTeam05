@@ -32,6 +32,11 @@ public class RevVo {
    
    private String mNickName;
    
+   // 총of총 리뷰 갯수
+   private int oTotGrd;
+   private int oTotRev;
+   private int oTot;
+   
    // 게터 / 세터
    public int getRevIdx() {
       return revIdx;
@@ -181,47 +186,72 @@ public class RevVo {
 	   this.mNickName = mNickName;
    }
    
-   
+	public int getoTotGrd() {
+		return oTotGrd;
+	}
+	public void setoTotGrd(int oTotGrd) {
+		this.oTotGrd = oTotGrd;
+	}
+	public int getoTotRev() {
+		return oTotRev;
+	}
+	public void setoTotRev(int oTotRev) {
+		this.oTotRev = oTotRev;
+	}
+	public int getoTot() {
+		return oTot;
+	}
+	public void setoTot(int oTot) {
+		this.oTot = oTot;
+	}
+	
 public RevVo() {}   
-   public RevVo(int revIdx, String mId, String docId, String revTitle, String revConts, double grdScore,
-         String grdConts, int goodCnt, int badCnt, String revDate, char revGubun, int revLvl, int parentIdx,
-         int revNref, String oCnt, int oAvg, int lvl0Idx, String symId, char symGubun, String filmId, String filmSeq, String filmYear, String mNickName) {      
-      this.revIdx = revIdx;
-      this.mId = mId;
-      this.docId = docId;
-      this.revTitle = revTitle;
-      this.revConts = revConts;
-      this.grdScore = grdScore;
-      this.grdConts = grdConts;
-      this.goodCnt = goodCnt;
-      this.badCnt = badCnt;
-      this.revDate = revDate;
-      this.revGubun = revGubun;
-      this.revLvl = revLvl;
-      this.parentIdx = parentIdx;
-      this.revNref = revNref;
-      this.oCnt = oCnt;
-      this.oAvg = oAvg;
-      this.lvl0Idx = lvl0Idx;
-      this.symId = symId;
-      this.symGubun = symGubun;
-      this.filmId = filmId;
-      this.filmSeq = filmSeq;
-      this.filmYear = filmYear;
-      this.mNickName = mNickName;
-   }
+
    
    
    
+	public RevVo(int revIdx, String mId, String docId, String revTitle, String revConts, double grdScore, String grdConts,
+		int goodCnt, int badCnt, String revDate, char revGubun, int revLvl, int parentIdx, int revNref, String oCnt,
+		int oAvg, int lvl0Idx, String symId, char symGubun, String filmId, String filmSeq, String filmYear,
+		String mNickName, int oTotGrd, int oTotRev, int oTot) {
+	super();
+	this.revIdx = revIdx;
+	this.mId = mId;
+	this.docId = docId;
+	this.revTitle = revTitle;
+	this.revConts = revConts;
+	this.grdScore = grdScore;
+	this.grdConts = grdConts;
+	this.goodCnt = goodCnt;
+	this.badCnt = badCnt;
+	this.revDate = revDate;
+	this.revGubun = revGubun;
+	this.revLvl = revLvl;
+	this.parentIdx = parentIdx;
+	this.revNref = revNref;
+	this.oCnt = oCnt;
+	this.oAvg = oAvg;
+	this.lvl0Idx = lvl0Idx;
+	this.symId = symId;
+	this.symGubun = symGubun;
+	this.filmId = filmId;
+	this.filmSeq = filmSeq;
+	this.filmYear = filmYear;
+	this.mNickName = mNickName;
+	this.oTotGrd = oTotGrd;
+	this.oTotRev = oTotRev;
+	this.oTot = oTot;
+}
+	
 	@Override
 	public String toString() {
-		return "RevVo [revIdx=" + revIdx + ", mId=" + mId + ", docId=" + docId + ", revTitle=" + revTitle + ", revConts="
-				+ revConts + ", grdScore=" + grdScore + ", grdConts=" + grdConts + ", goodCnt=" + goodCnt + ", badCnt="
-				+ badCnt + ", revDate=" + revDate + ", revGubun=" + revGubun + ", revLvl=" + revLvl + ", parentIdx="
-				+ parentIdx + ", revNref=" + revNref + ", oCnt=" + oCnt + ", oAvg=" + oAvg + ", lvl0Idx=" + lvl0Idx
-				+ ", symId=" + symId + ", symGubun=" + symGubun + ", filmId=" + filmId + ", filmSeq=" + filmSeq
-				+ ", filmYear=" + filmYear + ", mNickName=" + mNickName + "]";
+		return "RevVo [revIdx=" + revIdx + ", mId=" + mId + ", docId=" + docId + ", revTitle=" + revTitle
+				+ ", revConts=" + revConts + ", grdScore=" + grdScore + ", grdConts=" + grdConts + ", goodCnt="
+				+ goodCnt + ", badCnt=" + badCnt + ", revDate=" + revDate + ", revGubun=" + revGubun + ", revLvl="
+				+ revLvl + ", parentIdx=" + parentIdx + ", revNref=" + revNref + ", oCnt=" + oCnt + ", oAvg=" + oAvg
+				+ ", lvl0Idx=" + lvl0Idx + ", symId=" + symId + ", symGubun=" + symGubun + ", filmId=" + filmId
+				+ ", filmSeq=" + filmSeq + ", filmYear=" + filmYear + ", mNickName=" + mNickName + ", oTotGrd="
+				+ oTotGrd + ", oTotRev=" + oTotRev + ", oTot=" + oTot + "]";
 	}
-	   
-   
+
 }

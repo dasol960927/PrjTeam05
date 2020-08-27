@@ -29,6 +29,9 @@ import com.spring.member.service.MemberService;
 import com.spring.member.vo.MemberVo;
 import com.spring.reqboard.service.ReqBoardService;
 import com.spring.reqboard.vo.ReqBoardVo;
+import com.spring.review.service.RevService;
+import com.spring.review.vo.RevVo;
+
 
 
 @Controller
@@ -41,6 +44,9 @@ public class MemberController {
 	private ReqBoardService reqBoardService;
 	
 	@Autowired
+	private RevService revService;
+	
+	@Autowired
 	private EmailSender emailSender;
 
 	@Autowired
@@ -48,6 +54,7 @@ public class MemberController {
 	
 	@RequestMapping("/")
 	public String main() {
+		
 		return "main"; 
 	}
 
@@ -154,9 +161,12 @@ public class MemberController {
 		}
 		
 		MemberVo vo = memberService.login(map);
+		// 안되면 지우기
+		RevVo revVo = revService.getTotCnt(map);
 
 		if(vo != null) {
 			session.setAttribute("login", vo );
+			session.setAttribute("revVo", revVo);
 			returnURL = "redirect:/";
 		} else {
 			returnURL = "redirect:/login";
