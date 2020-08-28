@@ -186,7 +186,7 @@ th, td {
                 if(data != 'NULL'){
                    alert(data)
                 }else
-                   window.open('/REVIEW/insertGrdForm?mId=${login.mId}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}', '팝업창이름', 'width=500, height=500','location=no', 'resizable=no')
+                   window.open('/REVIEW/insertGrdForm?mId=${login.mId}&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}&genre=<%= (String)request.getParameter("genre")%>', '팝업창이름', 'width=500, height=500','location=no', 'resizable=no')
              },
              error : function(xhr){
                 alert("error: " + xhr.status + "," + xhr.textStatus);
@@ -301,6 +301,7 @@ th, td {
 
       <br>
       <div><h5>관람객 평점 &nbsp;&nbsp;총 ${oCnt} 건 &nbsp;&nbsp;<input type="button" value="내 평점 등록" id="btnGrd" class="btn btn-primary btn-lg btn-flat"></h5></div>
+      
       
       <span class = "orderby">
       <a href="/REVIEW/grdList?odGubun=odSym&docId=${docId}&filmId=${filmId}&filmSeq=${filmSeq}&filmYear=${filmYear}&mId=${login.mId}&filmPrice=${fVo.filmPrice}/#product-comments-tab">

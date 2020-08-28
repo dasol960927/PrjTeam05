@@ -95,9 +95,9 @@ table { width:800px; margin:0 auto; }
 							<td>${ revVo.grdConts }</td>
 							<td>${ revVo.revDate }</td>
 							<td>
-							  <input type="button" value="수정하기" class="btn btn-blcok btn-info btn-lg" 
+							  <input type="button" value="수정하기" class = "btn btn-primary btn-lg btn-flat"
 							onclick="window.open('/REVIEW/updateGrdForm?mId=${login.mId}&revIdx=${revVo.revIdx}', '팝업창이름', 'width=500, height=500','location=no', 'resizable=no')">							
-							  <input type="button" value="삭제하기" class="btn btn-blcok btn-info btn-lg" 
+							  <input type="button" value="삭제하기" class = "btn btn-primary btn-lg btn-flat"
 							onclick="location.href='/REVIEW/deleteGrd?mId=${login.mId}&revIdx=${revVo.revIdx}'">							
 							</td>				
 						</tr>

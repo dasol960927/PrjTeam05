@@ -24,6 +24,7 @@
 		var filmId = $("#filmId").val();
 		var filmSeq = $("#filmSeq").val();
 		var filmYear = $("#filmYear").val();
+		var genre = $("#genre").val();
 		
 		
 						
@@ -31,7 +32,7 @@
 		
 		//opener.window.document.location.href="'/REVIEW/insertGrd?grdConts='+ grdConts '&grdScore='+grdScore'";
 		opener.document.location.href='/REVIEW/insertRev?mId=' + mId + '&docId=' + docId + '&revTitle=' + revTitle + '&revConts='
-					+ revConts + '&filmId=' + filmId + '&filmSeq=' + filmSeq + '&filmYear=' + filmYear;
+					+ revConts + '&filmId=' + filmId + '&filmSeq=' + filmSeq + '&filmYear=' + filmYear +'&genre=' + genre;
 		window.close();
 	}
 	
@@ -49,6 +50,7 @@
    String filmId = request.getParameter("filmId");
    String filmSeq = request.getParameter("filmSeq");
    String filmYear = request.getParameter("filmYear");
+   String genre = request.getParameter("genre");
 %>
 
 
@@ -64,6 +66,7 @@
 			<input type="hidden" id="filmId" value="<%=filmId%>"/>
 			<input type="hidden" id="filmSeq" value="<%=filmSeq%>"/>
 			<input type="hidden" id="filmYear" value="<%=filmYear%>"/>
+			<input type="hidden" id="genre" value="<%=genre%>"/>
 											
 
 		
