@@ -36,7 +36,6 @@
 .starRev{width:170px; height:50px;}
 </style>
 
-
 	<c:choose>
 		<c:when test="${revVo.grdScore eq 0.5}">
 			  <div class="starRev" style="width:auto;">
@@ -80,7 +79,8 @@
 				  <span class="starR2">별8</span>
 				  <span class="starR1">별9</span>
 				  <span class="starR2">별10</span>
-				  <span id="val" style="font-weight:bold; font-size:20px;" value="${revVo.grdScore}">${revVo.grdScore}</span>				  
+
+				  <span id="val" style="font-weight:bold; font-size:20px; "value="${revVo.grdScore}" >${revVo.grdScore}</span>				  
 			</div>			
 		</c:when>
 		<c:when test="${revVo.grdScore eq 2.0}">

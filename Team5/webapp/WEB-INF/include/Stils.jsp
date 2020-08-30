@@ -27,7 +27,7 @@ $(function(){
 			console.log(data);
 			var json = data.Data[0];
 			//console.log(json);
-
+			
 			var list;
 			var exit= false;
 			var first   = '';
