@@ -360,7 +360,7 @@ getGenre('미스터리','div6');
               <li class="breadcrumb-item"><a href="/">Home</a></li>
               <li class="breadcrumb-item"><a href="/test?mId=${login.mId }">${login.mName }님</a></li>
               <li class="breadcrumb-item active"><a href="/logout">LogOut</a></li>
-              <li class="breadcrumb-item active"><a href="/Board?gubun=N">고객센터</a></li>
+              <!--  <li class="breadcrumb-item active"><a href="/Board?gubun=N">고객센터</a></li>-->
               <li class="breadcrumb-item active"><a href="/reqBoardWriter?mId=${login.mId }">1:1 문의</a></li>
             </ol>
           </div>
@@ -387,20 +387,39 @@ getGenre('미스터리','div6');
                   
                <div class="category">
 				    <h3>현재 상영하는 영화</h3>
-					<div class="category">
-						<section class="center slider">
-						    <div id="pos1"></div>
-						    <div id="pos2"></div>
-						    <div id="three"></div>
-						    <div id="four"></div>
-						    <div id="five"></div>
-						    <div id="six"></div>
-						    <div id="seven"></div>
-						    <div id="eight"></div>
-						    <div id="nine"></div>
-						    <div id="ten"></div>
-					   </section>
-					</div>
+					<div id=div0></div>
+						  <section class="variable slider">
+						    <div>
+						      <img src="/img/panda.jpg?text=1" style="width:300px; height:300px;">
+						    </div>
+						    <div>
+						      <img src="http://placehold.it/200x300?text=2">
+						    </div>
+						    <div>
+						      <img src="http://placehold.it/100x300?text=3">
+						    </div>
+						    <div>
+						      <img src="http://placehold.it/200x300?text=4">
+						    </div>
+						    <div>
+						      <img src="http://placehold.it/350x300?text=5">
+						    </div>
+						    <div>
+						      <img src="http://placehold.it/300x300?text=6">
+						    </div>
+						     <div>
+						      <img src="http://placehold.it/350x300?text=7">
+						    </div>
+						    <div>
+						      <img src="http://placehold.it/350x300?text=8">
+						    </div>
+						    <div>
+						      <img src="http://placehold.it/300x300?text=9">
+						    </div>
+						     <div>
+						      <img src="http://placehold.it/350x300?text=10">
+						    </div>
+						  </section>
 			   </div>
 				
 				<div class="category">
