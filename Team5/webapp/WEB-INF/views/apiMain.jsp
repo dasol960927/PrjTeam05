@@ -388,6 +388,7 @@ getGenre('미스터리','div6');
                <div class="category">
 				    <h3>현재 상영하는 영화</h3>
 					<div id=div0></div>
+					
 						  <section class="variable slider">
 						    <div>
 						      <img src="/img/panda.jpg?text=1" style="width:300px; height:300px;">
