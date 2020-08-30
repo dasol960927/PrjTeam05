@@ -50,7 +50,6 @@
         </div>
         <div class="card-body">
           1:1 문의사항이 접수되었습니다.
-          <img src="/img/Aha.jpg" />
         </div>
         <!-- /.card-body -->
         <div class="card-footer">
